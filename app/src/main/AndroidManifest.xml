@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="android.hardware.type.automotive" android:required="true" />
+
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE_SEARCH" />
+    <uses-permission android:name="pleos.car.permission.FUSED_LOCATION" />
+
+    <application
+        android:label="들를까"
+        android:allowBackup="false">
+
+        <!-- 내비게이션 연동 확인용 화면. 판단 엔진을 붙이기 전, 에뮬레이터에서 무엇이 되는지 기록한다. -->
+        <activity
+            android:name=".NaviProbeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 위치 주입·근접 알림(E4)과 경유지 자리 확인용 화면. adb am start로 연다. -->
+        <activity
+            android:name=".LocationProbeActivity"
+            android:exported="true" />
+    </application>
+</manifest>
