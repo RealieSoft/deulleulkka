@@ -15,10 +15,12 @@ import kotlin.math.sqrt
  *
  * 찜까지의 도로 시간([DriveContext.tripMinToPlace])을 받았으면 그 값으로, 못 받았으면 직선거리로 어림한다.
  * 직선거리 어림은 가는 길에 가까운 찜일수록 0에 가까워져, 나들목으로만 드나드는 길이나 옆길로 들어가는 곳에서
- * 실제보다 크게 짧았다(실제 경로 20건 비교, README).
+ * 실제보다 크게 짧았다(실제 경로 20건 비교, README). 그래서 도로 시간이 없으면 묻지 않고 보류하며([MomentJudge]),
+ * 직선거리 어림은 묻는 판단에 쓰이지 않는다. 지우지 않고 남겨 둔 것은 실제 경로 비교의 처음 방식이라,
+ * 실차에서 도로 시간을 받지 못하는 일이 잦으면 대안을 다시 견줄 기준으로 쓰기 위해서다.
  */
 object DetourEstimator {
-    /** 직선거리를 도로 거리로 바꾸는 보정값의 출발값. 쓰면서 [RoadFactorCalibrator]가 이 차량의 내비게이션 값에 맞춘다. */
+    /** 직선거리를 도로 거리로 바꾸는 보정값의 출발값. 직선거리 어림에만 쓴다([RoadFactorCalibrator]). */
     const val ROAD_FACTOR = 1.3
 
     /**
@@ -55,15 +57,15 @@ object DetourEstimator {
         return extraRoadKm / averageKph(ctx) * MINUTES_PER_HOUR
     }
 
-    /** 이 찜의 어림에 찜까지의 도로 시간을 쓰는지. 그렇지 않을 때만 [RoadFactorCalibrator]에 기록한다. */
+    /** 이 찜의 어림에 찜까지의 도로 시간을 쓰는지. 아니면 [MomentJudge]가 묻지 않고 보류한다. */
     fun usesTrip(ctx: DriveContext, place: Place): Boolean =
         ctx.destination != null && ctx.tripMinToPlace[place.id] != null && ctx.remainingMin != null
 
-    /** 내비게이션이 알려 주는 남은 거리와 남은 시간으로 구한 평균 속도. 없으면 현재 속도를 쓴다. */
+    /** 내비게이션이 알려 주는 남은 거리와 남은 시간으로 구한 평균 속도. 없으면 현재 속도, 그것도 없으면 하한을 쓴다. */
     fun averageKph(ctx: DriveContext): Double {
         val km = ctx.remainingKm
         val min = ctx.remainingMin
-        val kph = if (km != null && min != null && min > 0.0) km / min * MINUTES_PER_HOUR else ctx.speedKph
+        val kph = (if (km != null && min != null && min > 0.0) km / min * MINUTES_PER_HOUR else ctx.speedKph) ?: MIN_AVERAGE_KPH
         return kph.coerceAtLeast(MIN_AVERAGE_KPH)
     }
 

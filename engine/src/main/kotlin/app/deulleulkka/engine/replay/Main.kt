@@ -12,6 +12,7 @@ fun main() {
     replay("시나리오 D → A. 토요일 나들이: 미뤘다가 묻는다", Scenarios.saturdayOuting, Scenarios.bakery, judge)
     replay("시나리오 C. 월요일 출근길: 조용하다", Scenarios.mondayCommute, Scenarios.bakery, judge)
     replay("목적지 없는 주행: 묻지 않는다", Scenarios.noDestination, Scenarios.bakery, judge)
+    replay("실측 장면. 경주 대릉원: 공개 길찾기 경로 값을 넣어 묻는다", Scenarios.gyeongjuMeasured, Scenarios.daereungwon, judge)
 }
 
 private fun replay(title: String, frames: List<Frame>, place: Place, judge: MomentJudge) {
@@ -21,6 +22,14 @@ private fun replay(title: String, frames: List<Frame>, place: Place, judge: Mome
         println("[${frame.clock}] ${frame.note} → ${describe(decision, place)}")
         for (check in decision.checks) {
             println("    ${check.step.label} | ${check.question} | ${check.seen} | ${check.outcome.label}")
+        }
+        val routeCheck = frame.routeCheck
+        val verdict = decision.verdict
+        if (routeCheck != null && verdict is Verdict.Ask) {
+            println(
+                "    어림 약 ${"%.1f".format(verdict.detourMin)}분 · 같은 지점 공개 길찾기 실제 " +
+                    "${"%.2f".format(routeCheck.actualDetourMin)}분 (${routeCheck.source})",
+            )
         }
     }
     println()

@@ -12,7 +12,10 @@ import kotlin.math.roundToInt
  */
 class MomentJudge(private val settings: Settings = Settings()) {
 
-    /** [roadFactor]는 직선거리로 우회를 어림할 때 쓸 도로 보정값이다. 쓰면서 [RoadFactorCalibrator.factor]로 바꿔 넣는다. */
+    /**
+     * [roadFactor]는 직선거리로 우회를 어림할 때 쓸 도로 보정값이다. 찜까지의 도로 시간이 없으면 묻지 않고 보류하므로,
+     * 지금은 판단 결과를 바꾸지 않는다([DetourEstimator] 참고).
+     */
     fun judge(
         ctx: DriveContext,
         place: Place,
@@ -59,7 +62,7 @@ class MomentJudge(private val settings: Settings = Settings()) {
 
     /**
      * 찜이 진행 방향의 뒤쪽에 있는지(이미 지나쳤는지). 진행 방향을 모르면 목적지 쪽을 앞으로 본다.
-     * 지나친 곳을 물으면 되돌아가게 되므로 그 이동에서는 묻지 않는다.
+     * 지나친 곳을 물으면 되돌아가게 되므로 이번 판단에서는 묻지 않는다(다음 판단에서 다시 본다, [Verdict.Skip]).
      */
     fun isBehind(ctx: DriveContext, place: Place): Boolean {
         val dest = ctx.destination ?: return false
@@ -95,13 +98,15 @@ class MomentJudge(private val settings: Settings = Settings()) {
      * 그때는 완전히 멈춘 때만 묻는다. 멈춘 때는 브레이크를 보지 않는다(신호 대기 중에는 늘 밟고 있으므로).
      */
     private fun safety(ctx: DriveContext, place: Place): Pair<String, Outcome> {
+        // 속도를 모르면 멈춤·회전 여유·찜까지의 여유를 하나도 정할 수 없다
+        val speed = ctx.speedKph ?: return "속도 모름" to Outcome.HOLD
         val turn = ctx.nextTurnMeters
-        val stopped = ctx.speedKph < STOPPED_KPH
+        val stopped = speed < STOPPED_KPH
         val calmMeters =
             if (ctx.nextTurnIsInterchange) INTERCHANGE_CALM_METERS
-            else max(MIN_CALM_METERS, ctx.speedKph / KPH_PER_MPS * CALM_SECONDS)
+            else max(MIN_CALM_METERS, speed / KPH_PER_MPS * CALM_SECONDS)
         // 수락하자마자 급하게 빠지지 않도록, 찜까지 이 거리보다 가까우면 묻지 않고 보류한다
-        val leadMeters = max(MIN_LEAD_METERS, ctx.speedKph / KPH_PER_MPS * LEAD_SECONDS)
+        val leadMeters = max(MIN_LEAD_METERS, speed / KPH_PER_MPS * LEAD_SECONDS)
         val toPlaceMeters = DetourEstimator.distanceKm(ctx.lat, ctx.lon, place.lat, place.lon) * METERS_PER_KM
         val unknown = listOfNotNull(
             "방향지시등".takeIf { ctx.turnSignalOn == null },
@@ -119,7 +124,7 @@ class MomentJudge(private val settings: Settings = Settings()) {
             ctx.turnSignalOn == true -> "방향지시등 켜짐" + turnText(turn, prefix = ", ") to Outcome.HOLD
             ctx.braking == true -> "브레이크 밟는 중" to Outcome.HOLD
             // 고속도로에서는 묻는 창이 몇 초뿐이고, 나들목으로 빠져 되돌아오는 길은 어림이 크게 틀릴 수 있다
-            ctx.speedKph >= HIGH_SPEED_KPH -> "고속 주행 중 (시속 ${HIGH_SPEED_KPH.roundToInt()}km 이상)" to Outcome.HOLD
+            speed >= HIGH_SPEED_KPH -> "고속 주행 중 (시속 ${HIGH_SPEED_KPH.roundToInt()}km 이상)" to Outcome.HOLD
             ctx.cautionAhead -> "단속 카메라·주의 지점 안내 구간" to Outcome.HOLD
             turn != null && turn < calmMeters ->
                 (if (ctx.nextTurnIsInterchange) "나들목 " else "") + turnText(turn) to Outcome.HOLD
@@ -157,6 +162,11 @@ class MomentJudge(private val settings: Settings = Settings()) {
         // 목적지가 없으면 앞 단계(어떤 이동인가)에서 이미 멈춘다.
         val minutes = checkNotNull(detourMin)
         if (isBehind(ctx, place)) return "이미 지나친 곳 (되돌아가야 함)" to Outcome.SKIP
+        // 직선거리 어림은 실제보다 크게 짧을 수 있어 그 값으로는 묻지 않는다. 값을 받으면 다음 판단에서 다시 본다
+        if (!DetourEstimator.usesTrip(ctx, place)) {
+            val missing = if (ctx.tripMinToPlace[place.id] == null) "찜까지 도로 시간 없음" else "남은 시간 정보 없음"
+            return "$missing (받으면 다시 판단)" to Outcome.HOLD
+        }
         val allowed = allowedDetourMin(ctx)
         val seen = "약 ${minutes.roundToInt()}분 더 걸림 (${allowed.roundToInt()}분까지)"
         return seen to if (minutes <= allowed) Outcome.PASS else Outcome.SKIP
@@ -224,15 +234,29 @@ class MomentJudge(private val settings: Settings = Settings()) {
 
         private const val HALF_TURN_DEG = 180.0
 
-        /** 묻는 말. 1분이 안 걸리는 곳은 "약 0분"이라 하지 않고 분을 빼고 묻는다. */
+        /** 묻는 말. 반올림해 1분이 안 되는 곳은 "약 0분"이라 하지 않고 분을 빼고 묻는다. */
         fun question(place: Place, detourMin: Double): String {
+            val subject = withSubjectParticle(place.name)
             val minutes = detourMin.roundToInt()
             return if (minutes < 1) {
-                "찜해 둔 ${place.name}가 가는 길에 있어요. 들를까요?"
+                "찜해 둔 $subject 가는 길에 있어요. 들를까요?"
             } else {
-                "찜해 둔 ${place.name}가 가는 길 근처에 있어요. 약 ${minutes}분 더 걸리는데 들를까요?"
+                "찜해 둔 $subject 가는 길 근처에 있어요. 약 ${minutes}분 더 걸리는데 들를까요?"
             }
         }
+
+        /** 이름 뒤에 주격 조사를 붙인다. 마지막 글자에 받침이 있으면 "이", 없거나 한글이 아니면 "가". */
+        fun withSubjectParticle(name: String): String {
+            val last = name.lastOrNull() ?: return name
+            val hasFinal = last in HANGUL_FIRST..HANGUL_LAST && (last - HANGUL_FIRST) % FINAL_CONSONANT_COUNT != 0
+            return name + if (hasFinal) "이" else "가"
+        }
+
+        private const val HANGUL_FIRST = '가'
+        private const val HANGUL_LAST = '힣'
+
+        /** 한글 음절표에서 받침 자리의 수(받침 없음 포함). */
+        private const val FINAL_CONSONANT_COUNT = 28
 
         private const val KPH_PER_MPS = 3.6
         private const val METERS_PER_KM = 1000

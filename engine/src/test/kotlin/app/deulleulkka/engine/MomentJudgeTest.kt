@@ -79,9 +79,9 @@ class MomentJudgeTest {
 
     @Test
     fun `우회 시간이 허용 범위를 넘으면 묻지 않는다`() {
-        // 찜을 옮겼으므로 시나리오의 찜까지 도로 시간은 맞지 않는다. 직선거리로 어림하는 경우로 본다
+        // 찜을 북쪽으로 멀리 옮겼으므로 찜까지의 도로 시간도 그만큼 길게 넣는다
         val farPlace = bakery.copy(lat = 37.7600)
-        assertIs<Verdict.Skip>(verdict(calm.copy(tripMinToPlace = emptyMap()), place = farPlace))
+        assertIs<Verdict.Skip>(verdict(calm.copy(tripMinToPlace = mapOf(farPlace.id to 20.0)), place = farPlace))
     }
 
     @Test
@@ -161,11 +161,49 @@ class MomentJudgeTest {
     }
 
     @Test
+    fun `찜까지의 도로 시간이 없으면 보류하고, 그 뒤 도로 시간이 오면 묻는다`() {
+        val noTrip = calm.copy(tripMinToPlace = emptyMap())
+        val decision = judge.judge(noTrip, bakery, AskHistory(), today)
+        assertEquals(Verdict.Hold("찜까지 도로 시간 없음 (받으면 다시 판단)"), decision.verdict)
+        assertEquals(Outcome.HOLD, decision.checks.single { it.question == "얼마나 더 걸리나" }.outcome)
+        // 남은 시간을 모를 때도 도로 시간으로 어림할 수 없으므로 보류한다
+        assertEquals(Verdict.Hold("남은 시간 정보 없음 (받으면 다시 판단)"), verdict(calm.copy(remainingMin = null)))
+
+        val withTrip = assertIs<Verdict.Ask>(verdict(noTrip.copy(tripMinToPlace = mapOf(bakery.id to 3.3))))
+        assertEquals(6, withTrip.detourMin.roundToInt())
+    }
+
+    @Test
+    fun `속도를 읽지 못하면 묻지 않고 보류한다`() {
+        assertEquals(Verdict.Hold("속도 모름"), verdict(calm.copy(speedKph = null)))
+    }
+
+    @Test
+    fun `공개 길찾기 경로 값을 넣은 경주 대릉원 장면에서는 묻고, 어림은 비교 스크립트와 같다`() {
+        val frame = Scenarios.gyeongjuMeasured.single()
+        assertTrue(judge.inTriggerRadius(frame.ctx, Scenarios.daereungwon))
+        val ask = assertIs<Verdict.Ask>(judge.judge(frame.ctx, Scenarios.daereungwon, AskHistory(), today).verdict)
+        assertEquals(2.886730676986467, ask.detourMin, 1e-9)
+    }
+
+    @Test
+    fun `이름의 마지막 글자에 받침이 있으면 이, 없으면 가를 붙인다`() {
+        assertEquals("장터 국밥이", MomentJudge.withSubjectParticle("장터 국밥"))
+        assertEquals("은행나무길이", MomentJudge.withSubjectParticle("은행나무길"))
+        assertEquals("밀밭 베이커리가", MomentJudge.withSubjectParticle("밀밭 베이커리"))
+        assertEquals("카페 B가", MomentJudge.withSubjectParticle("카페 B"))
+        assertEquals(
+            "찜해 둔 장터 국밥이 가는 길 근처에 있어요. 약 3분 더 걸리는데 들를까요?",
+            MomentJudge.question(bakery.copy(name = "장터 국밥"), 3.2),
+        )
+    }
+
+    @Test
     fun `시나리오의 모든 장면은 판단을 시작하는 반경 2km 안이다`() {
         val frames = Scenarios.saturdayOuting + Scenarios.mondayCommute + Scenarios.noDestination
         assertTrue(frames.all { judge.inTriggerRadius(it.ctx, bakery) })
         assertFalse(judge.inTriggerRadius(calm.copy(lat = bakery.lat - 0.0200), bakery)) // 약 2.2km
-        // 시나리오 D의 두 장면은 서로 다른 자리다(4분 동안 움직임)
+        // 시나리오 D의 두 장면은 서로 다른 자리다(1분 동안 움직임)
         val (before, after) = Scenarios.saturdayOuting.map { it.ctx }
         assertTrue(DetourEstimator.distanceKm(before.lat, before.lon, after.lat, after.lon) > 0.3)
     }

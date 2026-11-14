@@ -5,8 +5,11 @@ import app.deulleulkka.engine.DriveContext
 import app.deulleulkka.engine.Place
 import app.deulleulkka.engine.PlaceKind
 
-/** 재생할 한 장면: 시각 표시와 그때의 차량 맥락. */
-data class Frame(val clock: String, val note: String, val ctx: DriveContext)
+/** 재생할 한 장면: 시각 표시와 그때의 차량 맥락. 공개 길찾기로 잰 장면이면 [routeCheck]에 그 값을 둔다. */
+data class Frame(val clock: String, val note: String, val ctx: DriveContext, val routeCheck: RouteCheck? = null)
+
+/** 같은 지점을 공개 길찾기로 잰 실제 추가 시간(분)과 그 출처. */
+data class RouteCheck(val actualDetourMin: Double, val source: String)
 
 /**
  * 기획서의 사용 시나리오를 차량 맥락의 흐름으로 적은 것.
@@ -14,7 +17,7 @@ data class Frame(val clock: String, val note: String, val ctx: DriveContext)
  * 단위 테스트도 같은 값을 쓴다. 좌표와 수치는 모두 가상의 예시다.
  */
 object Scenarios {
-    /** 11:12 위치에서 북쪽으로 약 1.6km(진행 방향 동쪽에서 85°, 앞쪽). 11:08 위치에서는 약 1.94km라 막 판단 반경(2km)에 든다. */
+    /** 11:12 위치에서 북쪽으로 약 1.6km(진행 방향 동쪽에서 85°, 앞쪽). 11:11 위치에서는 약 1.94km라 막 판단 반경(2km)에 든다. */
     val bakery = Place("bakery", "밀밭 베이커리", PlaceKind.EAT, lat = 37.6143, lon = 127.2016)
 
     private val arboretum = Destination(lat = 37.6000, lon = 127.5000)
@@ -44,13 +47,13 @@ object Scenarios {
 
     /**
      * 시나리오 D → A: 우회전 직전이라 미뤘다가 직선 구간에서 묻는다.
-     * 11:08에는 북쪽으로 달리며 300m 앞에서 우회전(동쪽)하려는 참이고, 신호를 기다려 돌고 나서 11:12 위치에 온다.
+     * 11:11에는 북쪽으로 달리며 300m 앞에서 우회전(동쪽)하려는 참이고, 돌고 나서 1분 뒤 11:12 위치에 온다.
      */
     val saturdayOuting: List<Frame> = listOf(
         Frame(
-            "오전 11:08", "찜한 곳 근처에 들어옴",
+            "오전 11:11", "찜한 곳 근처에 들어옴",
             saturdayCalm.copy(
-                minuteOfDay = 11 * 60 + 8,
+                minuteOfDay = 11 * 60 + 11,
                 lat = 37.5973,
                 lon = 127.1966,
                 speedKph = 38.0,
@@ -83,6 +86,34 @@ object Scenarios {
         Frame(
             "오후 3:40", "찜한 곳 근처에 들어옴",
             saturdayCalm.copy(minuteOfDay = 15 * 60 + 40, destination = null, remainingKm = null, remainingMin = null, nextTurnMeters = null),
+        ),
+    )
+
+    /**
+     * 공개 길찾기 경로로 잰 경우 하나를 그대로 넣은 장면: `docs/route-check`의 검증용 NC1(경주 분황로에서 서쪽으로, 찜 대릉원, 목적지 건천읍).
+     * 지금 위치·찜·목적지 좌표, 찜까지의 경로 시간, 목적지까지 남은 거리·시간, 실제 추가 시간은 `followup_results.json`의 값을 그대로 옮겼다.
+     * 시각, 속도, 다음 회전까지 거리, 동승자, 잔량은 재생기의 가상 값이다. 진행 방향은 넣지 않아 목적지 쪽을 앞으로 본다.
+     */
+    val daereungwon = Place("daereungwon", "대릉원", PlaceKind.SEE, lat = 35.838245, lon = 129.211509)
+
+    val gyeongjuMeasured: List<Frame> = listOf(
+        Frame(
+            "오후 2:30", "찜한 곳 근처에 들어옴 (공개 길찾기 경로 값)",
+            DriveContext(
+                minuteOfDay = 14 * 60 + 30,
+                sunsetMinuteOfDay = SUNSET,
+                lat = 35.840585,
+                lon = 129.232388,
+                speedKph = 40.0,
+                destination = Destination(lat = 35.840144, lon = 129.100185),
+                remainingKm = 15.8578,
+                remainingMin = 17.740000000000002,
+                tripMinToPlace = mapOf("daereungwon" to 4.241666666666666),
+                nextTurnMeters = 1200,
+                passengerPresent = true,
+                energyPercent = 60,
+            ),
+            routeCheck = RouteCheck(actualDetourMin = 2.848333333333331, source = "docs/route-check NC1"),
         ),
     )
 }

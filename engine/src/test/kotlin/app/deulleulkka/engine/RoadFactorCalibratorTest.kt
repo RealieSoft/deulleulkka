@@ -51,7 +51,7 @@ class RoadFactorCalibratorTest {
     }
 
     @Test
-    fun `보정값이 커지면 같은 곳도 더 걸린다고 보고 허용 시간을 넘으면 묻지 않는다`() {
+    fun `보정값은 직선거리 어림을 키우지만 도로 시간이 없으면 보정값과 무관하게 보류한다`() {
         // 보정값은 찜까지의 도로 시간을 받지 못해 직선거리로 어림할 때만 쓴다
         val calm = Scenarios.saturdayOuting.last().ctx.copy(tripMinToPlace = emptyMap())
         val atStart = assertNotNull(DetourEstimator.estimateMinutes(calm, Scenarios.bakery))
@@ -59,7 +59,7 @@ class RoadFactorCalibratorTest {
         assertEquals(atStart / start * RoadFactorCalibrator.MAX_FACTOR, atMax, 1e-9)
 
         val judge = MomentJudge()
-        assertIs<Verdict.Ask>(judge.judge(calm, Scenarios.bakery, AskHistory(), 0L).verdict)
-        assertIs<Verdict.Skip>(judge.judge(calm, Scenarios.bakery, AskHistory(), 0L, RoadFactorCalibrator.MAX_FACTOR).verdict)
+        assertIs<Verdict.Hold>(judge.judge(calm, Scenarios.bakery, AskHistory(), 0L).verdict)
+        assertIs<Verdict.Hold>(judge.judge(calm, Scenarios.bakery, AskHistory(), 0L, RoadFactorCalibrator.MAX_FACTOR).verdict)
     }
 }

@@ -12,25 +12,47 @@ Pleos Connect 차량용 앱 "들를까"의 판단 엔진과, 에뮬레이터에�
 |---|---|
 | `engine/` | Android에 기대지 않는 순수 Kotlin 판단 엔진 |
 | `engine/.../MomentJudge.kt` | 안전 → 자격 → 가치 → 빈도 순서로 보고, 처음 막힌 곳에서 멈춤. 본 것과 결과를 줄마다 남겨 "왜 그때 물었는지" 화면에 그대로 씀. 지나친 찜(진행 방향 뒤쪽)과 시속 90km 이상의 고속 주행에서는 묻지 않음 |
-| `engine/.../DetourEstimator.kt` | 우회 시간 어림. 찜까지의 도로 시간(`requestTrip`)에서 찜까지 가는 동안 목적지 쪽으로 나아가는 몫을 빼고 두 배. 그 값이 없으면 더 가야 하는 직선거리 × 도로 보정값 ÷ 평균 속도 |
-| `engine/.../RoadFactorCalibrator.kt` | 직선거리로 어림한 경우, 경유지를 넣은 뒤 내비게이션이 다시 계산한 값으로 도로 보정값(출발값 1.3)을 그 차에 맞춤. 최근 10번까지의 가운데값, 1.0~2.5 |
+| `engine/.../DetourEstimator.kt` | 우회 시간 어림. 찜까지의 도로 시간(`requestTrip`)에서 찜까지 가는 동안 목적지 쪽으로 나아가는 몫을 빼고 두 배. 그 값이 없으면 묻지 않고 보류함. 처음 방식(더 가야 하는 직선거리 × 도로 보정값 ÷ 평균 속도)은 비교 기준으로 남겨 두었고 묻는 판단에는 쓰지 않음 |
+| `engine/.../RoadFactorCalibrator.kt` | 직선거리로 어림한 경우, 경유지를 넣은 뒤 내비게이션이 다시 계산한 값으로 도로 보정값(출발값 1.3)을 그 차에 맞춤. 최근 10번까지의 가운데값, 1.0~2.5. 처음 방식과 함께 남겨 두었고, 지금은 묻는 판단에 쓰이지 않음 |
 | `engine/.../AskHistory.kt` | 묻고 답한 기록("다음에"는 30일 쉼, 답 없이 두 번 닫히면 "다음에"로 봄). 기기 안에만 둠 |
-| `engine/.../replay/` | 시나리오 재생기. 출력은 `docs/replay-output.txt` |
+| `engine/.../replay/` | 시나리오 재생기. 출력은 `docs/replay-output.txt`. 마지막 장면은 공개 길찾기로 잰 경우 하나(`docs/route-check`의 NC1, 경주 대릉원)의 좌표와 경로 시간을 그대로 넣어, 엔진의 어림과 같은 지점의 실제 추가 시간을 나란히 적음 |
 | `app/` | Pleos Connect 에뮬레이터에서 SDK를 확인한 화면: 내비게이션(NaviHelper 3.0.5), 위치(FusedLocation 1.1.3), 음성(TextToSpeech·SpeechToText 3.3.1), 차량 신호(Vehicle 2.3.2), 확인 영상용 화면 |
 | `docs/emulator-check.mp4` | 에뮬레이터 확인 영상(90초, 소리 없음). 칸 나누기, 경유지 넣기, 음성 질문, 녹음한 대답의 인식, 방향지시등 신호 |
 | `docs/emulator-check-1.mp4` | 첫 확인 영상(87초, 소리 없음). 위치 이동과 영역 진입·이탈 알림이 들어 있음 |
-| `docs/route-check/` | 우회 시간 어림을 실제 경로 20건과 비교한 스크립트·길찾기 응답·결과 |
+| `docs/route-check/` | 우회 시간 어림을 공개 길찾기 경로 20건과 비교한 스크립트·길찾기 응답·결과 |
+| `apk/RealizeSoft_deulleulkka_release.apk` | SDK 확인용 앱의 release 빌드(아래 "APK") |
+
+## 테스트 환경
+
+- Pleos Connect Emulator v2.1.0, 시스템 이미지 API 34(Android Automotive, 42dot)
+- 화면 2560×1440, 160dpi. 앱 영역을 둘로 나눠 내비게이션 옆 칸에 띄워 확인했습니다.
+- JDK 17, Gradle 8.10.2(wrapper), Kotlin 2.0, minSdk 28
+- 차량 신호는 Pleos Connect Virtual Console로 바꿨고, 위치는 `adb emu geo fix`로 옮겼습니다.
 
 ## 실행
 
-JDK 17이 필요합니다. 엔진 테스트와 재생기는 Android SDK 없이 돌아갑니다. `app/`을 빌드할 때만 Android SDK(`ANDROID_HOME` 또는 `local.properties`의 `sdk.dir`)가 필요합니다. Windows에서는 저장소 경로에 한글 등 ASCII가 아닌 글자가 있으면 Android Gradle 플러그인이 빌드를 멈추므로 영문 경로에 두세요.
+JDK 17이 필요합니다(Gradle이 JDK 17을 찾으므로 JDK 21만 있으면 멈춥니다). 엔진 테스트와 재생기는 Android SDK 없이 돌아갑니다. `app/`을 빌드할 때만 Android SDK(`ANDROID_HOME` 또는 `local.properties`의 `sdk.dir`)가 필요하고, Pleos Connect SDK는 `settings.gradle.kts`에 적힌 저장소에서 받습니다. Windows에서는 저장소 경로에 한글 등 ASCII가 아닌 글자가 있으면 Android Gradle 플러그인이 빌드를 멈추므로 영문 경로에 두세요.
 
 ```
-./gradlew :engine:test   # 테스트 66개
-./gradlew :engine:run    # 시나리오 재생
+./gradlew :engine:test        # 테스트 70개
+./gradlew :engine:run         # 시나리오 재생(한국어 Windows 콘솔에서는 출력이 CP949로 나옴. 같은 내용이 docs/replay-output.txt)
+./gradlew :app:assembleDebug  # 확인용 앱(Android SDK 필요)
 ```
 
-테스트 66개 가운데 55개는 판단 표·시나리오·보정·기록·우회 어림을 옮긴 단위 테스트이고, 11개는 [kotest-property](https://github.com/kotest/kotest)(테스트 전용)로 무작위 상황 1만 개씩에서 규칙을 확인합니다.
+## APK
+
+`apk/RealizeSoft_deulleulkka_release.apk`는 1차 접수 시점의 **SDK 확인용 앱**입니다. 완성된 들를까 앱이 아닙니다. 완성 앱의 release APK는 2차 발표 전(12월 1일 예정)에 같은 폴더에 올립니다.
+
+```
+adb install apk/RealizeSoft_deulleulkka_release.apk
+```
+
+- 앱 목록에서 열면 내비게이션 SDK 확인 화면이 뜨고, 즐겨찾기·최근 목적지 읽기 → 목적지 설정 → `requestTrip()` → 경유지 넣기 → 빼기를 차례로 돌려 받은 값을 화면에 적습니다(에뮬레이터에서 확인).
+- 나머지 확인 화면은 adb로 엽니다: `adb shell am start -n app.deulleulkka/.LocationProbeActivity`(위치), `.VoiceProbeActivity`(음성), `.VehicleProbeActivity`(차량 신호), `.DemoProbeActivity`(확인 영상용).
+- 녹음한 대답 파일은 들어 있지 않아(아래 "에뮬레이터에서 확인한 것과 한계"), 음성 화면의 대답 인식 단계는 건너뛰고 기록에 예외로 남습니다.
+- 같은 패키지의 debug 빌드가 깔려 있으면 서명이 달라 설치되지 않으므로 먼저 지웁니다(`adb uninstall app.deulleulkka`).
+
+테스트 70개 가운데 59개는 판단 표·시나리오·보정·기록·우회 어림을 옮긴 단위 테스트이고, 11개는 [kotest-property](https://github.com/kotest/kotest)(테스트 전용)로 무작위 상황 1만 개씩에서 규칙을 확인합니다.
 
 - 목적지가 회사면 다른 값이 무엇이든 묻지 않는다
 - 통화 중이거나 안내 음성이 나오면 말을 걸지 않는다
@@ -50,7 +72,7 @@ JDK 17이 필요합니다. 엔진 테스트와 재생기는 Android SDK 없이 �
 
 ## 우회 시간 어림
 
-처음에는 더 가야 하는 직선거리에 도로 보정값을 곱해 평균 속도로 나눴습니다. 공개 길찾기 엔진 OSRM의 실제 경로 12건과 비교하니 가는 길에 가까운 찜일수록 0에 가깝게 잡혀, 9건이 반올림해 0분이 되어 분을 빼고 묻게 되었고 실제보다 최대 17.7분 짧았습니다. 그래서 찜까지의 도로 시간을 쓰는 식을 정하고, 채택 기준을 먼저 적은 뒤 다른 지역 8건으로 다시 쟀습니다.
+처음에는 더 가야 하는 직선거리에 도로 보정값을 곱해 평균 속도로 나눴습니다. 공개 길찾기 엔진 OSRM의 경로 12건과 비교하니 가는 길에 가까운 찜일수록 0에 가깝게 잡혀, 9건이 반올림해 0분이 되어 분을 빼고 묻게 되었고 실제보다 최대 17.7분 짧았습니다. 그래서 찜까지의 도로 시간을 쓰는 식을 정하고, 채택 기준을 먼저 적은 뒤 다른 지역 8건으로 다시 쟀습니다.
 
 - 허용 시간(10분·5분) 판정이 실제와 갈린 경우: 0건
 - 물을 만한 5건 가운데 4건: 말하는 값과 실제의 차이 1.1분 안
@@ -59,13 +81,15 @@ JDK 17이 필요합니다. 엔진 테스트와 재생기는 Android SDK 없이 �
 
 8건뿐이고 교통 정보가 없는 값입니다. 찜까지의 시간과 실제 추가 시간이 같은 엔진에서 나와 실차보다 잘 맞아 보일 수 있습니다. 자세한 값과 다시 돌리는 법은 [`docs/route-check/`](docs/route-check/)에 있습니다.
 
+찜까지의 도로 시간을 받지 못하면 묻지 않고 보류하고, 값을 받으면 다음 판단에서 다시 봅니다. 처음 방식(직선거리)은 실제보다 크게 짧을 수 있어, 그 값으로 물으면 얼마나 더 걸리는지 모르는 제안이 되기 때문입니다. 처음 방식과 도로 보정값 맞추기는 지우지 않고 남겨 두었습니다. 실차에서 도로 시간을 받지 못하는 일이 잦으면 대안을 다시 견줄 기준으로 씁니다.
+
 ## 에뮬레이터에서 확인한 것과 한계
 
 확인한 것:
 
-- 내비게이션: 즐겨찾기 읽기, 경유지 넣고 빼기(넣고 6~7초 뒤에 다시 계산된 경로 값을 받음), `requestTrip()`(경로 안내를 바꾸지 않고 그 지점까지의 거리와 도착 예상을 돌려줌. 시간 값의 단위는 문서에 없음). `requestRoute()`는 부른 스레드를 약 2초 멈추므로 화면 스레드 밖에서 부릅니다.
+- 내비게이션: 즐겨찾기 읽기, 경유지 넣고 빼기(넣고 6~7초 뒤에 다시 계산된 경로 값을 받음), `requestTrip()`(경로 안내를 바꾸지 않고 그 지점까지의 거리와 도착 예상을 돌려줌. 시간 값의 단위는 문서에 없음. 에뮬레이터 통신이 끊겼을 때는 실패). `requestRoute()`는 부른 스레드를 약 2초 멈추므로 화면 스레드 밖에서 부릅니다.
 - 위치: `adb emu geo fix`로 옮긴 위치와 영역 진입·이탈 알림.
-- 음성: TTS로 한국어 질문을 말하고, 녹음한 대답을 STT `sendAudio()`로 넣어 인식. 온디바이스 인식은 `Locale.KOREA`여야 합니다(`Locale.KOREAN`은 "unsupported locale: ko-"로 거절). 이벤트 리스너는 `initialize()` 뒤에 붙입니다. 합성 음성의 "들를게"는 "들을게"로 적혔고, 앱에는 인식기의 첫째 후보만 옵니다. 쉼표가 든 대답은 결과가 둘로 나뉘어 옵니다.
+- 음성: TTS로 한국어 질문을 말하고, PC로 합성한 대답을 STT `sendAudio()`로 넣어 인식. 온디바이스 인식은 `Locale.KOREA`여야 합니다(`Locale.KOREAN`은 "unsupported locale: ko-"로 거절). 이벤트 리스너는 `initialize()` 뒤에 붙입니다. 합성 음성의 "들를게"는 "들을게"로 적혔고, 앱에는 인식기의 첫째 후보만 옵니다. 쉼표가 든 대답은 결과가 둘로 나뉘어 오고, "응, 들를게"는 "응"과 "길게"로 적혔습니다.
 - 오디오: 내비 안내 음성(`USAGE_ASSISTANCE_NAVIGATION_GUIDANCE`)과 에뮬레이터 전화의 통화 모드가 일반 앱에 보입니다.
 - 차량 신호(Vehicle SDK): 방향지시등·브레이크·충전율·기어를 읽고 구독할 수 있고, Virtual Console로 값을 바꿀 수 있습니다. 착좌 값은 콘솔과 반대로 왔습니다. 속도 API는 없습니다.
 - 창: 새 앱은 왼쪽 칸에 열리고 오른쪽 칸 앱이 잠시 빠집니다. 칸 크기가 바뀌면 화면이 새로 만들어집니다. 가려진 앱은 약 10초 뒤 멈춰, 그동안의 차량 콜백을 다시 보일 때 한꺼번에 받습니다. 방향지시등을 켜면 시스템 카메라 창이 왼쪽 칸 위쪽 자리에 뜹니다(칸이 아니라 화면 자리).

@@ -32,7 +32,8 @@ data class DriveContext(
     val sunsetMinuteOfDay: Int,
     val lat: Double,
     val lon: Double,
-    val speedKph: Double,
+    /** 차량 속도(km/h). 읽지 못하면 null이고, 그때는 묻지 않고 보류한다. */
+    val speedKph: Double?,
     /** 진행 방향(북쪽에서 시계 방향으로 잰 도). 모르면 null이고, 그때는 목적지 쪽을 앞으로 본다. */
     val headingDeg: Double? = null,
     /** 목적지가 없으면 null. */
@@ -41,7 +42,7 @@ data class DriveContext(
     val remainingMin: Double? = null,
     /**
      * 지금 위치에서 찜까지의 도로 시간(분), 찜 id별. 내비게이션의 `requestTrip`으로 경로를 바꾸지 않고 받는다.
-     * 받지 못한 찜은 빠져 있고, 그때 우회 어림은 직선거리로 한다([DetourEstimator.estimateMinutes]).
+     * 받지 못한 찜은 빠져 있고, 그 찜은 묻지 않고 보류한다([MomentJudge]).
      */
     val tripMinToPlace: Map<String, Double> = emptyMap(),
     /** 다음 회전까지 남은 거리(m). 안내가 없으면 null. */
@@ -107,7 +108,10 @@ sealed interface Verdict {
     /** 지금은 말 걸 때가 아니다. 여유 구간에서 다시 판단한다. */
     data class Hold(val reason: String) : Verdict
 
-    /** 이 이동에서는 묻지 않는다. */
+    /**
+     * 이번 판단에서는 묻지 않는다. 이동 단위로 막을지는 앱이 정한다
+     * (예: 지나친 찜은 굽은 길에서 다시 앞쪽이 될 수 있어, 엔진은 다음 판단에서 다시 본다).
+     */
     data class Skip(val reason: String) : Verdict
 }
 

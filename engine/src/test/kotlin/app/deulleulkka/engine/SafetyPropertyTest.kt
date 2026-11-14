@@ -49,6 +49,9 @@ class SafetyPropertyTest {
         val destKm = Arb.double(5.0, 40.0, includeNonFiniteEdgeCases = false).bind()
         val (dLat, dLon) = offset(lat, lon, destKm, deg().bind())
         val roadKm = destKm * DetourEstimator.ROAD_FACTOR
+        val averageKph = Arb.double(20.0, 80.0, includeNonFiniteEdgeCases = false).bind()
+        // 찜까지의 도로 시간도 같은 평균 속도로 넣는다(없으면 묻지 않고 보류하므로)
+        val toPlaceMin = DetourEstimator.distanceKm(lat, lon, pLat, pLon) * DetourEstimator.ROAD_FACTOR / averageKph * 60
         val ctx = DriveContext(
             minuteOfDay = Arb.int(0..1439).bind(),
             sunsetMinuteOfDay = 17 * 60 + 20,
@@ -58,7 +61,8 @@ class SafetyPropertyTest {
             headingDeg = deg().orNull(0.2).bind(),
             destination = Destination(dLat, dLon),
             remainingKm = roadKm,
-            remainingMin = roadKm / Arb.double(20.0, 80.0, includeNonFiniteEdgeCases = false).bind() * 60,
+            remainingMin = roadKm / averageKph * 60,
+            tripMinToPlace = mapOf("p" to toPlaceMin),
             nextTurnMeters = Arb.int(0..5000).orNull().bind(),
             passengerPresent = true,
             energyPercent = 60,
@@ -78,6 +82,7 @@ class SafetyPropertyTest {
             destination = arbitrary { Destination(lat().bind(), lon().bind(), Arb.boolean().bind()) }.orNull(0.1).bind(),
             remainingKm = Arb.double(0.0, 300.0, includeNonFiniteEdgeCases = false).orNull().bind(),
             remainingMin = Arb.double(0.0, 300.0, includeNonFiniteEdgeCases = false).orNull().bind(),
+            tripMinToPlace = Arb.double(0.0, 30.0, includeNonFiniteEdgeCases = false).orNull().bind()?.let { mapOf("p" to it) } ?: emptyMap(),
             nextTurnMeters = Arb.int(0..5000).orNull().bind(),
             nextTurnIsInterchange = Arb.boolean().bind(),
             turnSignalOn = Arb.boolean().orNull().bind(),
@@ -140,7 +145,7 @@ class SafetyPropertyTest {
                 1 -> ctx.copy(braking = null)
                 else -> ctx.copy(otherAudioPlaying = null)
             }
-            if (ctx.speedKph >= MomentJudge.STOPPED_KPH) {
+            if (checkNotNull(ctx.speedKph) >= MomentJudge.STOPPED_KPH) {
                 if (asks(ctx, place)) wouldAsk++
                 assertFalse(asks(unknown, place))
             }
