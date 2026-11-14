@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/126.998069,37.269744;127.111200,37.394800?overview=false&bearings=107,30;",
+ "fetched_utc": "2026-11-14T03:00:15Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1381.5,
+      "summary": "",
+      "duration": 1381.5,
+      "distance": 21327.8
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1381.5,
+    "duration": 1381.5,
+    "distance": 21327.8
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "uVzFg____38kAAAAJgAAAAAAAAAbAAAAsOuCQumhTkAAAAAAVpg-QiQAAAAmAAAAAAAAABsAAABucAAANdaRB_CwOAI11pEH8LA4AgAArwYAAAAA",
+    "location": [
+     126.998069,
+     37.269744
+    ],
+    "name": "수인로",
+    "distance": 0
+   },
+   {
+    "hint": "LBphg4p3BIkhAAAAAAAAAAAAAAAuAAAA1SO2QQAAAAAAAAAAZ7L9QSEAAAAAAAAAAAAAAC4AAABucAAAB5CTBzCVOgIgkJMHcJk6AgAA_xAAAAAA",
+    "location": [
+     127.111175,
+     37.393712
+    ],
+    "name": "판교역로146번길",
+    "distance": 120.7716371
+   }
+  ]
+ }
+}

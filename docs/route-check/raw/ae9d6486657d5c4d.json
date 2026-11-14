@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/129.388000,36.357500?number=5",
+ "fetched_utc": "2026-11-14T03:21:36Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     12009399550.0,
+     12009399550.0
+    ],
+    "hint": "AIOWg2NF-ogXAAAADAAAACsAAAAiAAAAV7mCQdkkAEGr4O9Bxje_QRcAAAAMAAAAKwAAACIAAABucAAAZk62B1nGKgLgTbYHfMUqAgIAfxIAAAAA",
+    "location": [
+     129.388134,
+     36.357721
+    ],
+    "name": "신강구2길",
+    "distance": 27.31279951
+   },
+   {
+    "nodes": [
+     12009399550.0,
+     12009399550.0
+    ],
+    "hint": "AIOWg2NF-ogAAAAAIgAAAE4AAAAAAAAAAAAAAMY3v0H0VVlCAAAAAAAAAAAiAAAATgAAAAAAAABucAAAFk62B3nGKgLgTbYHfMUqAgQAbxIAAAAA",
+    "location": [
+     129.388054,
+     36.357753
+    ],
+    "name": "신강구2길",
+    "distance": 28.48950705
+   },
+   {
+    "nodes": [
+     12009399550.0,
+     4631089484
+    ],
+    "hint": "AIOWg2NF-ogrAAAAAAAAAAAAAABFAAAAq-DvQQAAAAAAAAAAggFBQisAAAAAAAAAAAAAAEUAAABucAAACk-2BxnGKgLgTbYHfMUqAgAAjxIAAAAA",
+    "location": [
+     129.388298,
+     36.357657
+    ],
+    "name": "신강구2길",
+    "distance": 31.91543617
+   },
+   {
+    "nodes": [
+     12009399550.0,
+     12009399540.0
+    ],
+    "hint": "6IKWg2JF-ogGAAAAAgAAAGoAAAAUAAAAAoORQMpTaj9RF5NCH2FaQQYAAAACAAAAagAAABQAAABucAAAyEy2B2fGKgLgTbYHfMUqAgoA7wIAAAAA",
+    "location": [
+     129.38772,
+     36.357735
+    ],
+    "name": "신강구2길",
+    "distance": 36.2120744
+   },
+   {
+    "nodes": [
+     12009399550.0,
+     12009399550.0
+    ],
+    "hint": "6IKWg2JF-ogAAAAAFAAAAHIAAAAAAAAAAAAAAB9hWkFnA55CAAAAAAAAAAAUAAAAcgAAAAAAAABucAAAz0y2B23GKgLgTbYHfMUqAgwAHwIAAAAA",
+    "location": [
+     129.387727,
+     36.357741
+    ],
+    "name": "신강구2길",
+    "distance": 36.26721501
+   }
+  ]
+ }
+}

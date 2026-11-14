@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.441463,36.322568;127.248600,36.274500?overview=false&bearings=255,30;",
+ "fetched_utc": "2026-11-14T03:00:22Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1340,
+      "summary": "",
+      "duration": 1318.5,
+      "distance": 22069.2
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1340,
+    "duration": 1318.5,
+    "distance": 22069.2
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "LuBqgP___38OAAAAFwAAAAAAAAAAAAAAUk3TQT0kekEAAAAAAAAAAA4AAAAXAAAAAAAAAAAAAABucAAAN5qYBwg9KgI3mpgHCD0qAgAA7w8AAAAA",
+    "location": [
+     127.441463,
+     36.322568
+    ],
+    "name": "충무로",
+    "distance": 0
+   },
+   {
+    "hint": "Wd9QhVNTyog6AAAAEgAAAHYAAAAAAAAAADdCQeAbaECrHsVBAAAAAB0AAAAJAAAAOwAAAAAAAABucAAAdamVB9iAKQLYqJUHRIEpAgoAzw0AAAAA",
+    "location": [
+     127.248757,
+     36.274392
+    ],
+    "name": "",
+    "distance": 18.50971199
+   }
+  ]
+ }
+}

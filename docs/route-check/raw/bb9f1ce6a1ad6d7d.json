@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.058000,37.174000?number=3",
+ "fetched_utc": "2026-11-14T02:55:48Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     3331726711,
+     3331726701
+    ],
+    "hint": "Ia6fguR_loN8AAAANAAAADoAAAAaAAAAWwOtQuRZD0Kl_CBCcm6RQXwAAAA0AAAAOgAAABoAAABucAAAC8CSB-A6NwJQwJIH8Do3AgIAfxUAAAAA",
+    "location": [
+     127.057931,
+     37.173984
+    ],
+    "name": "수청로",
+    "distance": 6.379797299
+   },
+   {
+    "nodes": [
+     4631056711,
+     4631055303
+    ],
+    "hint": "dH-Wg9l_loOLAAAATwAAAEUAAAAAAAAAP4HBQmwlW0IrUz5CAAAAAIsAAABPAAAARQAAAAAAAABucAAAgMGSBzQ7NwJQwJIH8Do3AgIAjxUAAAAA",
+    "location": [
+     127.058304,
+     37.174068
+    ],
+    "name": "수청로50번길",
+    "distance": 28.03235211
+   },
+   {
+    "nodes": [
+     4631056722,
+     3331726711
+    ],
+    "hint": "Ia6fguR_loMAAAAAGgAAAOoAAAAAAAAAAAAAAHJukUFOlyJDAAAAAAAAAAAaAAAA6gAAAAAAAABucAAAmr-SBxY8NwJQwJIH8Do3AgQAjxUAAAAA",
+    "location": [
+     127.057818,
+     37.174294
+    ],
+    "name": "수청로",
+    "distance": 36.41225076
+   }
+  ]
+ }
+}

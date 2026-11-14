@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.478000,35.279000?number=5",
+ "fetched_utc": "2026-11-14T03:23:58Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     4506367732,
+     437212457
+    ],
+    "hint": "WGc4gO4rbIAIAAAAAAAAAGQIAACjBAAAbjcQQQAAAABODhVFcnWlRAgAAAAAAAAAZAgAAKMEAABucAAA9i2ZBzRKGgLwKJkHmFAaAsYAnw8AAAAA",
+    "location": [
+     127.479286,
+     35.277364
+    ],
+    "name": "노고단로",
+    "distance": 215.9499486
+   },
+   {
+    "nodes": [
+     437212454,
+     4506367732
+    ],
+    "hint": "WGc4gO4rbIAAAAAACAAAAGwIAACbBAAAAAAAAOLaFkGFnhVFvEekRAAAAAAIAAAAbAgAAJsEAABucAAA9i2ZBzRKGgLwKJkHmFAaAsgAXw4AAAAA",
+    "location": [
+     127.479286,
+     35.277364
+    ],
+    "name": "노고단로",
+    "distance": 215.9499486
+   },
+   {
+    "nodes": [
+     437212452,
+     437212454
+    ],
+    "hint": "WGc4gO4rbIAAAAAABQAAAHQIAACWBAAAAAAAAN3XqUBgNRZF5Z2jRAAAAAAFAAAAdAgAAJYEAABucAAApy2ZB_1JGgLwKJkHmFAaAsoAXw0AAAAA",
+    "location": [
+     127.479207,
+     35.277309
+    ],
+    "name": "노고단로",
+    "distance": 217.3855277
+   },
+   {
+    "nodes": [
+     437212457,
+     437212459
+    ],
+    "hint": "WGc4gO4rbIAkAAAAAAAAAEAIAACrBAAAJZsgQgAAAADhixJF4ZWmRCQAAAAAAAAAQAgAAKsEAABucAAAUy6ZB1BKGgLwKJkHmFAaAsQATxAAAAAA",
+    "location": [
+     127.479379,
+     35.277392
+    ],
+    "name": "노고단로",
+    "distance": 218.1006984
+   },
+   {
+    "nodes": [
+     4506367729,
+     437212452
+    ],
+    "hint": "WGc4gO4rbIAAAAAADQAAAHkIAACJBAAAAAAAAGfzZkFMihZF_8-hRAAAAAANAAAAeQgAAIkEAABucAAAhy2ZB9VJGgLwKJkHmFAaAswATwwAAAAA",
+    "location": [
+     127.479175,
+     35.277269
+    ],
+    "name": "노고단로",
+    "distance": 219.7961714
+   }
+  ]
+ }
+}

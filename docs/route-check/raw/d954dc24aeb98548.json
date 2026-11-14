@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/128.457500,38.446700?number=3",
+ "fetched_utc": "2026-11-14T02:56:40Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     6780183786,
+     6780107579
+    ],
+    "hint": "hLQDhrG1A4ZIAAAAAAAAAAAAAAAAAAAAbhxHQgAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAABucAAAFRioB0SnSgIcG6gHbKZKAgAALwMAAAAA",
+    "location": [
+     128.456725,
+     38.446916
+    ],
+    "name": "",
+    "distance": 71.79735737
+   },
+   {
+    "nodes": [
+     3717381175,
+     3705964605
+    ],
+    "hint": "o83WguS38IMZAAAAQQAAAAAAAAAkAAAAkEqOQUUyMkIAAAAAJSfIQRkAAABBAAAAAAAAACQAAABucAAA5ReoB3uoSgIcG6gHbKZKAgAAvw0AAAAA",
+    "location": [
+     128.456677,
+     38.447227
+    ],
+    "name": "거진항길(동해안 자전거길)",
+    "distance": 92.66626686
+   },
+   {
+    "nodes": [
+     3705964606,
+     3705964605
+    ],
+    "hint": "oc3WgqTN1oIPAAAA8QAAAAAAAAAjAAAAj3snQeluJ0MAAAAACwHBQQ8AAADxAAAAAAAAACMAAABucAAAyhioByupSgIcG6gHbKZKAgAAjwMAAAAA",
+    "location": [
+     128.456906,
+     38.447403
+    ],
+    "name": "거진항길(동해안 자전거길)",
+    "distance": 93.70239147
+   }
+  ]
+ }
+}

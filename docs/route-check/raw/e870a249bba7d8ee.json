@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.294507,37.530560;127.492000,37.492700?overview=false&bearings=77,30;",
+ "fetched_utc": "2026-11-14T03:00:37Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1172.2,
+      "summary": "",
+      "duration": 1165.8,
+      "distance": 20457.2
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1172.2,
+    "duration": 1165.8,
+    "distance": 20457.2
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "NtvthP___38dAAAAIwAAAAMAAABIAAAAC56MQvO5PUEzUNRAYtoqQx0AAAAjAAAAAwAAAEgAAABucAAAK1yWB8CrPAIrXJYHwKs8AgIA3wQAAAAA",
+    "location": [
+     127.294507,
+     37.53056
+    ],
+    "name": "경강로",
+    "distance": 0
+   },
+   {
+    "hint": "CQopiAoKKYgFAAAAAAAAAHkAAACEAAAASrR6PwAAAAD-zslB3ejbQQIAAAAAAAAAPAAAAEIAAABucAAAtV6ZB-oVPAKgX5kH3Bc8AgYADwYAAAAA",
+    "location": [
+     127.491765,
+     37.492202
+    ],
+    "name": "",
+    "distance": 59.05093669
+   }
+  ]
+ }
+}

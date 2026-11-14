@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.067620,37.145160?number=5",
+ "fetched_utc": "2026-11-14T03:05:23Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     644711927,
+     1797789732
+    ],
+    "hint": "1xZjgYVEKYdjAAAAJwAAAAAAAAA4AAAA3Y6JQkG11UEAAAAA8Q8cQmMAAAAnAAAAAAAAADgAAABucAAA4-WSB0jKNgLk5ZIHSMo2AgAATwAAAAAA",
+    "location": [
+     127.067619,
+     37.14516
+    ],
+    "name": "역광장로",
+    "distance": 0.08886575158
+   },
+   {
+    "nodes": [
+     13084823670.0,
+     644711927
+    ],
+    "hint": "1xZjgYVEKYcAAAAABgAAAIoAAAAyAAAAAAAAAFVqjkAq_L5CpkIKQgAAAAAGAAAAigAAADIAAABucAAA-uWSBzjLNgLk5ZIHSMo2AgIALwEAAAAA",
+    "location": [
+     127.067642,
+     37.1454
+    ],
+    "name": "역광장로",
+    "distance": 26.70685142
+   },
+   {
+    "nodes": [
+     7819417229,
+     13084823670.0
+    ],
+    "hint": "1xZjgYVEKYcAAAAAJQAAAJAAAAANAAAAAAAAAEaMy0HP4sdCDfIRQQAAAAAlAAAAkAAAAA0AAABucAAACuaSB17LNgLk5ZIHSMo2AgQAbwAAAAAA",
+    "location": [
+     127.067658,
+     37.145438
+    ],
+    "name": "역광장로",
+    "distance": 31.03669224
+   },
+   {
+    "nodes": [
+     14320690200.0,
+     14320690200.0
+    ],
+    "hint": "QF3LiUJdy4kjAwAABQAAACMAAAAAAAAA-kAnQ51agD_bXuxAAAAAAJEBAAADAAAAEgAAAAAAAABucAAAUuSSB2fKNgLk5ZIHSMo2AgIAXwAAAAAA",
+    "location": [
+     127.067218,
+     37.145191
+    ],
+    "name": "",
+    "distance": 35.88931113
+   },
+   {
+    "nodes": [
+     7819417236,
+     7819417229
+    ],
+    "hint": "1xZjgYVEKYcAAAAADQAAALUAAAAAAAAAAAAAAA3yEUHgxfpCAAAAAAAAAAANAAAAtQAAAAAAAABucAAAKOaSB0LMNgLk5ZIHSMo2AgYAPwAAAAAA",
+    "location": [
+     127.067688,
+     37.145666
+    ],
+    "name": "역광장로",
+    "distance": 56.48007064
+   }
+  ]
+ }
+}

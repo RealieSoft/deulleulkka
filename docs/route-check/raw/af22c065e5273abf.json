@@ -1,0 +1,6181 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/129.041500,35.115100;129.037200,35.335000?overview=full&geometries=geojson&steps=true",
+ "fetched_utc": "2026-11-14T03:21:21Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           67
+          ],
+          "location": [
+           129.041303,
+           35.11577
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           105,
+           225,
+           285
+          ],
+          "location": [
+           129.041521,
+           35.115911
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.041303,
+           35.11577
+          ],
+          [
+           129.041381,
+           35.115797
+          ],
+          [
+           129.041413,
+           35.115824
+          ],
+          [
+           129.041453,
+           35.115877
+          ],
+          [
+           129.041521,
+           35.115911
+          ],
+          [
+           129.041874,
+           35.115815
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 67,
+         "bearing_before": 0,
+         "location": [
+          129.041303,
+          35.11577
+         ],
+         "modifier": "right",
+         "type": "depart"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 19.6,
+        "duration": 19.6,
+        "distance": 60
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           150,
+           285
+          ],
+          "location": [
+           129.041874,
+           35.115815
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.041874,
+           35.115815
+          ],
+          [
+           129.041942,
+           35.115813
+          ],
+          [
+           129.04237,
+           35.116727
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 21,
+         "bearing_before": 108,
+         "location": [
+          129.041874,
+          35.115815
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "중앙대로214번길",
+        "mode": "driving",
+        "weight": 21.5,
+        "duration": 21.5,
+        "distance": 114.8
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           195,
+           300
+          ],
+          "location": [
+           129.04237,
+           35.116727
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           120,
+           195,
+           300
+          ],
+          "location": [
+           129.041896,
+           35.116898
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           30,
+           120,
+           210,
+           300
+          ],
+          "location": [
+           129.04149,
+           35.117045
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.04237,
+           35.116727
+          ],
+          [
+           129.041896,
+           35.116898
+          ],
+          [
+           129.04149,
+           35.117045
+          ],
+          [
+           129.041087,
+           35.117191
+          ],
+          [
+           129.040977,
+           35.117231
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 292,
+         "bearing_before": 19,
+         "location": [
+          129.04237,
+          35.116727
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "중앙대로226번길",
+        "mode": "driving",
+        "weight": 22.3,
+        "duration": 22.3,
+        "distance": 138.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           30,
+           120,
+           210
+          ],
+          "location": [
+           129.040977,
+           35.117231
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           120,
+           210
+          ],
+          "location": [
+           129.041426,
+           35.118026
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           120,
+           210
+          ],
+          "location": [
+           129.04192,
+           35.118967
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 25,
+         "bearing_before": 292,
+         "location": [
+          129.040977,
+          35.117231
+         ],
+         "modifier": "right",
+         "type": "end of road"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.040977,
+           35.117231
+          ],
+          [
+           129.041159,
+           35.117534
+          ],
+          [
+           129.041264,
+           35.117722
+          ],
+          [
+           129.041426,
+           35.118026
+          ],
+          [
+           129.041645,
+           35.118457
+          ],
+          [
+           129.041725,
+           35.118608
+          ],
+          [
+           129.04192,
+           35.118967
+          ],
+          [
+           129.042078,
+           35.119243
+          ],
+          [
+           129.042302,
+           35.119639
+          ],
+          [
+           129.042446,
+           35.119903
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "7",
+        "name": "중앙대로",
+        "mode": "driving",
+        "weight": 20,
+        "duration": 20,
+        "distance": 325.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           105,
+           210,
+           255,
+           270
+          ],
+          "location": [
+           129.042446,
+           35.119903
+          ]
+         },
+         {
+          "out": 1,
+          "in": 3,
+          "entry": [
+           false,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           105,
+           210,
+           285
+          ],
+          "location": [
+           129.042921,
+           35.119744
+          ]
+         },
+         {
+          "out": 2,
+          "in": 5,
+          "entry": [
+           true,
+           false,
+           true,
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           30,
+           60,
+           105,
+           165,
+           210,
+           285
+          ],
+          "location": [
+           129.043337,
+           35.119605
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.042446,
+           35.119903
+          ],
+          [
+           129.042921,
+           35.119744
+          ],
+          [
+           129.043337,
+           35.119605
+          ],
+          [
+           129.043941,
+           35.119406
+          ],
+          [
+           129.045022,
+           35.119044
+          ],
+          [
+           129.045183,
+           35.118993
+          ],
+          [
+           129.045312,
+           35.118952
+          ],
+          [
+           129.045677,
+           35.118819
+          ],
+          [
+           129.045752,
+           35.1188
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 111,
+         "bearing_before": 23,
+         "location": [
+          129.042446,
+          35.119903
+         ],
+         "modifier": "right",
+         "type": "continue"
+        },
+        "name": "중앙대로260번길",
+        "mode": "driving",
+        "weight": 29.2,
+        "duration": 29.2,
+        "distance": 325.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           135,
+           285
+          ],
+          "location": [
+           129.045752,
+           35.1188
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.045752,
+           35.1188
+          ],
+          [
+           129.045894,
+           35.118801
+          ],
+          [
+           129.045992,
+           35.118841
+          ],
+          [
+           129.046087,
+           35.118958
+          ],
+          [
+           129.046318,
+           35.119373
+          ],
+          [
+           129.046408,
+           35.119481
+          ],
+          [
+           129.046581,
+           35.11972
+          ],
+          [
+           129.046659,
+           35.119881
+          ],
+          [
+           129.046753,
+           35.119928
+          ],
+          [
+           129.046887,
+           35.119958
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 90,
+         "bearing_before": 111,
+         "location": [
+          129.045752,
+          35.1188
+         ],
+         "modifier": "slight left",
+         "type": "fork"
+        },
+        "name": "중앙대로260번길",
+        "mode": "driving",
+        "weight": 32.6,
+        "duration": 32.6,
+        "distance": 176.4
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 4,
+          "entry": [
+           false,
+           false,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           120,
+           150,
+           180,
+           255
+          ],
+          "location": [
+           129.046887,
+           35.119958
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.046887,
+           35.119958
+          ],
+          [
+           129.047075,
+           35.119709
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 147,
+         "bearing_before": 74,
+         "location": [
+          129.046887,
+          35.119958
+         ],
+         "modifier": "slight right",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 10.1,
+        "duration": 10.1,
+        "distance": 32.5
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           30,
+           135,
+           195,
+           330
+          ],
+          "location": [
+           129.047075,
+           35.119709
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           135,
+           210,
+           300
+          ],
+          "location": [
+           129.04716,
+           35.119841
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           195,
+           210
+          ],
+          "location": [
+           129.048979,
+           35.12405
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 26,
+         "bearing_before": 147,
+         "location": [
+          129.047075,
+          35.119709
+         ],
+         "modifier": "sharp left",
+         "type": "turn"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.047075,
+           35.119709
+          ],
+          [
+           129.04716,
+           35.119841
+          ],
+          [
+           129.047273,
+           35.120106
+          ],
+          [
+           129.047759,
+           35.121069
+          ],
+          [
+           129.048737,
+           35.123164
+          ],
+          [
+           129.048842,
+           35.123393
+          ],
+          [
+           129.048871,
+           35.123506
+          ],
+          [
+           129.048939,
+           35.123904
+          ],
+          [
+           129.048979,
+           35.12405
+          ],
+          [
+           129.049064,
+           35.124245
+          ],
+          [
+           129.049167,
+           35.124421
+          ],
+          [
+           129.049285,
+           35.124573
+          ],
+          [
+           129.049501,
+           35.124763
+          ],
+          [
+           129.049675,
+           35.124892
+          ],
+          [
+           129.049891,
+           35.125022
+          ],
+          [
+           129.050695,
+           35.125438
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "71",
+        "name": "충장대로",
+        "mode": "driving",
+        "weight": 43.1,
+        "duration": 43.1,
+        "distance": 739.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           60,
+           240
+          ],
+          "location": [
+           129.050695,
+           35.125438
+          ]
+         },
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.052183,
+           35.125882
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 63,
+         "bearing_before": 57,
+         "location": [
+          129.050695,
+          35.125438
+         ],
+         "modifier": "straight",
+         "type": "continue"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.050695,
+           35.125438
+          ],
+          [
+           129.051079,
+           35.125592
+          ],
+          [
+           129.051538,
+           35.125762
+          ],
+          [
+           129.051876,
+           35.12585
+          ],
+          [
+           129.052183,
+           35.125882
+          ],
+          [
+           129.052298,
+           35.125893
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "71",
+        "name": "충장대로",
+        "mode": "driving",
+        "weight": 10.4,
+        "duration": 10.4,
+        "distance": 155.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           90,
+           270
+          ],
+          "location": [
+           129.052298,
+           35.125893
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 42,
+         "bearing_before": 82,
+         "location": [
+          129.052298,
+          35.125893
+         ],
+         "modifier": "slight left",
+         "type": "continue"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.052298,
+           35.125893
+          ],
+          [
+           129.05251,
+           35.126076
+          ],
+          [
+           129.054169,
+           35.126224
+          ],
+          [
+           129.054394,
+           35.126258
+          ],
+          [
+           129.05458,
+           35.126296
+          ],
+          [
+           129.054737,
+           35.126362
+          ],
+          [
+           129.054823,
+           35.126398
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "71",
+        "name": "충장대로",
+        "mode": "driving",
+        "weight": 16,
+        "duration": 16,
+        "distance": 243.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           false
+          ],
+          "bearings": [
+           60,
+           165,
+           240,
+           345
+          ],
+          "location": [
+           129.054823,
+           35.126398
+          ]
+         },
+         {
+          "out": 3,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           240,
+           345
+          ],
+          "location": [
+           129.054967,
+           35.12647
+          ]
+         },
+         {
+          "out": 4,
+          "in": 2,
+          "entry": [
+           false,
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           45,
+           75,
+           165,
+           240,
+           345
+          ],
+          "location": [
+           129.054925,
+           35.126605
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           165,
+           285,
+           345
+          ],
+          "location": [
+           129.054829,
+           35.127134
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           150,
+           165
+          ],
+          "location": [
+           129.054814,
+           35.127221
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 57,
+         "bearing_before": 61,
+         "location": [
+          129.054823,
+          35.126398
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.054823,
+           35.126398
+          ],
+          [
+           129.054967,
+           35.12647
+          ],
+          [
+           129.054925,
+           35.126605
+          ],
+          [
+           129.054829,
+           35.127134
+          ],
+          [
+           129.054814,
+           35.127221
+          ],
+          [
+           129.054729,
+           35.128104
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "성남로",
+        "mode": "driving",
+        "weight": 15.9,
+        "duration": 15.9,
+        "distance": 198.2
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           345
+          ],
+          "location": [
+           129.054729,
+           35.128104
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           135,
+           315
+          ],
+          "location": [
+           129.052847,
+           35.13248
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           135,
+           315
+          ],
+          "location": [
+           129.051593,
+           35.133435
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 347,
+         "bearing_before": 354,
+         "location": [
+          129.054729,
+          35.128104
+         ],
+         "modifier": "slight left",
+         "type": "fork"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.054729,
+           35.128104
+          ],
+          [
+           129.054661,
+           35.128371
+          ],
+          [
+           129.054648,
+           35.128501
+          ],
+          [
+           129.054527,
+           35.129583
+          ],
+          [
+           129.054487,
+           35.129962
+          ],
+          [
+           129.054395,
+           35.130543
+          ],
+          [
+           129.05436,
+           35.130689
+          ],
+          [
+           129.054314,
+           35.130835
+          ],
+          [
+           129.054185,
+           35.131118
+          ],
+          [
+           129.054064,
+           35.13133
+          ],
+          [
+           129.053919,
+           35.131542
+          ],
+          [
+           129.053777,
+           35.131707
+          ],
+          [
+           129.053563,
+           35.131914
+          ],
+          [
+           129.053309,
+           35.132127
+          ],
+          [
+           129.052847,
+           35.13248
+          ],
+          [
+           129.052007,
+           35.133117
+          ],
+          [
+           129.051593,
+           35.133435
+          ],
+          [
+           129.036604,
+           35.143766
+          ],
+          [
+           129.03602,
+           35.144203
+          ],
+          [
+           129.034969,
+           35.145367
+          ],
+          [
+           129.034412,
+           35.146504
+          ],
+          [
+           129.033787,
+           35.148106
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "성남로",
+        "mode": "driving",
+        "weight": 128.2,
+        "duration": 128.2,
+        "distance": 3029.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           165,
+           345
+          ],
+          "location": [
+           129.033787,
+           35.148106
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           345
+          ],
+          "location": [
+           129.032948,
+           35.151107
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 347,
+         "bearing_before": 341,
+         "location": [
+          129.033787,
+          35.148106
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.033787,
+           35.148106
+          ],
+          [
+           129.033385,
+           35.149683
+          ],
+          [
+           129.033355,
+           35.149807
+          ],
+          [
+           129.032948,
+           35.151107
+          ],
+          [
+           129.032738,
+           35.151796
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "관문대로",
+        "mode": "driving",
+        "weight": 17.8,
+        "duration": 17.8,
+        "distance": 420.5
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           165,
+           345
+          ],
+          "location": [
+           129.032738,
+           35.151796
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           165,
+           180,
+           345
+          ],
+          "location": [
+           129.031854,
+           35.158943
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 347,
+         "bearing_before": 345,
+         "location": [
+          129.032738,
+          35.151796
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.032738,
+           35.151796
+          ],
+          [
+           129.032238,
+           35.153758
+          ],
+          [
+           129.03213,
+           35.154302
+          ],
+          [
+           129.032098,
+           35.154763
+          ],
+          [
+           129.032035,
+           35.155925
+          ],
+          [
+           129.031903,
+           35.158347
+          ],
+          [
+           129.031854,
+           35.158943
+          ],
+          [
+           129.031744,
+           35.159405
+          ],
+          [
+           129.031349,
+           35.160545
+          ],
+          [
+           129.030609,
+           35.162614
+          ],
+          [
+           129.030377,
+           35.163282
+          ],
+          [
+           129.030115,
+           35.163823
+          ],
+          [
+           129.029842,
+           35.164298
+          ],
+          [
+           129.029555,
+           35.164776
+          ],
+          [
+           129.029223,
+           35.165263
+          ],
+          [
+           129.028734,
+           35.165998
+          ],
+          [
+           129.028572,
+           35.1663
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "가야고가도로",
+        "mode": "driving",
+        "weight": 70.9,
+        "duration": 70.9,
+        "distance": 1672.5
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           145,
+           156,
+           335
+          ],
+          "location": [
+           129.028572,
+           35.1663
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 333,
+         "bearing_before": 336,
+         "location": [
+          129.028572,
+          35.1663
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.028572,
+           35.1663
+          ],
+          [
+           129.028334,
+           35.166713
+          ],
+          [
+           129.028023,
+           35.167373
+          ],
+          [
+           129.027746,
+           35.167975
+          ],
+          [
+           129.027432,
+           35.168654
+          ],
+          [
+           129.02726,
+           35.169013
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "백양관문로",
+        "mode": "driving",
+        "weight": 13.6,
+        "duration": 13.6,
+        "distance": 324
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           159,
+           332,
+           337
+          ],
+          "location": [
+           129.02726,
+           35.169013
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 330,
+         "bearing_before": 337,
+         "location": [
+          129.02726,
+          35.169013
+         ],
+         "modifier": "straight",
+         "type": "continue"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.02726,
+           35.169013
+          ],
+          [
+           129.026823,
+           35.169678
+          ],
+          [
+           129.026583,
+           35.170003
+          ],
+          [
+           129.026371,
+           35.170275
+          ],
+          [
+           129.026084,
+           35.170567
+          ],
+          [
+           129.025804,
+           35.170852
+          ],
+          [
+           129.025003,
+           35.171432
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "백양관문로",
+        "mode": "driving",
+        "weight": 14.5,
+        "duration": 14.5,
+        "distance": 341.4
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           315
+          ],
+          "location": [
+           129.025003,
+           35.171432
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 307,
+         "bearing_before": 310,
+         "location": [
+          129.025003,
+          35.171432
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.025003,
+           35.171432
+          ],
+          [
+           129.004325,
+           35.18533
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "백양터널",
+        "mode": "driving",
+        "weight": 182.6,
+        "duration": 182.6,
+        "distance": 2434.2
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           300
+          ],
+          "location": [
+           129.004325,
+           35.18533
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           90,
+           270
+          ],
+          "location": [
+           128.999407,
+           35.185886
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           89,
+           266,
+           276
+          ],
+          "location": [
+           128.998964,
+           35.185878
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           126,
+           308,
+           313
+          ],
+          "location": [
+           128.983726,
+           35.192365
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 298,
+         "bearing_before": 307,
+         "location": [
+          129.004325,
+          35.18533
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.004325,
+           35.18533
+          ],
+          [
+           129.004032,
+           35.185461
+          ],
+          [
+           129.003554,
+           35.185658
+          ],
+          [
+           129.003126,
+           35.185781
+          ],
+          [
+           129.002567,
+           35.18594
+          ],
+          [
+           129.00207,
+           35.186002
+          ],
+          [
+           129.001337,
+           35.186016
+          ],
+          [
+           129.000085,
+           35.185903
+          ],
+          [
+           128.999407,
+           35.185886
+          ],
+          [
+           128.998964,
+           35.185878
+          ],
+          [
+           128.998365,
+           35.18584
+          ],
+          [
+           128.997686,
+           35.185849
+          ],
+          [
+           128.995687,
+           35.186041
+          ],
+          [
+           128.995272,
+           35.186077
+          ],
+          [
+           128.994593,
+           35.186121
+          ],
+          [
+           128.992704,
+           35.186221
+          ],
+          [
+           128.991061,
+           35.186297
+          ],
+          [
+           128.990675,
+           35.186372
+          ],
+          [
+           128.990227,
+           35.186503
+          ],
+          [
+           128.989856,
+           35.186663
+          ],
+          [
+           128.989578,
+           35.186816
+          ],
+          [
+           128.989305,
+           35.187016
+          ],
+          [
+           128.989119,
+           35.187155
+          ],
+          [
+           128.988961,
+           35.187312
+          ],
+          [
+           128.988709,
+           35.187616
+          ],
+          [
+           128.98804,
+           35.188556
+          ],
+          [
+           128.986999,
+           35.190126
+          ],
+          [
+           128.986681,
+           35.190565
+          ],
+          [
+           128.986315,
+           35.190934
+          ],
+          [
+           128.985694,
+           35.191358
+          ],
+          [
+           128.984737,
+           35.191764
+          ],
+          [
+           128.983726,
+           35.192365
+          ],
+          [
+           128.982313,
+           35.193283
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "33",
+        "name": "모라로",
+        "mode": "driving",
+        "weight": 100.3,
+        "duration": 100.3,
+        "distance": 2372
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           300
+          ],
+          "location": [
+           128.982313,
+           35.193283
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           150,
+           330
+          ],
+          "location": [
+           128.979471,
+           35.195715
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           15,
+           180
+          ],
+          "location": [
+           128.974452,
+           35.204882
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           165,
+           180
+          ],
+          "location": [
+           128.974227,
+           35.216727
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           165,
+           180
+          ],
+          "location": [
+           128.974303,
+           35.219007
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           9,
+           18,
+           188
+          ],
+          "location": [
+           128.974377,
+           35.219426
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           180,
+           195
+          ],
+          "location": [
+           128.97532,
+           35.222441
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           19,
+           193,
+           199
+          ],
+          "location": [
+           128.980817,
+           35.235467
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           165,
+           180
+          ],
+          "location": [
+           128.983549,
+           35.255924
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           180,
+           345
+          ],
+          "location": [
+           128.983508,
+           35.256238
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           345
+          ],
+          "location": [
+           128.982565,
+           35.262911
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           180,
+           195
+          ],
+          "location": [
+           128.984584,
+           35.275157
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 306,
+         "bearing_before": 307,
+         "location": [
+          128.982313,
+          35.193283
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           128.982313,
+           35.193283
+          ],
+          [
+           128.981494,
+           35.193796
+          ],
+          [
+           128.980989,
+           35.194176
+          ],
+          [
+           128.980537,
+           35.194567
+          ],
+          [
+           128.980112,
+           35.194986
+          ],
+          [
+           128.979471,
+           35.195715
+          ],
+          [
+           128.977959,
+           35.197507
+          ],
+          [
+           128.976754,
+           35.198925
+          ],
+          [
+           128.976304,
+           35.199454
+          ],
+          [
+           128.975718,
+           35.200174
+          ],
+          [
+           128.975399,
+           35.200625
+          ],
+          [
+           128.975237,
+           35.200899
+          ],
+          [
+           128.975118,
+           35.201118
+          ],
+          [
+           128.974937,
+           35.20152
+          ],
+          [
+           128.974828,
+           35.201788
+          ],
+          [
+           128.974742,
+           35.202063
+          ],
+          [
+           128.974657,
+           35.202396
+          ],
+          [
+           128.974583,
+           35.202746
+          ],
+          [
+           128.974534,
+           35.203132
+          ],
+          [
+           128.974506,
+           35.203494
+          ],
+          [
+           128.974491,
+           35.203921
+          ],
+          [
+           128.974482,
+           35.204464
+          ],
+          [
+           128.974452,
+           35.204882
+          ],
+          [
+           128.974424,
+           35.205793
+          ],
+          [
+           128.974417,
+           35.206152
+          ],
+          [
+           128.974398,
+           35.206905
+          ],
+          [
+           128.974361,
+           35.208197
+          ],
+          [
+           128.974312,
+           35.209697
+          ],
+          [
+           128.974263,
+           35.211173
+          ],
+          [
+           128.974244,
+           35.212169
+          ],
+          [
+           128.974242,
+           35.212804
+          ],
+          [
+           128.974222,
+           35.214084
+          ],
+          [
+           128.974219,
+           35.215161
+          ],
+          [
+           128.9742,
+           35.216316
+          ],
+          [
+           128.974227,
+           35.216727
+          ],
+          [
+           128.974241,
+           35.218183
+          ],
+          [
+           128.974244,
+           35.218395
+          ],
+          [
+           128.974267,
+           35.21867
+          ],
+          [
+           128.974303,
+           35.219007
+          ],
+          [
+           128.974377,
+           35.219426
+          ],
+          [
+           128.974481,
+           35.219978
+          ],
+          [
+           128.974569,
+           35.220343
+          ],
+          [
+           128.974685,
+           35.220773
+          ],
+          [
+           128.974835,
+           35.221175
+          ],
+          [
+           128.974972,
+           35.221554
+          ],
+          [
+           128.97511,
+           35.221917
+          ],
+          [
+           128.97532,
+           35.222441
+          ],
+          [
+           128.976052,
+           35.224218
+          ],
+          [
+           128.977569,
+           35.22779
+          ],
+          [
+           128.977682,
+           35.228057
+          ],
+          [
+           128.978083,
+           35.229013
+          ],
+          [
+           128.978351,
+           35.229651
+          ],
+          [
+           128.978515,
+           35.230037
+          ],
+          [
+           128.978757,
+           35.23061
+          ],
+          [
+           128.978784,
+           35.230673
+          ],
+          [
+           128.978812,
+           35.230739
+          ],
+          [
+           128.979848,
+           35.233186
+          ],
+          [
+           128.980085,
+           35.233745
+          ],
+          [
+           128.980319,
+           35.234292
+          ],
+          [
+           128.980817,
+           35.235467
+          ],
+          [
+           128.98098,
+           35.23586
+          ],
+          [
+           128.981665,
+           35.237488
+          ],
+          [
+           128.98174,
+           35.237665
+          ],
+          [
+           128.981845,
+           35.237913
+          ],
+          [
+           128.982078,
+           35.238466
+          ],
+          [
+           128.98251,
+           35.23944
+          ],
+          [
+           128.982955,
+           35.240494
+          ],
+          [
+           128.983342,
+           35.241401
+          ],
+          [
+           128.983402,
+           35.241535
+          ],
+          [
+           128.983961,
+           35.242899
+          ],
+          [
+           128.98428,
+           35.243828
+          ],
+          [
+           128.984359,
+           35.24414
+          ],
+          [
+           128.984437,
+           35.244519
+          ],
+          [
+           128.984495,
+           35.244898
+          ],
+          [
+           128.98452,
+           35.24513
+          ],
+          [
+           128.984543,
+           35.245536
+          ],
+          [
+           128.984536,
+           35.245938
+          ],
+          [
+           128.984517,
+           35.246519
+          ],
+          [
+           128.98446,
+           35.2471
+          ],
+          [
+           128.98419,
+           35.24935
+          ],
+          [
+           128.98394,
+           35.25146
+          ],
+          [
+           128.983886,
+           35.251953
+          ],
+          [
+           128.983863,
+           35.252173
+          ],
+          [
+           128.983791,
+           35.25283
+          ],
+          [
+           128.983663,
+           35.253987
+          ],
+          [
+           128.983549,
+           35.255924
+          ],
+          [
+           128.983508,
+           35.256238
+          ],
+          [
+           128.983229,
+           35.257554
+          ],
+          [
+           128.982951,
+           35.259801
+          ],
+          [
+           128.982777,
+           35.261352
+          ],
+          [
+           128.982565,
+           35.262911
+          ],
+          [
+           128.982473,
+           35.26332
+          ],
+          [
+           128.982421,
+           35.263553
+          ],
+          [
+           128.982256,
+           35.264291
+          ],
+          [
+           128.982208,
+           35.264683
+          ],
+          [
+           128.98217,
+           35.265076
+          ],
+          [
+           128.982112,
+           35.265895
+          ],
+          [
+           128.982132,
+           35.266501
+          ],
+          [
+           128.982188,
+           35.267108
+          ],
+          [
+           128.982245,
+           35.267475
+          ],
+          [
+           128.982366,
+           35.268046
+          ],
+          [
+           128.982536,
+           35.268674
+          ],
+          [
+           128.982749,
+           35.26936
+          ],
+          [
+           128.982944,
+           35.269974
+          ],
+          [
+           128.983048,
+           35.270276
+          ],
+          [
+           128.983628,
+           35.272055
+          ],
+          [
+           128.984065,
+           35.273432
+          ],
+          [
+           128.984276,
+           35.274118
+          ],
+          [
+           128.984456,
+           35.274812
+          ],
+          [
+           128.984584,
+           35.275157
+          ],
+          [
+           128.984734,
+           35.275845
+          ],
+          [
+           128.984792,
+           35.276118
+          ],
+          [
+           128.985064,
+           35.277802
+          ],
+          [
+           128.985098,
+           35.278064
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "55",
+        "name": "대구부산고속도로",
+        "mode": "driving",
+        "weight": 439,
+        "duration": 439,
+        "distance": 9833.8
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           3,
+           7,
+           186
+          ],
+          "location": [
+           128.985098,
+           35.278064
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           58,
+           234,
+           241
+          ],
+          "location": [
+           128.989082,
+           35.283136
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.985098,
+           35.278064
+          ],
+          [
+           128.985302,
+           35.279344
+          ],
+          [
+           128.985361,
+           35.27964
+          ],
+          [
+           128.98542,
+           35.279825
+          ],
+          [
+           128.985525,
+           35.280053
+          ],
+          [
+           128.985629,
+           35.280296
+          ],
+          [
+           128.985795,
+           35.280612
+          ],
+          [
+           128.985929,
+           35.280813
+          ],
+          [
+           128.986062,
+           35.280979
+          ],
+          [
+           128.986317,
+           35.281266
+          ],
+          [
+           128.98639,
+           35.281348
+          ],
+          [
+           128.986679,
+           35.281618
+          ],
+          [
+           128.986996,
+           35.281859
+          ],
+          [
+           128.987174,
+           35.281982
+          ],
+          [
+           128.987635,
+           35.282289
+          ],
+          [
+           128.989082,
+           35.283136
+          ],
+          [
+           128.989669,
+           35.283435
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 7,
+         "bearing_before": 5,
+         "location": [
+          128.985098,
+          35.278064
+         ],
+         "modifier": "slight right",
+         "type": "off ramp"
+        },
+        "destinations": "551: 울산, 양산",
+        "name": "",
+        "mode": "driving",
+        "weight": 57.6,
+        "duration": 57.6,
+        "distance": 768.6
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           67,
+           238,
+           247
+          ],
+          "location": [
+           128.989669,
+           35.283435
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           30,
+           195
+          ],
+          "location": [
+           129.011795,
+           35.306205
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           180,
+           195
+          ],
+          "location": [
+           129.013143,
+           35.311996
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 66,
+         "bearing_before": 57,
+         "location": [
+          128.989669,
+          35.283435
+         ],
+         "modifier": "slight left",
+         "type": "merge"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           128.989669,
+           35.283435
+          ],
+          [
+           128.99107,
+           35.28392
+          ],
+          [
+           128.991551,
+           35.284087
+          ],
+          [
+           128.9918,
+           35.28418
+          ],
+          [
+           128.993798,
+           35.284857
+          ],
+          [
+           128.994665,
+           35.285187
+          ],
+          [
+           128.995397,
+           35.285511
+          ],
+          [
+           128.995814,
+           35.28574
+          ],
+          [
+           128.99674,
+           35.28633
+          ],
+          [
+           128.99745,
+           35.286806
+          ],
+          [
+           128.999241,
+           35.288176
+          ],
+          [
+           129.000713,
+           35.289293
+          ],
+          [
+           129.004493,
+           35.292126
+          ],
+          [
+           129.006152,
+           35.293386
+          ],
+          [
+           129.006859,
+           35.293926
+          ],
+          [
+           129.007271,
+           35.294271
+          ],
+          [
+           129.007608,
+           35.294596
+          ],
+          [
+           129.007892,
+           35.294885
+          ],
+          [
+           129.008125,
+           35.295126
+          ],
+          [
+           129.008324,
+           35.295359
+          ],
+          [
+           129.008584,
+           35.29571
+          ],
+          [
+           129.008928,
+           35.296221
+          ],
+          [
+           129.009339,
+           35.29704
+          ],
+          [
+           129.009539,
+           35.297573
+          ],
+          [
+           129.009706,
+           35.297929
+          ],
+          [
+           129.010004,
+           35.298972
+          ],
+          [
+           129.010296,
+           35.300134
+          ],
+          [
+           129.011649,
+           35.305589
+          ],
+          [
+           129.011795,
+           35.306205
+          ],
+          [
+           129.012138,
+           35.30769
+          ],
+          [
+           129.012515,
+           35.309335
+          ],
+          [
+           129.013143,
+           35.311996
+          ],
+          [
+           129.013691,
+           35.314352
+          ],
+          [
+           129.013807,
+           35.31469
+          ],
+          [
+           129.013974,
+           35.315169
+          ],
+          [
+           129.014273,
+           35.315842
+          ],
+          [
+           129.01481,
+           35.3169
+          ],
+          [
+           129.015786,
+           35.318201
+          ],
+          [
+           129.016278,
+           35.318751
+          ],
+          [
+           129.017,
+           35.319399
+          ],
+          [
+           129.017543,
+           35.319845
+          ],
+          [
+           129.018254,
+           35.320381
+          ],
+          [
+           129.01893,
+           35.320819
+          ],
+          [
+           129.019778,
+           35.321395
+          ],
+          [
+           129.020589,
+           35.32197
+          ],
+          [
+           129.021413,
+           35.322537
+          ],
+          [
+           129.021723,
+           35.322715
+          ],
+          [
+           129.022889,
+           35.323468
+          ],
+          [
+           129.02296,
+           35.323523
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "551",
+        "name": "중앙고속도로지선",
+        "mode": "driving",
+        "weight": 256.6,
+        "duration": 256.6,
+        "distance": 5702.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           60,
+           225
+          ],
+          "location": [
+           129.02296,
+           35.323523
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           135,
+           300,
+           315
+          ],
+          "location": [
+           129.02671,
+           35.32424
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.02296,
+           35.323523
+          ],
+          [
+           129.023321,
+           35.323719
+          ],
+          [
+           129.023862,
+           35.324056
+          ],
+          [
+           129.0243,
+           35.324282
+          ],
+          [
+           129.024629,
+           35.324384
+          ],
+          [
+           129.025135,
+           35.324478
+          ],
+          [
+           129.025461,
+           35.324501
+          ],
+          [
+           129.025726,
+           35.324499
+          ],
+          [
+           129.026026,
+           35.324467
+          ],
+          [
+           129.02633,
+           35.324419
+          ],
+          [
+           129.02671,
+           35.32424
+          ],
+          [
+           129.027906,
+           35.323458
+          ],
+          [
+           129.027957,
+           35.323423
+          ],
+          [
+           129.028011,
+           35.323385
+          ],
+          [
+           129.028886,
+           35.322791
+          ],
+          [
+           129.029108,
+           35.322649
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 56,
+         "bearing_before": 50,
+         "location": [
+          129.02296,
+          35.323523
+         ],
+         "modifier": "slight right",
+         "type": "off ramp"
+        },
+        "destinations": "남양산IC",
+        "name": "",
+        "mode": "driving",
+        "weight": 79,
+        "duration": 79,
+        "distance": 657.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           105,
+           150,
+           315
+          ],
+          "location": [
+           129.029108,
+           35.322649
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.029108,
+           35.322649
+          ],
+          [
+           129.029321,
+           35.322582
+          ],
+          [
+           129.029528,
+           35.322506
+          ],
+          [
+           129.029781,
+           35.32245
+          ],
+          [
+           129.030025,
+           35.322416
+          ],
+          [
+           129.030371,
+           35.32242
+          ],
+          [
+           129.030554,
+           35.322456
+          ],
+          [
+           129.030721,
+           35.322494
+          ],
+          [
+           129.030829,
+           35.322521
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 111,
+         "bearing_before": 127,
+         "location": [
+          129.029108,
+          35.322649
+         ],
+         "modifier": "slight left",
+         "type": "fork"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 13,
+        "duration": 13,
+        "distance": 162.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           75,
+           105,
+           255
+          ],
+          "location": [
+           129.030829,
+           35.322521
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.030829,
+           35.322521
+          ],
+          [
+           129.030975,
+           35.322556
+          ],
+          [
+           129.031091,
+           35.322586
+          ],
+          [
+           129.031208,
+           35.322628
+          ],
+          [
+           129.031304,
+           35.322675
+          ],
+          [
+           129.031389,
+           35.322728
+          ],
+          [
+           129.031504,
+           35.322812
+          ],
+          [
+           129.031596,
+           35.322901
+          ],
+          [
+           129.031645,
+           35.322967
+          ],
+          [
+           129.031681,
+           35.323035
+          ],
+          [
+           129.031737,
+           35.323128
+          ],
+          [
+           129.031757,
+           35.323256
+          ],
+          [
+           129.031757,
+           35.323425
+          ],
+          [
+           129.03174,
+           35.323533
+          ],
+          [
+           129.031702,
+           35.32364
+          ],
+          [
+           129.031641,
+           35.323737
+          ],
+          [
+           129.031568,
+           35.323829
+          ],
+          [
+           129.031459,
+           35.323954
+          ],
+          [
+           129.03138,
+           35.324049
+          ],
+          [
+           129.031306,
+           35.324158
+          ],
+          [
+           129.031257,
+           35.324298
+          ],
+          [
+           129.031238,
+           35.324411
+          ],
+          [
+           129.03126,
+           35.324528
+          ],
+          [
+           129.031305,
+           35.324646
+          ],
+          [
+           129.031352,
+           35.324788
+          ],
+          [
+           129.031398,
+           35.324958
+          ],
+          [
+           129.031486,
+           35.325216
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 73,
+         "bearing_before": 71,
+         "location": [
+          129.030829,
+          35.322521
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 28.7,
+        "duration": 28.7,
+        "distance": 358.1
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           45,
+           195,
+           210
+          ],
+          "location": [
+           129.031486,
+           35.325216
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           90,
+           225
+          ],
+          "location": [
+           129.031629,
+           35.325349
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           105,
+           240
+          ],
+          "location": [
+           129.033059,
+           35.326318
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           165,
+           225
+          ],
+          "location": [
+           129.03337,
+           35.326589
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           120,
+           210
+          ],
+          "location": [
+           129.033757,
+           35.327033
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           135,
+           210
+          ],
+          "location": [
+           129.033863,
+           35.3272
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           210,
+           285
+          ],
+          "location": [
+           129.034315,
+           35.328181
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           75,
+           210
+          ],
+          "location": [
+           129.03436,
+           35.328262
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           90,
+           195
+          ],
+          "location": [
+           129.034426,
+           35.328413
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           15,
+           195,
+           330
+          ],
+          "location": [
+           129.034547,
+           35.329018
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 40,
+         "bearing_before": 14,
+         "location": [
+          129.031486,
+          35.325216
+         ],
+         "modifier": "slight right",
+         "type": "turn"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.031486,
+           35.325216
+          ],
+          [
+           129.031629,
+           35.325349
+          ],
+          [
+           129.031819,
+           35.325508
+          ],
+          [
+           129.032044,
+           35.325672
+          ],
+          [
+           129.032488,
+           35.325966
+          ],
+          [
+           129.032806,
+           35.326153
+          ],
+          [
+           129.033059,
+           35.326318
+          ],
+          [
+           129.03337,
+           35.326589
+          ],
+          [
+           129.033575,
+           35.326806
+          ],
+          [
+           129.033757,
+           35.327033
+          ],
+          [
+           129.033863,
+           35.3272
+          ],
+          [
+           129.034004,
+           35.327458
+          ],
+          [
+           129.034159,
+           35.327753
+          ],
+          [
+           129.034174,
+           35.327924
+          ],
+          [
+           129.034315,
+           35.328181
+          ],
+          [
+           129.03436,
+           35.328262
+          ],
+          [
+           129.034426,
+           35.328413
+          ],
+          [
+           129.03444,
+           35.328452
+          ],
+          [
+           129.03451,
+           35.328814
+          ],
+          [
+           129.034547,
+           35.329018
+          ],
+          [
+           129.034556,
+           35.329089
+          ],
+          [
+           129.03458,
+           35.329279
+          ],
+          [
+           129.034601,
+           35.329536
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "35",
+        "name": "양산대로",
+        "mode": "driving",
+        "weight": 33.5,
+        "duration": 33.5,
+        "distance": 582.1
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           75,
+           180,
+           255
+          ],
+          "location": [
+           129.034601,
+           35.329536
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           60,
+           225,
+           240
+          ],
+          "location": [
+           129.035463,
+           35.329886
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           60,
+           238,
+           240
+          ],
+          "location": [
+           129.037182,
+           35.330776
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.034601,
+           35.329536
+          ],
+          [
+           129.035113,
+           35.329704
+          ],
+          [
+           129.035463,
+           35.329886
+          ],
+          [
+           129.037182,
+           35.330776
+          ],
+          [
+           129.037731,
+           35.331036
+          ],
+          [
+           129.038149,
+           35.331214
+          ],
+          [
+           129.038426,
+           35.331299
+          ],
+          [
+           129.038657,
+           35.331343
+          ],
+          [
+           129.038925,
+           35.331377
+          ],
+          [
+           129.039229,
+           35.331373
+          ],
+          [
+           129.039543,
+           35.331351
+          ],
+          [
+           129.039682,
+           35.331323
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 67,
+         "bearing_before": 4,
+         "location": [
+          129.034601,
+          35.329536
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "노포사송로",
+        "mode": "driving",
+        "weight": 39.1,
+        "duration": 39.1,
+        "distance": 515.6
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           105,
+           195,
+           285
+          ],
+          "location": [
+           129.039682,
+           35.331323
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           105,
+           195,
+           270
+          ],
+          "location": [
+           129.039722,
+           35.331447
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           195,
+           270
+          ],
+          "location": [
+           129.039862,
+           35.332016
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           195,
+           345
+          ],
+          "location": [
+           129.039895,
+           35.332148
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           165,
+           345
+          ],
+          "location": [
+           129.0398,
+           35.332477
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 14,
+         "bearing_before": 102,
+         "location": [
+          129.039682,
+          35.331323
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           129.039682,
+           35.331323
+          ],
+          [
+           129.039702,
+           35.331385
+          ],
+          [
+           129.039722,
+           35.331447
+          ],
+          [
+           129.03977,
+           35.331644
+          ],
+          [
+           129.039775,
+           35.331665
+          ],
+          [
+           129.039862,
+           35.332016
+          ],
+          [
+           129.039895,
+           35.332148
+          ],
+          [
+           129.039878,
+           35.332264
+          ],
+          [
+           129.0398,
+           35.332477
+          ],
+          [
+           129.03975,
+           35.332642
+          ],
+          [
+           129.039705,
+           35.332814
+          ],
+          [
+           129.039685,
+           35.332888
+          ],
+          [
+           129.03959,
+           35.33312
+          ],
+          [
+           129.03956,
+           35.33317
+          ],
+          [
+           129.039505,
+           35.333234
+          ],
+          [
+           129.0395,
+           35.33324
+          ],
+          [
+           129.03944,
+           35.3333
+          ],
+          [
+           129.03927,
+           35.33339
+          ],
+          [
+           129.03911,
+           35.33351
+          ],
+          [
+           129.03899,
+           35.33361
+          ],
+          [
+           129.03887,
+           35.33375
+          ],
+          [
+           129.038806,
+           35.333871
+          ],
+          [
+           129.03877,
+           35.33394
+          ],
+          [
+           129.03872,
+           35.3341
+          ],
+          [
+           129.038716,
+           35.3342
+          ],
+          [
+           129.0387,
+           35.3344
+          ],
+          [
+           129.038695,
+           35.334535
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "1077",
+        "name": "중앙로",
+        "mode": "driving",
+        "weight": 30.9,
+        "duration": 30.9,
+        "distance": 391.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           270
+          ],
+          "location": [
+           129.038695,
+           35.334535
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.038695,
+           35.334535
+          ],
+          [
+           129.038417,
+           35.334539
+          ],
+          [
+           129.038118,
+           35.334549
+          ],
+          [
+           129.038042,
+           35.334549
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 270,
+         "bearing_before": 355,
+         "location": [
+          129.038695,
+          35.334535
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 10.2,
+        "duration": 10.2,
+        "distance": 59.4
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.038042,
+           35.334549
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           90,
+           180,
+           270,
+           345
+          ],
+          "location": [
+           129.038033,
+           35.334732
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           270
+          ],
+          "location": [
+           129.038013,
+           35.334834
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.038042,
+           35.334549
+          ],
+          [
+           129.038033,
+           35.334732
+          ],
+          [
+           129.038013,
+           35.334834
+          ],
+          [
+           129.03802,
+           35.335109
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 357,
+         "bearing_before": 271,
+         "location": [
+          129.038042,
+          35.334549
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 35.1,
+        "duration": 20.2,
+        "distance": 62.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           270
+          ],
+          "location": [
+           129.03802,
+           35.335109
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.037862,
+           35.335115
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.037692,
+           35.335119
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.037501,
+           35.335123
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.037317,
+           35.335128
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.03802,
+           35.335109
+          ],
+          [
+           129.037862,
+           35.335115
+          ],
+          [
+           129.037692,
+           35.335119
+          ],
+          [
+           129.037501,
+           35.335123
+          ],
+          [
+           129.037317,
+           35.335128
+          ],
+          [
+           129.037204,
+           35.33513
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 271,
+         "bearing_before": 0,
+         "location": [
+          129.03802,
+          35.335109
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 35.6,
+        "duration": 17.9,
+        "distance": 74.2
+       },
+       {
+        "intersections": [
+         {
+          "in": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           91
+          ],
+          "location": [
+           129.037204,
+           35.33513
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           129.037204,
+           35.33513
+          ],
+          [
+           129.037204,
+           35.33513
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 0,
+         "bearing_before": 271,
+         "location": [
+          129.037204,
+          35.33513
+         ],
+         "modifier": "left",
+         "type": "arrive"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 0,
+        "duration": 0,
+        "distance": 0
+       }
+      ],
+      "weight": 1826.9,
+      "summary": "대구부산고속도로, 중앙고속도로지선",
+      "duration": 1794.3,
+      "distance": 32272.1
+     }
+    ],
+    "weight_name": "routability",
+    "geometry": {
+     "coordinates": [
+      [
+       129.041303,
+       35.11577
+      ],
+      [
+       129.041381,
+       35.115797
+      ],
+      [
+       129.041413,
+       35.115824
+      ],
+      [
+       129.041453,
+       35.115877
+      ],
+      [
+       129.041521,
+       35.115911
+      ],
+      [
+       129.041874,
+       35.115815
+      ],
+      [
+       129.041942,
+       35.115813
+      ],
+      [
+       129.04237,
+       35.116727
+      ],
+      [
+       129.041896,
+       35.116898
+      ],
+      [
+       129.04149,
+       35.117045
+      ],
+      [
+       129.041087,
+       35.117191
+      ],
+      [
+       129.040977,
+       35.117231
+      ],
+      [
+       129.041159,
+       35.117534
+      ],
+      [
+       129.041264,
+       35.117722
+      ],
+      [
+       129.041426,
+       35.118026
+      ],
+      [
+       129.041645,
+       35.118457
+      ],
+      [
+       129.041725,
+       35.118608
+      ],
+      [
+       129.04192,
+       35.118967
+      ],
+      [
+       129.042078,
+       35.119243
+      ],
+      [
+       129.042302,
+       35.119639
+      ],
+      [
+       129.042446,
+       35.119903
+      ],
+      [
+       129.042921,
+       35.119744
+      ],
+      [
+       129.043337,
+       35.119605
+      ],
+      [
+       129.043941,
+       35.119406
+      ],
+      [
+       129.045022,
+       35.119044
+      ],
+      [
+       129.045183,
+       35.118993
+      ],
+      [
+       129.045312,
+       35.118952
+      ],
+      [
+       129.045677,
+       35.118819
+      ],
+      [
+       129.045752,
+       35.1188
+      ],
+      [
+       129.045894,
+       35.118801
+      ],
+      [
+       129.045992,
+       35.118841
+      ],
+      [
+       129.046087,
+       35.118958
+      ],
+      [
+       129.046318,
+       35.119373
+      ],
+      [
+       129.046408,
+       35.119481
+      ],
+      [
+       129.046581,
+       35.11972
+      ],
+      [
+       129.046659,
+       35.119881
+      ],
+      [
+       129.046753,
+       35.119928
+      ],
+      [
+       129.046887,
+       35.119958
+      ],
+      [
+       129.047075,
+       35.119709
+      ],
+      [
+       129.04716,
+       35.119841
+      ],
+      [
+       129.047273,
+       35.120106
+      ],
+      [
+       129.047759,
+       35.121069
+      ],
+      [
+       129.048737,
+       35.123164
+      ],
+      [
+       129.048842,
+       35.123393
+      ],
+      [
+       129.048871,
+       35.123506
+      ],
+      [
+       129.048939,
+       35.123904
+      ],
+      [
+       129.048979,
+       35.12405
+      ],
+      [
+       129.049064,
+       35.124245
+      ],
+      [
+       129.049167,
+       35.124421
+      ],
+      [
+       129.049285,
+       35.124573
+      ],
+      [
+       129.049501,
+       35.124763
+      ],
+      [
+       129.049675,
+       35.124892
+      ],
+      [
+       129.049891,
+       35.125022
+      ],
+      [
+       129.050695,
+       35.125438
+      ],
+      [
+       129.051079,
+       35.125592
+      ],
+      [
+       129.051538,
+       35.125762
+      ],
+      [
+       129.051876,
+       35.12585
+      ],
+      [
+       129.052183,
+       35.125882
+      ],
+      [
+       129.052298,
+       35.125893
+      ],
+      [
+       129.05251,
+       35.126076
+      ],
+      [
+       129.054169,
+       35.126224
+      ],
+      [
+       129.054394,
+       35.126258
+      ],
+      [
+       129.05458,
+       35.126296
+      ],
+      [
+       129.054737,
+       35.126362
+      ],
+      [
+       129.054823,
+       35.126398
+      ],
+      [
+       129.054967,
+       35.12647
+      ],
+      [
+       129.054925,
+       35.126605
+      ],
+      [
+       129.054829,
+       35.127134
+      ],
+      [
+       129.054814,
+       35.127221
+      ],
+      [
+       129.054729,
+       35.128104
+      ],
+      [
+       129.054661,
+       35.128371
+      ],
+      [
+       129.054648,
+       35.128501
+      ],
+      [
+       129.054527,
+       35.129583
+      ],
+      [
+       129.054487,
+       35.129962
+      ],
+      [
+       129.054395,
+       35.130543
+      ],
+      [
+       129.05436,
+       35.130689
+      ],
+      [
+       129.054314,
+       35.130835
+      ],
+      [
+       129.054185,
+       35.131118
+      ],
+      [
+       129.054064,
+       35.13133
+      ],
+      [
+       129.053919,
+       35.131542
+      ],
+      [
+       129.053777,
+       35.131707
+      ],
+      [
+       129.053563,
+       35.131914
+      ],
+      [
+       129.053309,
+       35.132127
+      ],
+      [
+       129.052847,
+       35.13248
+      ],
+      [
+       129.052007,
+       35.133117
+      ],
+      [
+       129.051593,
+       35.133435
+      ],
+      [
+       129.036604,
+       35.143766
+      ],
+      [
+       129.03602,
+       35.144203
+      ],
+      [
+       129.034969,
+       35.145367
+      ],
+      [
+       129.034412,
+       35.146504
+      ],
+      [
+       129.033787,
+       35.148106
+      ],
+      [
+       129.033385,
+       35.149683
+      ],
+      [
+       129.033355,
+       35.149807
+      ],
+      [
+       129.032948,
+       35.151107
+      ],
+      [
+       129.032738,
+       35.151796
+      ],
+      [
+       129.032238,
+       35.153758
+      ],
+      [
+       129.03213,
+       35.154302
+      ],
+      [
+       129.032098,
+       35.154763
+      ],
+      [
+       129.032035,
+       35.155925
+      ],
+      [
+       129.031903,
+       35.158347
+      ],
+      [
+       129.031854,
+       35.158943
+      ],
+      [
+       129.031744,
+       35.159405
+      ],
+      [
+       129.031349,
+       35.160545
+      ],
+      [
+       129.030609,
+       35.162614
+      ],
+      [
+       129.030377,
+       35.163282
+      ],
+      [
+       129.030115,
+       35.163823
+      ],
+      [
+       129.029842,
+       35.164298
+      ],
+      [
+       129.029555,
+       35.164776
+      ],
+      [
+       129.029223,
+       35.165263
+      ],
+      [
+       129.028734,
+       35.165998
+      ],
+      [
+       129.028572,
+       35.1663
+      ],
+      [
+       129.028334,
+       35.166713
+      ],
+      [
+       129.028023,
+       35.167373
+      ],
+      [
+       129.027746,
+       35.167975
+      ],
+      [
+       129.027432,
+       35.168654
+      ],
+      [
+       129.02726,
+       35.169013
+      ],
+      [
+       129.026823,
+       35.169678
+      ],
+      [
+       129.026583,
+       35.170003
+      ],
+      [
+       129.026371,
+       35.170275
+      ],
+      [
+       129.026084,
+       35.170567
+      ],
+      [
+       129.025804,
+       35.170852
+      ],
+      [
+       129.025003,
+       35.171432
+      ],
+      [
+       129.004325,
+       35.18533
+      ],
+      [
+       129.004032,
+       35.185461
+      ],
+      [
+       129.003554,
+       35.185658
+      ],
+      [
+       129.003126,
+       35.185781
+      ],
+      [
+       129.002567,
+       35.18594
+      ],
+      [
+       129.00207,
+       35.186002
+      ],
+      [
+       129.001337,
+       35.186016
+      ],
+      [
+       129.000085,
+       35.185903
+      ],
+      [
+       128.999407,
+       35.185886
+      ],
+      [
+       128.998964,
+       35.185878
+      ],
+      [
+       128.998365,
+       35.18584
+      ],
+      [
+       128.997686,
+       35.185849
+      ],
+      [
+       128.995687,
+       35.186041
+      ],
+      [
+       128.995272,
+       35.186077
+      ],
+      [
+       128.994593,
+       35.186121
+      ],
+      [
+       128.992704,
+       35.186221
+      ],
+      [
+       128.991061,
+       35.186297
+      ],
+      [
+       128.990675,
+       35.186372
+      ],
+      [
+       128.990227,
+       35.186503
+      ],
+      [
+       128.989856,
+       35.186663
+      ],
+      [
+       128.989578,
+       35.186816
+      ],
+      [
+       128.989305,
+       35.187016
+      ],
+      [
+       128.989119,
+       35.187155
+      ],
+      [
+       128.988961,
+       35.187312
+      ],
+      [
+       128.988709,
+       35.187616
+      ],
+      [
+       128.98804,
+       35.188556
+      ],
+      [
+       128.986999,
+       35.190126
+      ],
+      [
+       128.986681,
+       35.190565
+      ],
+      [
+       128.986315,
+       35.190934
+      ],
+      [
+       128.985694,
+       35.191358
+      ],
+      [
+       128.984737,
+       35.191764
+      ],
+      [
+       128.983726,
+       35.192365
+      ],
+      [
+       128.982313,
+       35.193283
+      ],
+      [
+       128.981494,
+       35.193796
+      ],
+      [
+       128.980989,
+       35.194176
+      ],
+      [
+       128.980537,
+       35.194567
+      ],
+      [
+       128.980112,
+       35.194986
+      ],
+      [
+       128.979471,
+       35.195715
+      ],
+      [
+       128.977959,
+       35.197507
+      ],
+      [
+       128.976754,
+       35.198925
+      ],
+      [
+       128.976304,
+       35.199454
+      ],
+      [
+       128.975718,
+       35.200174
+      ],
+      [
+       128.975399,
+       35.200625
+      ],
+      [
+       128.975237,
+       35.200899
+      ],
+      [
+       128.975118,
+       35.201118
+      ],
+      [
+       128.974937,
+       35.20152
+      ],
+      [
+       128.974828,
+       35.201788
+      ],
+      [
+       128.974742,
+       35.202063
+      ],
+      [
+       128.974657,
+       35.202396
+      ],
+      [
+       128.974583,
+       35.202746
+      ],
+      [
+       128.974534,
+       35.203132
+      ],
+      [
+       128.974506,
+       35.203494
+      ],
+      [
+       128.974491,
+       35.203921
+      ],
+      [
+       128.974482,
+       35.204464
+      ],
+      [
+       128.974452,
+       35.204882
+      ],
+      [
+       128.974424,
+       35.205793
+      ],
+      [
+       128.974417,
+       35.206152
+      ],
+      [
+       128.974398,
+       35.206905
+      ],
+      [
+       128.974361,
+       35.208197
+      ],
+      [
+       128.974312,
+       35.209697
+      ],
+      [
+       128.974263,
+       35.211173
+      ],
+      [
+       128.974244,
+       35.212169
+      ],
+      [
+       128.974242,
+       35.212804
+      ],
+      [
+       128.974222,
+       35.214084
+      ],
+      [
+       128.974219,
+       35.215161
+      ],
+      [
+       128.9742,
+       35.216316
+      ],
+      [
+       128.974227,
+       35.216727
+      ],
+      [
+       128.974241,
+       35.218183
+      ],
+      [
+       128.974244,
+       35.218395
+      ],
+      [
+       128.974267,
+       35.21867
+      ],
+      [
+       128.974303,
+       35.219007
+      ],
+      [
+       128.974377,
+       35.219426
+      ],
+      [
+       128.974481,
+       35.219978
+      ],
+      [
+       128.974569,
+       35.220343
+      ],
+      [
+       128.974685,
+       35.220773
+      ],
+      [
+       128.974835,
+       35.221175
+      ],
+      [
+       128.974972,
+       35.221554
+      ],
+      [
+       128.97511,
+       35.221917
+      ],
+      [
+       128.97532,
+       35.222441
+      ],
+      [
+       128.976052,
+       35.224218
+      ],
+      [
+       128.977569,
+       35.22779
+      ],
+      [
+       128.977682,
+       35.228057
+      ],
+      [
+       128.978083,
+       35.229013
+      ],
+      [
+       128.978351,
+       35.229651
+      ],
+      [
+       128.978515,
+       35.230037
+      ],
+      [
+       128.978757,
+       35.23061
+      ],
+      [
+       128.978784,
+       35.230673
+      ],
+      [
+       128.978812,
+       35.230739
+      ],
+      [
+       128.979848,
+       35.233186
+      ],
+      [
+       128.980085,
+       35.233745
+      ],
+      [
+       128.980319,
+       35.234292
+      ],
+      [
+       128.980817,
+       35.235467
+      ],
+      [
+       128.98098,
+       35.23586
+      ],
+      [
+       128.981665,
+       35.237488
+      ],
+      [
+       128.98174,
+       35.237665
+      ],
+      [
+       128.981845,
+       35.237913
+      ],
+      [
+       128.982078,
+       35.238466
+      ],
+      [
+       128.98251,
+       35.23944
+      ],
+      [
+       128.982955,
+       35.240494
+      ],
+      [
+       128.983342,
+       35.241401
+      ],
+      [
+       128.983402,
+       35.241535
+      ],
+      [
+       128.983961,
+       35.242899
+      ],
+      [
+       128.98428,
+       35.243828
+      ],
+      [
+       128.984359,
+       35.24414
+      ],
+      [
+       128.984437,
+       35.244519
+      ],
+      [
+       128.984495,
+       35.244898
+      ],
+      [
+       128.98452,
+       35.24513
+      ],
+      [
+       128.984543,
+       35.245536
+      ],
+      [
+       128.984536,
+       35.245938
+      ],
+      [
+       128.984517,
+       35.246519
+      ],
+      [
+       128.98446,
+       35.2471
+      ],
+      [
+       128.98419,
+       35.24935
+      ],
+      [
+       128.98394,
+       35.25146
+      ],
+      [
+       128.983886,
+       35.251953
+      ],
+      [
+       128.983863,
+       35.252173
+      ],
+      [
+       128.983791,
+       35.25283
+      ],
+      [
+       128.983663,
+       35.253987
+      ],
+      [
+       128.983549,
+       35.255924
+      ],
+      [
+       128.983508,
+       35.256238
+      ],
+      [
+       128.983229,
+       35.257554
+      ],
+      [
+       128.982951,
+       35.259801
+      ],
+      [
+       128.982777,
+       35.261352
+      ],
+      [
+       128.982565,
+       35.262911
+      ],
+      [
+       128.982473,
+       35.26332
+      ],
+      [
+       128.982421,
+       35.263553
+      ],
+      [
+       128.982256,
+       35.264291
+      ],
+      [
+       128.982208,
+       35.264683
+      ],
+      [
+       128.98217,
+       35.265076
+      ],
+      [
+       128.982112,
+       35.265895
+      ],
+      [
+       128.982132,
+       35.266501
+      ],
+      [
+       128.982188,
+       35.267108
+      ],
+      [
+       128.982245,
+       35.267475
+      ],
+      [
+       128.982366,
+       35.268046
+      ],
+      [
+       128.982536,
+       35.268674
+      ],
+      [
+       128.982749,
+       35.26936
+      ],
+      [
+       128.982944,
+       35.269974
+      ],
+      [
+       128.983048,
+       35.270276
+      ],
+      [
+       128.983628,
+       35.272055
+      ],
+      [
+       128.984065,
+       35.273432
+      ],
+      [
+       128.984276,
+       35.274118
+      ],
+      [
+       128.984456,
+       35.274812
+      ],
+      [
+       128.984584,
+       35.275157
+      ],
+      [
+       128.984734,
+       35.275845
+      ],
+      [
+       128.984792,
+       35.276118
+      ],
+      [
+       128.985064,
+       35.277802
+      ],
+      [
+       128.985098,
+       35.278064
+      ],
+      [
+       128.985302,
+       35.279344
+      ],
+      [
+       128.985361,
+       35.27964
+      ],
+      [
+       128.98542,
+       35.279825
+      ],
+      [
+       128.985525,
+       35.280053
+      ],
+      [
+       128.985629,
+       35.280296
+      ],
+      [
+       128.985795,
+       35.280612
+      ],
+      [
+       128.985929,
+       35.280813
+      ],
+      [
+       128.986062,
+       35.280979
+      ],
+      [
+       128.986317,
+       35.281266
+      ],
+      [
+       128.98639,
+       35.281348
+      ],
+      [
+       128.986679,
+       35.281618
+      ],
+      [
+       128.986996,
+       35.281859
+      ],
+      [
+       128.987174,
+       35.281982
+      ],
+      [
+       128.987635,
+       35.282289
+      ],
+      [
+       128.989082,
+       35.283136
+      ],
+      [
+       128.989669,
+       35.283435
+      ],
+      [
+       128.99107,
+       35.28392
+      ],
+      [
+       128.991551,
+       35.284087
+      ],
+      [
+       128.9918,
+       35.28418
+      ],
+      [
+       128.993798,
+       35.284857
+      ],
+      [
+       128.994665,
+       35.285187
+      ],
+      [
+       128.995397,
+       35.285511
+      ],
+      [
+       128.995814,
+       35.28574
+      ],
+      [
+       128.99674,
+       35.28633
+      ],
+      [
+       128.99745,
+       35.286806
+      ],
+      [
+       128.999241,
+       35.288176
+      ],
+      [
+       129.000713,
+       35.289293
+      ],
+      [
+       129.004493,
+       35.292126
+      ],
+      [
+       129.006152,
+       35.293386
+      ],
+      [
+       129.006859,
+       35.293926
+      ],
+      [
+       129.007271,
+       35.294271
+      ],
+      [
+       129.007608,
+       35.294596
+      ],
+      [
+       129.007892,
+       35.294885
+      ],
+      [
+       129.008125,
+       35.295126
+      ],
+      [
+       129.008324,
+       35.295359
+      ],
+      [
+       129.008584,
+       35.29571
+      ],
+      [
+       129.008928,
+       35.296221
+      ],
+      [
+       129.009339,
+       35.29704
+      ],
+      [
+       129.009539,
+       35.297573
+      ],
+      [
+       129.009706,
+       35.297929
+      ],
+      [
+       129.010004,
+       35.298972
+      ],
+      [
+       129.010296,
+       35.300134
+      ],
+      [
+       129.011649,
+       35.305589
+      ],
+      [
+       129.011795,
+       35.306205
+      ],
+      [
+       129.012138,
+       35.30769
+      ],
+      [
+       129.012515,
+       35.309335
+      ],
+      [
+       129.013143,
+       35.311996
+      ],
+      [
+       129.013691,
+       35.314352
+      ],
+      [
+       129.013807,
+       35.31469
+      ],
+      [
+       129.013974,
+       35.315169
+      ],
+      [
+       129.014273,
+       35.315842
+      ],
+      [
+       129.01481,
+       35.3169
+      ],
+      [
+       129.015786,
+       35.318201
+      ],
+      [
+       129.016278,
+       35.318751
+      ],
+      [
+       129.017,
+       35.319399
+      ],
+      [
+       129.017543,
+       35.319845
+      ],
+      [
+       129.018254,
+       35.320381
+      ],
+      [
+       129.01893,
+       35.320819
+      ],
+      [
+       129.019778,
+       35.321395
+      ],
+      [
+       129.020589,
+       35.32197
+      ],
+      [
+       129.021413,
+       35.322537
+      ],
+      [
+       129.021723,
+       35.322715
+      ],
+      [
+       129.022889,
+       35.323468
+      ],
+      [
+       129.02296,
+       35.323523
+      ],
+      [
+       129.023321,
+       35.323719
+      ],
+      [
+       129.023862,
+       35.324056
+      ],
+      [
+       129.0243,
+       35.324282
+      ],
+      [
+       129.024629,
+       35.324384
+      ],
+      [
+       129.025135,
+       35.324478
+      ],
+      [
+       129.025461,
+       35.324501
+      ],
+      [
+       129.025726,
+       35.324499
+      ],
+      [
+       129.026026,
+       35.324467
+      ],
+      [
+       129.02633,
+       35.324419
+      ],
+      [
+       129.02671,
+       35.32424
+      ],
+      [
+       129.027906,
+       35.323458
+      ],
+      [
+       129.027957,
+       35.323423
+      ],
+      [
+       129.028011,
+       35.323385
+      ],
+      [
+       129.028886,
+       35.322791
+      ],
+      [
+       129.029108,
+       35.322649
+      ],
+      [
+       129.029321,
+       35.322582
+      ],
+      [
+       129.029528,
+       35.322506
+      ],
+      [
+       129.029781,
+       35.32245
+      ],
+      [
+       129.030025,
+       35.322416
+      ],
+      [
+       129.030371,
+       35.32242
+      ],
+      [
+       129.030554,
+       35.322456
+      ],
+      [
+       129.030721,
+       35.322494
+      ],
+      [
+       129.030829,
+       35.322521
+      ],
+      [
+       129.030975,
+       35.322556
+      ],
+      [
+       129.031091,
+       35.322586
+      ],
+      [
+       129.031208,
+       35.322628
+      ],
+      [
+       129.031304,
+       35.322675
+      ],
+      [
+       129.031389,
+       35.322728
+      ],
+      [
+       129.031504,
+       35.322812
+      ],
+      [
+       129.031596,
+       35.322901
+      ],
+      [
+       129.031645,
+       35.322967
+      ],
+      [
+       129.031681,
+       35.323035
+      ],
+      [
+       129.031737,
+       35.323128
+      ],
+      [
+       129.031757,
+       35.323256
+      ],
+      [
+       129.031757,
+       35.323425
+      ],
+      [
+       129.03174,
+       35.323533
+      ],
+      [
+       129.031702,
+       35.32364
+      ],
+      [
+       129.031641,
+       35.323737
+      ],
+      [
+       129.031568,
+       35.323829
+      ],
+      [
+       129.031459,
+       35.323954
+      ],
+      [
+       129.03138,
+       35.324049
+      ],
+      [
+       129.031306,
+       35.324158
+      ],
+      [
+       129.031257,
+       35.324298
+      ],
+      [
+       129.031238,
+       35.324411
+      ],
+      [
+       129.03126,
+       35.324528
+      ],
+      [
+       129.031305,
+       35.324646
+      ],
+      [
+       129.031352,
+       35.324788
+      ],
+      [
+       129.031398,
+       35.324958
+      ],
+      [
+       129.031486,
+       35.325216
+      ],
+      [
+       129.031629,
+       35.325349
+      ],
+      [
+       129.031819,
+       35.325508
+      ],
+      [
+       129.032044,
+       35.325672
+      ],
+      [
+       129.032488,
+       35.325966
+      ],
+      [
+       129.032806,
+       35.326153
+      ],
+      [
+       129.033059,
+       35.326318
+      ],
+      [
+       129.03337,
+       35.326589
+      ],
+      [
+       129.033575,
+       35.326806
+      ],
+      [
+       129.033757,
+       35.327033
+      ],
+      [
+       129.033863,
+       35.3272
+      ],
+      [
+       129.034004,
+       35.327458
+      ],
+      [
+       129.034159,
+       35.327753
+      ],
+      [
+       129.034174,
+       35.327924
+      ],
+      [
+       129.034315,
+       35.328181
+      ],
+      [
+       129.03436,
+       35.328262
+      ],
+      [
+       129.034426,
+       35.328413
+      ],
+      [
+       129.03444,
+       35.328452
+      ],
+      [
+       129.03451,
+       35.328814
+      ],
+      [
+       129.034547,
+       35.329018
+      ],
+      [
+       129.034556,
+       35.329089
+      ],
+      [
+       129.03458,
+       35.329279
+      ],
+      [
+       129.034601,
+       35.329536
+      ],
+      [
+       129.035113,
+       35.329704
+      ],
+      [
+       129.035463,
+       35.329886
+      ],
+      [
+       129.037182,
+       35.330776
+      ],
+      [
+       129.037731,
+       35.331036
+      ],
+      [
+       129.038149,
+       35.331214
+      ],
+      [
+       129.038426,
+       35.331299
+      ],
+      [
+       129.038657,
+       35.331343
+      ],
+      [
+       129.038925,
+       35.331377
+      ],
+      [
+       129.039229,
+       35.331373
+      ],
+      [
+       129.039543,
+       35.331351
+      ],
+      [
+       129.039682,
+       35.331323
+      ],
+      [
+       129.039702,
+       35.331385
+      ],
+      [
+       129.039722,
+       35.331447
+      ],
+      [
+       129.03977,
+       35.331644
+      ],
+      [
+       129.039775,
+       35.331665
+      ],
+      [
+       129.039862,
+       35.332016
+      ],
+      [
+       129.039895,
+       35.332148
+      ],
+      [
+       129.039878,
+       35.332264
+      ],
+      [
+       129.0398,
+       35.332477
+      ],
+      [
+       129.03975,
+       35.332642
+      ],
+      [
+       129.039705,
+       35.332814
+      ],
+      [
+       129.039685,
+       35.332888
+      ],
+      [
+       129.03959,
+       35.33312
+      ],
+      [
+       129.03956,
+       35.33317
+      ],
+      [
+       129.039505,
+       35.333234
+      ],
+      [
+       129.0395,
+       35.33324
+      ],
+      [
+       129.03944,
+       35.3333
+      ],
+      [
+       129.03927,
+       35.33339
+      ],
+      [
+       129.03911,
+       35.33351
+      ],
+      [
+       129.03899,
+       35.33361
+      ],
+      [
+       129.03887,
+       35.33375
+      ],
+      [
+       129.038806,
+       35.333871
+      ],
+      [
+       129.03877,
+       35.33394
+      ],
+      [
+       129.03872,
+       35.3341
+      ],
+      [
+       129.038716,
+       35.3342
+      ],
+      [
+       129.0387,
+       35.3344
+      ],
+      [
+       129.038695,
+       35.334535
+      ],
+      [
+       129.038417,
+       35.334539
+      ],
+      [
+       129.038118,
+       35.334549
+      ],
+      [
+       129.038042,
+       35.334549
+      ],
+      [
+       129.038033,
+       35.334732
+      ],
+      [
+       129.038013,
+       35.334834
+      ],
+      [
+       129.03802,
+       35.335109
+      ],
+      [
+       129.037862,
+       35.335115
+      ],
+      [
+       129.037692,
+       35.335119
+      ],
+      [
+       129.037501,
+       35.335123
+      ],
+      [
+       129.037317,
+       35.335128
+      ],
+      [
+       129.037204,
+       35.33513
+      ]
+     ],
+     "type": "LineString"
+    },
+    "weight": 1826.9,
+    "duration": 1794.3,
+    "distance": 32272.1
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "tAcDif___38WAAAAFgAAAJ0BAAA_AAAAXJwVQQAAAACGICxDs4_QQRYAAAAWAAAAnQEAAD8AAABucAAAlwOxB_rSFwJcBLEHXNAXAg4APwUAAAAA",
+    "location": [
+     129.041303,
+     35.11577
+    ],
+    "name": "",
+    "distance": 76.4698376
+   },
+   {
+    "hint": "jLUmhZG1JoUfAAAAMgAAAAAAAAAAAAAA_ZzRQJ5uJEEAAAAAAAAAAA8AAAAZAAAAAAAAAAAAAABucAAAlPOwB9orGwKQ87AHWCsbAgAAvwUAAAAA",
+    "location": [
+     129.037204,
+     35.33513
+    ],
+    "name": "",
+    "distance": 14.42763492
+   }
+  ]
+ }
+}

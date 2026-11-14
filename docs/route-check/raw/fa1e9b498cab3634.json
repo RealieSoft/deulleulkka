@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.188800,36.444700?number=3",
+ "fetched_utc": "2026-11-14T02:58:23Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     519603183,
+     519603182
+    ],
+    "hint": "NcZBgItPV4EAAAAAIgAAANIAAAArAQAAAAAAAF7IF0JGxmhDxn6mQwAAAAAiAAAA0gAAACsBAABucAAAbryUB7cWLAJAv5QHHBosAgoA3xIAAAAA",
+    "location": [
+     127.188078,
+     36.443831
+    ],
+    "name": "창벽로",
+    "distance": 116.1506664
+   },
+   {
+    "nodes": [
+     519603182,
+     519603201
+    ],
+    "hint": "NcZBgItPV4FDAAAAAAAAAI8AAABNAQAAUFaVQgAAAAAeGx5D0Xe5Q0MAAAAAAAAAjwAAAE0BAABucAAAbryUB7cWLAJAv5QHHBosAggADxMAAAAA",
+    "location": [
+     127.188078,
+     36.443831
+    ],
+    "name": "창벽로",
+    "distance": 116.1506664
+   },
+   {
+    "nodes": [
+     519603185,
+     519603183
+    ],
+    "hint": "NcZBgItPV4EAAAAAGgAAAPQAAAARAQAAAAAAABAq6UEvXIdDJeyXQwAAAAAaAAAA9AAAABEBAABucAAAB7uUB2wXLAJAv5QHHBosAgwAPxIAAAAA",
+    "location": [
+     127.187719,
+     36.444012
+    ],
+    "name": "창벽로",
+    "distance": 123.3945244
+   }
+  ]
+ }
+}

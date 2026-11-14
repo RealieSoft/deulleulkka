@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.112400,36.461200?number=3",
+ "fetched_utc": "2026-11-14T02:55:35Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     364709493,
+     364709495
+    ],
+    "hint": "m5IqgPqP7IgkAAAAGAAAABUAAAAyAAAAFdReQhGHEUJadQFCAZ2ZQiQAAAAYAAAAFQAAADIAAABucAAAxJKTB6xZLALQlJMHkFosAgIAfwkAAAAA",
+    "location": [
+     127.111876,
+     36.460972
+    ],
+    "name": "고마나루길",
+    "distance": 53.34269052
+   },
+   {
+    "nodes": [
+     364709490,
+     364709493
+    ],
+    "hint": "m5IqgPqP7IgAAAAAKAAAAFEAAAAKAAAAAAAAAIr-dEJA6PhC3u14QQAAAAAoAAAAUQAAAAoAAABucAAAhpOTB4xYLALQlJMHkFosAgQAzwkAAAAA",
+    "location": [
+     127.11207,
+     36.460684
+    ],
+    "name": "고마나루길",
+    "distance": 64.44605331
+   },
+   {
+    "nodes": [
+     364709495,
+     364709497
+    ],
+    "hint": "m5IqgPqP7IgVAAAAAAAAAAAAAABuAAAAWnUBQgAAAAAAAAAASuUoQxUAAAAAAAAAAAAAAG4AAABucAAAm5GTB2VbLALQlJMHkFosAgAAPwkAAAAA",
+    "location": [
+     127.111579,
+     36.461413
+    ],
+    "name": "고마나루길",
+    "distance": 77.28117202
+   }
+  ]
+ }
+}

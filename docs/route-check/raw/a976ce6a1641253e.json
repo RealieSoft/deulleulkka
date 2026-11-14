@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/128.529078,38.317779;128.523425,38.334281;128.457500,38.446700?overview=false&bearings=330,30;;&continue_straight=false",
+ "fetched_utc": "2026-11-14T03:01:02Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 161.4,
+      "summary": "",
+      "duration": 161.4,
+      "distance": 1999.4
+     },
+     {
+      "steps": [],
+      "weight": 1082.8,
+      "summary": "",
+      "duration": 1082.8,
+      "distance": 16785.3
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1244.2,
+    "duration": 1244.2,
+    "distance": 18784.7
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "WyF9h____38GAAAADgAAAK8AAAAAAAAAVZgXQcacPkFoLohDAAAAAAYAAAAOAAAArwAAAAAAAABucAAAtjKpB9OuSAK2MqkH065IAgwArxQAAAAA",
+    "location": [
+     128.529078,
+     38.317779
+    ],
+    "name": "동해대로",
+    "distance": 0
+   },
+   {
+    "hint": "ri4Ehr4uBIY-AAAAAAAAAMwAAAAAAAAAp0QtQgAAAADGfg1DAAAAAD4AAAAAAAAAzAAAAAAAAABucAAAoRypB0nvSAKhHKkHSe9IAgQAXwEAAAAA",
+    "location": [
+     128.523425,
+     38.334281
+    ],
+    "name": "",
+    "distance": 0
+   },
+   {
+    "hint": "hLQDhrG1A4ZIAAAAAAAAAAAAAAAAAAAAbhxHQgAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAABucAAAFRioB0SnSgIcG6gHbKZKAgAALwMAAAAA",
+    "location": [
+     128.456725,
+     38.446916
+    ],
+    "name": "",
+    "distance": 71.79735737
+   }
+  ]
+ }
+}

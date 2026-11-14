@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/129.232388,35.840585;129.100000,35.840000?overview=false&bearings=210,30;",
+ "fetched_utc": "2026-11-14T03:27:00Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1064.4,
+      "summary": "",
+      "duration": 1064.4,
+      "distance": 15857.8
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1064.4,
+    "duration": 1064.4,
+    "distance": 15857.8
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "COU2gF8AOgUFAAAAAwAAAAAAAAAhAAAAukoUQQ57o0AAAAAA0pBrQgUAAAADAAAAAAAAACEAAABucAAABO6zB0niIgIE7rMHSeIiAgAALw0AAAAA",
+    "location": [
+     129.232388,
+     35.840585
+    ],
+    "name": "분황로",
+    "distance": 0
+   },
+   {
+    "hint": "BYddhzWHXYcNAAAAHgAAADcBAAAaAAAAhH8ZQWhXoEEQUFhDsjiOQQ0AAAAeAAAANwEAABoAAABucAAAmemxB5DgIgLg6LEHAOAiAgoAfwgAAAAA",
+    "location": [
+     129.100185,
+     35.840144
+    ],
+    "name": "",
+    "distance": 23.12454606
+   }
+  ]
+ }
+}

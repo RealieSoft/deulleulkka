@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.084281,37.142971;127.112900,36.992100?overview=false&bearings=164,30;",
+ "fetched_utc": "2026-11-14T03:01:24Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1141.7,
+      "summary": "",
+      "duration": 1102.1,
+      "distance": 22452.4
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1141.7,
+    "duration": 1102.1,
+    "distance": 22452.4
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "n282gP___38MAAAAEAAAAH4AAABSAAAA1nbvQbefFUHM85pDUlRHQwwAAAAQAAAAfgAAAFIAAABucAAA-SaTB7vBNgL5JpMHu8E2Ag4APwoAAAAA",
+    "location": [
+     127.084281,
+     37.142971
+    ],
+    "name": "경부고속도로",
+    "distance": 0
+   },
+   {
+    "hint": "t4MphP___38jAAAAUgAAAAAAAAAAAAAAzDryQHmwGUEAAAAAAAAAABEAAAApAAAAAAAAAAAAAABucAAA0JaTB0B0NALElpMHZHQ0AgAA7w8AAAAA",
+    "location": [
+     127.112912,
+     36.992064
+    ],
+    "name": "",
+    "distance": 4.135591789
+   }
+  ]
+ }
+}

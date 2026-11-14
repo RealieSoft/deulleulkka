@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/128.436671,38.088407;128.205000,38.124000?overview=false&bearings=294,30;",
+ "fetched_utc": "2026-11-14T03:01:16Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1549.2,
+      "summary": "",
+      "duration": 1549.2,
+      "distance": 27399.4
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1549.2,
+    "duration": 1549.2,
+    "distance": 27399.4
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "xYCNgKN20AgBAAAADgAAAH0DAADqAAAAzG3rP388yEGkaMpEEzLSQwEAAAAOAAAAfQMAAOoAAABucAAAv8mnB9cuRQK_yacH1y5FApoAXxIAAAAA",
+    "location": [
+     128.436671,
+     38.088407
+    ],
+    "name": "설악로",
+    "distance": 0
+   },
+   {
+    "hint": "Yo5qgEJvWIQRAAAACwAAAAAAAABIAAAA2ZNDQRAZ5kAAAAAAswRJQhEAAAALAAAAAAAAAEgAAABucAAAqUCkByy6RQLIQKQH4LlFAgAAjwQAAAAA",
+    "location": [
+     128.204969,
+     38.124076
+    ],
+    "name": "원통로",
+    "distance": 8.863018962
+   }
+  ]
+ }
+}

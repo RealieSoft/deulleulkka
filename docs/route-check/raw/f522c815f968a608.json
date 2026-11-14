@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.071000,37.150000?number=5",
+ "fetched_utc": "2026-11-14T03:04:27Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     3339350647,
+     3339350605
+    ],
+    "hint": "9rCggjuxoIInAAAABwAAAI0AAAAAAAAAAXDbQUsSh0AjZ8RCAAAAACcAAAAHAAAAjQAAAAAAAABucAAA8PWSBxvdNgIY85IHMN02AgIAbwsAAAAA",
+    "location": [
+     127.071728,
+     37.149979
+    ],
+    "name": "",
+    "distance": 64.73623178
+   },
+   {
+    "nodes": [
+     3339350647,
+     3339350627
+    ],
+    "hint": "UPBigTyxoIJXAAAAAAAAAFAAAAAAAAAA6adxQgAAAACjE11CAAAAAFcAAAAAAAAAUAAAAAAAAABucAAA7vWSB_XcNgIY85IHMN02AgIALwAAAAAA",
+    "location": [
+     127.071726,
+     37.149941
+    ],
+    "name": "",
+    "distance": 64.84795456
+   },
+   {
+    "nodes": [
+     3339350647,
+     3339350645
+    ],
+    "hint": "OLGggj2xoIKOAAAAAAAAAAAAAAAAAAAAZprEQgAAAAAAAAAAAAAAAI4AAAAAAAAAAAAAAAAAAABucAAA7vWSB_XcNgIY85IHMN02AgAA_xAAAAAA",
+    "location": [
+     127.071726,
+     37.149941
+    ],
+    "name": "",
+    "distance": 64.84795456
+   },
+   {
+    "nodes": [
+     13086549130.0,
+     13084826810.0
+    ],
+    "hint": "kIxniWy3Z4lUAAAABgAAAAAAAAAAAAAAQ4hqQjeGg0AAAAAAAAAAAFQAAAAGAAAAAAAAAAAAAABucAAALPCSB0XdNgIY85IHMN02AgAALwAAAAAA",
+    "location": [
+     127.070252,
+     37.150021
+    ],
+    "name": "성호새싹길",
+    "distance": 66.46870449
+   },
+   {
+    "nodes": [
+     13086549130.0,
+     13086549130.0
+    ],
+    "hint": "brdniXG3Z4kAAAAA7wAAAAAAAAAAAAAAAAAAAE7HxkIAAAAAAAAAAAAAAADvAAAAAAAAAAAAAABucAAALvCSB2rdNgIY85IHMN02AgAA7xAAAAAA",
+    "location": [
+     127.070254,
+     37.150058
+    ],
+    "name": "",
+    "distance": 66.56218922
+   }
+  ]
+ }
+}

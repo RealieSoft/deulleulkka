@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.085783,37.154235;127.067619,37.145160;127.112900,36.992100?overview=false&bearings=200,30;;",
+ "fetched_utc": "2026-11-14T03:05:29Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 226,
+      "summary": "",
+      "duration": 226,
+      "distance": 2902.9
+     },
+     {
+      "steps": [],
+      "weight": 1335.6,
+      "summary": "",
+      "duration": 1296,
+      "distance": 24390.7
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1561.6,
+    "duration": 1522,
+    "distance": 27293.6
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "C282gP___38mAAAAiwAAAAAAAAAiAQAASx28QuJvdUMAAAAAIZIwRCYAAACLAAAAAAAAACIBAABucAAA1yyTB7vtNgLXLJMHu-02AgAAjwwAAAAA",
+    "location": [
+     127.085783,
+     37.154235
+    ],
+    "name": "경부고속도로",
+    "distance": 0
+   },
+   {
+    "hint": "1xZjgYVEKYdjAAAAJwAAAAAAAAA4AAAA3Y6JQkG11UEAAAAA8Q8cQmMAAAAnAAAAAAAAADgAAABucAAA4-WSB0jKNgLj5ZIHSMo2AgAATwAAAAAA",
+    "location": [
+     127.067619,
+     37.14516
+    ],
+    "name": "역광장로",
+    "distance": 0
+   },
+   {
+    "hint": "t4MphP___38jAAAAUgAAAAAAAAAAAAAAzDryQHmwGUEAAAAAAAAAABEAAAApAAAAAAAAAAAAAABucAAA0JaTB0B0NALElpMHZHQ0AgAA7w8AAAAA",
+    "location": [
+     127.112912,
+     36.992064
+    ],
+    "name": "",
+    "distance": 4.135591789
+   }
+  ]
+ }
+}

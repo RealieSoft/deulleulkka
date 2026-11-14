@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.503383,37.816022;127.524155,37.811260;127.716800,37.884600?overview=false&bearings=62,30;;",
+ "fetched_utc": "2026-11-14T03:00:49Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 199.8,
+      "summary": "",
+      "duration": 199.8,
+      "distance": 2283.2
+     },
+     {
+      "steps": [],
+      "weight": 1982.5,
+      "summary": "",
+      "duration": 1982.5,
+      "distance": 29860.4
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 2182.3,
+    "duration": 2182.3,
+    "distance": 32143.6
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "Em9Iif___38OAAAAIwAAAIEBAABgAAAAjVHUQeUBEkLW9SREsJMtQw4AAAAjAAAAgQEAAGAAAABucAAAF4yZB9YGQQIXjJkH1gZBAhYA7wMAAAAA",
+    "location": [
+     127.503383,
+     37.816022
+    ],
+    "name": "경춘로",
+    "distance": 0
+   },
+   {
+    "hint": "_tkmgpPYm4MDAAAAAAAAAJ4AAAAAAAAA0o3lPwAAAAAXY9tCAAAAAAMAAAAAAAAAngAAAAAAAABucAAAO92ZBzz0QAI73ZkHPPRAAggAPwMAAAAA",
+    "location": [
+     127.524155,
+     37.81126
+    ],
+    "name": "",
+    "distance": 0
+   },
+   {
+    "hint": "Lew8iDHsPIgJAAAAAAAAADoAAAApAAAAyk1wQAAAAAAJXcJBzyaHQQkAAAAAAAAAOgAAACkAAABucAAAKc-cB9oRQgLAzZwHuBJCAgIAPxAAAAAA",
+    "location": [
+     127.717161,
+     37.884378
+    ],
+    "name": "",
+    "distance": 40.19877578
+   }
+  ]
+ }
+}

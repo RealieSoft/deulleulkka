@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.748089,35.533035;127.390400,35.416400?overview=false&bearings=277,30;",
+ "fetched_utc": "2026-11-14T03:27:28Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1956.9,
+      "summary": "",
+      "duration": 1956.9,
+      "distance": 41493.5
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1956.9,
+    "duration": 1956.9,
+    "distance": 41493.5
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "RW42gP___38fAAAAOgAAAHQAAABWAAAA2KaMQmYXakJUx4FDUks_Qx8AAAA6AAAAdAAAAFYAAABucAAA-UedB-swHgL5R50H6zAeAgYAXxEAAAAA",
+    "location": [
+     127.748089,
+     35.533035
+    ],
+    "name": "광주대구고속도로",
+    "distance": 0
+   },
+   {
+    "hint": "PFnRgz5Z0YPgAAAAaQAAAAAAAAAAAAAA-xu7QrltLkIAAAAAAAAAAOAAAABpAAAAAAAAAAAAAABucAAAktOXB19oHALA0pcHUGkcAgAAbwMAAAAA",
+    "location": [
+     127.39061,
+     35.416159
+    ],
+    "name": "",
+    "distance": 32.84278452
+   }
+  ]
+ }
+}

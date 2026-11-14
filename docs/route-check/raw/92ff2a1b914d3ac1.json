@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/128.581000,35.869300?number=5",
+ "fetched_utc": "2026-11-14T03:21:18Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     3465333527,
+     3465333529
+    ],
+    "hint": "UmM3gOsfAoMeAAAAagAAAHkAAABJAAAAozqqQV_MkULSBahCfXlJQh4AAABqAAAAeQAAAEkAAABucAAAxP2pB-lPIwKI_akHdFIjAgIAnxAAAAAA",
+    "location": [
+     128.58106,
+     35.868649
+    ],
+    "name": "큰장로26길",
+    "distance": 72.43573814
+   },
+   {
+    "nodes": [
+     3465333529,
+     436833420
+    ],
+    "hint": "UmM3gOsfAoN5AAAAAAAAAAAAAADRAAAA0gWoQgAAAAAAAAAA4osQQ3kAAAAAAAAAAAAAANEAAABucAAAr_6pB_dPIwKI_akHdFIjAgAArxAAAAAA",
+    "location": [
+     128.581295,
+     35.868663
+    ],
+    "name": "큰장로26길",
+    "distance": 75.53329732
+   },
+   {
+    "nodes": [
+     3889231071,
+     3465333527
+    ],
+    "hint": "UmM3gOsfAoMAAAAASQAAAAEBAAAAAAAAAAAAAH15SUJsMDJDAAAAAAAAAABJAAAAAQEAAAAAAABucAAAn_qpB7hPIwKI_akHdFIjAgQAnxAAAAAA",
+    "location": [
+     128.580255,
+     35.8686
+    ],
+    "name": "큰장로26길",
+    "distance": 102.7564129
+   },
+   {
+    "nodes": [
+     12669106890.0,
+     12669106890.0
+    ],
+    "hint": "lJcwgP___38QAAAAGAAAAEkAAAAmAAAAraTBQYXeP0G-X99COHRpQhAAAAAYAAAASQAAACYAAABucAAATQKqB5lSIwKI_akHdFIjAgQAHwsAAAAA",
+    "location": [
+     128.582221,
+     35.869337
+    ],
+    "name": "달성로",
+    "distance": 110.3397348
+   },
+   {
+    "nodes": [
+     3889230927,
+     3889230927
+    ],
+    "hint": "lJcwgP___38AAAAAJgAAAGEAAAAAAAAAAAAAADh0aUJd4hNDAAAAAAAAAAAmAAAAYQAAAAAAAABucAAAUgKqBy1SIwKI_akHdFIjAgYATwsAAAAA",
+    "location": [
+     128.582226,
+     35.869229
+    ],
+    "name": "달성로",
+    "distance": 110.9947859
+   }
+  ]
+ }
+}

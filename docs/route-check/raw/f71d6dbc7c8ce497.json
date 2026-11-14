@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.503383,37.816022;127.716800,37.884600?overview=false&bearings=62,30;",
+ "fetched_utc": "2026-11-14T03:00:45Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1882,
+      "summary": "",
+      "duration": 1882,
+      "distance": 29034.2
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1882,
+    "duration": 1882,
+    "distance": 29034.2
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "Em9Iif___38OAAAAIwAAAIEBAABgAAAAjVHUQeUBEkLW9SREsJMtQw4AAAAjAAAAgQEAAGAAAABucAAAF4yZB9YGQQIXjJkH1gZBAhYA7wMAAAAA",
+    "location": [
+     127.503383,
+     37.816022
+    ],
+    "name": "경춘로",
+    "distance": 0
+   },
+   {
+    "hint": "Lew8iDHsPIgJAAAAAAAAADoAAAApAAAAyk1wQAAAAAAJXcJBzyaHQQkAAAAAAAAAOgAAACkAAABucAAAKc-cB9oRQgLAzZwHuBJCAgIAPxAAAAAA",
+    "location": [
+     127.717161,
+     37.884378
+    ],
+    "name": "",
+    "distance": 40.19877578
+   }
+  ]
+ }
+}

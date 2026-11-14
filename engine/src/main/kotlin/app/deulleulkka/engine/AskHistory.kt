@@ -10,6 +10,9 @@ enum class Answer {
 
     /** 8초 동안 답이 없었다. */
     NO_ANSWER,
+
+    /** 넣은 뒤 8초 안에 "취소"라고 했거나 "넣기 취소"를 눌렀다. 그 이동에서는 다시 묻지 않고, 다음 이동부터는 다시 묻는다. */
+    CANCEL,
 }
 
 /**
@@ -34,7 +37,7 @@ data class AskHistory(
         val asked = askedThisTrip + placeId
         val snoozed = askAgainFrom + (placeId to today + settings.snoozeDays)
         return when (answer) {
-            Answer.ACCEPT -> copy(askedThisTrip = asked, noAnswerCount = noAnswerCount - placeId)
+            Answer.ACCEPT, Answer.CANCEL -> copy(askedThisTrip = asked, noAnswerCount = noAnswerCount - placeId)
             Answer.LATER -> copy(askedThisTrip = asked, askAgainFrom = snoozed, noAnswerCount = noAnswerCount - placeId)
             Answer.NO_ANSWER -> {
                 val count = (noAnswerCount[placeId] ?: 0) + 1

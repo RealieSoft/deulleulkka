@@ -1,0 +1,9825 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/128.591800,38.207000;128.457500,38.446700?overview=full&geometries=geojson&steps=true",
+ "fetched_utc": "2026-11-14T02:57:11Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           91
+          ],
+          "location": [
+           128.591804,
+           38.207253
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.591804,
+           38.207253
+          ],
+          [
+           128.591919,
+           38.207252
+          ],
+          [
+           128.592453,
+           38.207253
+          ],
+          [
+           128.592766,
+           38.207251
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 91,
+         "bearing_before": 0,
+         "location": [
+          128.591804,
+          38.207253
+         ],
+         "modifier": "right",
+         "type": "depart"
+        },
+        "name": "중앙로187번길",
+        "mode": "driving",
+        "weight": 16.6,
+        "duration": 16.6,
+        "distance": 84.2
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           180,
+           270
+          ],
+          "location": [
+           128.592766,
+           38.207251
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           270
+          ],
+          "location": [
+           128.592936,
+           38.208411
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           180,
+           285
+          ],
+          "location": [
+           128.593011,
+           38.208916
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           90,
+           195
+          ],
+          "location": [
+           128.593088,
+           38.209313
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.592766,
+           38.207251
+          ],
+          [
+           128.592786,
+           38.20741
+          ],
+          [
+           128.59291,
+           38.208238
+          ],
+          [
+           128.592936,
+           38.208411
+          ],
+          [
+           128.593011,
+           38.208916
+          ],
+          [
+           128.593088,
+           38.209313
+          ],
+          [
+           128.593283,
+           38.210277
+          ],
+          [
+           128.593292,
+           38.210336
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 5,
+         "bearing_before": 90,
+         "location": [
+          128.592766,
+          38.207251
+         ],
+         "modifier": "left",
+         "type": "continue"
+        },
+        "name": "중앙로",
+        "mode": "driving",
+        "weight": 31.3,
+        "duration": 31.3,
+        "distance": 345.6
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           false,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           60,
+           180
+          ],
+          "location": [
+           128.593292,
+           38.210336
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.593292,
+           38.210336
+          ],
+          [
+           128.593366,
+           38.210369
+          ],
+          [
+           128.59342,
+           38.210396
+          ],
+          [
+           128.593467,
+           38.210416
+          ],
+          [
+           128.593555,
+           38.210441
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 61,
+         "bearing_before": 5,
+         "location": [
+          128.593292,
+          38.210336
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 2.3,
+        "duration": 2.3,
+        "distance": 25.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           105,
+           240,
+           300
+          ],
+          "location": [
+           128.593555,
+           38.210441
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           75,
+           135,
+           270
+          ],
+          "location": [
+           128.593624,
+           38.210436
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           165,
+           210
+          ],
+          "location": [
+           128.593795,
+           38.210555
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.593555,
+           38.210441
+          ],
+          [
+           128.59359,
+           38.210436
+          ],
+          [
+           128.593624,
+           38.210436
+          ],
+          [
+           128.593683,
+           38.210448
+          ],
+          [
+           128.593735,
+           38.210474
+          ],
+          [
+           128.593773,
+           38.210511
+          ],
+          [
+           128.593795,
+           38.210555
+          ],
+          [
+           128.593799,
+           38.210598
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "exit": 2,
+         "bearing_after": 102,
+         "bearing_before": 61,
+         "location": [
+          128.593555,
+          38.210441
+         ],
+         "modifier": "slight right",
+         "type": "rotary"
+        },
+        "rotary_name": "수복탑사거리",
+        "name": "",
+        "mode": "driving",
+        "weight": 7.3,
+        "duration": 7.3,
+        "distance": 32.1
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           180,
+           345
+          ],
+          "location": [
+           128.593799,
+           38.210598
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           45,
+           195,
+           225
+          ],
+          "location": [
+           128.594084,
+           38.210883
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.593799,
+           38.210598
+          ],
+          [
+           128.593883,
+           38.21072
+          ],
+          [
+           128.593983,
+           38.210812
+          ],
+          [
+           128.594084,
+           38.210883
+          ],
+          [
+           128.594139,
+           38.210937
+          ],
+          [
+           128.594154,
+           38.211017
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "exit": 2,
+         "bearing_after": 37,
+         "bearing_before": 2,
+         "location": [
+          128.593799,
+          38.210598
+         ],
+         "modifier": "slight right",
+         "type": "exit rotary"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 5.2,
+        "duration": 5.2,
+        "distance": 57.4
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           45,
+           210,
+           255
+          ],
+          "location": [
+           128.594154,
+           38.211017
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.594154,
+           38.211017
+          ],
+          [
+           128.594672,
+           38.211401
+          ],
+          [
+           128.595116,
+           38.2117
+          ],
+          [
+           128.595708,
+           38.212035
+          ],
+          [
+           128.596416,
+           38.212424
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 46,
+         "bearing_before": 35,
+         "location": [
+          128.594154,
+          38.211017
+         ],
+         "modifier": "straight",
+         "type": "new name"
+        },
+        "name": "중앙로",
+        "mode": "driving",
+        "weight": 23.7,
+        "duration": 23.7,
+        "distance": 252.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           60,
+           180,
+           240
+          ],
+          "location": [
+           128.596416,
+           38.212424
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           150,
+           315
+          ],
+          "location": [
+           128.596198,
+           38.21386
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           225,
+           315
+          ],
+          "location": [
+           128.595905,
+           38.214132
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           135,
+           255,
+           330
+          ],
+          "location": [
+           128.595277,
+           38.214733
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.594563,
+           38.215576
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.593851,
+           38.216385
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           210,
+           330
+          ],
+          "location": [
+           128.593736,
+           38.216512
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.592986,
+           38.217482
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.591713,
+           38.219112
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.590788,
+           38.220545
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           195,
+           330
+          ],
+          "location": [
+           128.590582,
+           38.220883
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           330
+          ],
+          "location": [
+           128.590256,
+           38.221411
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.590235,
+           38.221445
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.589983,
+           38.221878
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.589103,
+           38.223065
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.588708,
+           38.223494
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           150,
+           330
+          ],
+          "location": [
+           128.588335,
+           38.223937
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.588137,
+           38.224173
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.587674,
+           38.224724
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.587409,
+           38.225016
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.587009,
+           38.225536
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.586353,
+           38.226311
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           315
+          ],
+          "location": [
+           128.582759,
+           38.22928
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           135,
+           315
+          ],
+          "location": [
+           128.580105,
+           38.231255
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           240,
+           315
+          ],
+          "location": [
+           128.579971,
+           38.231359
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           315
+          ],
+          "location": [
+           128.579825,
+           38.231472
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           210,
+           315
+          ],
+          "location": [
+           128.57859,
+           38.232433
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           225,
+           315
+          ],
+          "location": [
+           128.577505,
+           38.233277
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           135,
+           315
+          ],
+          "location": [
+           128.577425,
+           38.233334
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           210,
+           315
+          ],
+          "location": [
+           128.577153,
+           38.233541
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           315
+          ],
+          "location": [
+           128.57497,
+           38.235229
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           240,
+           315
+          ],
+          "location": [
+           128.574897,
+           38.235285
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           135,
+           315
+          ],
+          "location": [
+           128.574689,
+           38.235444
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           285,
+           345
+          ],
+          "location": [
+           128.572635,
+           38.237028
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.596416,
+           38.212424
+          ],
+          [
+           128.59642,
+           38.212632
+          ],
+          [
+           128.59633,
+           38.213697
+          ],
+          [
+           128.596245,
+           38.213816
+          ],
+          [
+           128.596198,
+           38.21386
+          ],
+          [
+           128.595905,
+           38.214132
+          ],
+          [
+           128.595277,
+           38.214733
+          ],
+          [
+           128.594563,
+           38.215576
+          ],
+          [
+           128.594198,
+           38.216002
+          ],
+          [
+           128.593851,
+           38.216385
+          ],
+          [
+           128.593736,
+           38.216512
+          ],
+          [
+           128.592986,
+           38.217482
+          ],
+          [
+           128.592888,
+           38.217588
+          ],
+          [
+           128.592497,
+           38.218047
+          ],
+          [
+           128.592072,
+           38.218567
+          ],
+          [
+           128.591713,
+           38.219112
+          ],
+          [
+           128.591687,
+           38.219169
+          ],
+          [
+           128.590886,
+           38.22039
+          ],
+          [
+           128.590788,
+           38.220545
+          ],
+          [
+           128.590678,
+           38.220725
+          ],
+          [
+           128.590582,
+           38.220883
+          ],
+          [
+           128.590526,
+           38.220973
+          ],
+          [
+           128.590332,
+           38.221288
+          ],
+          [
+           128.590256,
+           38.221411
+          ],
+          [
+           128.590235,
+           38.221445
+          ],
+          [
+           128.589983,
+           38.221878
+          ],
+          [
+           128.589552,
+           38.222518
+          ],
+          [
+           128.589103,
+           38.223065
+          ],
+          [
+           128.588708,
+           38.223494
+          ],
+          [
+           128.588335,
+           38.223937
+          ],
+          [
+           128.588137,
+           38.224173
+          ],
+          [
+           128.587674,
+           38.224724
+          ],
+          [
+           128.587644,
+           38.22476
+          ],
+          [
+           128.587409,
+           38.225016
+          ],
+          [
+           128.587272,
+           38.225194
+          ],
+          [
+           128.587009,
+           38.225536
+          ],
+          [
+           128.586353,
+           38.226311
+          ],
+          [
+           128.585829,
+           38.226948
+          ],
+          [
+           128.585782,
+           38.226994
+          ],
+          [
+           128.585639,
+           38.227135
+          ],
+          [
+           128.585326,
+           38.22738
+          ],
+          [
+           128.585044,
+           38.227591
+          ],
+          [
+           128.58328,
+           38.228917
+          ],
+          [
+           128.582759,
+           38.22928
+          ],
+          [
+           128.580105,
+           38.231255
+          ],
+          [
+           128.579971,
+           38.231359
+          ],
+          [
+           128.579825,
+           38.231472
+          ],
+          [
+           128.57859,
+           38.232433
+          ],
+          [
+           128.577505,
+           38.233277
+          ],
+          [
+           128.577425,
+           38.233334
+          ],
+          [
+           128.577153,
+           38.233541
+          ],
+          [
+           128.575695,
+           38.234651
+          ],
+          [
+           128.575592,
+           38.234729
+          ],
+          [
+           128.57497,
+           38.235229
+          ],
+          [
+           128.574897,
+           38.235285
+          ],
+          [
+           128.574689,
+           38.235444
+          ],
+          [
+           128.572635,
+           38.237028
+          ],
+          [
+           128.572594,
+           38.237128
+          ],
+          [
+           128.572442,
+           38.237262
+          ],
+          [
+           128.572392,
+           38.237315
+          ],
+          [
+           128.572354,
+           38.237372
+          ],
+          [
+           128.572332,
+           38.237419
+          ],
+          [
+           128.572323,
+           38.237482
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 0,
+         "bearing_before": 54,
+         "location": [
+          128.596416,
+          38.212424
+         ],
+         "modifier": "left",
+         "type": "continue"
+        },
+        "name": "중앙로",
+        "mode": "driving",
+        "weight": 327.5,
+        "duration": 327.5,
+        "distance": 3547.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           165,
+           210
+          ],
+          "location": [
+           128.572323,
+           38.237482
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           75,
+           180
+          ],
+          "location": [
+           128.572342,
+           38.237553
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           90,
+           165,
+           315
+          ],
+          "location": [
+           128.572319,
+           38.237657
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.572323,
+           38.237482
+          ],
+          [
+           128.572338,
+           38.237515
+          ],
+          [
+           128.572342,
+           38.237553
+          ],
+          [
+           128.572342,
+           38.23759
+          ],
+          [
+           128.572319,
+           38.237657
+          ],
+          [
+           128.572245,
+           38.23771
+          ],
+          [
+           128.572141,
+           38.23779
+          ],
+          [
+           128.572052,
+           38.237913
+          ],
+          [
+           128.571897,
+           38.238297
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "exit": 2,
+         "bearing_after": 18,
+         "bearing_before": 351,
+         "location": [
+          128.572323,
+          38.237482
+         ],
+         "modifier": "slight right",
+         "type": "roundabout"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 9.4,
+        "duration": 9.4,
+        "distance": 101.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           165,
+           315,
+           345
+          ],
+          "location": [
+           128.571897,
+           38.238297
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           165,
+           345
+          ],
+          "location": [
+           128.571705,
+           38.23885
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           165,
+           345
+          ],
+          "location": [
+           128.570797,
+           38.240816
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           165,
+           345
+          ],
+          "location": [
+           128.570726,
+           38.240991
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           330
+          ],
+          "location": [
+           128.570049,
+           38.242463
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.571897,
+           38.238297
+          ],
+          [
+           128.571833,
+           38.238465
+          ],
+          [
+           128.571705,
+           38.23885
+          ],
+          [
+           128.57147,
+           38.23949
+          ],
+          [
+           128.571329,
+           38.239793
+          ],
+          [
+           128.571197,
+           38.240076
+          ],
+          [
+           128.570867,
+           38.240672
+          ],
+          [
+           128.570797,
+           38.240816
+          ],
+          [
+           128.570726,
+           38.240991
+          ],
+          [
+           128.570462,
+           38.241534
+          ],
+          [
+           128.570242,
+           38.242024
+          ],
+          [
+           128.570049,
+           38.242463
+          ],
+          [
+           128.569887,
+           38.242749
+          ],
+          [
+           128.569754,
+           38.242865
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "exit": 2,
+         "bearing_after": 343,
+         "bearing_before": 344,
+         "location": [
+          128.571897,
+          38.238297
+         ],
+         "modifier": "straight",
+         "type": "exit roundabout"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 65.1,
+        "duration": 65.1,
+        "distance": 542.6
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           165,
+           345
+          ],
+          "location": [
+           128.569754,
+           38.242865
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           255,
+           345
+          ],
+          "location": [
+           128.569393,
+           38.243798
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           330
+          ],
+          "location": [
+           128.568003,
+           38.24705
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           30,
+           150,
+           225,
+           315
+          ],
+          "location": [
+           128.567162,
+           38.248308
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           135,
+           315
+          ],
+          "location": [
+           128.566831,
+           38.248632
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           133,
+           311,
+           319
+          ],
+          "location": [
+           128.566135,
+           38.249178
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           315
+          ],
+          "location": [
+           128.564374,
+           38.25037
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           315
+          ],
+          "location": [
+           128.564079,
+           38.250577
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           130,
+           135,
+           314
+          ],
+          "location": [
+           128.559819,
+           38.25372
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           136,
+           316,
+           321
+          ],
+          "location": [
+           128.558862,
+           38.254472
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           133,
+           142,
+           321
+          ],
+          "location": [
+           128.556165,
+           38.256659
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           9,
+           19,
+           189
+          ],
+          "location": [
+           128.555583,
+           38.259325
+          ]
+         },
+         {
+          "out": 0,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           60,
+           135,
+           195,
+           285
+          ],
+          "location": [
+           128.555727,
+           38.260029
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           165,
+           180
+          ],
+          "location": [
+           128.555768,
+           38.260453
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           180,
+           345
+          ],
+          "location": [
+           128.555568,
+           38.265301
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           150,
+           330
+          ],
+          "location": [
+           128.555125,
+           38.266211
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           150,
+           330
+          ],
+          "location": [
+           128.554605,
+           38.267093
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           150,
+           270,
+           330
+          ],
+          "location": [
+           128.554408,
+           38.267425
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           150,
+           330
+          ],
+          "location": [
+           128.554298,
+           38.267615
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           150,
+           315
+          ],
+          "location": [
+           128.553982,
+           38.268015
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           120,
+           300,
+           330
+          ],
+          "location": [
+           128.551315,
+           38.269748
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           105,
+           120,
+           315
+          ],
+          "location": [
+           128.549636,
+           38.270653
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           45,
+           165
+          ],
+          "location": [
+           128.548274,
+           38.272606
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           120,
+           180,
+           300
+          ],
+          "location": [
+           128.548266,
+           38.27294
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           15,
+           180
+          ],
+          "location": [
+           128.548294,
+           38.273723
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           105,
+           180
+          ],
+          "location": [
+           128.548528,
+           38.277144
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           3,
+           173,
+           183
+          ],
+          "location": [
+           128.548559,
+           38.277571
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           5,
+           182
+          ],
+          "location": [
+           128.54873,
+           38.280609
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           180,
+           270
+          ],
+          "location": [
+           128.548725,
+           38.281406
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           165,
+           180,
+           345
+          ],
+          "location": [
+           128.548684,
+           38.281779
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           240,
+           330
+          ],
+          "location": [
+           128.547814,
+           38.285593
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           3,
+           175,
+           355
+          ],
+          "location": [
+           128.545007,
+           38.291192
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           180,
+           255,
+           345
+          ],
+          "location": [
+           128.544787,
+           38.293024
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           345
+          ],
+          "location": [
+           128.544739,
+           38.293223
+          ]
+         },
+         {
+          "out": 3,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           135,
+           165,
+           345
+          ],
+          "location": [
+           128.544127,
+           38.294702
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           165,
+           285,
+           345
+          ],
+          "location": [
+           128.543657,
+           38.295725
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           240,
+           345
+          ],
+          "location": [
+           128.543435,
+           38.296175
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           345
+          ],
+          "location": [
+           128.542859,
+           38.297406
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           150,
+           330
+          ],
+          "location": [
+           128.541808,
+           38.29948
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.540669,
+           38.30114
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.539686,
+           38.302499
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.539084,
+           38.303342
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           225,
+           330
+          ],
+          "location": [
+           128.538748,
+           38.303795
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.537594,
+           38.305112
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.536746,
+           38.306061
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.5366,
+           38.306221
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.536452,
+           38.306385
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.535815,
+           38.307067
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.534816,
+           38.308409
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           165,
+           300,
+           345
+          ],
+          "location": [
+           128.533605,
+           38.311211
+          ]
+         },
+         {
+          "out": 3,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           135,
+           165,
+           345
+          ],
+          "location": [
+           128.532896,
+           38.313883
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           225,
+           315
+          ],
+          "location": [
+           128.531128,
+           38.315825
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           330,
+           345
+          ],
+          "location": [
+           128.52901,
+           38.317872
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.52837,
+           38.318815
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           144,
+           152,
+           333
+          ],
+          "location": [
+           128.528033,
+           38.319305
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           330,
+           345
+          ],
+          "location": [
+           128.52772,
+           38.319795
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           165,
+           345
+          ],
+          "location": [
+           128.526808,
+           38.321322
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           165,
+           240,
+           345
+          ],
+          "location": [
+           128.525618,
+           38.32482
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           105,
+           165,
+           345
+          ],
+          "location": [
+           128.524868,
+           38.327567
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           165,
+           255,
+           345
+          ],
+          "location": [
+           128.524678,
+           38.328226
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           105,
+           165,
+           345
+          ],
+          "location": [
+           128.52437,
+           38.329343
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           345
+          ],
+          "location": [
+           128.524349,
+           38.32942
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           165,
+           255,
+           345
+          ],
+          "location": [
+           128.524229,
+           38.329845
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           165,
+           330,
+           345
+          ],
+          "location": [
+           128.523643,
+           38.332253
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.523382,
+           38.332651
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           150,
+           315
+          ],
+          "location": [
+           128.523152,
+           38.33291
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           315,
+           330
+          ],
+          "location": [
+           128.51418,
+           38.340449
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           135,
+           315
+          ],
+          "location": [
+           128.513688,
+           38.340932
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           330,
+           345
+          ],
+          "location": [
+           128.512306,
+           38.34243
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           165,
+           345
+          ],
+          "location": [
+           128.511813,
+           38.343354
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           345
+          ],
+          "location": [
+           128.510723,
+           38.345784
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           165,
+           345
+          ],
+          "location": [
+           128.510122,
+           38.347129
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           105,
+           180
+          ],
+          "location": [
+           128.509615,
+           38.348921
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           60,
+           180,
+           255
+          ],
+          "location": [
+           128.509556,
+           38.349478
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           345
+          ],
+          "location": [
+           128.509251,
+           38.351775
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           164,
+           340,
+           351
+          ],
+          "location": [
+           128.508341,
+           38.355884
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           255,
+           345
+          ],
+          "location": [
+           128.508146,
+           38.356301
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           165,
+           240,
+           330
+          ],
+          "location": [
+           128.508135,
+           38.356322
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           150,
+           315
+          ],
+          "location": [
+           128.50762,
+           38.356976
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           135,
+           330
+          ],
+          "location": [
+           128.507536,
+           38.357062
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           330,
+           345
+          ],
+          "location": [
+           128.504258,
+           38.361411
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           60,
+           180,
+           240
+          ],
+          "location": [
+           128.502356,
+           38.372082
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           225,
+           315
+          ],
+          "location": [
+           128.499832,
+           38.376511
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           315,
+           330
+          ],
+          "location": [
+           128.49622,
+           38.379614
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           255,
+           300
+          ],
+          "location": [
+           128.491377,
+           38.380407
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           240,
+           300
+          ],
+          "location": [
+           128.488408,
+           38.379334
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           15,
+           60,
+           180,
+           240
+          ],
+          "location": [
+           128.487995,
+           38.379137
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           90,
+           270
+          ],
+          "location": [
+           128.481448,
+           38.377512
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           97,
+           278,
+           288
+          ],
+          "location": [
+           128.480045,
+           38.377647
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           105,
+           120,
+           300
+          ],
+          "location": [
+           128.47602,
+           38.378342
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           315
+          ],
+          "location": [
+           128.475075,
+           38.378975
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.474367,
+           38.379794
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           330
+          ],
+          "location": [
+           128.47032,
+           38.385305
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           240,
+           315
+          ],
+          "location": [
+           128.470278,
+           38.385353
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           30,
+           195
+          ],
+          "location": [
+           128.467658,
+           38.405404
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           150,
+           195,
+           330
+          ],
+          "location": [
+           128.467947,
+           38.406337
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           165,
+           180
+          ],
+          "location": [
+           128.468,
+           38.407626
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           180,
+           255,
+           345
+          ],
+          "location": [
+           128.467454,
+           38.411599
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           345
+          ],
+          "location": [
+           128.466798,
+           38.414562
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           165,
+           345
+          ],
+          "location": [
+           128.466527,
+           38.41547
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           330,
+           345
+          ],
+          "location": [
+           128.466113,
+           38.416315
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           150,
+           225,
+           315
+          ],
+          "location": [
+           128.465484,
+           38.417108
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           135,
+           315
+          ],
+          "location": [
+           128.464855,
+           38.41765
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           315,
+           330
+          ],
+          "location": [
+           128.457514,
+           38.428632
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           30,
+           135,
+           225,
+           315
+          ],
+          "location": [
+           128.457236,
+           38.428849
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           120,
+           135,
+           315
+          ],
+          "location": [
+           128.45703,
+           38.429019
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 343,
+         "bearing_before": 317,
+         "location": [
+          128.569754,
+          38.242865
+         ],
+         "modifier": "straight",
+         "type": "turn"
+        },
+        "geometry": {
+         "coordinates": [
+          [
+           128.569754,
+           38.242865
+          ],
+          [
+           128.569703,
+           38.242981
+          ],
+          [
+           128.569598,
+           38.243288
+          ],
+          [
+           128.569556,
+           38.243392
+          ],
+          [
+           128.56942,
+           38.24373
+          ],
+          [
+           128.569393,
+           38.243798
+          ],
+          [
+           128.569251,
+           38.244133
+          ],
+          [
+           128.568695,
+           38.245446
+          ],
+          [
+           128.568562,
+           38.245759
+          ],
+          [
+           128.568003,
+           38.24705
+          ],
+          [
+           128.567914,
+           38.247232
+          ],
+          [
+           128.567836,
+           38.247374
+          ],
+          [
+           128.567735,
+           38.247544
+          ],
+          [
+           128.567665,
+           38.247661
+          ],
+          [
+           128.56763,
+           38.247715
+          ],
+          [
+           128.567578,
+           38.247795
+          ],
+          [
+           128.567475,
+           38.247923
+          ],
+          [
+           128.567375,
+           38.248058
+          ],
+          [
+           128.567251,
+           38.248208
+          ],
+          [
+           128.567207,
+           38.248258
+          ],
+          [
+           128.567162,
+           38.248308
+          ],
+          [
+           128.56698,
+           38.248504
+          ],
+          [
+           128.566831,
+           38.248632
+          ],
+          [
+           128.566683,
+           38.248764
+          ],
+          [
+           128.566497,
+           38.248909
+          ],
+          [
+           128.566135,
+           38.249178
+          ],
+          [
+           128.565557,
+           38.249574
+          ],
+          [
+           128.564374,
+           38.25037
+          ],
+          [
+           128.564079,
+           38.250577
+          ],
+          [
+           128.562689,
+           38.251542
+          ],
+          [
+           128.562148,
+           38.251917
+          ],
+          [
+           128.561567,
+           38.252345
+          ],
+          [
+           128.561354,
+           38.252509
+          ],
+          [
+           128.561267,
+           38.252578
+          ],
+          [
+           128.560577,
+           38.253115
+          ],
+          [
+           128.559819,
+           38.25372
+          ],
+          [
+           128.55951,
+           38.253956
+          ],
+          [
+           128.559201,
+           38.254195
+          ],
+          [
+           128.558862,
+           38.254472
+          ],
+          [
+           128.558183,
+           38.255026
+          ],
+          [
+           128.556818,
+           38.256096
+          ],
+          [
+           128.556565,
+           38.256288
+          ],
+          [
+           128.556374,
+           38.256454
+          ],
+          [
+           128.556165,
+           38.256659
+          ],
+          [
+           128.55605,
+           38.256772
+          ],
+          [
+           128.5559,
+           38.256941
+          ],
+          [
+           128.555773,
+           38.257117
+          ],
+          [
+           128.555676,
+           38.257284
+          ],
+          [
+           128.555586,
+           38.257474
+          ],
+          [
+           128.555527,
+           38.257632
+          ],
+          [
+           128.555475,
+           38.257823
+          ],
+          [
+           128.555442,
+           38.258021
+          ],
+          [
+           128.555426,
+           38.258155
+          ],
+          [
+           128.55542,
+           38.258314
+          ],
+          [
+           128.555427,
+           38.25847
+          ],
+          [
+           128.555449,
+           38.258684
+          ],
+          [
+           128.555477,
+           38.258865
+          ],
+          [
+           128.555526,
+           38.25909
+          ],
+          [
+           128.555583,
+           38.259325
+          ],
+          [
+           128.555665,
+           38.259721
+          ],
+          [
+           128.555696,
+           38.259854
+          ],
+          [
+           128.555704,
+           38.259886
+          ],
+          [
+           128.555727,
+           38.260029
+          ],
+          [
+           128.555762,
+           38.260345
+          ],
+          [
+           128.555768,
+           38.260453
+          ],
+          [
+           128.555779,
+           38.260653
+          ],
+          [
+           128.555787,
+           38.26093
+          ],
+          [
+           128.555797,
+           38.261331
+          ],
+          [
+           128.555782,
+           38.262401
+          ],
+          [
+           128.555691,
+           38.26418
+          ],
+          [
+           128.55567,
+           38.264636
+          ],
+          [
+           128.555658,
+           38.264733
+          ],
+          [
+           128.55565,
+           38.264796
+          ],
+          [
+           128.555646,
+           38.264832
+          ],
+          [
+           128.555624,
+           38.265052
+          ],
+          [
+           128.555568,
+           38.265301
+          ],
+          [
+           128.5555,
+           38.26549
+          ],
+          [
+           128.555403,
+           38.265698
+          ],
+          [
+           128.555226,
+           38.266022
+          ],
+          [
+           128.555125,
+           38.266211
+          ],
+          [
+           128.554605,
+           38.267093
+          ],
+          [
+           128.554506,
+           38.267261
+          ],
+          [
+           128.554408,
+           38.267425
+          ],
+          [
+           128.554298,
+           38.267615
+          ],
+          [
+           128.554131,
+           38.267843
+          ],
+          [
+           128.553982,
+           38.268015
+          ],
+          [
+           128.553797,
+           38.268203
+          ],
+          [
+           128.553609,
+           38.268378
+          ],
+          [
+           128.553394,
+           38.268543
+          ],
+          [
+           128.553132,
+           38.268735
+          ],
+          [
+           128.552745,
+           38.26897
+          ],
+          [
+           128.552255,
+           38.269244
+          ],
+          [
+           128.551315,
+           38.269748
+          ],
+          [
+           128.550187,
+           38.270345
+          ],
+          [
+           128.549939,
+           38.270472
+          ],
+          [
+           128.549728,
+           38.270595
+          ],
+          [
+           128.549636,
+           38.270653
+          ],
+          [
+           128.549492,
+           38.270743
+          ],
+          [
+           128.549234,
+           38.270936
+          ],
+          [
+           128.549054,
+           38.271092
+          ],
+          [
+           128.548928,
+           38.271213
+          ],
+          [
+           128.548786,
+           38.271368
+          ],
+          [
+           128.548625,
+           38.271596
+          ],
+          [
+           128.548511,
+           38.271804
+          ],
+          [
+           128.548416,
+           38.272002
+          ],
+          [
+           128.548362,
+           38.272171
+          ],
+          [
+           128.548333,
+           38.272284
+          ],
+          [
+           128.54829,
+           38.272495
+          ],
+          [
+           128.548274,
+           38.272606
+          ],
+          [
+           128.548268,
+           38.272834
+          ],
+          [
+           128.548266,
+           38.27294
+          ],
+          [
+           128.548271,
+           38.273261
+          ],
+          [
+           128.548294,
+           38.273723
+          ],
+          [
+           128.548305,
+           38.273944
+          ],
+          [
+           128.548366,
+           38.274716
+          ],
+          [
+           128.54842,
+           38.2755
+          ],
+          [
+           128.548465,
+           38.276301
+          ],
+          [
+           128.548528,
+           38.277144
+          ],
+          [
+           128.548536,
+           38.277246
+          ],
+          [
+           128.548541,
+           38.27732
+          ],
+          [
+           128.548559,
+           38.277571
+          ],
+          [
+           128.548608,
+           38.278265
+          ],
+          [
+           128.548702,
+           38.279984
+          ],
+          [
+           128.54873,
+           38.280609
+          ],
+          [
+           128.548735,
+           38.281179
+          ],
+          [
+           128.54873,
+           38.281282
+          ],
+          [
+           128.548728,
+           38.281344
+          ],
+          [
+           128.548725,
+           38.281406
+          ],
+          [
+           128.54869,
+           38.281716
+          ],
+          [
+           128.548684,
+           38.281779
+          ],
+          [
+           128.548668,
+           38.281943
+          ],
+          [
+           128.548623,
+           38.282191
+          ],
+          [
+           128.548616,
+           38.282223
+          ],
+          [
+           128.548562,
+           38.2825
+          ],
+          [
+           128.548555,
+           38.282532
+          ],
+          [
+           128.548483,
+           38.282895
+          ],
+          [
+           128.548374,
+           38.283422
+          ],
+          [
+           128.548258,
+           38.283985
+          ],
+          [
+           128.548191,
+           38.284344
+          ],
+          [
+           128.548122,
+           38.28471
+          ],
+          [
+           128.54806,
+           38.284993
+          ],
+          [
+           128.547941,
+           38.285325
+          ],
+          [
+           128.547849,
+           38.285519
+          ],
+          [
+           128.547814,
+           38.285593
+          ],
+          [
+           128.547704,
+           38.285797
+          ],
+          [
+           128.547512,
+           38.286095
+          ],
+          [
+           128.547506,
+           38.286103
+          ],
+          [
+           128.547327,
+           38.286366
+          ],
+          [
+           128.547127,
+           38.286606
+          ],
+          [
+           128.546753,
+           38.287031
+          ],
+          [
+           128.546463,
+           38.287353
+          ],
+          [
+           128.546189,
+           38.287661
+          ],
+          [
+           128.546063,
+           38.287815
+          ],
+          [
+           128.545927,
+           38.287997
+          ],
+          [
+           128.545858,
+           38.288099
+          ],
+          [
+           128.545695,
+           38.288344
+          ],
+          [
+           128.545541,
+           38.288638
+          ],
+          [
+           128.545409,
+           38.288904
+          ],
+          [
+           128.545312,
+           38.289171
+          ],
+          [
+           128.545213,
+           38.28955
+          ],
+          [
+           128.545151,
+           38.289891
+          ],
+          [
+           128.54506,
+           38.290674
+          ],
+          [
+           128.545007,
+           38.291192
+          ],
+          [
+           128.54494,
+           38.291836
+          ],
+          [
+           128.544896,
+           38.292309
+          ],
+          [
+           128.544835,
+           38.292723
+          ],
+          [
+           128.544805,
+           38.292913
+          ],
+          [
+           128.544787,
+           38.293024
+          ],
+          [
+           128.544773,
+           38.29311
+          ],
+          [
+           128.544739,
+           38.293223
+          ],
+          [
+           128.544664,
+           38.293468
+          ],
+          [
+           128.544581,
+           38.293686
+          ],
+          [
+           128.544458,
+           38.293977
+          ],
+          [
+           128.544284,
+           38.294362
+          ],
+          [
+           128.544127,
+           38.294702
+          ],
+          [
+           128.54408,
+           38.294806
+          ],
+          [
+           128.54368,
+           38.295676
+          ],
+          [
+           128.543657,
+           38.295725
+          ],
+          [
+           128.543606,
+           38.295837
+          ],
+          [
+           128.543435,
+           38.296175
+          ],
+          [
+           128.543417,
+           38.296218
+          ],
+          [
+           128.542925,
+           38.297254
+          ],
+          [
+           128.542859,
+           38.297406
+          ],
+          [
+           128.542755,
+           38.297647
+          ],
+          [
+           128.542463,
+           38.298259
+          ],
+          [
+           128.542268,
+           38.298641
+          ],
+          [
+           128.542116,
+           38.298948
+          ],
+          [
+           128.541929,
+           38.299281
+          ],
+          [
+           128.541808,
+           38.29948
+          ],
+          [
+           128.541664,
+           38.299719
+          ],
+          [
+           128.541431,
+           38.30008
+          ],
+          [
+           128.541193,
+           38.300432
+          ],
+          [
+           128.540669,
+           38.30114
+          ],
+          [
+           128.54051,
+           38.301356
+          ],
+          [
+           128.540066,
+           38.301966
+          ],
+          [
+           128.539686,
+           38.302499
+          ],
+          [
+           128.539084,
+           38.303342
+          ],
+          [
+           128.539032,
+           38.303413
+          ],
+          [
+           128.538801,
+           38.303724
+          ],
+          [
+           128.538748,
+           38.303795
+          ],
+          [
+           128.538192,
+           38.304479
+          ],
+          [
+           128.537594,
+           38.305112
+          ],
+          [
+           128.537221,
+           38.30553
+          ],
+          [
+           128.536746,
+           38.306061
+          ],
+          [
+           128.536686,
+           38.306126
+          ],
+          [
+           128.5366,
+           38.306221
+          ],
+          [
+           128.536452,
+           38.306385
+          ],
+          [
+           128.535815,
+           38.307067
+          ],
+          [
+           128.535575,
+           38.307348
+          ],
+          [
+           128.535326,
+           38.307663
+          ],
+          [
+           128.53498,
+           38.308154
+          ],
+          [
+           128.534816,
+           38.308409
+          ],
+          [
+           128.534716,
+           38.308565
+          ],
+          [
+           128.534452,
+           38.309037
+          ],
+          [
+           128.534231,
+           38.309482
+          ],
+          [
+           128.534021,
+           38.309959
+          ],
+          [
+           128.533893,
+           38.310273
+          ],
+          [
+           128.533749,
+           38.310715
+          ],
+          [
+           128.533605,
+           38.311211
+          ],
+          [
+           128.533441,
+           38.311968
+          ],
+          [
+           128.533336,
+           38.312317
+          ],
+          [
+           128.533211,
+           38.312806
+          ],
+          [
+           128.532981,
+           38.313654
+          ],
+          [
+           128.532896,
+           38.313883
+          ],
+          [
+           128.532833,
+           38.314022
+          ],
+          [
+           128.532746,
+           38.314166
+          ],
+          [
+           128.532635,
+           38.314327
+          ],
+          [
+           128.532487,
+           38.314523
+          ],
+          [
+           128.532362,
+           38.314663
+          ],
+          [
+           128.532225,
+           38.314798
+          ],
+          [
+           128.531662,
+           38.315321
+          ],
+          [
+           128.531128,
+           38.315825
+          ],
+          [
+           128.531038,
+           38.315902
+          ],
+          [
+           128.530512,
+           38.316379
+          ],
+          [
+           128.530172,
+           38.316681
+          ],
+          [
+           128.529744,
+           38.317057
+          ],
+          [
+           128.529377,
+           38.317416
+          ],
+          [
+           128.529132,
+           38.317705
+          ],
+          [
+           128.52901,
+           38.317872
+          ],
+          [
+           128.528716,
+           38.318311
+          ],
+          [
+           128.52837,
+           38.318815
+          ],
+          [
+           128.528033,
+           38.319305
+          ],
+          [
+           128.527971,
+           38.319395
+          ],
+          [
+           128.52772,
+           38.319795
+          ],
+          [
+           128.52758,
+           38.320016
+          ],
+          [
+           128.52726,
+           38.320538
+          ],
+          [
+           128.527085,
+           38.320827
+          ],
+          [
+           128.5269,
+           38.321139
+          ],
+          [
+           128.526808,
+           38.321322
+          ],
+          [
+           128.526787,
+           38.321364
+          ],
+          [
+           128.526569,
+           38.321813
+          ],
+          [
+           128.526411,
+           38.322196
+          ],
+          [
+           128.526181,
+           38.322828
+          ],
+          [
+           128.526063,
+           38.323189
+          ],
+          [
+           128.525797,
+           38.324157
+          ],
+          [
+           128.525618,
+           38.32482
+          ],
+          [
+           128.525356,
+           38.325805
+          ],
+          [
+           128.525005,
+           38.327071
+          ],
+          [
+           128.524998,
+           38.327093
+          ],
+          [
+           128.524873,
+           38.327549
+          ],
+          [
+           128.524868,
+           38.327567
+          ],
+          [
+           128.524802,
+           38.327806
+          ],
+          [
+           128.524678,
+           38.328226
+          ],
+          [
+           128.524612,
+           38.328459
+          ],
+          [
+           128.52437,
+           38.329343
+          ],
+          [
+           128.524349,
+           38.32942
+          ],
+          [
+           128.524295,
+           38.329615
+          ],
+          [
+           128.524229,
+           38.329845
+          ],
+          [
+           128.524134,
+           38.330231
+          ],
+          [
+           128.524025,
+           38.331
+          ],
+          [
+           128.52397,
+           38.331286
+          ],
+          [
+           128.523922,
+           38.331508
+          ],
+          [
+           128.52386,
+           38.331724
+          ],
+          [
+           128.523788,
+           38.331923
+          ],
+          [
+           128.523684,
+           38.332178
+          ],
+          [
+           128.523643,
+           38.332253
+          ],
+          [
+           128.523526,
+           38.332445
+          ],
+          [
+           128.523382,
+           38.332651
+          ],
+          [
+           128.523286,
+           38.332761
+          ],
+          [
+           128.523205,
+           38.332854
+          ],
+          [
+           128.523152,
+           38.33291
+          ],
+          [
+           128.523085,
+           38.332969
+          ],
+          [
+           128.523005,
+           38.33304
+          ],
+          [
+           128.522847,
+           38.333172
+          ],
+          [
+           128.522573,
+           38.333365
+          ],
+          [
+           128.520467,
+           38.334802
+          ],
+          [
+           128.520049,
+           38.335093
+          ],
+          [
+           128.519502,
+           38.335493
+          ],
+          [
+           128.519171,
+           38.335746
+          ],
+          [
+           128.518867,
+           38.336008
+          ],
+          [
+           128.517916,
+           38.336899
+          ],
+          [
+           128.516968,
+           38.337797
+          ],
+          [
+           128.516479,
+           38.338277
+          ],
+          [
+           128.51418,
+           38.340449
+          ],
+          [
+           128.513688,
+           38.340932
+          ],
+          [
+           128.51314,
+           38.34144
+          ],
+          [
+           128.512783,
+           38.341807
+          ],
+          [
+           128.512547,
+           38.342084
+          ],
+          [
+           128.512378,
+           38.342298
+          ],
+          [
+           128.512306,
+           38.34243
+          ],
+          [
+           128.512164,
+           38.342643
+          ],
+          [
+           128.512049,
+           38.342856
+          ],
+          [
+           128.511955,
+           38.343056
+          ],
+          [
+           128.511813,
+           38.343354
+          ],
+          [
+           128.511678,
+           38.343643
+          ],
+          [
+           128.511444,
+           38.344141
+          ],
+          [
+           128.511193,
+           38.344738
+          ],
+          [
+           128.510723,
+           38.345784
+          ],
+          [
+           128.510122,
+           38.347129
+          ],
+          [
+           128.510084,
+           38.347218
+          ],
+          [
+           128.509991,
+           38.347447
+          ],
+          [
+           128.509842,
+           38.347837
+          ],
+          [
+           128.509758,
+           38.348109
+          ],
+          [
+           128.5097,
+           38.348327
+          ],
+          [
+           128.509659,
+           38.348566
+          ],
+          [
+           128.509626,
+           38.348813
+          ],
+          [
+           128.509615,
+           38.348921
+          ],
+          [
+           128.509556,
+           38.349478
+          ],
+          [
+           128.509368,
+           38.350798
+          ],
+          [
+           128.509305,
+           38.351417
+          ],
+          [
+           128.509288,
+           38.351528
+          ],
+          [
+           128.509251,
+           38.351775
+          ],
+          [
+           128.509162,
+           38.352194
+          ],
+          [
+           128.509071,
+           38.352648
+          ],
+          [
+           128.508738,
+           38.354301
+          ],
+          [
+           128.508595,
+           38.355039
+          ],
+          [
+           128.5085,
+           38.355429
+          ],
+          [
+           128.508418,
+           38.355676
+          ],
+          [
+           128.508341,
+           38.355884
+          ],
+          [
+           128.508273,
+           38.356065
+          ],
+          [
+           128.508208,
+           38.356198
+          ],
+          [
+           128.508146,
+           38.356301
+          ],
+          [
+           128.508135,
+           38.356322
+          ],
+          [
+           128.508063,
+           38.356429
+          ],
+          [
+           128.507913,
+           38.356623
+          ],
+          [
+           128.507748,
+           38.356818
+          ],
+          [
+           128.50762,
+           38.356976
+          ],
+          [
+           128.507536,
+           38.357062
+          ],
+          [
+           128.505811,
+           38.358837
+          ],
+          [
+           128.505575,
+           38.35911
+          ],
+          [
+           128.505376,
+           38.359388
+          ],
+          [
+           128.505194,
+           38.359687
+          ],
+          [
+           128.504947,
+           38.360176
+          ],
+          [
+           128.504561,
+           38.360944
+          ],
+          [
+           128.504363,
+           38.361273
+          ],
+          [
+           128.504258,
+           38.361411
+          ],
+          [
+           128.504137,
+           38.361571
+          ],
+          [
+           128.503928,
+           38.361815
+          ],
+          [
+           128.503656,
+           38.362069
+          ],
+          [
+           128.503571,
+           38.362147
+          ],
+          [
+           128.503488,
+           38.362222
+          ],
+          [
+           128.502798,
+           38.362851
+          ],
+          [
+           128.502469,
+           38.363203
+          ],
+          [
+           128.502219,
+           38.363539
+          ],
+          [
+           128.501975,
+           38.363916
+          ],
+          [
+           128.501848,
+           38.364159
+          ],
+          [
+           128.501732,
+           38.364409
+          ],
+          [
+           128.50166,
+           38.364588
+          ],
+          [
+           128.501597,
+           38.364791
+          ],
+          [
+           128.501564,
+           38.364919
+          ],
+          [
+           128.501537,
+           38.365063
+          ],
+          [
+           128.501507,
+           38.365275
+          ],
+          [
+           128.50148,
+           38.365618
+          ],
+          [
+           128.501474,
+           38.365824
+          ],
+          [
+           128.501483,
+           38.366025
+          ],
+          [
+           128.501509,
+           38.366301
+          ],
+          [
+           128.501558,
+           38.366633
+          ],
+          [
+           128.501686,
+           38.367483
+          ],
+          [
+           128.501825,
+           38.368547
+          ],
+          [
+           128.501865,
+           38.368804
+          ],
+          [
+           128.501893,
+           38.368994
+          ],
+          [
+           128.501921,
+           38.369155
+          ],
+          [
+           128.501956,
+           38.369383
+          ],
+          [
+           128.502023,
+           38.369819
+          ],
+          [
+           128.502171,
+           38.370876
+          ],
+          [
+           128.502253,
+           38.371391
+          ],
+          [
+           128.502356,
+           38.372082
+          ],
+          [
+           128.502398,
+           38.372341
+          ],
+          [
+           128.502406,
+           38.372603
+          ],
+          [
+           128.502409,
+           38.372828
+          ],
+          [
+           128.502401,
+           38.373047
+          ],
+          [
+           128.502373,
+           38.373269
+          ],
+          [
+           128.502335,
+           38.373485
+          ],
+          [
+           128.502254,
+           38.373776
+          ],
+          [
+           128.502187,
+           38.373965
+          ],
+          [
+           128.502109,
+           38.374146
+          ],
+          [
+           128.501988,
+           38.374371
+          ],
+          [
+           128.501876,
+           38.374556
+          ],
+          [
+           128.501761,
+           38.374715
+          ],
+          [
+           128.501623,
+           38.374886
+          ],
+          [
+           128.501508,
+           38.375027
+          ],
+          [
+           128.501294,
+           38.375235
+          ],
+          [
+           128.501045,
+           38.375461
+          ],
+          [
+           128.500845,
+           38.375634
+          ],
+          [
+           128.500367,
+           38.376056
+          ],
+          [
+           128.499832,
+           38.376511
+          ],
+          [
+           128.499685,
+           38.376655
+          ],
+          [
+           128.498923,
+           38.377307
+          ],
+          [
+           128.498123,
+           38.37798
+          ],
+          [
+           128.497288,
+           38.3787
+          ],
+          [
+           128.496583,
+           38.379318
+          ],
+          [
+           128.49628,
+           38.379564
+          ],
+          [
+           128.49622,
+           38.379614
+          ],
+          [
+           128.495941,
+           38.379844
+          ],
+          [
+           128.495701,
+           38.38003
+          ],
+          [
+           128.495491,
+           38.380179
+          ],
+          [
+           128.495175,
+           38.380355
+          ],
+          [
+           128.494986,
+           38.380442
+          ],
+          [
+           128.494748,
+           38.380537
+          ],
+          [
+           128.49449,
+           38.380623
+          ],
+          [
+           128.494189,
+           38.380687
+          ],
+          [
+           128.493892,
+           38.380738
+          ],
+          [
+           128.493611,
+           38.380759
+          ],
+          [
+           128.493164,
+           38.380761
+          ],
+          [
+           128.492672,
+           38.380727
+          ],
+          [
+           128.492204,
+           38.380634
+          ],
+          [
+           128.491467,
+           38.380435
+          ],
+          [
+           128.491377,
+           38.380407
+          ],
+          [
+           128.490742,
+           38.380206
+          ],
+          [
+           128.489773,
+           38.37988
+          ],
+          [
+           128.48914,
+           38.379644
+          ],
+          [
+           128.488907,
+           38.379552
+          ],
+          [
+           128.488464,
+           38.37936
+          ],
+          [
+           128.488408,
+           38.379334
+          ],
+          [
+           128.487995,
+           38.379137
+          ],
+          [
+           128.487817,
+           38.379046
+          ],
+          [
+           128.48615,
+           38.378191
+          ],
+          [
+           128.485494,
+           38.377877
+          ],
+          [
+           128.485121,
+           38.377712
+          ],
+          [
+           128.484703,
+           38.377574
+          ],
+          [
+           128.484414,
+           38.377497
+          ],
+          [
+           128.4838,
+           38.377406
+          ],
+          [
+           128.48344,
+           38.377379
+          ],
+          [
+           128.483089,
+           38.377378
+          ],
+          [
+           128.482551,
+           38.377407
+          ],
+          [
+           128.48216,
+           38.377442
+          ],
+          [
+           128.481448,
+           38.377512
+          ],
+          [
+           128.48136,
+           38.37752
+          ],
+          [
+           128.480342,
+           38.377615
+          ],
+          [
+           128.480245,
+           38.377626
+          ],
+          [
+           128.480045,
+           38.377647
+          ],
+          [
+           128.478163,
+           38.377848
+          ],
+          [
+           128.477717,
+           38.377906
+          ],
+          [
+           128.477097,
+           38.377993
+          ],
+          [
+           128.476681,
+           38.378084
+          ],
+          [
+           128.476282,
+           38.378223
+          ],
+          [
+           128.47602,
+           38.378342
+          ],
+          [
+           128.475929,
+           38.378383
+          ],
+          [
+           128.475637,
+           38.378546
+          ],
+          [
+           128.475445,
+           38.378675
+          ],
+          [
+           128.475246,
+           38.378825
+          ],
+          [
+           128.475201,
+           38.378858
+          ],
+          [
+           128.475075,
+           38.378975
+          ],
+          [
+           128.475007,
+           38.379036
+          ],
+          [
+           128.474793,
+           38.379271
+          ],
+          [
+           128.474747,
+           38.379322
+          ],
+          [
+           128.474399,
+           38.37975
+          ],
+          [
+           128.474367,
+           38.379794
+          ],
+          [
+           128.473857,
+           38.380474
+          ],
+          [
+           128.473353,
+           38.38117
+          ],
+          [
+           128.472682,
+           38.382124
+          ],
+          [
+           128.472572,
+           38.382282
+          ],
+          [
+           128.471835,
+           38.383307
+          ],
+          [
+           128.471455,
+           38.383849
+          ],
+          [
+           128.471156,
+           38.384267
+          ],
+          [
+           128.470922,
+           38.38458
+          ],
+          [
+           128.470749,
+           38.384811
+          ],
+          [
+           128.470534,
+           38.385066
+          ],
+          [
+           128.47032,
+           38.385305
+          ],
+          [
+           128.470278,
+           38.385353
+          ],
+          [
+           128.470049,
+           38.385577
+          ],
+          [
+           128.46995,
+           38.385672
+          ],
+          [
+           128.469435,
+           38.38618
+          ],
+          [
+           128.467535,
+           38.387881
+          ],
+          [
+           128.467115,
+           38.388277
+          ],
+          [
+           128.466778,
+           38.388645
+          ],
+          [
+           128.466522,
+           38.38894
+          ],
+          [
+           128.466255,
+           38.389339
+          ],
+          [
+           128.46601,
+           38.389783
+          ],
+          [
+           128.465785,
+           38.390285
+          ],
+          [
+           128.465636,
+           38.390738
+          ],
+          [
+           128.465516,
+           38.391229
+          ],
+          [
+           128.465464,
+           38.391501
+          ],
+          [
+           128.465277,
+           38.392472
+          ],
+          [
+           128.465058,
+           38.393672
+          ],
+          [
+           128.464833,
+           38.394928
+          ],
+          [
+           128.464395,
+           38.397604
+          ],
+          [
+           128.464358,
+           38.39788
+          ],
+          [
+           128.464319,
+           38.398259
+          ],
+          [
+           128.464309,
+           38.398622
+          ],
+          [
+           128.464326,
+           38.39904
+          ],
+          [
+           128.46437,
+           38.399294
+          ],
+          [
+           128.464435,
+           38.399663
+          ],
+          [
+           128.464572,
+           38.400107
+          ],
+          [
+           128.464705,
+           38.400417
+          ],
+          [
+           128.465038,
+           38.401061
+          ],
+          [
+           128.465236,
+           38.401404
+          ],
+          [
+           128.466042,
+           38.402702
+          ],
+          [
+           128.466675,
+           38.403704
+          ],
+          [
+           128.46727,
+           38.404684
+          ],
+          [
+           128.467524,
+           38.405145
+          ],
+          [
+           128.467658,
+           38.405404
+          ],
+          [
+           128.467726,
+           38.405559
+          ],
+          [
+           128.467825,
+           38.405859
+          ],
+          [
+           128.467878,
+           38.406049
+          ],
+          [
+           128.467887,
+           38.406082
+          ],
+          [
+           128.467947,
+           38.406337
+          ],
+          [
+           128.467982,
+           38.406473
+          ],
+          [
+           128.467998,
+           38.406552
+          ],
+          [
+           128.46803,
+           38.406835
+          ],
+          [
+           128.46804,
+           38.407073
+          ],
+          [
+           128.468024,
+           38.407338
+          ],
+          [
+           128.468,
+           38.407626
+          ],
+          [
+           128.467946,
+           38.40801
+          ],
+          [
+           128.467915,
+           38.408286
+          ],
+          [
+           128.467847,
+           38.408718
+          ],
+          [
+           128.467769,
+           38.40926
+          ],
+          [
+           128.467715,
+           38.409644
+          ],
+          [
+           128.467679,
+           38.410005
+          ],
+          [
+           128.467522,
+           38.411202
+          ],
+          [
+           128.467481,
+           38.41144
+          ],
+          [
+           128.467454,
+           38.411599
+          ],
+          [
+           128.46737,
+           38.412046
+          ],
+          [
+           128.467267,
+           38.412558
+          ],
+          [
+           128.467057,
+           38.41346
+          ],
+          [
+           128.466908,
+           38.414137
+          ],
+          [
+           128.466798,
+           38.414562
+          ],
+          [
+           128.466675,
+           38.414996
+          ],
+          [
+           128.466622,
+           38.415181
+          ],
+          [
+           128.466527,
+           38.41547
+          ],
+          [
+           128.466465,
+           38.415634
+          ],
+          [
+           128.466392,
+           38.415799
+          ],
+          [
+           128.466305,
+           38.415974
+          ],
+          [
+           128.466213,
+           38.41615
+          ],
+          [
+           128.466113,
+           38.416315
+          ],
+          [
+           128.465915,
+           38.416592
+          ],
+          [
+           128.465772,
+           38.416786
+          ],
+          [
+           128.465622,
+           38.416964
+          ],
+          [
+           128.465484,
+           38.417108
+          ],
+          [
+           128.465303,
+           38.41728
+          ],
+          [
+           128.465095,
+           38.417462
+          ],
+          [
+           128.464855,
+           38.41765
+          ],
+          [
+           128.464631,
+           38.417836
+          ],
+          [
+           128.463809,
+           38.418499
+          ],
+          [
+           128.462007,
+           38.419929
+          ],
+          [
+           128.461736,
+           38.420167
+          ],
+          [
+           128.461514,
+           38.420384
+          ],
+          [
+           128.461325,
+           38.420568
+          ],
+          [
+           128.461115,
+           38.420812
+          ],
+          [
+           128.460801,
+           38.421215
+          ],
+          [
+           128.460649,
+           38.421437
+          ],
+          [
+           128.460502,
+           38.421679
+          ],
+          [
+           128.46038,
+           38.421951
+          ],
+          [
+           128.460261,
+           38.422237
+          ],
+          [
+           128.460153,
+           38.422569
+          ],
+          [
+           128.460086,
+           38.422858
+          ],
+          [
+           128.460035,
+           38.423137
+          ],
+          [
+           128.460005,
+           38.423447
+          ],
+          [
+           128.459985,
+           38.423953
+          ],
+          [
+           128.459964,
+           38.424781
+          ],
+          [
+           128.459951,
+           38.425071
+          ],
+          [
+           128.459907,
+           38.425415
+          ],
+          [
+           128.459842,
+           38.42575
+          ],
+          [
+           128.459744,
+           38.42604
+          ],
+          [
+           128.459618,
+           38.426348
+          ],
+          [
+           128.459472,
+           38.426641
+          ],
+          [
+           128.459104,
+           38.427174
+          ],
+          [
+           128.458785,
+           38.427536
+          ],
+          [
+           128.458325,
+           38.427979
+          ],
+          [
+           128.457514,
+           38.428632
+          ],
+          [
+           128.457236,
+           38.428849
+          ],
+          [
+           128.45703,
+           38.429019
+          ],
+          [
+           128.456306,
+           38.429555
+          ],
+          [
+           128.455962,
+           38.429834
+          ]
+         ],
+         "type": "LineString"
+        },
+        "ref": "7",
+        "name": "동해대로",
+        "mode": "driving",
+        "weight": 1556,
+        "duration": 1556,
+        "distance": 25537.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           315,
+           330
+          ],
+          "location": [
+           128.455962,
+           38.429834
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.455962,
+           38.429834
+          ],
+          [
+           128.455772,
+           38.430083
+          ],
+          [
+           128.455577,
+           38.4303
+          ],
+          [
+           128.455376,
+           38.430518
+          ],
+          [
+           128.455089,
+           38.430862
+          ],
+          [
+           128.454888,
+           38.431115
+          ],
+          [
+           128.45476,
+           38.43129
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 327,
+         "bearing_before": 315,
+         "location": [
+          128.455962,
+          38.429834
+         ],
+         "modifier": "slight right",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 21.8,
+        "duration": 21.8,
+        "distance": 192.8
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           150,
+           210
+          ],
+          "location": [
+           128.45476,
+           38.43129
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.45476,
+           38.43129
+          ],
+          [
+           128.45483,
+           38.431409
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 23,
+         "bearing_before": 329,
+         "location": [
+          128.45476,
+          38.43129
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "돌고개길",
+        "mode": "driving",
+        "weight": 3,
+        "duration": 3,
+        "distance": 14.6
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           150,
+           210,
+           330
+          ],
+          "location": [
+           128.45483,
+           38.431409
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.453845,
+           38.432843
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           150,
+           225,
+           330
+          ],
+          "location": [
+           128.453798,
+           38.432907
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           330
+          ],
+          "location": [
+           128.453224,
+           38.433674
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           150,
+           345
+          ],
+          "location": [
+           128.452115,
+           38.435443
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           180
+          ],
+          "location": [
+           128.451578,
+           38.438042
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           90,
+           195
+          ],
+          "location": [
+           128.451639,
+           38.43833
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           15,
+           195,
+           345
+          ],
+          "location": [
+           128.451747,
+           38.438893
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.45483,
+           38.431409
+          ],
+          [
+           128.454448,
+           38.431989
+          ],
+          [
+           128.453971,
+           38.432675
+          ],
+          [
+           128.453845,
+           38.432843
+          ],
+          [
+           128.453798,
+           38.432907
+          ],
+          [
+           128.453224,
+           38.433674
+          ],
+          [
+           128.452778,
+           38.434311
+          ],
+          [
+           128.452654,
+           38.434511
+          ],
+          [
+           128.452595,
+           38.434605
+          ],
+          [
+           128.452115,
+           38.435443
+          ],
+          [
+           128.451969,
+           38.435845
+          ],
+          [
+           128.451807,
+           38.436266
+          ],
+          [
+           128.451747,
+           38.436545
+          ],
+          [
+           128.45159,
+           38.437307
+          ],
+          [
+           128.451578,
+           38.438042
+          ],
+          [
+           128.451639,
+           38.43833
+          ],
+          [
+           128.451747,
+           38.438893
+          ],
+          [
+           128.451947,
+           38.439402
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 331,
+         "bearing_before": 23,
+         "location": [
+          128.45483,
+          38.431409
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "자산천로",
+        "mode": "driving",
+        "weight": 85.8,
+        "duration": 85.8,
+        "distance": 955.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           195,
+           225
+          ],
+          "location": [
+           128.451947,
+           38.439402
+          ]
+         },
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           60,
+           195
+          ],
+          "location": [
+           128.452005,
+           38.439525
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           135,
+           240
+          ],
+          "location": [
+           128.452535,
+           38.439827
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           195,
+           285
+          ],
+          "location": [
+           128.452958,
+           38.440713
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           90,
+           180,
+           270
+          ],
+          "location": [
+           128.453197,
+           38.441571
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           90,
+           180
+          ],
+          "location": [
+           128.45345,
+           38.443253
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           90,
+           180
+          ],
+          "location": [
+           128.453555,
+           38.443952
+          ]
+         },
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           15,
+           195
+          ],
+          "location": [
+           128.45361,
+           38.444078
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           105,
+           210
+          ],
+          "location": [
+           128.454047,
+           38.444884
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           105,
+           210,
+           285
+          ],
+          "location": [
+           128.454358,
+           38.445411
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           225,
+           300
+          ],
+          "location": [
+           128.455218,
+           38.446425
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.451947,
+           38.439402
+          ],
+          [
+           128.452005,
+           38.439525
+          ],
+          [
+           128.452238,
+           38.439664
+          ],
+          [
+           128.452487,
+           38.439787
+          ],
+          [
+           128.452535,
+           38.439827
+          ],
+          [
+           128.452622,
+           38.439899
+          ],
+          [
+           128.452672,
+           38.439952
+          ],
+          [
+           128.452724,
+           38.440029
+          ],
+          [
+           128.4528,
+           38.440228
+          ],
+          [
+           128.452882,
+           38.440433
+          ],
+          [
+           128.452958,
+           38.440713
+          ],
+          [
+           128.453127,
+           38.441137
+          ],
+          [
+           128.453197,
+           38.441571
+          ],
+          [
+           128.453239,
+           38.441792
+          ],
+          [
+           128.453269,
+           38.44203
+          ],
+          [
+           128.453348,
+           38.442582
+          ],
+          [
+           128.45345,
+           38.443253
+          ],
+          [
+           128.453555,
+           38.443952
+          ],
+          [
+           128.45361,
+           38.444078
+          ],
+          [
+           128.453773,
+           38.444452
+          ],
+          [
+           128.454047,
+           38.444884
+          ],
+          [
+           128.454358,
+           38.445411
+          ],
+          [
+           128.454674,
+           38.445904
+          ],
+          [
+           128.455218,
+           38.446425
+          ],
+          [
+           128.455811,
+           38.446919
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 19,
+         "bearing_before": 16,
+         "location": [
+          128.451947,
+          38.439402
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "거탄진로",
+        "mode": "driving",
+        "weight": 84.7,
+        "duration": 84.7,
+        "distance": 931
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           120,
+           225,
+           315
+          ],
+          "location": [
+           128.455811,
+           38.446919
+          ]
+         },
+         {
+          "out": 1,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           135,
+           225,
+           300
+          ],
+          "location": [
+           128.456162,
+           38.446749
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.455811,
+           38.446919
+          ],
+          [
+           128.456162,
+           38.446749
+          ],
+          [
+           128.456287,
+           38.446629
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 120,
+         "bearing_before": 42,
+         "location": [
+          128.455811,
+          38.446919
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "거진시장길",
+        "mode": "driving",
+        "weight": 13.1,
+        "duration": 13.1,
+        "distance": 53.2
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           210,
+           315
+          ],
+          "location": [
+           128.456287,
+           38.446629
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.456287,
+           38.446629
+          ],
+          [
+           128.456725,
+           38.446916
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 49,
+         "bearing_before": 140,
+         "location": [
+          128.456287,
+          38.446629
+         ],
+         "modifier": "left",
+         "type": "end of road"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 7.2,
+        "duration": 7.2,
+        "distance": 49.8
+       },
+       {
+        "intersections": [
+         {
+          "in": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           230
+          ],
+          "location": [
+           128.456725,
+           38.446916
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": {
+         "coordinates": [
+          [
+           128.456725,
+           38.446916
+          ],
+          [
+           128.456725,
+           38.446916
+          ]
+         ],
+         "type": "LineString"
+        },
+        "maneuver": {
+         "bearing_after": 0,
+         "bearing_before": 50,
+         "location": [
+          128.456725,
+          38.446916
+         ],
+         "modifier": "right",
+         "type": "arrive"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 0,
+        "duration": 0,
+        "distance": 0
+       }
+      ],
+      "weight": 2260,
+      "summary": "중앙로, 동해대로",
+      "duration": 2260,
+      "distance": 32725.1
+     }
+    ],
+    "weight_name": "routability",
+    "geometry": {
+     "coordinates": [
+      [
+       128.591804,
+       38.207253
+      ],
+      [
+       128.591919,
+       38.207252
+      ],
+      [
+       128.592453,
+       38.207253
+      ],
+      [
+       128.592766,
+       38.207251
+      ],
+      [
+       128.592786,
+       38.20741
+      ],
+      [
+       128.59291,
+       38.208238
+      ],
+      [
+       128.592936,
+       38.208411
+      ],
+      [
+       128.593011,
+       38.208916
+      ],
+      [
+       128.593088,
+       38.209313
+      ],
+      [
+       128.593283,
+       38.210277
+      ],
+      [
+       128.593292,
+       38.210336
+      ],
+      [
+       128.593366,
+       38.210369
+      ],
+      [
+       128.59342,
+       38.210396
+      ],
+      [
+       128.593467,
+       38.210416
+      ],
+      [
+       128.593555,
+       38.210441
+      ],
+      [
+       128.59359,
+       38.210436
+      ],
+      [
+       128.593624,
+       38.210436
+      ],
+      [
+       128.593683,
+       38.210448
+      ],
+      [
+       128.593735,
+       38.210474
+      ],
+      [
+       128.593773,
+       38.210511
+      ],
+      [
+       128.593795,
+       38.210555
+      ],
+      [
+       128.593799,
+       38.210598
+      ],
+      [
+       128.593883,
+       38.21072
+      ],
+      [
+       128.593983,
+       38.210812
+      ],
+      [
+       128.594084,
+       38.210883
+      ],
+      [
+       128.594139,
+       38.210937
+      ],
+      [
+       128.594154,
+       38.211017
+      ],
+      [
+       128.594672,
+       38.211401
+      ],
+      [
+       128.595116,
+       38.2117
+      ],
+      [
+       128.595708,
+       38.212035
+      ],
+      [
+       128.596416,
+       38.212424
+      ],
+      [
+       128.59642,
+       38.212632
+      ],
+      [
+       128.59633,
+       38.213697
+      ],
+      [
+       128.596245,
+       38.213816
+      ],
+      [
+       128.596198,
+       38.21386
+      ],
+      [
+       128.595905,
+       38.214132
+      ],
+      [
+       128.595277,
+       38.214733
+      ],
+      [
+       128.594563,
+       38.215576
+      ],
+      [
+       128.594198,
+       38.216002
+      ],
+      [
+       128.593851,
+       38.216385
+      ],
+      [
+       128.593736,
+       38.216512
+      ],
+      [
+       128.592986,
+       38.217482
+      ],
+      [
+       128.592888,
+       38.217588
+      ],
+      [
+       128.592497,
+       38.218047
+      ],
+      [
+       128.592072,
+       38.218567
+      ],
+      [
+       128.591713,
+       38.219112
+      ],
+      [
+       128.591687,
+       38.219169
+      ],
+      [
+       128.590886,
+       38.22039
+      ],
+      [
+       128.590788,
+       38.220545
+      ],
+      [
+       128.590678,
+       38.220725
+      ],
+      [
+       128.590582,
+       38.220883
+      ],
+      [
+       128.590526,
+       38.220973
+      ],
+      [
+       128.590332,
+       38.221288
+      ],
+      [
+       128.590256,
+       38.221411
+      ],
+      [
+       128.590235,
+       38.221445
+      ],
+      [
+       128.589983,
+       38.221878
+      ],
+      [
+       128.589552,
+       38.222518
+      ],
+      [
+       128.589103,
+       38.223065
+      ],
+      [
+       128.588708,
+       38.223494
+      ],
+      [
+       128.588335,
+       38.223937
+      ],
+      [
+       128.588137,
+       38.224173
+      ],
+      [
+       128.587674,
+       38.224724
+      ],
+      [
+       128.587644,
+       38.22476
+      ],
+      [
+       128.587409,
+       38.225016
+      ],
+      [
+       128.587272,
+       38.225194
+      ],
+      [
+       128.587009,
+       38.225536
+      ],
+      [
+       128.586353,
+       38.226311
+      ],
+      [
+       128.585829,
+       38.226948
+      ],
+      [
+       128.585782,
+       38.226994
+      ],
+      [
+       128.585639,
+       38.227135
+      ],
+      [
+       128.585326,
+       38.22738
+      ],
+      [
+       128.585044,
+       38.227591
+      ],
+      [
+       128.58328,
+       38.228917
+      ],
+      [
+       128.582759,
+       38.22928
+      ],
+      [
+       128.580105,
+       38.231255
+      ],
+      [
+       128.579971,
+       38.231359
+      ],
+      [
+       128.579825,
+       38.231472
+      ],
+      [
+       128.57859,
+       38.232433
+      ],
+      [
+       128.577505,
+       38.233277
+      ],
+      [
+       128.577425,
+       38.233334
+      ],
+      [
+       128.577153,
+       38.233541
+      ],
+      [
+       128.575695,
+       38.234651
+      ],
+      [
+       128.575592,
+       38.234729
+      ],
+      [
+       128.57497,
+       38.235229
+      ],
+      [
+       128.574897,
+       38.235285
+      ],
+      [
+       128.574689,
+       38.235444
+      ],
+      [
+       128.572635,
+       38.237028
+      ],
+      [
+       128.572594,
+       38.237128
+      ],
+      [
+       128.572442,
+       38.237262
+      ],
+      [
+       128.572392,
+       38.237315
+      ],
+      [
+       128.572354,
+       38.237372
+      ],
+      [
+       128.572332,
+       38.237419
+      ],
+      [
+       128.572323,
+       38.237482
+      ],
+      [
+       128.572338,
+       38.237515
+      ],
+      [
+       128.572342,
+       38.237553
+      ],
+      [
+       128.572342,
+       38.23759
+      ],
+      [
+       128.572319,
+       38.237657
+      ],
+      [
+       128.572245,
+       38.23771
+      ],
+      [
+       128.572141,
+       38.23779
+      ],
+      [
+       128.572052,
+       38.237913
+      ],
+      [
+       128.571897,
+       38.238297
+      ],
+      [
+       128.571833,
+       38.238465
+      ],
+      [
+       128.571705,
+       38.23885
+      ],
+      [
+       128.57147,
+       38.23949
+      ],
+      [
+       128.571329,
+       38.239793
+      ],
+      [
+       128.571197,
+       38.240076
+      ],
+      [
+       128.570867,
+       38.240672
+      ],
+      [
+       128.570797,
+       38.240816
+      ],
+      [
+       128.570726,
+       38.240991
+      ],
+      [
+       128.570462,
+       38.241534
+      ],
+      [
+       128.570242,
+       38.242024
+      ],
+      [
+       128.570049,
+       38.242463
+      ],
+      [
+       128.569887,
+       38.242749
+      ],
+      [
+       128.569754,
+       38.242865
+      ],
+      [
+       128.569703,
+       38.242981
+      ],
+      [
+       128.569598,
+       38.243288
+      ],
+      [
+       128.569556,
+       38.243392
+      ],
+      [
+       128.56942,
+       38.24373
+      ],
+      [
+       128.569393,
+       38.243798
+      ],
+      [
+       128.569251,
+       38.244133
+      ],
+      [
+       128.568695,
+       38.245446
+      ],
+      [
+       128.568562,
+       38.245759
+      ],
+      [
+       128.568003,
+       38.24705
+      ],
+      [
+       128.567914,
+       38.247232
+      ],
+      [
+       128.567836,
+       38.247374
+      ],
+      [
+       128.567735,
+       38.247544
+      ],
+      [
+       128.567665,
+       38.247661
+      ],
+      [
+       128.56763,
+       38.247715
+      ],
+      [
+       128.567578,
+       38.247795
+      ],
+      [
+       128.567475,
+       38.247923
+      ],
+      [
+       128.567375,
+       38.248058
+      ],
+      [
+       128.567251,
+       38.248208
+      ],
+      [
+       128.567207,
+       38.248258
+      ],
+      [
+       128.567162,
+       38.248308
+      ],
+      [
+       128.56698,
+       38.248504
+      ],
+      [
+       128.566831,
+       38.248632
+      ],
+      [
+       128.566683,
+       38.248764
+      ],
+      [
+       128.566497,
+       38.248909
+      ],
+      [
+       128.566135,
+       38.249178
+      ],
+      [
+       128.565557,
+       38.249574
+      ],
+      [
+       128.564374,
+       38.25037
+      ],
+      [
+       128.564079,
+       38.250577
+      ],
+      [
+       128.562689,
+       38.251542
+      ],
+      [
+       128.562148,
+       38.251917
+      ],
+      [
+       128.561567,
+       38.252345
+      ],
+      [
+       128.561354,
+       38.252509
+      ],
+      [
+       128.561267,
+       38.252578
+      ],
+      [
+       128.560577,
+       38.253115
+      ],
+      [
+       128.559819,
+       38.25372
+      ],
+      [
+       128.55951,
+       38.253956
+      ],
+      [
+       128.559201,
+       38.254195
+      ],
+      [
+       128.558862,
+       38.254472
+      ],
+      [
+       128.558183,
+       38.255026
+      ],
+      [
+       128.556818,
+       38.256096
+      ],
+      [
+       128.556565,
+       38.256288
+      ],
+      [
+       128.556374,
+       38.256454
+      ],
+      [
+       128.556165,
+       38.256659
+      ],
+      [
+       128.55605,
+       38.256772
+      ],
+      [
+       128.5559,
+       38.256941
+      ],
+      [
+       128.555773,
+       38.257117
+      ],
+      [
+       128.555676,
+       38.257284
+      ],
+      [
+       128.555586,
+       38.257474
+      ],
+      [
+       128.555527,
+       38.257632
+      ],
+      [
+       128.555475,
+       38.257823
+      ],
+      [
+       128.555442,
+       38.258021
+      ],
+      [
+       128.555426,
+       38.258155
+      ],
+      [
+       128.55542,
+       38.258314
+      ],
+      [
+       128.555427,
+       38.25847
+      ],
+      [
+       128.555449,
+       38.258684
+      ],
+      [
+       128.555477,
+       38.258865
+      ],
+      [
+       128.555526,
+       38.25909
+      ],
+      [
+       128.555583,
+       38.259325
+      ],
+      [
+       128.555665,
+       38.259721
+      ],
+      [
+       128.555696,
+       38.259854
+      ],
+      [
+       128.555704,
+       38.259886
+      ],
+      [
+       128.555727,
+       38.260029
+      ],
+      [
+       128.555762,
+       38.260345
+      ],
+      [
+       128.555768,
+       38.260453
+      ],
+      [
+       128.555779,
+       38.260653
+      ],
+      [
+       128.555787,
+       38.26093
+      ],
+      [
+       128.555797,
+       38.261331
+      ],
+      [
+       128.555782,
+       38.262401
+      ],
+      [
+       128.555691,
+       38.26418
+      ],
+      [
+       128.55567,
+       38.264636
+      ],
+      [
+       128.555658,
+       38.264733
+      ],
+      [
+       128.55565,
+       38.264796
+      ],
+      [
+       128.555646,
+       38.264832
+      ],
+      [
+       128.555624,
+       38.265052
+      ],
+      [
+       128.555568,
+       38.265301
+      ],
+      [
+       128.5555,
+       38.26549
+      ],
+      [
+       128.555403,
+       38.265698
+      ],
+      [
+       128.555226,
+       38.266022
+      ],
+      [
+       128.555125,
+       38.266211
+      ],
+      [
+       128.554605,
+       38.267093
+      ],
+      [
+       128.554506,
+       38.267261
+      ],
+      [
+       128.554408,
+       38.267425
+      ],
+      [
+       128.554298,
+       38.267615
+      ],
+      [
+       128.554131,
+       38.267843
+      ],
+      [
+       128.553982,
+       38.268015
+      ],
+      [
+       128.553797,
+       38.268203
+      ],
+      [
+       128.553609,
+       38.268378
+      ],
+      [
+       128.553394,
+       38.268543
+      ],
+      [
+       128.553132,
+       38.268735
+      ],
+      [
+       128.552745,
+       38.26897
+      ],
+      [
+       128.552255,
+       38.269244
+      ],
+      [
+       128.551315,
+       38.269748
+      ],
+      [
+       128.550187,
+       38.270345
+      ],
+      [
+       128.549939,
+       38.270472
+      ],
+      [
+       128.549728,
+       38.270595
+      ],
+      [
+       128.549636,
+       38.270653
+      ],
+      [
+       128.549492,
+       38.270743
+      ],
+      [
+       128.549234,
+       38.270936
+      ],
+      [
+       128.549054,
+       38.271092
+      ],
+      [
+       128.548928,
+       38.271213
+      ],
+      [
+       128.548786,
+       38.271368
+      ],
+      [
+       128.548625,
+       38.271596
+      ],
+      [
+       128.548511,
+       38.271804
+      ],
+      [
+       128.548416,
+       38.272002
+      ],
+      [
+       128.548362,
+       38.272171
+      ],
+      [
+       128.548333,
+       38.272284
+      ],
+      [
+       128.54829,
+       38.272495
+      ],
+      [
+       128.548274,
+       38.272606
+      ],
+      [
+       128.548268,
+       38.272834
+      ],
+      [
+       128.548266,
+       38.27294
+      ],
+      [
+       128.548271,
+       38.273261
+      ],
+      [
+       128.548294,
+       38.273723
+      ],
+      [
+       128.548305,
+       38.273944
+      ],
+      [
+       128.548366,
+       38.274716
+      ],
+      [
+       128.54842,
+       38.2755
+      ],
+      [
+       128.548465,
+       38.276301
+      ],
+      [
+       128.548528,
+       38.277144
+      ],
+      [
+       128.548536,
+       38.277246
+      ],
+      [
+       128.548541,
+       38.27732
+      ],
+      [
+       128.548559,
+       38.277571
+      ],
+      [
+       128.548608,
+       38.278265
+      ],
+      [
+       128.548702,
+       38.279984
+      ],
+      [
+       128.54873,
+       38.280609
+      ],
+      [
+       128.548735,
+       38.281179
+      ],
+      [
+       128.54873,
+       38.281282
+      ],
+      [
+       128.548728,
+       38.281344
+      ],
+      [
+       128.548725,
+       38.281406
+      ],
+      [
+       128.54869,
+       38.281716
+      ],
+      [
+       128.548684,
+       38.281779
+      ],
+      [
+       128.548668,
+       38.281943
+      ],
+      [
+       128.548623,
+       38.282191
+      ],
+      [
+       128.548616,
+       38.282223
+      ],
+      [
+       128.548562,
+       38.2825
+      ],
+      [
+       128.548555,
+       38.282532
+      ],
+      [
+       128.548483,
+       38.282895
+      ],
+      [
+       128.548374,
+       38.283422
+      ],
+      [
+       128.548258,
+       38.283985
+      ],
+      [
+       128.548191,
+       38.284344
+      ],
+      [
+       128.548122,
+       38.28471
+      ],
+      [
+       128.54806,
+       38.284993
+      ],
+      [
+       128.547941,
+       38.285325
+      ],
+      [
+       128.547849,
+       38.285519
+      ],
+      [
+       128.547814,
+       38.285593
+      ],
+      [
+       128.547704,
+       38.285797
+      ],
+      [
+       128.547512,
+       38.286095
+      ],
+      [
+       128.547506,
+       38.286103
+      ],
+      [
+       128.547327,
+       38.286366
+      ],
+      [
+       128.547127,
+       38.286606
+      ],
+      [
+       128.546753,
+       38.287031
+      ],
+      [
+       128.546463,
+       38.287353
+      ],
+      [
+       128.546189,
+       38.287661
+      ],
+      [
+       128.546063,
+       38.287815
+      ],
+      [
+       128.545927,
+       38.287997
+      ],
+      [
+       128.545858,
+       38.288099
+      ],
+      [
+       128.545695,
+       38.288344
+      ],
+      [
+       128.545541,
+       38.288638
+      ],
+      [
+       128.545409,
+       38.288904
+      ],
+      [
+       128.545312,
+       38.289171
+      ],
+      [
+       128.545213,
+       38.28955
+      ],
+      [
+       128.545151,
+       38.289891
+      ],
+      [
+       128.54506,
+       38.290674
+      ],
+      [
+       128.545007,
+       38.291192
+      ],
+      [
+       128.54494,
+       38.291836
+      ],
+      [
+       128.544896,
+       38.292309
+      ],
+      [
+       128.544835,
+       38.292723
+      ],
+      [
+       128.544805,
+       38.292913
+      ],
+      [
+       128.544787,
+       38.293024
+      ],
+      [
+       128.544773,
+       38.29311
+      ],
+      [
+       128.544739,
+       38.293223
+      ],
+      [
+       128.544664,
+       38.293468
+      ],
+      [
+       128.544581,
+       38.293686
+      ],
+      [
+       128.544458,
+       38.293977
+      ],
+      [
+       128.544284,
+       38.294362
+      ],
+      [
+       128.544127,
+       38.294702
+      ],
+      [
+       128.54408,
+       38.294806
+      ],
+      [
+       128.54368,
+       38.295676
+      ],
+      [
+       128.543657,
+       38.295725
+      ],
+      [
+       128.543606,
+       38.295837
+      ],
+      [
+       128.543435,
+       38.296175
+      ],
+      [
+       128.543417,
+       38.296218
+      ],
+      [
+       128.542925,
+       38.297254
+      ],
+      [
+       128.542859,
+       38.297406
+      ],
+      [
+       128.542755,
+       38.297647
+      ],
+      [
+       128.542463,
+       38.298259
+      ],
+      [
+       128.542268,
+       38.298641
+      ],
+      [
+       128.542116,
+       38.298948
+      ],
+      [
+       128.541929,
+       38.299281
+      ],
+      [
+       128.541808,
+       38.29948
+      ],
+      [
+       128.541664,
+       38.299719
+      ],
+      [
+       128.541431,
+       38.30008
+      ],
+      [
+       128.541193,
+       38.300432
+      ],
+      [
+       128.540669,
+       38.30114
+      ],
+      [
+       128.54051,
+       38.301356
+      ],
+      [
+       128.540066,
+       38.301966
+      ],
+      [
+       128.539686,
+       38.302499
+      ],
+      [
+       128.539084,
+       38.303342
+      ],
+      [
+       128.539032,
+       38.303413
+      ],
+      [
+       128.538801,
+       38.303724
+      ],
+      [
+       128.538748,
+       38.303795
+      ],
+      [
+       128.538192,
+       38.304479
+      ],
+      [
+       128.537594,
+       38.305112
+      ],
+      [
+       128.537221,
+       38.30553
+      ],
+      [
+       128.536746,
+       38.306061
+      ],
+      [
+       128.536686,
+       38.306126
+      ],
+      [
+       128.5366,
+       38.306221
+      ],
+      [
+       128.536452,
+       38.306385
+      ],
+      [
+       128.535815,
+       38.307067
+      ],
+      [
+       128.535575,
+       38.307348
+      ],
+      [
+       128.535326,
+       38.307663
+      ],
+      [
+       128.53498,
+       38.308154
+      ],
+      [
+       128.534816,
+       38.308409
+      ],
+      [
+       128.534716,
+       38.308565
+      ],
+      [
+       128.534452,
+       38.309037
+      ],
+      [
+       128.534231,
+       38.309482
+      ],
+      [
+       128.534021,
+       38.309959
+      ],
+      [
+       128.533893,
+       38.310273
+      ],
+      [
+       128.533749,
+       38.310715
+      ],
+      [
+       128.533605,
+       38.311211
+      ],
+      [
+       128.533441,
+       38.311968
+      ],
+      [
+       128.533336,
+       38.312317
+      ],
+      [
+       128.533211,
+       38.312806
+      ],
+      [
+       128.532981,
+       38.313654
+      ],
+      [
+       128.532896,
+       38.313883
+      ],
+      [
+       128.532833,
+       38.314022
+      ],
+      [
+       128.532746,
+       38.314166
+      ],
+      [
+       128.532635,
+       38.314327
+      ],
+      [
+       128.532487,
+       38.314523
+      ],
+      [
+       128.532362,
+       38.314663
+      ],
+      [
+       128.532225,
+       38.314798
+      ],
+      [
+       128.531662,
+       38.315321
+      ],
+      [
+       128.531128,
+       38.315825
+      ],
+      [
+       128.531038,
+       38.315902
+      ],
+      [
+       128.530512,
+       38.316379
+      ],
+      [
+       128.530172,
+       38.316681
+      ],
+      [
+       128.529744,
+       38.317057
+      ],
+      [
+       128.529377,
+       38.317416
+      ],
+      [
+       128.529132,
+       38.317705
+      ],
+      [
+       128.52901,
+       38.317872
+      ],
+      [
+       128.528716,
+       38.318311
+      ],
+      [
+       128.52837,
+       38.318815
+      ],
+      [
+       128.528033,
+       38.319305
+      ],
+      [
+       128.527971,
+       38.319395
+      ],
+      [
+       128.52772,
+       38.319795
+      ],
+      [
+       128.52758,
+       38.320016
+      ],
+      [
+       128.52726,
+       38.320538
+      ],
+      [
+       128.527085,
+       38.320827
+      ],
+      [
+       128.5269,
+       38.321139
+      ],
+      [
+       128.526808,
+       38.321322
+      ],
+      [
+       128.526787,
+       38.321364
+      ],
+      [
+       128.526569,
+       38.321813
+      ],
+      [
+       128.526411,
+       38.322196
+      ],
+      [
+       128.526181,
+       38.322828
+      ],
+      [
+       128.526063,
+       38.323189
+      ],
+      [
+       128.525797,
+       38.324157
+      ],
+      [
+       128.525618,
+       38.32482
+      ],
+      [
+       128.525356,
+       38.325805
+      ],
+      [
+       128.525005,
+       38.327071
+      ],
+      [
+       128.524998,
+       38.327093
+      ],
+      [
+       128.524873,
+       38.327549
+      ],
+      [
+       128.524868,
+       38.327567
+      ],
+      [
+       128.524802,
+       38.327806
+      ],
+      [
+       128.524678,
+       38.328226
+      ],
+      [
+       128.524612,
+       38.328459
+      ],
+      [
+       128.52437,
+       38.329343
+      ],
+      [
+       128.524349,
+       38.32942
+      ],
+      [
+       128.524295,
+       38.329615
+      ],
+      [
+       128.524229,
+       38.329845
+      ],
+      [
+       128.524134,
+       38.330231
+      ],
+      [
+       128.524025,
+       38.331
+      ],
+      [
+       128.52397,
+       38.331286
+      ],
+      [
+       128.523922,
+       38.331508
+      ],
+      [
+       128.52386,
+       38.331724
+      ],
+      [
+       128.523788,
+       38.331923
+      ],
+      [
+       128.523684,
+       38.332178
+      ],
+      [
+       128.523643,
+       38.332253
+      ],
+      [
+       128.523526,
+       38.332445
+      ],
+      [
+       128.523382,
+       38.332651
+      ],
+      [
+       128.523286,
+       38.332761
+      ],
+      [
+       128.523205,
+       38.332854
+      ],
+      [
+       128.523152,
+       38.33291
+      ],
+      [
+       128.523085,
+       38.332969
+      ],
+      [
+       128.523005,
+       38.33304
+      ],
+      [
+       128.522847,
+       38.333172
+      ],
+      [
+       128.522573,
+       38.333365
+      ],
+      [
+       128.520467,
+       38.334802
+      ],
+      [
+       128.520049,
+       38.335093
+      ],
+      [
+       128.519502,
+       38.335493
+      ],
+      [
+       128.519171,
+       38.335746
+      ],
+      [
+       128.518867,
+       38.336008
+      ],
+      [
+       128.517916,
+       38.336899
+      ],
+      [
+       128.516968,
+       38.337797
+      ],
+      [
+       128.516479,
+       38.338277
+      ],
+      [
+       128.51418,
+       38.340449
+      ],
+      [
+       128.513688,
+       38.340932
+      ],
+      [
+       128.51314,
+       38.34144
+      ],
+      [
+       128.512783,
+       38.341807
+      ],
+      [
+       128.512547,
+       38.342084
+      ],
+      [
+       128.512378,
+       38.342298
+      ],
+      [
+       128.512306,
+       38.34243
+      ],
+      [
+       128.512164,
+       38.342643
+      ],
+      [
+       128.512049,
+       38.342856
+      ],
+      [
+       128.511955,
+       38.343056
+      ],
+      [
+       128.511813,
+       38.343354
+      ],
+      [
+       128.511678,
+       38.343643
+      ],
+      [
+       128.511444,
+       38.344141
+      ],
+      [
+       128.511193,
+       38.344738
+      ],
+      [
+       128.510723,
+       38.345784
+      ],
+      [
+       128.510122,
+       38.347129
+      ],
+      [
+       128.510084,
+       38.347218
+      ],
+      [
+       128.509991,
+       38.347447
+      ],
+      [
+       128.509842,
+       38.347837
+      ],
+      [
+       128.509758,
+       38.348109
+      ],
+      [
+       128.5097,
+       38.348327
+      ],
+      [
+       128.509659,
+       38.348566
+      ],
+      [
+       128.509626,
+       38.348813
+      ],
+      [
+       128.509615,
+       38.348921
+      ],
+      [
+       128.509556,
+       38.349478
+      ],
+      [
+       128.509368,
+       38.350798
+      ],
+      [
+       128.509305,
+       38.351417
+      ],
+      [
+       128.509288,
+       38.351528
+      ],
+      [
+       128.509251,
+       38.351775
+      ],
+      [
+       128.509162,
+       38.352194
+      ],
+      [
+       128.509071,
+       38.352648
+      ],
+      [
+       128.508738,
+       38.354301
+      ],
+      [
+       128.508595,
+       38.355039
+      ],
+      [
+       128.5085,
+       38.355429
+      ],
+      [
+       128.508418,
+       38.355676
+      ],
+      [
+       128.508341,
+       38.355884
+      ],
+      [
+       128.508273,
+       38.356065
+      ],
+      [
+       128.508208,
+       38.356198
+      ],
+      [
+       128.508146,
+       38.356301
+      ],
+      [
+       128.508135,
+       38.356322
+      ],
+      [
+       128.508063,
+       38.356429
+      ],
+      [
+       128.507913,
+       38.356623
+      ],
+      [
+       128.507748,
+       38.356818
+      ],
+      [
+       128.50762,
+       38.356976
+      ],
+      [
+       128.507536,
+       38.357062
+      ],
+      [
+       128.505811,
+       38.358837
+      ],
+      [
+       128.505575,
+       38.35911
+      ],
+      [
+       128.505376,
+       38.359388
+      ],
+      [
+       128.505194,
+       38.359687
+      ],
+      [
+       128.504947,
+       38.360176
+      ],
+      [
+       128.504561,
+       38.360944
+      ],
+      [
+       128.504363,
+       38.361273
+      ],
+      [
+       128.504258,
+       38.361411
+      ],
+      [
+       128.504137,
+       38.361571
+      ],
+      [
+       128.503928,
+       38.361815
+      ],
+      [
+       128.503656,
+       38.362069
+      ],
+      [
+       128.503571,
+       38.362147
+      ],
+      [
+       128.503488,
+       38.362222
+      ],
+      [
+       128.502798,
+       38.362851
+      ],
+      [
+       128.502469,
+       38.363203
+      ],
+      [
+       128.502219,
+       38.363539
+      ],
+      [
+       128.501975,
+       38.363916
+      ],
+      [
+       128.501848,
+       38.364159
+      ],
+      [
+       128.501732,
+       38.364409
+      ],
+      [
+       128.50166,
+       38.364588
+      ],
+      [
+       128.501597,
+       38.364791
+      ],
+      [
+       128.501564,
+       38.364919
+      ],
+      [
+       128.501537,
+       38.365063
+      ],
+      [
+       128.501507,
+       38.365275
+      ],
+      [
+       128.50148,
+       38.365618
+      ],
+      [
+       128.501474,
+       38.365824
+      ],
+      [
+       128.501483,
+       38.366025
+      ],
+      [
+       128.501509,
+       38.366301
+      ],
+      [
+       128.501558,
+       38.366633
+      ],
+      [
+       128.501686,
+       38.367483
+      ],
+      [
+       128.501825,
+       38.368547
+      ],
+      [
+       128.501865,
+       38.368804
+      ],
+      [
+       128.501893,
+       38.368994
+      ],
+      [
+       128.501921,
+       38.369155
+      ],
+      [
+       128.501956,
+       38.369383
+      ],
+      [
+       128.502023,
+       38.369819
+      ],
+      [
+       128.502171,
+       38.370876
+      ],
+      [
+       128.502253,
+       38.371391
+      ],
+      [
+       128.502356,
+       38.372082
+      ],
+      [
+       128.502398,
+       38.372341
+      ],
+      [
+       128.502406,
+       38.372603
+      ],
+      [
+       128.502409,
+       38.372828
+      ],
+      [
+       128.502401,
+       38.373047
+      ],
+      [
+       128.502373,
+       38.373269
+      ],
+      [
+       128.502335,
+       38.373485
+      ],
+      [
+       128.502254,
+       38.373776
+      ],
+      [
+       128.502187,
+       38.373965
+      ],
+      [
+       128.502109,
+       38.374146
+      ],
+      [
+       128.501988,
+       38.374371
+      ],
+      [
+       128.501876,
+       38.374556
+      ],
+      [
+       128.501761,
+       38.374715
+      ],
+      [
+       128.501623,
+       38.374886
+      ],
+      [
+       128.501508,
+       38.375027
+      ],
+      [
+       128.501294,
+       38.375235
+      ],
+      [
+       128.501045,
+       38.375461
+      ],
+      [
+       128.500845,
+       38.375634
+      ],
+      [
+       128.500367,
+       38.376056
+      ],
+      [
+       128.499832,
+       38.376511
+      ],
+      [
+       128.499685,
+       38.376655
+      ],
+      [
+       128.498923,
+       38.377307
+      ],
+      [
+       128.498123,
+       38.37798
+      ],
+      [
+       128.497288,
+       38.3787
+      ],
+      [
+       128.496583,
+       38.379318
+      ],
+      [
+       128.49628,
+       38.379564
+      ],
+      [
+       128.49622,
+       38.379614
+      ],
+      [
+       128.495941,
+       38.379844
+      ],
+      [
+       128.495701,
+       38.38003
+      ],
+      [
+       128.495491,
+       38.380179
+      ],
+      [
+       128.495175,
+       38.380355
+      ],
+      [
+       128.494986,
+       38.380442
+      ],
+      [
+       128.494748,
+       38.380537
+      ],
+      [
+       128.49449,
+       38.380623
+      ],
+      [
+       128.494189,
+       38.380687
+      ],
+      [
+       128.493892,
+       38.380738
+      ],
+      [
+       128.493611,
+       38.380759
+      ],
+      [
+       128.493164,
+       38.380761
+      ],
+      [
+       128.492672,
+       38.380727
+      ],
+      [
+       128.492204,
+       38.380634
+      ],
+      [
+       128.491467,
+       38.380435
+      ],
+      [
+       128.491377,
+       38.380407
+      ],
+      [
+       128.490742,
+       38.380206
+      ],
+      [
+       128.489773,
+       38.37988
+      ],
+      [
+       128.48914,
+       38.379644
+      ],
+      [
+       128.488907,
+       38.379552
+      ],
+      [
+       128.488464,
+       38.37936
+      ],
+      [
+       128.488408,
+       38.379334
+      ],
+      [
+       128.487995,
+       38.379137
+      ],
+      [
+       128.487817,
+       38.379046
+      ],
+      [
+       128.48615,
+       38.378191
+      ],
+      [
+       128.485494,
+       38.377877
+      ],
+      [
+       128.485121,
+       38.377712
+      ],
+      [
+       128.484703,
+       38.377574
+      ],
+      [
+       128.484414,
+       38.377497
+      ],
+      [
+       128.4838,
+       38.377406
+      ],
+      [
+       128.48344,
+       38.377379
+      ],
+      [
+       128.483089,
+       38.377378
+      ],
+      [
+       128.482551,
+       38.377407
+      ],
+      [
+       128.48216,
+       38.377442
+      ],
+      [
+       128.481448,
+       38.377512
+      ],
+      [
+       128.48136,
+       38.37752
+      ],
+      [
+       128.480342,
+       38.377615
+      ],
+      [
+       128.480245,
+       38.377626
+      ],
+      [
+       128.480045,
+       38.377647
+      ],
+      [
+       128.478163,
+       38.377848
+      ],
+      [
+       128.477717,
+       38.377906
+      ],
+      [
+       128.477097,
+       38.377993
+      ],
+      [
+       128.476681,
+       38.378084
+      ],
+      [
+       128.476282,
+       38.378223
+      ],
+      [
+       128.47602,
+       38.378342
+      ],
+      [
+       128.475929,
+       38.378383
+      ],
+      [
+       128.475637,
+       38.378546
+      ],
+      [
+       128.475445,
+       38.378675
+      ],
+      [
+       128.475246,
+       38.378825
+      ],
+      [
+       128.475201,
+       38.378858
+      ],
+      [
+       128.475075,
+       38.378975
+      ],
+      [
+       128.475007,
+       38.379036
+      ],
+      [
+       128.474793,
+       38.379271
+      ],
+      [
+       128.474747,
+       38.379322
+      ],
+      [
+       128.474399,
+       38.37975
+      ],
+      [
+       128.474367,
+       38.379794
+      ],
+      [
+       128.473857,
+       38.380474
+      ],
+      [
+       128.473353,
+       38.38117
+      ],
+      [
+       128.472682,
+       38.382124
+      ],
+      [
+       128.472572,
+       38.382282
+      ],
+      [
+       128.471835,
+       38.383307
+      ],
+      [
+       128.471455,
+       38.383849
+      ],
+      [
+       128.471156,
+       38.384267
+      ],
+      [
+       128.470922,
+       38.38458
+      ],
+      [
+       128.470749,
+       38.384811
+      ],
+      [
+       128.470534,
+       38.385066
+      ],
+      [
+       128.47032,
+       38.385305
+      ],
+      [
+       128.470278,
+       38.385353
+      ],
+      [
+       128.470049,
+       38.385577
+      ],
+      [
+       128.46995,
+       38.385672
+      ],
+      [
+       128.469435,
+       38.38618
+      ],
+      [
+       128.467535,
+       38.387881
+      ],
+      [
+       128.467115,
+       38.388277
+      ],
+      [
+       128.466778,
+       38.388645
+      ],
+      [
+       128.466522,
+       38.38894
+      ],
+      [
+       128.466255,
+       38.389339
+      ],
+      [
+       128.46601,
+       38.389783
+      ],
+      [
+       128.465785,
+       38.390285
+      ],
+      [
+       128.465636,
+       38.390738
+      ],
+      [
+       128.465516,
+       38.391229
+      ],
+      [
+       128.465464,
+       38.391501
+      ],
+      [
+       128.465277,
+       38.392472
+      ],
+      [
+       128.465058,
+       38.393672
+      ],
+      [
+       128.464833,
+       38.394928
+      ],
+      [
+       128.464395,
+       38.397604
+      ],
+      [
+       128.464358,
+       38.39788
+      ],
+      [
+       128.464319,
+       38.398259
+      ],
+      [
+       128.464309,
+       38.398622
+      ],
+      [
+       128.464326,
+       38.39904
+      ],
+      [
+       128.46437,
+       38.399294
+      ],
+      [
+       128.464435,
+       38.399663
+      ],
+      [
+       128.464572,
+       38.400107
+      ],
+      [
+       128.464705,
+       38.400417
+      ],
+      [
+       128.465038,
+       38.401061
+      ],
+      [
+       128.465236,
+       38.401404
+      ],
+      [
+       128.466042,
+       38.402702
+      ],
+      [
+       128.466675,
+       38.403704
+      ],
+      [
+       128.46727,
+       38.404684
+      ],
+      [
+       128.467524,
+       38.405145
+      ],
+      [
+       128.467658,
+       38.405404
+      ],
+      [
+       128.467726,
+       38.405559
+      ],
+      [
+       128.467825,
+       38.405859
+      ],
+      [
+       128.467878,
+       38.406049
+      ],
+      [
+       128.467887,
+       38.406082
+      ],
+      [
+       128.467947,
+       38.406337
+      ],
+      [
+       128.467982,
+       38.406473
+      ],
+      [
+       128.467998,
+       38.406552
+      ],
+      [
+       128.46803,
+       38.406835
+      ],
+      [
+       128.46804,
+       38.407073
+      ],
+      [
+       128.468024,
+       38.407338
+      ],
+      [
+       128.468,
+       38.407626
+      ],
+      [
+       128.467946,
+       38.40801
+      ],
+      [
+       128.467915,
+       38.408286
+      ],
+      [
+       128.467847,
+       38.408718
+      ],
+      [
+       128.467769,
+       38.40926
+      ],
+      [
+       128.467715,
+       38.409644
+      ],
+      [
+       128.467679,
+       38.410005
+      ],
+      [
+       128.467522,
+       38.411202
+      ],
+      [
+       128.467481,
+       38.41144
+      ],
+      [
+       128.467454,
+       38.411599
+      ],
+      [
+       128.46737,
+       38.412046
+      ],
+      [
+       128.467267,
+       38.412558
+      ],
+      [
+       128.467057,
+       38.41346
+      ],
+      [
+       128.466908,
+       38.414137
+      ],
+      [
+       128.466798,
+       38.414562
+      ],
+      [
+       128.466675,
+       38.414996
+      ],
+      [
+       128.466622,
+       38.415181
+      ],
+      [
+       128.466527,
+       38.41547
+      ],
+      [
+       128.466465,
+       38.415634
+      ],
+      [
+       128.466392,
+       38.415799
+      ],
+      [
+       128.466305,
+       38.415974
+      ],
+      [
+       128.466213,
+       38.41615
+      ],
+      [
+       128.466113,
+       38.416315
+      ],
+      [
+       128.465915,
+       38.416592
+      ],
+      [
+       128.465772,
+       38.416786
+      ],
+      [
+       128.465622,
+       38.416964
+      ],
+      [
+       128.465484,
+       38.417108
+      ],
+      [
+       128.465303,
+       38.41728
+      ],
+      [
+       128.465095,
+       38.417462
+      ],
+      [
+       128.464855,
+       38.41765
+      ],
+      [
+       128.464631,
+       38.417836
+      ],
+      [
+       128.463809,
+       38.418499
+      ],
+      [
+       128.462007,
+       38.419929
+      ],
+      [
+       128.461736,
+       38.420167
+      ],
+      [
+       128.461514,
+       38.420384
+      ],
+      [
+       128.461325,
+       38.420568
+      ],
+      [
+       128.461115,
+       38.420812
+      ],
+      [
+       128.460801,
+       38.421215
+      ],
+      [
+       128.460649,
+       38.421437
+      ],
+      [
+       128.460502,
+       38.421679
+      ],
+      [
+       128.46038,
+       38.421951
+      ],
+      [
+       128.460261,
+       38.422237
+      ],
+      [
+       128.460153,
+       38.422569
+      ],
+      [
+       128.460086,
+       38.422858
+      ],
+      [
+       128.460035,
+       38.423137
+      ],
+      [
+       128.460005,
+       38.423447
+      ],
+      [
+       128.459985,
+       38.423953
+      ],
+      [
+       128.459964,
+       38.424781
+      ],
+      [
+       128.459951,
+       38.425071
+      ],
+      [
+       128.459907,
+       38.425415
+      ],
+      [
+       128.459842,
+       38.42575
+      ],
+      [
+       128.459744,
+       38.42604
+      ],
+      [
+       128.459618,
+       38.426348
+      ],
+      [
+       128.459472,
+       38.426641
+      ],
+      [
+       128.459104,
+       38.427174
+      ],
+      [
+       128.458785,
+       38.427536
+      ],
+      [
+       128.458325,
+       38.427979
+      ],
+      [
+       128.457514,
+       38.428632
+      ],
+      [
+       128.457236,
+       38.428849
+      ],
+      [
+       128.45703,
+       38.429019
+      ],
+      [
+       128.456306,
+       38.429555
+      ],
+      [
+       128.455962,
+       38.429834
+      ],
+      [
+       128.455772,
+       38.430083
+      ],
+      [
+       128.455577,
+       38.4303
+      ],
+      [
+       128.455376,
+       38.430518
+      ],
+      [
+       128.455089,
+       38.430862
+      ],
+      [
+       128.454888,
+       38.431115
+      ],
+      [
+       128.45476,
+       38.43129
+      ],
+      [
+       128.45483,
+       38.431409
+      ],
+      [
+       128.454448,
+       38.431989
+      ],
+      [
+       128.453971,
+       38.432675
+      ],
+      [
+       128.453845,
+       38.432843
+      ],
+      [
+       128.453798,
+       38.432907
+      ],
+      [
+       128.453224,
+       38.433674
+      ],
+      [
+       128.452778,
+       38.434311
+      ],
+      [
+       128.452654,
+       38.434511
+      ],
+      [
+       128.452595,
+       38.434605
+      ],
+      [
+       128.452115,
+       38.435443
+      ],
+      [
+       128.451969,
+       38.435845
+      ],
+      [
+       128.451807,
+       38.436266
+      ],
+      [
+       128.451747,
+       38.436545
+      ],
+      [
+       128.45159,
+       38.437307
+      ],
+      [
+       128.451578,
+       38.438042
+      ],
+      [
+       128.451639,
+       38.43833
+      ],
+      [
+       128.451747,
+       38.438893
+      ],
+      [
+       128.451947,
+       38.439402
+      ],
+      [
+       128.452005,
+       38.439525
+      ],
+      [
+       128.452238,
+       38.439664
+      ],
+      [
+       128.452487,
+       38.439787
+      ],
+      [
+       128.452535,
+       38.439827
+      ],
+      [
+       128.452622,
+       38.439899
+      ],
+      [
+       128.452672,
+       38.439952
+      ],
+      [
+       128.452724,
+       38.440029
+      ],
+      [
+       128.4528,
+       38.440228
+      ],
+      [
+       128.452882,
+       38.440433
+      ],
+      [
+       128.452958,
+       38.440713
+      ],
+      [
+       128.453127,
+       38.441137
+      ],
+      [
+       128.453197,
+       38.441571
+      ],
+      [
+       128.453239,
+       38.441792
+      ],
+      [
+       128.453269,
+       38.44203
+      ],
+      [
+       128.453348,
+       38.442582
+      ],
+      [
+       128.45345,
+       38.443253
+      ],
+      [
+       128.453555,
+       38.443952
+      ],
+      [
+       128.45361,
+       38.444078
+      ],
+      [
+       128.453773,
+       38.444452
+      ],
+      [
+       128.454047,
+       38.444884
+      ],
+      [
+       128.454358,
+       38.445411
+      ],
+      [
+       128.454674,
+       38.445904
+      ],
+      [
+       128.455218,
+       38.446425
+      ],
+      [
+       128.455811,
+       38.446919
+      ],
+      [
+       128.456162,
+       38.446749
+      ],
+      [
+       128.456287,
+       38.446629
+      ],
+      [
+       128.456725,
+       38.446916
+      ]
+     ],
+     "type": "LineString"
+    },
+    "weight": 2260,
+    "duration": 2260,
+    "distance": 32725.1
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "fISDg3-Eg4MOAAAAKgAAAGoAAAAAAAAAYiAhQdgU5UGiVZRCAAAAAA4AAAAqAAAAagAAAAAAAABucAAAvCeqBxX_RgK4J6oHGP5GAgQA7xAAAAAA",
+    "location": [
+     128.591804,
+     38.207253
+    ],
+    "name": "중앙로187번길",
+    "distance": 28.08537097
+   },
+   {
+    "hint": "hLQDhrG1A4ZIAAAAAAAAAAAAAAAAAAAAbhxHQgAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAABucAAAFRioB0SnSgIcG6gHbKZKAgAALwMAAAAA",
+    "location": [
+     128.456725,
+     38.446916
+    ],
+    "name": "",
+    "distance": 71.79735737
+   }
+  ]
+ }
+}

@@ -1,0 +1,2351 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/129.232388,35.840585;129.211509,35.838245;129.100000,35.840000?overview=false&steps=true&bearings=210,30;;&continue_straight=false",
+ "fetched_utc": "2026-11-14T03:27:03Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           210
+          ],
+          "location": [
+           129.232388,
+           35.840585
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           240,
+           270
+          ],
+          "location": [
+           129.231969,
+           35.84013
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           84,
+           94,
+           273
+          ],
+          "location": [
+           129.229953,
+           35.840078
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           180,
+           270
+          ],
+          "location": [
+           129.22913,
+           35.840113
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.226403,
+           35.840256
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 210,
+         "bearing_before": 0,
+         "location": [
+          129.232388,
+          35.840585
+         ],
+         "type": "depart"
+        },
+        "geometry": "ubwyEmuwsWFDJFd@Z\\^BHRn@DfAOzGEbD]`Pg@vV",
+        "ref": "4",
+        "name": "분황로",
+        "mode": "driving",
+        "weight": 56.1,
+        "duration": 56.1,
+        "distance": 915.2
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           180
+          ],
+          "location": [
+           129.222597,
+           35.840455
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           270
+          ],
+          "location": [
+           129.222575,
+           35.840147
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           255
+          ],
+          "location": [
+           129.222532,
+           35.839016
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           285
+          ],
+          "location": [
+           129.222485,
+           35.838061
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           270
+          ],
+          "location": [
+           129.222474,
+           35.83783
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           180,
+           195
+          ],
+          "location": [
+           129.222415,
+           35.836428
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           15,
+           225,
+           255
+          ],
+          "location": [
+           129.222216,
+           35.836058
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 182,
+         "bearing_before": 272,
+         "location": [
+          129.222597,
+          35.840455
+         ],
+         "modifier": "left",
+         "type": "end of road"
+        },
+        "geometry": "{awyEgxusW|@B^B`EDt@@hCDl@BtA@`EFTBTHRLHJDFPVLb@BV",
+        "ref": "4",
+        "name": "양정로",
+        "mode": "driving",
+        "weight": 32.7,
+        "duration": 32.7,
+        "distance": 541.5
+       },
+       {
+        "intersections": [
+         {
+          "out": 3,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           120,
+           270,
+           300
+          ],
+          "location": [
+           129.221759,
+           35.835849
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           90,
+           120,
+           300
+          ],
+          "location": [
+           129.221496,
+           35.835996
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           120,
+           165,
+           300
+          ],
+          "location": [
+           129.22123,
+           35.836145
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           120,
+           240,
+           315
+          ],
+          "location": [
+           129.219441,
+           35.83723
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           165,
+           345
+          ],
+          "location": [
+           129.217431,
+           35.840172
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           180,
+           345
+          ],
+          "location": [
+           129.217433,
+           35.840405
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 303,
+         "bearing_before": 236,
+         "location": [
+          129.221759,
+          35.835849
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "geometry": "aevyE_susW]r@ELWf@q@vAeApBYj@CDaAhBMNqAvAy@p@YVsBbAi@XuErBc@Lo@?C?kANK@",
+        "ref": "4",
+        "name": "원화로",
+        "mode": "driving",
+        "weight": 39.7,
+        "duration": 39.7,
+        "distance": 714.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           165,
+           270,
+           345
+          ],
+          "location": [
+           129.217341,
+           35.840873
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           165,
+           270
+          ],
+          "location": [
+           129.217332,
+           35.840916
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           165,
+           270
+          ],
+          "location": [
+           129.217225,
+           35.840909
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           90,
+           285
+          ],
+          "location": [
+           129.216822,
+           35.840952
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           28,
+           96,
+           97,
+           267
+          ],
+          "location": [
+           129.2156,
+           35.841074
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           180,
+           255
+          ],
+          "location": [
+           129.215204,
+           35.841055
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           60,
+           240
+          ],
+          "location": [
+           129.214515,
+           35.840842
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           165,
+           255,
+           345
+          ],
+          "location": [
+           129.213544,
+           35.840447
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           255
+          ],
+          "location": [
+           129.21165,
+           35.839961
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 350,
+         "bearing_before": 350,
+         "location": [
+          129.217341,
+          35.840873
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "geometry": "mdwyEkwtsWI@@R?PEh@ATEd@OhCEt@BL?N?Z@b@Fd@Jd@Vz@lAbEr@fEl@pDNdAXbB",
+        "ref": "4",
+        "name": "태종로",
+        "mode": "driving",
+        "weight": 46.4,
+        "duration": 46.4,
+        "distance": 623.6
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           255
+          ],
+          "location": [
+           129.2108,
+           35.83975
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "m}vyEonssWb@MxA_@",
+        "maneuver": {
+         "bearing_after": 163,
+         "bearing_before": 251,
+         "location": [
+          129.2108,
+          35.83975
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 26.8,
+        "duration": 26.8,
+        "distance": 73.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           60,
+           225,
+           345
+          ],
+          "location": [
+           129.211031,
+           35.839117
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "oyvyE}ossWd@j@FBlAS",
+        "maneuver": {
+         "bearing_after": 225,
+         "bearing_before": 163,
+         "location": [
+          129.211031,
+          35.839117
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 28.7,
+        "duration": 28.7,
+        "distance": 77.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           120,
+           210,
+           345
+          ],
+          "location": [
+           129.210894,
+           35.838503
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "suvyEaossWFSB_@",
+        "maneuver": {
+         "bearing_after": 119,
+         "bearing_before": 165,
+         "location": [
+          129.210894,
+          35.838503
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 8.9,
+        "duration": 8.9,
+        "distance": 24.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           135,
+           285
+          ],
+          "location": [
+           129.211146,
+           35.838436
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           105,
+           165,
+           285
+          ],
+          "location": [
+           129.211407,
+           35.838259
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "guvyEupssW`@]@U@S",
+        "maneuver": {
+         "bearing_after": 142,
+         "bearing_before": 98,
+         "location": [
+          129.211146,
+          35.838436
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 15.2,
+        "duration": 15.2,
+        "distance": 41.9
+       },
+       {
+        "intersections": [
+         {
+          "in": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           280
+          ],
+          "location": [
+           129.211509,
+           35.838245
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "atvyE}rssW",
+        "maneuver": {
+         "bearing_after": 0,
+         "bearing_before": 100,
+         "location": [
+          129.211509,
+          35.838245
+         ],
+         "type": "arrive"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 0,
+        "duration": 0,
+        "distance": 0
+       }
+      ],
+      "weight": 254.5,
+      "summary": "분황로, 태종로",
+      "duration": 254.5,
+      "distance": 3012.5
+     },
+     {
+      "steps": [
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           280
+          ],
+          "location": [
+           129.211509,
+           35.838245
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           105,
+           165,
+           285
+          ],
+          "location": [
+           129.211407,
+           35.838259
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "atvyE}rssWARATa@\\",
+        "maneuver": {
+         "bearing_after": 280,
+         "bearing_before": 0,
+         "location": [
+          129.211509,
+          35.838245
+         ],
+         "type": "depart"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 15.6,
+        "duration": 15.6,
+        "distance": 41.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           285
+          ],
+          "location": [
+           129.211146,
+           35.838436
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "guvyEupssWC^GR",
+        "maneuver": {
+         "bearing_after": 278,
+         "bearing_before": 322,
+         "location": [
+          129.211146,
+          35.838436
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 8.9,
+        "duration": 8.9,
+        "distance": 24.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           120,
+           210,
+           345
+          ],
+          "location": [
+           129.210894,
+           35.838503
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "suvyEaossWmARGCe@k@",
+        "maneuver": {
+         "bearing_after": 345,
+         "bearing_before": 299,
+         "location": [
+          129.210894,
+          35.838503
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 29.7,
+        "duration": 29.7,
+        "distance": 77.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           225,
+           345
+          ],
+          "location": [
+           129.211031,
+           35.839117
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "oyvyE}ossWyA^c@L",
+        "maneuver": {
+         "bearing_after": 343,
+         "bearing_before": 45,
+         "location": [
+          129.211031,
+          35.839117
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 31.8,
+        "duration": 31.8,
+        "distance": 73.3
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           255
+          ],
+          "location": [
+           129.2108,
+           35.83975
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           180,
+           255
+          ],
+          "location": [
+           129.209918,
+           35.839525
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           255
+          ],
+          "location": [
+           129.208669,
+           35.839318
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           255
+          ],
+          "location": [
+           129.207847,
+           35.839175
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           225,
+           255,
+           300
+          ],
+          "location": [
+           129.207567,
+           35.839127
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           180,
+           255
+          ],
+          "location": [
+           129.207128,
+           35.839051
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           180,
+           255
+          ],
+          "location": [
+           129.207061,
+           35.83904
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           45,
+           75,
+           120,
+           255
+          ],
+          "location": [
+           129.206658,
+           35.838973
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           165,
+           255
+          ],
+          "location": [
+           129.206001,
+           35.838865
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           165,
+           255
+          ],
+          "location": [
+           129.204694,
+           35.838666
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           75,
+           255
+          ],
+          "location": [
+           129.203773,
+           35.838518
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           255,
+           285,
+           315
+          ],
+          "location": [
+           129.203066,
+           35.838404
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           165,
+           255,
+           345
+          ],
+          "location": [
+           129.202658,
+           35.838338
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           75,
+           165,
+           255,
+           345
+          ],
+          "location": [
+           129.202538,
+           35.83831
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           255,
+           315
+          ],
+          "location": [
+           129.199403,
+           35.837407
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           195,
+           255
+          ],
+          "location": [
+           129.19926,
+           35.837366
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 251,
+         "bearing_before": 343,
+         "location": [
+          129.2108,
+          35.83975
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "geometry": "m}vyEonssWj@nDd@~EBXDb@PdBBXHv@NvA@LLnABX?@BRJrAJ`AJxANhBVrCDb@D\\H`AB^BJDh@Df@DVDXlDxQBHBPFVBPH`@",
+        "ref": "4",
+        "name": "태종로",
+        "mode": "driving",
+        "weight": 64.9,
+        "duration": 64.9,
+        "distance": 1114.2
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           15,
+           75,
+           195,
+           255
+          ],
+          "location": [
+           129.198884,
+           35.837258
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           195,
+           315
+          ],
+          "location": [
+           129.198871,
+           35.837214
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           45,
+           195
+          ],
+          "location": [
+           129.198771,
+           35.836892
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           195,
+           315
+          ],
+          "location": [
+           129.198732,
+           35.836764
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           30,
+           210,
+           285
+          ],
+          "location": [
+           129.191271,
+           35.82756
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           30,
+           210,
+           315
+          ],
+          "location": [
+           129.190322,
+           35.826516
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           45,
+           210,
+           270
+          ],
+          "location": [
+           129.18958,
+           35.825743
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           30,
+           210,
+           300
+          ],
+          "location": [
+           129.187221,
+           35.823557
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           15,
+           195,
+           285
+          ],
+          "location": [
+           129.186791,
+           35.82281
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           105,
+           255
+          ],
+          "location": [
+           129.181157,
+           35.815949
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           240,
+           300
+          ],
+          "location": [
+           129.179395,
+           35.815384
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           255,
+           315
+          ],
+          "location": [
+           129.177057,
+           35.81462
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           210,
+           255
+          ],
+          "location": [
+           129.176568,
+           35.814464
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           150,
+           270
+          ],
+          "location": [
+           129.176311,
+           35.814428
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           90,
+           105,
+           285
+          ],
+          "location": [
+           129.175917,
+           35.814415
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           105,
+           285
+          ],
+          "location": [
+           129.173163,
+           35.815188
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           105,
+           195,
+           285
+          ],
+          "location": [
+           129.173022,
+           35.815218
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           90,
+           270
+          ],
+          "location": [
+           129.150457,
+           35.818986
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           0,
+           90,
+           270
+          ],
+          "location": [
+           129.149773,
+           35.818961
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           90,
+           210,
+           270
+          ],
+          "location": [
+           129.148408,
+           35.818913
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           90,
+           270,
+           345
+          ],
+          "location": [
+           129.148016,
+           35.818889
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           90,
+           195,
+           270
+          ],
+          "location": [
+           129.147297,
+           35.818892
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           90,
+           270
+          ],
+          "location": [
+           129.146777,
+           35.818936
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 192,
+         "bearing_before": 250,
+         "location": [
+          129.198884,
+          35.837258
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "geometry": "{mvyE_dqsWH@~@RXF@?hAZnEdAlAb@fAn@jBdB@@hFzEHFrF`FvFbFtFbFr@p@dB`B~CrCjB`BbBzAf@b@rBnBr@n@fBjBbCpCtAjBh@j@RP\\XlAj@h@NLBp@J`C@lG@hABn@BPFTFvAp@|AfAr@h@v@p@jC`C|@~@pCzE\\z@Pp@LpAFbBJz@Db@R`At@jDv@hDBHl@jCH\\tAhGH^^`BDr@@lAu@dEcB`JEZeB~IgBjJ{BnLWjAUfAe@dBs@pB{AdE}AhE]lAS~Ag@zBuA~FMlAAzDP~ET~FN~HVvT@fAFrEDhCHnGBlA?nCIfBB~Q?P@tA",
+        "ref": "4; 35",
+        "name": "대경로",
+        "mode": "driving",
+        "weight": 365.3,
+        "duration": 365.3,
+        "distance": 6556.5
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           90,
+           269,
+           276
+          ],
+          "location": [
+           129.14322,
+           35.818914
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           105,
+           300,
+           330
+          ],
+          "location": [
+           129.140487,
+           35.819435
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "e{ryEchfsWOzDOvAiAlGSz@",
+        "maneuver": {
+         "bearing_after": 275,
+         "bearing_before": 268,
+         "location": [
+          129.14322,
+          35.818914
+         ],
+         "modifier": "slight right",
+         "type": "off ramp"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 28,
+        "duration": 28,
+        "distance": 284.5
+       },
+       {
+        "intersections": [
+         {
+          "out": 3,
+          "in": 2,
+          "entry": [
+           false,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           45,
+           120,
+           225
+          ],
+          "location": [
+           129.140185,
+           35.819537
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "c_syEeuesWj@t@h@p@",
+        "maneuver": {
+         "bearing_after": 223,
+         "bearing_before": 292,
+         "location": [
+          129.140185,
+          35.819537
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 6.2,
+        "duration": 6.2,
+        "distance": 66.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           105,
+           285,
+           315
+          ],
+          "location": [
+           129.139665,
+           35.81911
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           315
+          ],
+          "location": [
+           129.131839,
+           35.823928
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           240,
+           315
+          ],
+          "location": [
+           129.131286,
+           35.824335
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           135,
+           315
+          ],
+          "location": [
+           129.131115,
+           35.824465
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           90,
+           135,
+           315
+          ],
+          "location": [
+           129.128927,
+           35.826246
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           315
+          ],
+          "location": [
+           129.128311,
+           35.826811
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           225,
+           315
+          ],
+          "location": [
+           129.126118,
+           35.82882
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           315
+          ],
+          "location": [
+           129.123654,
+           35.831105
+          ]
+         },
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true
+          ],
+          "bearings": [
+           135,
+           315
+          ],
+          "location": [
+           129.123373,
+           35.831358
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           45,
+           135,
+           225,
+           315
+          ],
+          "location": [
+           129.120111,
+           35.834323
+          ]
+         },
+         {
+          "out": 3,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           30,
+           135,
+           210,
+           315
+          ],
+          "location": [
+           129.118941,
+           35.835301
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           240,
+           315
+          ],
+          "location": [
+           129.117888,
+           35.836189
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           135,
+           315
+          ],
+          "location": [
+           129.116999,
+           35.836939
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           225,
+           315
+          ],
+          "location": [
+           129.116946,
+           35.836984
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "m|ryE}qesWYpD[zAM`@OX{CzEaH`L_E`G[f@oB|Cq@dAs@fAa@n@o@|@Y`@u@fAeA|AsAnBsC~CWXwA`B_AhAkDtDq@v@sB|BeDtDON{DhEMLiAnAq@v@CD_NdOkB~BGH{D~EEFkDhEuCpDGHcBtBk@t@e@j@eIbKeArAsEzFY\\{D`F[b@kAxAyBnC",
+        "maneuver": {
+         "bearing_after": 279,
+         "bearing_before": 225,
+         "location": [
+          129.139665,
+          35.81911
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "name": "내서로",
+        "mode": "driving",
+        "weight": 252.1,
+        "duration": 252.1,
+        "distance": 3828.1
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           135,
+           255,
+           315
+          ],
+          "location": [
+           129.109624,
+           35.843129
+          ]
+         },
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           75,
+           135,
+           255
+          ],
+          "location": [
+           129.105821,
+           35.841832
+          ]
+         },
+         {
+          "out": 2,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           45,
+           105,
+           240
+          ],
+          "location": [
+           129.103328,
+           35.841239
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "qrwyEcv_sWz@`JBPN`@nDlIBRNfAn@|A^jAPdAP|@B`@Ab@I`@ERHVRTT\\DL",
+        "maneuver": {
+         "bearing_after": 257,
+         "bearing_before": 315,
+         "location": [
+          129.109624,
+          35.843129
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 98,
+        "duration": 98,
+        "distance": 674.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 2,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           60,
+           165,
+           285
+          ],
+          "location": [
+           129.10288,
+           35.840947
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "}dwyE_l~rW_@`BSdAIn@GnAAz@?fAD`AAl@On@Mp@GZ",
+        "maneuver": {
+         "bearing_after": 291,
+         "bearing_before": 237,
+         "location": [
+          129.10288,
+          35.840947
+         ],
+         "modifier": "right",
+         "type": "end of road"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 47.9,
+        "duration": 47.9,
+        "distance": 311.9
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 0,
+          "entry": [
+           false,
+           true,
+           true
+          ],
+          "bearings": [
+           105,
+           225,
+           300
+          ],
+          "location": [
+           129.099547,
+           35.841483
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "ghwyEew}rWnBlBXAXMVe@`AgDLO",
+        "maneuver": {
+         "bearing_after": 217,
+         "bearing_before": 289,
+         "location": [
+          129.099547,
+          35.841483
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 32.4,
+        "duration": 32.4,
+        "distance": 225.9
+       },
+       {
+        "intersections": [
+         {
+          "in": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           316
+          ],
+          "location": [
+           129.100185,
+           35.840144
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "geometry": "{_wyEe{}rW",
+        "maneuver": {
+         "bearing_after": 0,
+         "bearing_before": 136,
+         "location": [
+          129.100185,
+          35.840144
+         ],
+         "modifier": "right",
+         "type": "arrive"
+        },
+        "name": "",
+        "mode": "driving",
+        "weight": 0,
+        "duration": 0,
+        "distance": 0
+       }
+      ],
+      "weight": 980.8,
+      "summary": "대경로, 내서로",
+      "duration": 980.8,
+      "distance": 13280
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1235.3,
+    "duration": 1235.3,
+    "distance": 16292.5
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "COU2gF8AOgUFAAAAAwAAAAAAAAAhAAAAukoUQQ57o0AAAAAA0pBrQgUAAAADAAAAAAAAACEAAABucAAABO6zB0niIgIE7rMHSeIiAgAALw0AAAAA",
+    "location": [
+     129.232388,
+     35.840585
+    ],
+    "name": "분황로",
+    "distance": 0
+   },
+   {
+    "hint": "M2RmgFVkZoAjAAAAIgAAAAAAAAAAAAAArRweQSCNFUEAAAAAAAAAACMAAAAiAAAAAAAAAAAAAABucAAAdZyzByXZIgJ1nLMHJdkiAgAAfxEAAAAA",
+    "location": [
+     129.211509,
+     35.838245
+    ],
+    "name": "",
+    "distance": 0
+   },
+   {
+    "hint": "BYddhzWHXYcNAAAAHgAAADcBAAAaAAAAhH8ZQWhXoEEQUFhDsjiOQQ0AAAAeAAAANwEAABoAAABucAAAmemxB5DgIgLg6LEHAOAiAgoAfwgAAAAA",
+    "location": [
+     129.100185,
+     35.840144
+    ],
+    "name": "",
+    "distance": 23.12454606
+   }
+  ]
+ }
+}

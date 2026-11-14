@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.738000,34.738000?number=5",
+ "fetched_utc": "2026-11-14T03:23:45Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     12651724260.0,
+     772405748
+    ],
+    "hint": "y4qOh_RVPIkcAAAAIgAAAGsAAAASAAAAzYT5QXYUFkLxV_FCmb6jQRwAAAAiAAAAawAAABIAAABucAAA3CGdB9YPEgKQIJ0HUA8SAhoA3xQAAAAA",
+    "location": [
+     127.738332,
+     34.738134
+    ],
+    "name": "이순신광장로",
+    "distance": 33.84773695
+   },
+   {
+    "nodes": [
+     772405748,
+     12651835810.0
+    ],
+    "hint": "y4qOh_RVPIkFAAAAAAAAAGYAAABQAAAAX6SxQAAAAACrPeZCE1uyQgUAAAAAAAAAZgAAAFAAAABucAAAcyKdB9oOEgKQIJ0HUA8SAhgAnxQAAAAA",
+    "location": [
+     127.738483,
+     34.737882
+    ],
+    "name": "이순신광장로",
+    "distance": 46.13528558
+   },
+   {
+    "nodes": [
+     12651835810.0,
+     12651835810.0
+    ],
+    "hint": "y4qOh_RVPIkDAAAAAAAAAGMAAABVAAAAdvl2QAAAAADfhd5CWXW9QgMAAAAAAAAAYwAAAFUAAABucAAAkiKdB68OEgKQIJ0HUA8SAhYAPxQAAAAA",
+    "location": [
+     127.738514,
+     34.737839
+    ],
+    "name": "이순신광장로",
+    "distance": 50.35268367
+   },
+   {
+    "nodes": [
+     12651724200.0,
+     12651724260.0
+    ],
+    "hint": "y4qOh_RVPIkAAAAAEgAAAKkAAAAAAAAAAAAAAJm-o0GvYT1DAAAAAAAAAAASAAAAqQAAAAAAAABucAAAJiGdBwUREgKQIJ0HUA8SAhwA3xQAAAAA",
+    "location": [
+     127.73815,
+     34.738437
+    ],
+    "name": "이순신광장로",
+    "distance": 50.38803635
+   },
+   {
+    "nodes": [
+     12651835810.0,
+     8664633808
+    ],
+    "hint": "y4qOh_RVPIkEAAAAAAAAAF8AAABYAAAALuaAQAAAAAB8d9ZCJS3FQgQAAAAAAAAAXwAAAFgAAABucAAAqyKdB5MOEgKQIJ0HUA8SAhQADxQAAAAA",
+    "location": [
+     127.738539,
+     34.737811
+    ],
+    "name": "이순신광장로",
+    "distance": 53.63621765
+   }
+  ]
+ }
+}

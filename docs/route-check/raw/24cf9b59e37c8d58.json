@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.029429,37.498441;127.046675,37.508677;127.224000,37.545500?overview=false&bearings=69,30;;&continue_straight=false",
+ "fetched_utc": "2026-11-14T03:00:09Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 252.4,
+      "summary": "",
+      "duration": 252.4,
+      "distance": 2529.4
+     },
+     {
+      "steps": [],
+      "weight": 1441.6,
+      "summary": "",
+      "duration": 1355.3,
+      "distance": 20369.2
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1694,
+    "duration": 1607.7,
+    "distance": 22898.6
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "cKTvgf___38AAAAALAAAAAAAAAAAAAAAe0WTPyQrm0IAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAABucAAAtVCSB0kuPAK1UJIHSS48AgAAXwQAAAAA",
+    "location": [
+     127.029429,
+     37.498441
+    ],
+    "name": "테헤란로",
+    "distance": 0
+   },
+   {
+    "hint": "TcrdglDK3YINAAAASwAAAFcAAAC9AAAALxtsQDigpUGuocFBcAZSQg0AAABLAAAAVwAAAL0AAABucAAAE5SSB0VWPAITlJIHRVY8AgIADxYAAAAA",
+    "location": [
+     127.046675,
+     37.508677
+    ],
+    "name": "",
+    "distance": 0
+   },
+   {
+    "hint": "dOnaiJDX3ogAAAAAVQAAAAAAAAAOAAAAAAAAAO1YjkEAAAAAtV86QAAAAAArAAAAAAAAAAcAAABucAAAqUiVB2_oPALASJUHHOY8AgAALwEAAAAA",
+    "location": [
+     127.223977,
+     37.546095
+    ],
+    "name": "",
+    "distance": 66.06885642
+   }
+  ]
+ }
+}

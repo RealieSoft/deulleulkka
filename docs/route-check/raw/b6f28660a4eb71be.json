@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.525700,37.790500?number=3",
+ "fetched_utc": "2026-11-14T02:55:26Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     2800342845,
+     2800342847
+    ],
+    "hint": "2qhKgibAXYkFAAAAAAAAAAEEAAApEAAAIYm_QAAAAAACZI5Eg5-PRQUAAAAAAAAAAQQAACkQAABucAAAPPaZBzimQAJE45kHJKNAAngAjxUAAAAA",
+    "location": [
+     127.530556,
+     37.791288
+    ],
+    "name": "방하로",
+    "distance": 436.6630545
+   },
+   {
+    "nodes": [
+     2800342632,
+     2800342845
+    ],
+    "hint": "2qhKgibAXYkAAAAACwAAAAYEAAAeEAAAAAAAALzMP0GLI49Enj-PRQAAAAALAAAABgQAAB4QAABucAAAPPaZBzimQAJE45kHJKNAAnoAfxYAAAAA",
+    "location": [
+     127.530556,
+     37.791288
+    ],
+    "name": "방하로",
+    "distance": 436.6630545
+   },
+   {
+    "nodes": [
+     2800342847,
+     2800342658
+    ],
+    "hint": "2qhKgibAXYkIAAAAAAAAAPkDAAAuEAAAsssUQQAAAABrOo1EZs-PRQgAAAAAAAAA-QMAAC4QAABucAAATvaZBwSmQAJE45kHJKNAAnYAnxUAAAAA",
+    "location": [
+     127.530574,
+     37.791236
+    ],
+    "name": "방하로",
+    "distance": 437.1014961
+   }
+  ]
+ }
+}

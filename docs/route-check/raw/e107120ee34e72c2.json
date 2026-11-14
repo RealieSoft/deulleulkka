@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.184190,37.477840?number=5",
+ "fetched_utc": "2026-11-14T03:05:13Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     3969391859,
+     3969391859
+    ],
+    "hint": "ydQ3gP___38AAAAAAwAAAAYAAAAPAAAAAAAAALAXkUAm3BBBoEe0QQAAAAADAAAABgAAAA8AAABucAAAPa2UB9PdOwI-rZQH0N07AgQA3wQAAAAA",
+    "location": [
+     127.184189,
+     37.477843
+    ],
+    "name": "남한산성로",
+    "distance": 0.344508973
+   },
+   {
+    "nodes": [
+     3969391860,
+     3969391860
+    ],
+    "hint": "ydQ3gP___38DAAAAAwAAAAMAAAASAAAARg6RQAAAAAAHqpBAjI3YQQMAAAADAAAAAwAAABIAAABucAAAPa2UB9PdOwI-rZQH0N07AgIA_wUAAAAA",
+    "location": [
+     127.184189,
+     37.477843
+    ],
+    "name": "남한산성로",
+    "distance": 0.344508973
+   },
+   {
+    "nodes": [
+     3969391861,
+     3969391861
+    ],
+    "hint": "ydQ3gP___38AAAAAAwAAAAkAAAAMAAAAAAAAAGUGk0D-Z1lBB4aPQQAAAAADAAAACQAAAAwAAABucAAAb62UB9zdOwI-rZQH0N07AgYAnwMAAAAA",
+    "location": [
+     127.184239,
+     37.477852
+    ],
+    "name": "남한산성로",
+    "distance": 4.534299524
+   },
+   {
+    "nodes": [
+     0,
+     436940253
+    ],
+    "hint": "ydQ3gP___38DAAAAAwAAAAAAAAAVAAAAB6qQQAAAAAAAAAAAHtH8QQMAAAADAAAAAAAAABUAAABucAAACq2UB9fdOwI-rZQH0N07AgAAHwcAAAAA",
+    "location": [
+     127.184138,
+     37.477847
+    ],
+    "name": "남한산성로",
+    "distance": 4.664805994
+   },
+   {
+    "nodes": [
+     3969391862,
+     3969391862
+    ],
+    "hint": "ydQ3gP___38AAAAAAwAAAAwAAAAJAAAAAAAAAMuRjkCYdZFBKMNXQQAAAAADAAAADAAAAAkAAABucAAAm62UB_LdOwI-rZQH0N07AggAfwIAAAAA",
+    "location": [
+     127.184283,
+     37.477874
+    ],
+    "name": "남한산성로",
+    "distance": 9.050511535
+   }
+  ]
+ }
+}

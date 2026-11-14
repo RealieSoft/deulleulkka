@@ -6,6 +6,7 @@ package app.deulleulkka.engine
  * 경유지를 넣으면 내비게이션이 경로를 다시 계산해 알려 준다(에뮬레이터에서 약 6초 뒤 `onWaypointChanged`).
  * 그때의 실제 추가 시간과 물을 때의 어림값을 비교해, 그 어림에 썼어야 할 보정값을 거꾸로 구해 쌓는다.
  * 이 값은 도로가 돌아가는 정도뿐 아니라 우회 구간의 속도 차이도 함께 담는다.
+ * 직선거리로 어림한 경우에만 기록한다. 찜까지의 도로 시간으로 어림했다면([DetourEstimator.usesTrip]) 이 값을 쓰지 않았으므로 기록하지 않는다.
  * 기록은 기기 안에만 두고, 서버나 언어 모델을 쓰지 않는다.
  */
 data class RoadFactorCalibrator(

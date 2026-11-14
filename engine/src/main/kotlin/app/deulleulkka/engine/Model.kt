@@ -33,10 +33,17 @@ data class DriveContext(
     val lat: Double,
     val lon: Double,
     val speedKph: Double,
+    /** 진행 방향(북쪽에서 시계 방향으로 잰 도). 모르면 null이고, 그때는 목적지 쪽을 앞으로 본다. */
+    val headingDeg: Double? = null,
     /** 목적지가 없으면 null. */
     val destination: Destination?,
     val remainingKm: Double? = null,
     val remainingMin: Double? = null,
+    /**
+     * 지금 위치에서 찜까지의 도로 시간(분), 찜 id별. 내비게이션의 `requestTrip`으로 경로를 바꾸지 않고 받는다.
+     * 받지 못한 찜은 빠져 있고, 그때 우회 어림은 직선거리로 한다([DetourEstimator.estimateMinutes]).
+     */
+    val tripMinToPlace: Map<String, Double> = emptyMap(),
     /** 다음 회전까지 남은 거리(m). 안내가 없으면 null. */
     val nextTurnMeters: Int? = null,
     /** 다음 회전이 나들목 진입·진출인지. */
@@ -60,6 +67,8 @@ data class DriveContext(
 data class Settings(
     /** 더 걸려도 되는 시간(분). */
     val maxDetourMin: Double = 10.0,
+    /** 혼자 탄 이동이면 더 걸려도 되는 시간을 절반으로 줄일지. 저희가 세운 가설이라 끌 수 있다. */
+    val halveForSolo: Boolean = true,
     /** 한 번의 이동에 묻는 횟수. 답이 없던 것도 센다. */
     val maxAsksPerTrip: Int = 2,
     /** "다음에"라고 답한 곳을 쉬는 날수. */

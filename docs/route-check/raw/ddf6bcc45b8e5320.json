@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.165814,37.468938;127.184189,37.477843;127.309500,37.472000?overview=false&bearings=38,30;;",
+ "fetched_utc": "2026-11-14T03:05:19Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 169.8,
+      "summary": "",
+      "duration": 169.8,
+      "distance": 2553.8
+     },
+     {
+      "steps": [],
+      "weight": 1030,
+      "summary": "",
+      "duration": 1030,
+      "distance": 16333.9
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1199.8,
+    "duration": 1199.8,
+    "distance": 18887.7
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "iJc4ANvIuoMDAAAACQAAALwEAADYAwAA6nO4QGAZSkFqp-lElSq8RAMAAAAJAAAAvAQAANgDAABucAAAdmWUBwq7OwJ2ZZQHCrs7AjYBrw0AAAAA",
+    "location": [
+     127.165814,
+     37.468938
+    ],
+    "name": "남한산성로",
+    "distance": 0
+   },
+   {
+    "hint": "ydQ3gP___38DAAAAAwAAAAMAAAASAAAARg6RQAAAAAAHqpBAjI3YQQMAAAADAAAAAwAAABIAAABucAAAPa2UB9PdOwI9rZQH0907AgIA_wUAAAAA",
+    "location": [
+     127.184189,
+     37.477843
+    ],
+    "name": "남한산성로",
+    "distance": 0
+   },
+   {
+    "hint": "pms4gJGd8IY3AAAAOwAAAAAAAAAAAAAAVeepQt2UskIAAAAAAAAAADcAAAA7AAAAAAAAAAAAAABucAAAvpaWByvHOwK8lpYHAMc7AgAAvwUAAAAA",
+    "location": [
+     127.309502,
+     37.472043
+    ],
+    "name": "천진암로",
+    "distance": 4.775700161
+   }
+  ]
+ }
+}

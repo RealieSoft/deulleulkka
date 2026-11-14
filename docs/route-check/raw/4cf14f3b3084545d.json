@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/128.899000,37.754000?number=5",
+ "fetched_utc": "2026-11-14T03:23:40Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     3245931516,
+     3245931508
+    ],
+    "hint": "ogKSgrcCkoIbAAAADAAAAAAAAAAAAAAANOuYQWtnA0EAAAAAAAAAABsAAAAMAAAAAAAAAAAAAABucAAA6NeuB18UQAK4164HkBRAAgAAjw4AAAAA",
+    "location": [
+     128.899048,
+     37.753951
+    ],
+    "name": "중앙시장길",
+    "distance": 6.88922208
+   },
+   {
+    "nodes": [
+     3245931517,
+     3245931516
+    ],
+    "hint": "uQKSgrwCkoIAAAAAQQAAAAAAAAAAAAAAAAAAAJgHNEIAAAAAAAAAAAAAAABBAAAAAAAAAAAAAABucAAAnteuBzIUQAK4164HkBRAAgAAHwkAAAAA",
+    "location": [
+     128.898974,
+     37.753906
+    ],
+    "name": "",
+    "distance": 10.68175858
+   },
+   {
+    "nodes": [
+     3245931516,
+     3245931514
+    ],
+    "hint": "swKSgrgCkoIlAAAAAAAAAAAAAAAAAAAAXLvPQQAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAAAAAABucAAAnteuBzIUQAK4164HkBRAAgAAXwMAAAAA",
+    "location": [
+     128.898974,
+     37.753906
+    ],
+    "name": "중앙시장길",
+    "distance": 10.68175858
+   },
+   {
+    "nodes": [
+     3245931515,
+     3245931514
+    ],
+    "hint": "sgKSgrUCkoIAAAAAPgAAAAAAAAAAAAAAAAAAAPkFLEIAAAAAAAAAAAAAAAA-AAAAAAAAAAAAAABucAAAsNauB6gTQAK4164HkBRAAgAADwkAAAAA",
+    "location": [
+     128.898736,
+     37.753768
+    ],
+    "name": "",
+    "distance": 34.69909843
+   },
+   {
+    "nodes": [
+     3245931514,
+     3245931510
+    ],
+    "hint": "qAKSgrECkoIxAAAAAAAAAAAAAAAAAAAASNIHQgAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAAAAAABucAAAsNauB6gTQAK4164HkBRAAgAATwMAAAAA",
+    "location": [
+     128.898736,
+     37.753768
+    ],
+    "name": "중앙시장길",
+    "distance": 34.69909843
+   }
+  ]
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/129.057800,35.168400?number=5",
+ "fetched_utc": "2026-11-14T03:21:23Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     0,
+     14152538150.0
+    ],
+    "hint": "Ih2-if___38IAAAAFwAAAAAAAACpAAAAjl5OQT13skEAAAAAKJmAQwgAAAAXAAAAAAAAAKkAAABucAAAOkqxB8-YGAIIRLEHkKAYAgAAzw4AAAAA",
+    "location": [
+     129.059386,
+     35.166415
+    ],
+    "name": "시민공원로",
+    "distance": 263.3839761
+   },
+   {
+    "nodes": [
+     14156716420.0,
+     14156716420.0
+    ],
+    "hint": "JB2-if___38IAAAACAAAABsAAAAAAAAA4Ga7QAAAAABZu5ZBAAAAAAgAAAAIAAAAGwAAAAAAAABucAAAsUqxBw6ZGAIIRLEHkKAYAgYAPxEAAAAA",
+    "location": [
+     129.059505,
+     35.166478
+    ],
+    "name": "",
+    "distance": 263.8014902
+   },
+   {
+    "nodes": [
+     12353918430.0,
+     12353918430.0
+    ],
+    "hint": "s58Ng____38RAAAAEQAAAAgAAAAAAAAAkWHUQQAAAADcNUBBAAAAABEAAAARAAAACAAAAAAAAABucAAAsUqxBw6ZGAIIRLEHkKAYAgIA3w4AAAAA",
+    "location": [
+     129.059505,
+     35.166478
+    ],
+    "name": "시민공원로",
+    "distance": 263.8014902
+   },
+   {
+    "nodes": [
+     14156716410.0,
+     14156716410.0
+    ],
+    "hint": "Ih2-if___38AAAAAEgAAABcAAACXAAAAAAAAAN832UEa0wxCVAtmQwAAAAASAAAAFwAAAJcAAABucAAAbUmxB2GYGAIIRLEHkKAYAgIA3w4AAAAA",
+    "location": [
+     129.059181,
+     35.166305
+    ],
+    "name": "시민공원로",
+    "distance": 264.2878103
+   },
+   {
+    "nodes": [
+     0,
+     3946654813
+    ],
+    "hint": "s58Ng____38IAAAACAAAAAAAAAARAAAA3DVAQQAAAAAAAAAAkWHUQQgAAAAIAAAAAAAAABEAAABucAAAqEuxB42ZGAIIRLEHkKAYAgAADw8AAAAA",
+    "location": [
+     129.059752,
+     35.166605
+    ],
+    "name": "시민공원로",
+    "distance": 266.9761995
+   }
+  ]
+ }
+}

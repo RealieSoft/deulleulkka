@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/128.423200,38.100300?number=3",
+ "fetched_utc": "2026-11-14T02:58:17Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     1204174958,
+     1204171298
+    ],
+    "hint": "iICNgKl20IgBAAAAAAAAAB8DAAAjCAAAloIOQAAAAABAqLREattrRQEAAAAAAAAAHwMAACMIAABucAAAaXmnByxERQIglacHTF1FArYAfwcAAAAA",
+    "location": [
+     128.416105,
+     38.093868
+    ],
+    "name": "설악로",
+    "distance": 947.237748
+   },
+   {
+    "nodes": [
+     1204173888,
+     1204174958
+    ],
+    "hint": "iICNgKl20IgAAAAABAAAACADAAAfCAAAAAAAAL860kCB77RETHJrRQAAAAAEAAAAIAMAAB8IAABucAAAaXmnByxERQIglacHTF1FArgAXwgAAAAA",
+    "location": [
+     128.416105,
+     38.093868
+    ],
+    "name": "설악로",
+    "distance": 947.237748
+   },
+   {
+    "nodes": [
+     1204177136,
+     1204173888
+    ],
+    "hint": "iICNgKl20IgAAAAAAQAAACQDAAAeCAAAAAAAAO4uBUC8wbVEAFFrRQAAAAABAAAAJAMAAB4IAABucAAAn3mnBwNERQIglacHTF1FAroAvwkAAAAA",
+    "location": [
+     128.416159,
+     38.093827
+    ],
+    "name": "설악로",
+    "distance": 947.5765705
+   }
+  ]
+ }
+}

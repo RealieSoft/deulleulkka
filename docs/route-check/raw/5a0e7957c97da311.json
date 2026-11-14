@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.493069,35.297223;127.585000,35.370000?overview=false&bearings=71,30;",
+ "fetched_utc": "2026-11-14T03:27:20Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1466.3,
+      "summary": "",
+      "duration": 1466.3,
+      "distance": 16780.1
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1466.3,
+    "duration": 1466.3,
+    "distance": 16780.1
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "WWc4gO4bwQkEAAAABgAAAJoJAADIBAAACiyTQAX8xEAStCpFQdipRAQAAAAGAAAAmgkAAMgEAABucAAAzWOZB8eXGgLNY5kHx5caAnABfwQAAAAA",
+    "location": [
+     127.493069,
+     35.297223
+    ],
+    "name": "노고단로",
+    "distance": 0
+   },
+   {
+    "hint": "q9SDgB4g2IAqAAAAAAAAAPQIAACsBwAAKwSLQQAAAAAr9W5EQL5MRCoAAAAAAAAA9AgAAKwHAABucAAALsKaB12rGwLoypoHELQbAl4APxUAAAAA",
+    "location": [
+     127.582766,
+     35.367773
+    ],
+    "name": "",
+    "distance": 319.7791978
+   }
+  ]
+ }
+}

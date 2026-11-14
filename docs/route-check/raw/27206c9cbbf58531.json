@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/128.361672,36.989877;128.344936,37.000521;128.190900,37.132600?overview=false&bearings=269,30;;",
+ "fetched_utc": "2026-11-14T03:00:56Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 351.7,
+      "summary": "",
+      "duration": 351.7,
+      "distance": 2935.7
+     },
+     {
+      "steps": [],
+      "weight": 2156.2,
+      "summary": "",
+      "duration": 2138.2,
+      "distance": 28473.9
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 2507.9,
+    "duration": 2489.9,
+    "distance": 31409.6
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "2Lqbg5p6nQNVAAAAOAAAALoAAAAtAAAAX9u9Qj3HdUI6b05DCpFHQlUAAAA4AAAAugAAAC0AAABucAAAyKSmB7VrNALIpKYHtWs0AgoA3xAAAAAA",
+    "location": [
+     128.361672,
+     36.989877
+    ],
+    "name": "별곡3로",
+    "distance": 0
+   },
+   {
+    "hint": "qjVtiK41bYgAAAAARgAAAAAAAACNAAAAAAAAAO4dQkIAAAAAUDXDQgAAAABGAAAAAAAAAI0AAABucAAAaGOmB0mVNAJoY6YHSZU0AgAA3wMAAAAAoTVtiKs1bYhUAAAAAAAAAEACAAAAAAAAw127QQAAAABs9x9DAAAAAFQAAAAAAAAAQAIAAAAAAABucAAAaGOmB0mVNAJoY6YHSZU0AhQAzxQAAAAA",
+    "location": [
+     128.344936,
+     37.000521
+    ],
+    "name": "",
+    "distance": 0
+   },
+   {
+    "hint": "NVCYg_2zX4cWAAAABgAAACkAAAAAAAAAqBeXQKmNlD9DiwhBAAAAAAsAAAADAAAAFAAAAAAAAABucAAAxQmkB4SYNgK0CaQHOJk2AgIAXwUAAAAA",
+    "location": [
+     128.190917,
+     37.13242
+    ],
+    "name": "",
+    "distance": 20.03344024
+   }
+  ]
+ }
+}

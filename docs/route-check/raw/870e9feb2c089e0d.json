@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/128.527000,38.339000?number=5",
+ "fetched_utc": "2026-11-14T03:00:58Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     6782268221,
+     6782268201
+    ],
+    "hint": "ri4Ehr4uBIY-AAAAAAAAAMwAAAAAAAAAp0QtQgAAAADGfg1DAAAAAD4AAAAAAAAAzAAAAAAAAABucAAAoRypB0nvSAKYKqkHuAFJAgQAXwEAAAAA",
+    "location": [
+     128.523425,
+     38.334281
+    ],
+    "name": "",
+    "distance": 610.0115178
+   },
+   {
+    "nodes": [
+     6782268224,
+     6782268191
+    ],
+    "hint": "qC4Ehq8uBIYAAAAAOQAAAAAAAAA6AAAAAAAAAO9LH0IAAAAAaBggQgAAAAA5AAAAAAAAADoAAABucAAA8yCpBxrtSAKYKqkHuAFJAgAA3wsAAAAA",
+    "location": [
+     128.524531,
+     38.333722
+    ],
+    "name": "",
+    "distance": 624.3859041
+   },
+   {
+    "nodes": [
+     6782268201,
+     6782268214
+    ],
+    "hint": "ri4Ehr4uBIaTAAAAAAAAADkAAAA-AAAA-lzMQgAAAAAiQR1Cp0QtQpMAAAAAAAAAOQAAAD4AAABucAAA6BupB9_tSAKYKqkHuAFJAgIAzxIAAAAA",
+    "location": [
+     128.52324,
+     38.333919
+    ],
+    "name": "",
+    "distance": 652.8414932
+   },
+   {
+    "nodes": [
+     6782268214,
+     6782268196
+    ],
+    "hint": "ri4Ehr4uBIY5AAAAAAAAAAAAAADRAAAAIkEdQgAAAAAAAAAAp38RQzkAAAAAAAAAAAAAANEAAABucAAA1B-pBwjsSAKYKqkHuAFJAgAAzwAAAAAA",
+    "location": [
+     128.524244,
+     38.333448
+    ],
+    "name": "",
+    "distance": 661.7305745
+   },
+   {
+    "nodes": [
+     6782268196,
+     6782268224
+    ],
+    "hint": "qC4Ehq8uBIYAAAAAOgAAADkAAAAAAAAAAAAAAGgYIELvSx9CAAAAAAAAAAA6AAAAOQAAAAAAAABucAAAqSCpB7jrSAKYKqkHuAFJAgIA7w0AAAAA",
+    "location": [
+     128.524457,
+     38.333368
+    ],
+    "name": "",
+    "distance": 663.5370253
+   }
+  ]
+ }
+}

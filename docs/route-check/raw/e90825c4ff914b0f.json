@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/128.875000,37.842000?number=3",
+ "fetched_utc": "2026-11-14T02:55:52Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     7784525068,
+     3946840377
+    ],
+    "hint": "5S0ihbDvI4cXAAAAYQAAAEYAAACnAwAAYzX-QN9cBkIsu8FBMdyhQwsAAAAxAAAAIwAAANIBAABucAAAN3muB8FrQQL4ea4HUGxBAgIAjwgAAAAA",
+    "location": [
+     128.874807,
+     37.841857
+    ],
+    "name": "진리해변길",
+    "distance": 23.25176806
+   },
+   {
+    "nodes": [
+     3946840377,
+     6159870933
+    ],
+    "hint": "5S0ihbDvI4dGAAAAAAAAAAAAAAAfBAAALLvBQQAAAAAAAAAAo6C2QyMAAAAAAAAAAAAAAA4CAABucAAA-XiuB_VrQQL4ea4HUGxBAgAAjwgAAAAA",
+    "location": [
+     128.874745,
+     37.841909
+    ],
+    "name": "진리해변길",
+    "distance": 24.61783798
+   },
+   {
+    "nodes": [
+     6159870933,
+     6159870932
+    ],
+    "hint": "4y0ihectIoVEAAAAAAAAAAAAAAAAAAAAowM8QgAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAABucAAAOniuB5JsQQL4ea4HUGxBAgAAHwMAAAAA",
+    "location": [
+     128.874554,
+     37.842066
+    ],
+    "name": "",
+    "distance": 39.94367107
+   }
+  ]
+ }
+}

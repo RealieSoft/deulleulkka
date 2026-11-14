@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.161960,37.276470?number=5",
+ "fetched_utc": "2026-11-14T03:05:31Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     4976762339,
+     10679778020.0
+    ],
+    "hint": "ng21goUU8ogQAAAABwAAAFcAAABxAAAAplWOQYoA9EBQ-8BCQFb8QhAAAAAHAAAAVwAAAHEAAABucAAAZVaUBzjLOAJoVpQHNss4AgQAHwIAAAAA",
+    "location": [
+     127.161957,
+     37.276472
+    ],
+    "name": "동백7로",
+    "distance": 0.3464997992
+   },
+   {
+    "nodes": [
+     4976762338,
+     4976762339
+    ],
+    "hint": "ng21goUU8ogAAAAAGQAAAG4AAABYAAAAAAAAAJvg30HC0PNCGl7EQgAAAAAZAAAAbgAAAFgAAABucAAAlVaUB3HLOAJoVpQHNss4AgYAjwIAAAAA",
+    "location": [
+     127.162005,
+     37.276529
+    ],
+    "name": "동백7로",
+    "distance": 7.668417275
+   },
+   {
+    "nodes": [
+     10679778020.0,
+     3469149802
+    ],
+    "hint": "ng21goUU8ogEAAAAAAAAAFMAAACIAAAAp5uZQAAAAACWYbdC2ZUXQwQAAAAAAAAAUwAAAIgAAABucAAA9VWUB7PKOAJoVpQHNss4AgIAHwIAAAAA",
+    "location": [
+     127.161845,
+     37.276339
+    ],
+    "name": "동백7로",
+    "distance": 17.75956395
+   },
+   {
+    "nodes": [
+     3469149802,
+     3469149771
+    ],
+    "hint": "ng21goUU8ohTAAAAAAAAAAAAAACMAAAAlmG3QgAAAAAAAAAAtmIcQ1MAAAAAAAAAAAAAAIwAAABucAAA11WUB4_KOAJoVpQHNss4AgAA_wEAAAAA",
+    "location": [
+     127.161815,
+     37.276303
+    ],
+    "name": "동백7로",
+    "distance": 22.55870366
+   },
+   {
+    "nodes": [
+     4976762337,
+     4976762338
+    ],
+    "hint": "ng21goUU8ogAAAAADwAAAIcAAABJAAAAAAAAAId2iEF05BVDeECiQgAAAAAPAAAAhwAAAEkAAABucAAAY1eUBzDMOAJoVpQHNss4AggArwIAAAAA",
+    "location": [
+     127.162211,
+     37.27672
+    ],
+    "name": "동백7로",
+    "distance": 35.57225672
+   }
+  ]
+ }
+}

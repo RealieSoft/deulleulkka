@@ -1,0 +1,1943 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.165142,37.468633;127.309502,37.472043?overview=false&steps=true&annotations=speed",
+ "fetched_utc": "2026-11-14T03:01:59Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "distance": 18960.1,
+      "annotation": {
+       "speed": [
+        19.3,
+        15.4,
+        13.8,
+        16.3,
+        15.6,
+        15.6,
+        15.8,
+        15.3,
+        15.1,
+        16.5,
+        16.1,
+        17.1,
+        14.1,
+        15.3,
+        20.5,
+        14.9,
+        14.9,
+        16,
+        16.6,
+        15,
+        16.7,
+        16.5,
+        16.3,
+        15.4,
+        15,
+        15.5,
+        14.8,
+        15.1,
+        15.6,
+        15.5,
+        15.2,
+        16.6,
+        16.2,
+        15,
+        16.2,
+        15.6,
+        17.8,
+        14.5,
+        16.1,
+        14.6,
+        16.4,
+        15.8,
+        15.4,
+        16.8,
+        15.4,
+        15,
+        15.8,
+        15.1,
+        16.5,
+        16.5,
+        15.4,
+        17.8,
+        16.6,
+        16.2,
+        13.9,
+        16.6,
+        14.5,
+        14.2,
+        16.5,
+        14.5,
+        14.7,
+        14.5,
+        16.1,
+        15.4,
+        16.4,
+        15.5,
+        15.7,
+        16.6,
+        15.7,
+        15.9,
+        15.5,
+        14.9,
+        15.6,
+        14.4,
+        15.2,
+        14.7,
+        15.8,
+        15.4,
+        16.5,
+        17,
+        15.8,
+        16.1,
+        15.8,
+        14.4,
+        15.4,
+        15.6,
+        15.6,
+        16.6,
+        16.4,
+        15.7,
+        15.3,
+        15.4,
+        14.7,
+        15.2,
+        15.8,
+        15.7,
+        15,
+        14.5,
+        15.8,
+        15.1,
+        15.9,
+        15.1,
+        15,
+        15.7,
+        16.1,
+        16,
+        15.3,
+        14.8,
+        16.2,
+        15.4,
+        16.3,
+        15.5,
+        15.3,
+        14.3,
+        16.1,
+        15.7,
+        15.6,
+        15.7,
+        14.1,
+        15.8,
+        15.3,
+        14.7,
+        14.9,
+        14.8,
+        15.3,
+        15.7,
+        16.3,
+        16.1,
+        15.9,
+        16.1,
+        15.2,
+        15.7,
+        17.1,
+        15.1,
+        15.4,
+        15.4,
+        15.5,
+        16,
+        16.5,
+        14.1,
+        15.7,
+        16.5,
+        14.5,
+        14.7,
+        17.5,
+        14.9,
+        16,
+        16.4,
+        13.9,
+        17.6,
+        14.6,
+        13.6,
+        15,
+        15,
+        15.4,
+        16,
+        14.3,
+        15.1,
+        15.4,
+        15.9,
+        15.5,
+        15.6,
+        14.9,
+        15.6,
+        15.5,
+        14.9,
+        15.5,
+        15.1,
+        15.8,
+        15,
+        15.7,
+        15.4,
+        15.7,
+        14.4,
+        14.7,
+        15.3,
+        15.9,
+        15.5,
+        15,
+        15.8,
+        14.6,
+        15.6,
+        14.9,
+        15.8,
+        15.5,
+        16.8,
+        15.9,
+        15.7,
+        15.6,
+        15.3,
+        14.7,
+        14.3,
+        15.5,
+        16,
+        13.7,
+        15.3,
+        15.4,
+        15.3,
+        15.2,
+        16.5,
+        14.7,
+        15.1,
+        15.1,
+        15.1,
+        15.3,
+        14.9,
+        15.1,
+        14.8,
+        15,
+        15.2,
+        14.7,
+        15.3,
+        15.4,
+        14.9,
+        15.5,
+        14.5,
+        15.2,
+        15.1,
+        14.5,
+        15.8,
+        16.2,
+        15.4,
+        14.7,
+        15,
+        15.1,
+        15.1,
+        16,
+        15.6,
+        15.5,
+        15.4,
+        14.7,
+        15.2,
+        15.3,
+        15.3,
+        15.1,
+        15.3,
+        15.4,
+        14.9,
+        15.9,
+        14.6,
+        15.7,
+        15.5,
+        14.7,
+        15.1,
+        15.5,
+        14.9,
+        12.4,
+        15.7,
+        15.7,
+        15.3,
+        14.5,
+        15.7,
+        15.3,
+        15.3,
+        15.3,
+        15.3,
+        15.5,
+        15.8,
+        16.4,
+        15.4,
+        14.7,
+        15,
+        15.5,
+        15.7,
+        15.5,
+        15.8,
+        16.3,
+        15.3,
+        14.5,
+        15,
+        15,
+        14.8,
+        14.8,
+        15.1,
+        15.1,
+        15.6,
+        15.1,
+        15.7,
+        14.3,
+        14.8,
+        15.3,
+        15.5,
+        14.9,
+        15.5,
+        16.2,
+        15,
+        16,
+        15.2,
+        15.2,
+        15,
+        15.6,
+        15,
+        15.1,
+        14.7,
+        15.9,
+        13.5,
+        17,
+        17,
+        17.2,
+        15.7,
+        14.9,
+        15.8,
+        15.1,
+        15.3,
+        15,
+        14.9,
+        15.4,
+        15.2,
+        15.5,
+        15.2,
+        15.1,
+        15.4,
+        15.3,
+        15.1,
+        15.7,
+        14.8,
+        15.2,
+        15.7,
+        15.3,
+        15.3,
+        14.6,
+        14.9,
+        15.3,
+        15.3,
+        14.8,
+        15.2,
+        16,
+        16.6,
+        16.6,
+        15.4,
+        15.3,
+        15.2,
+        15.1,
+        15.2,
+        15.1,
+        15.8,
+        14.6,
+        14.4,
+        15.1,
+        15.4,
+        15.3,
+        15.7,
+        15.2,
+        15.4,
+        15,
+        16,
+        14.8,
+        15,
+        15.4,
+        15.2,
+        15.1,
+        15,
+        15.1,
+        15.4,
+        15.2,
+        15,
+        15.9,
+        15.3,
+        15.4,
+        15.5,
+        15.2,
+        15.8,
+        15.2,
+        15.3,
+        15.5,
+        14.8,
+        14.8,
+        15,
+        15.3,
+        14.7,
+        15.3,
+        15.3,
+        15.4,
+        15.1,
+        14.9,
+        15.2,
+        15.5,
+        15.6,
+        15.2,
+        15,
+        14.8,
+        15.1,
+        15.2,
+        15.2,
+        14.7,
+        14.7,
+        15.7,
+        15.5,
+        15.5,
+        15.4,
+        15.3,
+        14.8,
+        15.2,
+        15.9,
+        15.4,
+        15.1,
+        15.2,
+        15.9,
+        14.8,
+        16,
+        15.8,
+        15.1,
+        15.1,
+        15.4,
+        14.7,
+        15.4,
+        14.8,
+        15.2,
+        15.7,
+        15.4,
+        15.1,
+        15.1,
+        15.9,
+        14.9,
+        15.2,
+        16,
+        14.7,
+        16,
+        15.3,
+        15,
+        15.6,
+        14.8,
+        14.4,
+        15,
+        15.5,
+        15.1,
+        14.9,
+        15.3,
+        15.5,
+        15.5,
+        16,
+        14.6,
+        14.7,
+        14.8,
+        15.2,
+        15.5,
+        15.2,
+        15.3,
+        15.4,
+        15.7,
+        14.9,
+        15.4,
+        15.4,
+        15.4,
+        15.2,
+        15.2,
+        15.1,
+        14.8,
+        15.9,
+        15.3,
+        14.6,
+        15.3,
+        16.2,
+        14.9,
+        14.8,
+        15.7,
+        15.8,
+        15,
+        15.4,
+        15,
+        15.1,
+        15.5,
+        15.2,
+        15.2,
+        16,
+        14.4,
+        14.6,
+        14.9,
+        15.3,
+        15.5,
+        15.6,
+        15.4,
+        15.7,
+        15.2,
+        15.8,
+        15.5,
+        14.9,
+        14.8,
+        15.4,
+        14.9,
+        15.4,
+        15.3,
+        15.1,
+        15.1,
+        15.3,
+        15.3,
+        15.4,
+        15.1,
+        15.5,
+        15.1,
+        15.4,
+        15.3,
+        15.3,
+        15.7,
+        15.3,
+        14.9,
+        14.9,
+        15.2,
+        14.9,
+        15.2,
+        15.3,
+        16,
+        14.9,
+        15.7,
+        15.2,
+        14.7,
+        14.8,
+        16.3,
+        14.1,
+        15.2,
+        17.1,
+        15,
+        15.5,
+        15.3,
+        15.2,
+        15.5,
+        15.7,
+        15.8,
+        15.2,
+        15,
+        16,
+        15.2,
+        15.9,
+        15.2,
+        15.3,
+        14.6,
+        15.6,
+        15.7,
+        15,
+        15.7,
+        15.1,
+        15.4,
+        15.3,
+        15.3,
+        14.7,
+        8.6,
+        8.5,
+        8.6,
+        17.9,
+        18,
+        18.2,
+        18.3,
+        18,
+        18.2,
+        18.3,
+        18.5,
+        17.9,
+        18.3,
+        18.4,
+        18.7,
+        17.6,
+        17.8,
+        17.8,
+        17.9,
+        17.8,
+        17.8,
+        18.2,
+        18.1,
+        18.6,
+        18.1,
+        18.4,
+        17.8,
+        17.3,
+        18.8,
+        18.1,
+        18,
+        17.9,
+        18.2,
+        18.1,
+        18.4,
+        18,
+        18,
+        17.6,
+        17.6,
+        18.2,
+        17.9,
+        18.6,
+        17.6,
+        17.7,
+        17.8,
+        18.3,
+        18.3,
+        17.8,
+        18.1,
+        18,
+        18.1,
+        18,
+        18.1,
+        17.9,
+        18.8,
+        17.4,
+        17.7,
+        17.4,
+        18.2,
+        19.3,
+        18.7,
+        18,
+        18,
+        18.3,
+        18.3,
+        18.1,
+        18.1,
+        17.6,
+        18.1,
+        17.5,
+        17.6,
+        18.2,
+        18.2,
+        18.2,
+        17.9,
+        18.1,
+        18.4,
+        18.2,
+        17.9,
+        18.3,
+        18,
+        18.2,
+        18.8,
+        18.1,
+        17.7,
+        18.9,
+        17.8,
+        18.1,
+        18,
+        18.7,
+        18.6,
+        18.2,
+        18.1,
+        17.9,
+        18.1,
+        18.3,
+        18.6,
+        18.1,
+        18.4,
+        18.1,
+        17.8,
+        18,
+        17.7,
+        17.6,
+        18.1,
+        18.1,
+        17.8,
+        18.1,
+        18,
+        18.1,
+        18,
+        17.6,
+        19,
+        18,
+        15.3,
+        16.2,
+        15.2,
+        15.2,
+        15.3,
+        14.3,
+        15.4,
+        15.2,
+        15,
+        15.1,
+        15.6,
+        15.8,
+        15.1,
+        15.2,
+        14.7,
+        14.6,
+        15.3,
+        15,
+        14.9,
+        15.3,
+        15.2,
+        15.2,
+        15.1,
+        15.4,
+        15.2,
+        15.4,
+        15.2,
+        15.6,
+        15.3,
+        14.9,
+        15.1,
+        15.3,
+        15.3,
+        15,
+        15.2,
+        15.9,
+        16,
+        16.4,
+        14.8,
+        15.1,
+        15.3,
+        15.3,
+        15.6,
+        14.8,
+        16.6,
+        14.4,
+        15,
+        14.8,
+        15.4,
+        15.4
+       ]
+      },
+      "duration": 1204.5,
+      "summary": "남한산성로, 천진암로",
+      "weight": 1204.5,
+      "steps": [
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           27
+          ],
+          "location": [
+           127.165142,
+           37.468633
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           210
+          ],
+          "location": [
+           127.179685,
+           37.473743
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           270
+          ],
+          "location": [
+           127.181331,
+           37.474501
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           180,
+           270
+          ],
+          "location": [
+           127.183995,
+           37.477462
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 27,
+         "bearing_before": 0,
+         "location": [
+          127.165142,
+          37.468633
+         ],
+         "type": "depart"
+        },
+        "geometry": "}aucFc}cgWECGICK?QC[GUMWYWc@i@MMEKEMAO@M?CBORg@JONK^GJIDEHMNUPSHKHEj@Ot@[r@_@PMDO?UGUMMMII?MDMFONOHIDKFKB]Ba@BQDWPKBKAGEEICQAUBMDIJGH?F@NFTBPAFAHGJODO@I?OCOIQm@m@]]We@IS_BgFQc@IKQOKMGKGUKSKSUM]G]IICGEKIIMa@y@c@w@GOK[Ia@ESYi@QYIOGYGWC]?a@A[CWM[K]Ka@IYIc@EYEk@A_@AUCWGWIW[i@GMKOQOW_@SUY[OSCEIKEKEOEMA[?e@CMIMi@_@]WIMCOBMFMNSHMDMAMCIKKIEOKEICI?M@GRi@DU?QAMCYGWGMGIIGQMYSg@a@]c@W_@Se@Mk@Im@Gi@Ew@?q@Ae@EYG[Ok@U[a@c@UOWOSKSGg@MOEMKIGGOOSQYa@m@Q[IKMIQKIA{@Gc@C_BGk@GGA[G",
+        "ref": "342",
+        "name": "남한산성로",
+        "mode": "driving",
+        "weight": 173.9,
+        "duration": 173.9,
+        "distance": 2617.1
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           120,
+           195,
+           315
+          ],
+          "location": [
+           127.184091,
+           37.477863
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           90,
+           165,
+           330
+          ],
+          "location": [
+           127.184322,
+           37.478022
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           120,
+           300
+          ],
+          "location": [
+           127.190739,
+           37.475747
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           120,
+           300
+          ],
+          "location": [
+           127.190948,
+           37.47563
+          ]
+         },
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           90,
+           285
+          ],
+          "location": [
+           127.193608,
+           37.474167
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           270
+          ],
+          "location": [
+           127.193784,
+           37.47415
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           165,
+           330,
+           345
+          ],
+          "location": [
+           127.200309,
+           37.471056
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           150,
+           270,
+           330
+          ],
+          "location": [
+           127.201302,
+           37.467762
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           135,
+           225,
+           300
+          ],
+          "location": [
+           127.206708,
+           37.466793
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           120,
+           270,
+           300
+          ],
+          "location": [
+           127.216703,
+           37.458288
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           105,
+           285
+          ],
+          "location": [
+           127.226865,
+           37.455513
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           105,
+           285
+          ],
+          "location": [
+           127.22726,
+           37.455453
+          ]
+         },
+         {
+          "out": 0,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           75,
+           105,
+           240,
+           255
+          ],
+          "location": [
+           127.227783,
+           37.455442
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           105,
+           255,
+           285
+          ],
+          "location": [
+           127.232801,
+           37.454079
+          ]
+         },
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           false,
+           true,
+           false
+          ],
+          "bearings": [
+           75,
+           90,
+           270
+          ],
+          "location": [
+           127.241408,
+           37.460105
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           45,
+           135,
+           255,
+           300
+          ],
+          "location": [
+           127.242148,
+           37.460094
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           225
+          ],
+          "location": [
+           127.242269,
+           37.460169
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           120,
+           210
+          ],
+          "location": [
+           127.242473,
+           37.460445
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "exit": 1,
+         "bearing_after": 115,
+         "bearing_before": 9,
+         "location": [
+          127.184091,
+          37.477863
+         ],
+         "modifier": "right",
+         "type": "roundabout turn"
+        },
+        "geometry": "s{vcFqsggW@I@IAICGGGEAGAGBFmB@]?i@?}@Aq@CsA@]Dc@Hc@FUNc@HUj@qAJU\\o@f@w@P]LQHOZc@r@qAR]b@cBj@cBp@gBVi@p@cBr@yAVc@V]TYd@c@V]NSNe@F_@Ji@?ADq@Ba@BWDYFa@Zs@\\y@LOJMn@SPGPIVST]l@y@TUVOZOPKPC^KLCTOp@i@PUTYj@cAJWFYHu@FUDUNSVYNSJUDYBUB[ASGg@Os@[}@Q_@g@w@GOEQ?Y@KDKHIHGRCLA\\@r@Jl@HXBVDLCx@QfAYbA_@rAk@x@i@|A{@j@_@d@_@LWJ[De@P}D@s@Ac@K}@[sB_@aDAU?SBYBQDOz@iB|@eB`@o@P_@Na@b@_BN]NUNMRMzAg@bDyAb@MjBc@n@Oj@QXQTOVU\\c@b@w@`@y@`@y@b@m@z@kA~@gAd@w@V_@`@w@fAyB\\s@r@kBRk@P]R[V]ZSZSXOpAg@NKPULYdBmGVs@N[R[r@y@f@m@x@yA^s@Na@Ha@Ae@Gc@Oc@QWSO[Ic@GYE[I_@UYWSUiAyBc@cA}@cCK_@K]EWAq@JkBL}AJu@Le@Pc@V_@d@c@l@c@\\Y`@Ub@Q`@E^AlAHV@V?VEjBa@ZMTQLMJSPi@Pu@`@}AHo@J_ADq@JmABc@@]Ce@Gm@Go@Es@?gADu@Fy@Jo@Nq@^gBR_AZiAV{@Zw@Tc@Vc@T[Xe@JYHYB[Hs@Du@@i@?k@Em@Io@Mk@Ww@Uw@Sm@MYUWSMSIQ?]DgAPc@DW?a@E_@Ia@Q_@WWSY]Oc@Ii@OsBGk@Me@Oc@Sc@Uc@]q@a@a@[]WUa@Yq@]gCk@e@Me@Yi@c@_@c@Wi@Um@_@eAGc@Cc@Bw@B_AH{AA]CYGKGK]UKGMISSQG",
+        "ref": "342",
+        "name": "남한산성로",
+        "mode": "driving",
+        "weight": 483.1,
+        "duration": 483.1,
+        "distance": 7301.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           210,
+           240
+          ],
+          "location": [
+           127.242609,
+           37.460637
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 56,
+         "bearing_before": 29,
+         "location": [
+          127.242609,
+          37.460637
+         ],
+         "modifier": "straight",
+         "type": "turn"
+        },
+        "geometry": "_pscFiasgWsAcDc@kAG]G_@?]Bq@Ba@A]Ec@Mc@Q_@",
+        "ref": "342",
+        "name": "남한산성로",
+        "mode": "driving",
+        "weight": 17.5,
+        "duration": 17.5,
+        "distance": 269.2
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           60,
+           240
+          ],
+          "location": [
+           127.24536,
+           37.461476
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 45,
+         "bearing_before": 54,
+         "location": [
+          127.24536,
+          37.461476
+         ],
+         "modifier": "straight",
+         "type": "continue"
+        },
+        "geometry": "guscForsgWQWOQ]Sa@Ie@Ca@A_BEs@AMAK?",
+        "ref": "342",
+        "name": "남한산성로",
+        "mode": "driving",
+        "weight": 13.2,
+        "duration": 13.2,
+        "distance": 202
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           0,
+           30,
+           180,
+           330
+          ],
+          "location": [
+           127.245803,
+           37.463203
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           90,
+           240,
+           285
+          ],
+          "location": [
+           127.246058,
+           37.463399
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           180,
+           270
+          ],
+          "location": [
+           127.247257,
+           37.463448
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           180,
+           270
+          ],
+          "location": [
+           127.248904,
+           37.463586
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 25,
+         "bearing_before": 2,
+         "location": [
+          127.245803,
+          37.463203
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "geometry": "_`tcFgusgWSKKQGU@sAA}@I}AKaCOeEK{CGoBA[CmAD}@Fw@Js@Nu@No@`@cAb@}@nA{At@k@h@_@j@Yr@Qn@Mr@In@@`@?`@BhARpGhAjF|@jC`@pGlAxATtAVrARf@Db@Ax@GfAMRGh@S`@Ub@Wp@i@n@w@z@}AlAmCjDuHtEaK~AgDfA}Bv@eB",
+        "ref": "43",
+        "name": "회안대로",
+        "mode": "driving",
+        "weight": 154,
+        "duration": 154,
+        "distance": 2645.7
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           120,
+           300
+          ],
+          "location": [
+           127.259853,
+           37.448425
+          ]
+         },
+         {
+          "out": 0,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           75,
+           120,
+           210,
+           300
+          ],
+          "location": [
+           127.259937,
+           37.448523
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           165,
+           195,
+           240
+          ],
+          "location": [
+           127.260122,
+           37.448924
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           195
+          ],
+          "location": [
+           127.260191,
+           37.449087
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           210
+          ],
+          "location": [
+           127.260477,
+           37.449529
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           60,
+           240,
+           255
+          ],
+          "location": [
+           127.261556,
+           37.450173
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           60,
+           105,
+           240
+          ],
+          "location": [
+           127.262369,
+           37.450516
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 33,
+         "bearing_before": 125,
+         "location": [
+          127.259853,
+          37.448425
+         ],
+         "modifier": "left",
+         "type": "turn"
+        },
+        "geometry": "ucqcFamvgWQQ_@Oo@Sa@MWKUKUMSS]c@[c@c@cAa@kAeAaD[}@Yi@_@e@]Ua@Qg@KeAGu@EsAGkAGgAMcASeAY}EwAk@U[U]YYa@We@Uo@{AsFSe@Wc@W[a@Ys@_@sBq@sDiAc@c@",
+        "ref": "45",
+        "name": "태허정로",
+        "mode": "driving",
+        "weight": 80.4,
+        "duration": 80.4,
+        "distance": 1449.1
+       },
+       {
+        "intersections": [
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           75,
+           210
+          ],
+          "location": [
+           127.267996,
+           37.458813
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           210,
+           300
+          ],
+          "location": [
+           127.27161,
+           37.466288
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           30,
+           150,
+           210
+          ],
+          "location": [
+           127.272066,
+           37.466863
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           30,
+           210,
+           315
+          ],
+          "location": [
+           127.272373,
+           37.467342
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           15,
+           60,
+           210,
+           300
+          ],
+          "location": [
+           127.272679,
+           37.467804
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 355,
+         "bearing_before": 36,
+         "location": [
+          127.267996,
+          37.458813
+         ],
+         "modifier": "slight left",
+         "type": "continue"
+        },
+        "geometry": "qdscF_`xgWy@ByI{@kAO{@Qy@UqFeBu@[o@]g@[_H}Fy@k@gD{BqB{A_B{@q@g@QGWMoAc@",
+        "ref": "45",
+        "name": "태허정로",
+        "mode": "driving",
+        "weight": 64.3,
+        "duration": 64.3,
+        "distance": 1146.6
+       },
+       {
+        "intersections": [
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           15,
+           90,
+           195
+          ],
+          "location": [
+           127.272857,
+           37.4682
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           240,
+           255,
+           300
+          ],
+          "location": [
+           127.273445,
+           37.468244
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           75,
+           90,
+           255
+          ],
+          "location": [
+           127.273957,
+           37.468255
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           60,
+           210,
+           240
+          ],
+          "location": [
+           127.276234,
+           37.468739
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           75,
+           255,
+           345
+          ],
+          "location": [
+           127.284726,
+           37.470703
+          ]
+         },
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           90,
+           255
+          ],
+          "location": [
+           127.287284,
+           37.471014
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           270
+          ],
+          "location": [
+           127.293514,
+           37.47133
+          ]
+         },
+         {
+          "out": 0,
+          "in": 1,
+          "entry": [
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           270
+          ],
+          "location": [
+           127.296028,
+           37.471163
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           90,
+           120,
+           270
+          ],
+          "location": [
+           127.302196,
+           37.470818
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false,
+           true
+          ],
+          "bearings": [
+           90,
+           105,
+           270,
+           300
+          ],
+          "location": [
+           127.302677,
+           37.470807
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           false,
+           false
+          ],
+          "bearings": [
+           75,
+           180,
+           255
+          ],
+          "location": [
+           127.303194,
+           37.470881
+          ]
+         },
+         {
+          "out": 1,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           75,
+           180,
+           255
+          ],
+          "location": [
+           127.30515,
+           37.471473
+          ]
+         },
+         {
+          "out": 1,
+          "in": 2,
+          "entry": [
+           false,
+           true,
+           false
+          ],
+          "bearings": [
+           45,
+           90,
+           255
+          ],
+          "location": [
+           127.307272,
+           37.472101
+          ]
+         },
+         {
+          "out": 0,
+          "in": 2,
+          "entry": [
+           true,
+           true,
+           false,
+           true
+          ],
+          "bearings": [
+           90,
+           195,
+           270,
+           330
+          ],
+          "location": [
+           127.307538,
+           37.472106
+          ]
+         },
+         {
+          "out": 1,
+          "in": 3,
+          "entry": [
+           true,
+           true,
+           true,
+           false
+          ],
+          "bearings": [
+           0,
+           90,
+           180,
+           270
+          ],
+          "location": [
+           127.308542,
+           37.472065
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 92,
+         "bearing_before": 19,
+         "location": [
+          127.272857,
+          37.4682
+         ],
+         "modifier": "right",
+         "type": "turn"
+        },
+        "geometry": "g_ucFk~xgW@k@C]Ek@Gi@Fa@CYSqDOyAM}@m@{BQs@Uq@W{@_DyIQe@Ma@Mi@Ki@I{@y@wP[qGMeCS}CSiCUuEKkCy@kVE}@?gA?gAJwC`@wN~@}c@Bs@@_B?QGUAYCc@Kk@iB{IgBgIKg@Ge@AQAY?[@YDmDD_E",
+        "ref": "88",
+        "name": "천진암로",
+        "mode": "driving",
+        "weight": 218.1,
+        "duration": 218.1,
+        "distance": 3328.6
+       },
+       {
+        "intersections": [
+         {
+          "in": 0,
+          "entry": [
+           true
+          ],
+          "bearings": [
+           272
+          ],
+          "location": [
+           127.309502,
+           37.472043
+          ]
+         }
+        ],
+        "driving_side": "right",
+        "maneuver": {
+         "bearing_after": 0,
+         "bearing_before": 92,
+         "location": [
+          127.309502,
+          37.472043
+         ],
+         "type": "arrive"
+        },
+        "geometry": "gwucFkc`hW",
+        "ref": "88",
+        "name": "천진암로",
+        "mode": "driving",
+        "weight": 0,
+        "duration": 0,
+        "distance": 0
+       }
+      ]
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1204.5,
+    "duration": 1204.5,
+    "distance": 18960.1
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "iJc4gNvIuoMCAAAABQAAAOwEAACtAwAAzpl3QLpA0EBU7_JEQeOzRAIAAAAFAAAA7AQAAK0DAABucAAA1mKUB9m5OwLWYpQH2bk7AkQB_wwAAAAA",
+    "location": [
+     127.165142,
+     37.468633
+    ],
+    "name": "남한산성로",
+    "distance": 0
+   },
+   {
+    "hint": "pms4gJGd8IY3AAAAOwAAAAAAAAAAAAAAVeepQt2UskIAAAAAAAAAADcAAAA7AAAAAAAAAAAAAABucAAAvpaWByvHOwK-lpYHK8c7AgAAvwUAAAAA",
+    "location": [
+     127.309502,
+     37.472043
+    ],
+    "name": "천진암로",
+    "distance": 0
+   }
+  ]
+ }
+}

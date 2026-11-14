@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.147667,37.289227;127.435000,37.272000?overview=false&bearings=84,30;",
+ "fetched_utc": "2026-11-14T03:05:33Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 2027.2,
+      "summary": "",
+      "duration": 2027.2,
+      "distance": 34118.1
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 2027.2,
+    "duration": 2027.2,
+    "distance": 34118.1
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "0XI2gP___39qAAAAdAAAALQAAACuAAAA8GVrQ2txr0HOIshDdnjAQ2oAAAB0AAAAtAAAAK4AAABucAAAkx6UBwv9OAKTHpQHC_04AgQATwUAAAAA",
+    "location": [
+     127.147667,
+     37.289227
+    ],
+    "name": "영동고속도로",
+    "distance": 0
+   },
+   {
+    "hint": "KsaxgrLjyYnFAAAALAAAACUAAAAPAQAAPvWkQhg6kEE6wndBxiPiQsUAAAAsAAAAJQAAAA8BAABucAAAcX2YB_a5OAL4gJgHwLk4AgIAjwsAAAAA",
+    "location": [
+     127.434097,
+     37.272054
+    ],
+    "name": "",
+    "distance": 80.31107023
+   }
+  ]
+ }
+}

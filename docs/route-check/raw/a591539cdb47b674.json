@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/128.075012,36.745780;127.993000,36.846000?overview=false&bearings=302,30;",
+ "fetched_utc": "2026-11-14T03:27:12Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1110.6,
+      "summary": "",
+      "duration": 1081.1,
+      "distance": 19128.1
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1110.6,
+    "duration": 1081.1,
+    "distance": 19128.1
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "L31iiP___38AAAAACAAAAMkAAADoAAAAIuERPpGZk0GOZOxDcpwJRAAAAAAIAAAAyQAAAOgAAABucAAABEWiBzSyMAIERaIHNLIwAhAA3xIAAAAA",
+    "location": [
+     128.075012,
+     36.74578
+    ],
+    "name": "문경대로",
+    "distance": 0
+   },
+   {
+    "hint": "b_2zg-cV6YMKAAAAxQAAADMBAACHAQAA-XoGQDG7I0IeBoBC3t2iQgUAAABiAAAAmgAAAMMAAABucAAAqgShB7M5MgKoBKEHsDkyAgYAjwcAAAAA",
+    "location": [
+     127.993002,
+     36.846003
+    ],
+    "name": "",
+    "distance": 0.3777237485
+   }
+  ]
+ }
+}

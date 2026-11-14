@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/126.998069,37.269744;127.014209,37.281015;127.111200,37.394800?overview=false&bearings=107,30;;&continue_straight=false",
+ "fetched_utc": "2026-11-14T03:00:17Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 259.4,
+      "summary": "",
+      "duration": 247.3,
+      "distance": 3261.2
+     },
+     {
+      "steps": [],
+      "weight": 1288.6,
+      "summary": "",
+      "duration": 1276.5,
+      "distance": 18925.6
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1548,
+    "duration": 1523.8,
+    "distance": 22186.8
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "uVzFg____38kAAAAJgAAAAAAAAAbAAAAsOuCQumhTkAAAAAAVpg-QiQAAAAmAAAAAAAAABsAAABucAAANdaRB_CwOAI11pEH8LA4AgAArwYAAAAA",
+    "location": [
+     126.998069,
+     37.269744
+    ],
+    "name": "수인로",
+    "distance": 0
+   },
+   {
+    "hint": "bc86g2_POoNTAAAAAAAAAB0AAADzAAAAXoGKQQAAAADljsBAMNlKQioAAAAAAAAADgAAAHoAAABucAAAQRWSB_fcOAJBFZIH99w4AgIALxUAAAAA",
+    "location": [
+     127.014209,
+     37.281015
+    ],
+    "name": "",
+    "distance": 0
+   },
+   {
+    "hint": "LBphg4p3BIkhAAAAAAAAAAAAAAAuAAAA1SO2QQAAAAAAAAAAZ7L9QSEAAAAAAAAAAAAAAC4AAABucAAAB5CTBzCVOgIgkJMHcJk6AgAA_xAAAAAA",
+    "location": [
+     127.111175,
+     37.393712
+    ],
+    "name": "판교역로146번길",
+    "distance": 120.7716371
+   }
+  ]
+ }
+}

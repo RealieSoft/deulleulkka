@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/129.196000,35.847000?number=5",
+ "fetched_utc": "2026-11-14T03:24:08Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     1470477219,
+     1470477220
+    ],
+    "hint": "6BP7gw0nrIgHAAAARQAAAJ0AAACPAAAAA1oKQS91l0J8US5Dh5UfQwcAAABFAAAAnQAAAI8AAABucAAA1mOzB3L6IgLgX7MHWPsiAggAPwwAAAAA",
+    "location": [
+     129.197014,
+     35.84677
+    ],
+    "name": "흥무로",
+    "distance": 95.11502637
+   },
+   {
+    "nodes": [
+     1470477220,
+     12342937750.0
+    ],
+    "hint": "6BP7gw0nrIgoAAAAAAAAAHUAAADbAAAADzczQgAAAAC4gwFDvvVzQygAAAAAAAAAdQAAANsAAABucAAA8GOzB736IgLgX7MHWPsiAgYAPwwAAAAA",
+    "location": [
+     129.19704,
+     35.846845
+    ],
+    "name": "흥무로",
+    "distance": 95.53767127
+   },
+   {
+    "nodes": [
+     12342937750.0,
+     1470477222
+    ],
+    "hint": "6BP7gw0nrIg5AAAAAAAAADwAAAADAQAATNR9QgAAAABLHYRCwWGQQzkAAAAAAAAAPAAAAAMBAABucAAAdWSzB0L8IgLgX7MHWPsiAgQAXwwAAAAA",
+    "location": [
+     129.197173,
+     35.847234
+    ],
+    "name": "흥무로",
+    "distance": 109.12877
+   },
+   {
+    "nodes": [
+     1470477217,
+     1470477219
+    ],
+    "hint": "6BP7gw0nrIgAAAAATAAAAOkAAABDAAAAAAAAAM1RqULaWIFDP9mVQgAAAABMAAAA6QAAAEMAAABucAAA82KzB-H3IgLgX7MHWPsiAgoAbwwAAAAA",
+    "location": [
+     129.196787,
+     35.846113
+    ],
+    "name": "흥무로",
+    "distance": 121.4225513
+   },
+   {
+    "nodes": [
+     5199201007,
+     5199201006
+    ],
+    "hint": "3xP7g-ET-4MAAAAAMgAAAAAAAACZAAAAAAAAAB7xCkIAAAAAE7_TQgAAAAAyAAAAAAAAAJkAAABucAAACF-zBwUAIwLgX7MHWPsiAgAAbwQAAAAA",
+    "location": [
+     129.195784,
+     35.848197
+    ],
+    "name": "부엉길",
+    "distance": 134.2405834
+   }
+  ]
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/127.184500,37.478500?number=3",
+ "fetched_utc": "2026-11-14T03:02:53Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     9993156768,
+     3176046680
+    ],
+    "hint": "hI2CgoZ6EoMPAAAANAAAAMYBAABKAAAAFNjOQDlYqkHEdD1Do1H1QQ8AAAA0AAAAxgEAAEoAAABucAAAH62UB5vgOwJ0rpQHZOA7AggA_wsAAAAA",
+    "location": [
+     127.184159,
+     37.478555
+    ],
+    "name": "남한산성로780번길",
+    "distance": 30.7746032
+   },
+   {
+    "nodes": [
+     3176046680,
+     3176046679
+    ],
+    "hint": "hI2CgoZ6EoPAAAAAAAAAAAYBAACNAAAAclegQgAAAAAWktpC2a9pQsAAAAAAAAAABgEAAI0AAABucAAALq2UB9TgOwJ0rpQHZOA7AgYAjwsAAAAA",
+    "location": [
+     127.184174,
+     37.478612
+    ],
+    "name": "남한산성로780번길",
+    "distance": 31.40142624
+   },
+   {
+    "nodes": [
+     10852907320.0,
+     9993156768
+    ],
+    "hint": "hI2CgoZ6EoMAAAAAJAAAAAkCAAAmAAAAAAAAAMLEb0GGNllDhN56QQAAAAAkAAAACQIAACYAAABucAAA76yUB9_fOwJ0rpQHZOA7AgoALwsAAAAA",
+    "location": [
+     127.184111,
+     37.478367
+    ],
+    "name": "남한산성로780번길",
+    "distance": 37.44155598
+   }
+  ]
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/129.041000,35.644000?number=5",
+ "fetched_utc": "2026-11-14T03:24:02Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     9232414164,
+     9232414164
+    ],
+    "hint": "L6nWh____3_fAAAANwEAAGUBAABOAgAAnT6qQ3YuBkMqewhEIHlhRN8AAAA3AQAAZQEAAE4CAABucAAA5gSxB3rmHwJoArEHYOIfAgQATwcAAAAA",
+    "location": [
+     129.041638,
+     35.64505
+    ],
+    "name": "운문터널",
+    "distance": 130.0480544
+   },
+   {
+    "nodes": [
+     9232414159,
+     9232414159
+    ],
+    "hint": "mSg4gP___38fAAAABAEAAJwCAAAXAQAAualAQhfErkPEUX9EVMXUQx8AAAAEAQAAnAIAABcBAABucAAAmwWxB-HnHwJoArEHYOIfAhAAfxIAAAAA",
+    "location": [
+     129.041819,
+     35.645409
+    ],
+    "name": "운문터널",
+    "distance": 173.043315
+   },
+   {
+    "nodes": [
+     11137570740.0,
+     11137570740.0
+    ],
+    "hint": "mSg4gP___3-qAAAAqgAAAPIBAAAbAgAA9yuCQwAAAADIOz5EUc9NRKoAAACqAAAA8gEAABsCAABucAAAfAexByjnHwJoArEHYOIfAg4AzxIAAAAA",
+    "location": [
+     129.0423,
+     35.645224
+    ],
+    "name": "운문터널",
+    "distance": 179.754634
+   },
+   {
+    "nodes": [
+     9232414165,
+     9232414165
+    ],
+    "hint": "L6nWh____38AAAAAxQAAAJwCAACJAQAAAAAAAMOHlkMWJn9EPjUWRAAAAADFAAAAnAIAAIkBAABucAAAFwqxB2TkHwJoArEHYOIfAgYA7wcAAAAA",
+    "location": [
+     129.042967,
+     35.644516
+    ],
+    "name": "운문터널",
+    "distance": 187.1592909
+   },
+   {
+    "nodes": [
+     437096212,
+     437096211
+    ],
+    "hint": "nSg4gKAoOIAKAAAADAAAANkDAABWAgAAayk0QXx3VUH8vIhEzsMlRAoAAAAMAAAA2QMAAFYCAABucAAA_PawB9HcHwJoArEHYOIfAlgAjxQAAAAA",
+    "location": [
+     129.038076,
+     35.642577
+    ],
+    "name": "운문로",
+    "distance": 308.3660258
+   }
+  ]
+ }
+}

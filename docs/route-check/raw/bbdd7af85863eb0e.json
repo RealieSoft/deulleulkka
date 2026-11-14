@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/126.994700,35.325300?number=5",
+ "fetched_utc": "2026-11-14T03:21:58Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     6771348373,
+     5450869541
+    ],
+    "hint": "yolFhDuSAIZtAAAAEAAAAAgBAAAAAAAAJSmYQpgYMEFXLDdDAAAAAG0AAAAQAAAACAEAAAAAAABucAAAcsmRB9EHGwIMyZEHdAUbAhQAHwYAAAAA",
+    "location": [
+     126.994802,
+     35.325905
+    ],
+    "name": "연화길",
+    "distance": 67.76035622
+   },
+   {
+    "nodes": [
+     6771348373,
+     5450869540
+    ],
+    "hint": "vUiGhDqSAIY5AAAAAAAAAGcBAAAAAAAAH5EdQgAAAABuNnlDAAAAADkAAAAAAAAAZwEAAAAAAABucAAA6smRB8QHGwIMyZEHdAUbAh4AbxEAAAAA",
+    "location": [
+     126.994922,
+     35.325892
+    ],
+    "name": "연화길",
+    "distance": 68.71217906
+   },
+   {
+    "nodes": [
+     10713391010.0,
+     6771348373
+    ],
+    "hint": "PJIAhvTYe4gAAAAAXwAAAAAAAAAAAAAAAAAAAJ6CHkIAAAAAAAAAAAAAAABfAAAAAAAAAAAAAABucAAA6smRB8QHGwIMyZEHdAUbAgAAfwAAAAAA",
+    "location": [
+     126.994922,
+     35.325892
+    ],
+    "name": "",
+    "distance": 68.71217906
+   },
+   {
+    "nodes": [
+     5450869540,
+     5450869539
+    ],
+    "hint": "vUiGhDqSAIYaAAAAAAAAAE0BAAA5AAAAW_mQQQAAAABDF2dDH5EdQhoAAAAAAAAATQEAADkAAABucAAAlsuRB40HGwIMyZEHdAUbAhwAHxEAAAAA",
+    "location": [
+     126.99535,
+     35.325837
+    ],
+    "name": "연화길",
+    "distance": 83.92013111
+   },
+   {
+    "nodes": [
+     6451429761,
+     11264500420.0
+    ],
+    "hint": "BUqZhQZKmYUjAAAAAAAAAAUIAAAAAAAA1s1qQQAAAADw4VVEAAAAACMAAAAAAAAABQgAAAAAAABGbAKAUciRBzICGwIMyZEHdAUbAkQA7wQAAAAA",
+    "location": [
+     126.994513,
+     35.324466
+    ],
+    "name": "영산강 자전거길",
+    "distance": 94.07868073
+   }
+  ]
+ }
+}

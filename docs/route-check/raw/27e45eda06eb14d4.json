@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.029429,37.498441;127.224000,37.545500?overview=false&bearings=69,30;",
+ "fetched_utc": "2026-11-14T03:00:08Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1403.8,
+      "summary": "",
+      "duration": 1317.5,
+      "distance": 21555.9
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1403.8,
+    "duration": 1317.5,
+    "distance": 21555.9
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "cKTvgf___38AAAAALAAAAAAAAAAAAAAAe0WTPyQrm0IAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAABucAAAtVCSB0kuPAK1UJIHSS48AgAAXwQAAAAA",
+    "location": [
+     127.029429,
+     37.498441
+    ],
+    "name": "테헤란로",
+    "distance": 0
+   },
+   {
+    "hint": "dOnaiJDX3ogAAAAAVQAAAAAAAAAOAAAAAAAAAO1YjkEAAAAAtV86QAAAAAArAAAAAAAAAAcAAABucAAAqUiVB2_oPALASJUHHOY8AgAALwEAAAAA",
+    "location": [
+     127.223977,
+     37.546095
+    ],
+    "name": "",
+    "distance": 66.06885642
+   }
+  ]
+ }
+}

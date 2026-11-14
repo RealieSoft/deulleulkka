@@ -1,0 +1,60 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/126.992610,37.566574;126.985125,37.582598;127.033700,37.738100?overview=false&bearings=355,30;;&continue_straight=false",
+ "fetched_utc": "2026-11-14T03:00:32Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 169,
+      "summary": "",
+      "duration": 169,
+      "distance": 2271.2
+     },
+     {
+      "steps": [],
+      "weight": 1568.9,
+      "summary": "",
+      "duration": 1568.9,
+      "distance": 23803.5
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1737.9,
+    "duration": 1737.9,
+    "distance": 26074.7
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "0F-Xgf___38OAAAAMQAAAAAAAAAAAAAA_z2BQVEMG0IAAAAAAAAAAA4AAAAxAAAAAAAAAAAAAABucAAA4sCRB244PQLiwJEHbjg9AgAAPxYAAAAA",
+    "location": [
+     126.99261,
+     37.566574
+    ],
+    "name": "충무로",
+    "distance": 0
+   },
+   {
+    "hint": "_f5kgFxf-IEFAAAAFQAAAEsAAAA1AAAAvCe1QPW3uEHe86VCszhsQgUAAAAVAAAASwAAADUAAABucAAApaORBwZ3PQKlo5EHBnc9AgIAHwAAAAAA",
+    "location": [
+     126.985125,
+     37.582598
+    ],
+    "name": "북촌로",
+    "distance": 0
+   },
+   {
+    "hint": "JHfYhf___38DAAAASwAAADsAAAAAAQAAjHuqP_3B70HrRcVBBJHWQgMAAABLAAAAOwAAAAABAABucAAAMmCSB3HWPwJkYZIHdNY_AgIAPwsAAAAA",
+    "location": [
+     127.033394,
+     37.738097
+    ],
+    "name": "",
+    "distance": 26.97884202
+   }
+  ]
+ }
+}

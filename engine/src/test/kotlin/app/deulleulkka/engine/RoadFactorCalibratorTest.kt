@@ -52,7 +52,8 @@ class RoadFactorCalibratorTest {
 
     @Test
     fun `보정값이 커지면 같은 곳도 더 걸린다고 보고 허용 시간을 넘으면 묻지 않는다`() {
-        val calm = Scenarios.saturdayOuting.last().ctx
+        // 보정값은 찜까지의 도로 시간을 받지 못해 직선거리로 어림할 때만 쓴다
+        val calm = Scenarios.saturdayOuting.last().ctx.copy(tripMinToPlace = emptyMap())
         val atStart = assertNotNull(DetourEstimator.estimateMinutes(calm, Scenarios.bakery))
         val atMax = assertNotNull(DetourEstimator.estimateMinutes(calm, Scenarios.bakery, RoadFactorCalibrator.MAX_FACTOR))
         assertEquals(atStart / start * RoadFactorCalibrator.MAX_FACTOR, atMax, 1e-9)

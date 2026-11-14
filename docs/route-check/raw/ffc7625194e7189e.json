@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.636240,35.175738;127.462700,35.202500?overview=false&bearings=277,30;",
+ "fetched_utc": "2026-11-14T03:27:08Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1087.8,
+      "summary": "",
+      "duration": 1054.9,
+      "distance": 18570.3
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1087.8,
+    "duration": 1054.9,
+    "distance": 18570.3
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "OJk2gP___38OAAAAGgAAAEwBAACZAAAA3DrSQZnKpkEfnRZE8LmKQw4AAAAaAAAATAEAAJkAAABucAAAEJObBzq9GAIQk5sHOr0YAiQAXxEAAAAA",
+    "location": [
+     127.63624,
+     35.175738
+    ],
+    "name": "섬진강대로",
+    "distance": 0
+   },
+   {
+    "hint": "Sourg02Lq4MVAAAAFwAAAPsBAAAAAAAAjgOMQEPEmkBDR9NCAAAAAAoAAAAMAAAA_gAAAAAAAABucAAAOe2YBxElGQIs7ZgHxCUZAggAbwUAAAAA",
+    "location": [
+     127.462713,
+     35.202321
+    ],
+    "name": "",
+    "distance": 19.89433469
+   }
+  ]
+ }
+}

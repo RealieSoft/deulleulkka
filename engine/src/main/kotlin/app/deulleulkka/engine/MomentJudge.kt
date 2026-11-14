@@ -1,5 +1,6 @@
 package app.deulleulkka.engine
 
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt
 
@@ -11,7 +12,7 @@ import kotlin.math.roundToInt
  */
 class MomentJudge(private val settings: Settings = Settings()) {
 
-    /** [roadFactor]는 우회 어림에 쓸 도로 보정값이다. 쓰면서 [RoadFactorCalibrator.factor]로 바꿔 넣는다. */
+    /** [roadFactor]는 직선거리로 우회를 어림할 때 쓸 도로 보정값이다. 쓰면서 [RoadFactorCalibrator.factor]로 바꿔 넣는다. */
     fun judge(
         ctx: DriveContext,
         place: Place,
@@ -24,7 +25,7 @@ class MomentJudge(private val settings: Settings = Settings()) {
             Triple(Step.SAFETY, "지금 말 걸어도 되나") { safety(ctx, place) },
             Triple(Step.ELIGIBILITY, "어떤 이동인가") { tripKind(ctx) },
             Triple(Step.ELIGIBILITY, "갈 여력이 있나") { capacity(ctx) },
-            Triple(Step.VALUE, "얼마나 더 걸리나") { detour(ctx, detourMin) },
+            Triple(Step.VALUE, "얼마나 더 걸리나") { detour(ctx, place, detourMin) },
             Triple(Step.VALUE, "지금 가기 좋은 곳인가") { goodTime(ctx, place) },
             Triple(Step.VALUE, "누가 타고 있나") { company(ctx) },
             Triple(Step.FREQUENCY, "너무 자주 묻지 않나") { frequency(place, history, today) },
@@ -54,7 +55,23 @@ class MomentJudge(private val settings: Settings = Settings()) {
      * 혼자 탄 이동이면 절반으로 줄인다. 착좌 정보가 없는 차량에서는 줄이지 않는다.
      */
     fun allowedDetourMin(ctx: DriveContext): Double =
-        if (ctx.passengerPresent == false) settings.maxDetourMin / SOLO_DIVISOR else settings.maxDetourMin
+        if (settings.halveForSolo && ctx.passengerPresent == false) settings.maxDetourMin / SOLO_DIVISOR else settings.maxDetourMin
+
+    /**
+     * 찜이 진행 방향의 뒤쪽에 있는지(이미 지나쳤는지). 진행 방향을 모르면 목적지 쪽을 앞으로 본다.
+     * 지나친 곳을 물으면 되돌아가게 되므로 그 이동에서는 묻지 않는다.
+     */
+    fun isBehind(ctx: DriveContext, place: Place): Boolean {
+        val dest = ctx.destination ?: return false
+        val ahead = ctx.headingDeg ?: DetourEstimator.bearingDeg(ctx.lat, ctx.lon, dest.lat, dest.lon)
+        val toPlace = DetourEstimator.bearingDeg(ctx.lat, ctx.lon, place.lat, place.lon)
+        val diff = abs((toPlace - ahead + HALF_TURN_DEG * 3) % (HALF_TURN_DEG * 2) - HALF_TURN_DEG)
+        return diff > AHEAD_MAX_DEG
+    }
+
+    /** 찜에서 [TRIGGER_RADIUS_METERS] 안에 들어왔는지. 앱은 위치 SDK의 영역 진입 알림으로 판단을 시작한다. */
+    fun inTriggerRadius(ctx: DriveContext, place: Place): Boolean =
+        DetourEstimator.distanceKm(ctx.lat, ctx.lon, place.lat, place.lon) * METERS_PER_KM <= TRIGGER_RADIUS_METERS
 
     /** 경유지를 넣은 뒤 내비게이션이 다시 계산한 값이 허용 범위를 넘는지. 넘으면 한 번 더 묻는다. */
     fun exceedsAllowance(actualDetourMin: Double, ctx: DriveContext): Boolean =
@@ -101,6 +118,8 @@ class MomentJudge(private val settings: Settings = Settings()) {
             unknown.isNotEmpty() -> "${unknown.joinToString()} 확인 불가 (완전히 멈춘 때만 물음)" to Outcome.HOLD
             ctx.turnSignalOn == true -> "방향지시등 켜짐" + turnText(turn, prefix = ", ") to Outcome.HOLD
             ctx.braking == true -> "브레이크 밟는 중" to Outcome.HOLD
+            // 고속도로에서는 묻는 창이 몇 초뿐이고, 나들목으로 빠져 되돌아오는 길은 어림이 크게 틀릴 수 있다
+            ctx.speedKph >= HIGH_SPEED_KPH -> "고속 주행 중 (시속 ${HIGH_SPEED_KPH.roundToInt()}km 이상)" to Outcome.HOLD
             ctx.cautionAhead -> "단속 카메라·주의 지점 안내 구간" to Outcome.HOLD
             turn != null && turn < calmMeters ->
                 (if (ctx.nextTurnIsInterchange) "나들목 " else "") + turnText(turn) to Outcome.HOLD
@@ -134,9 +153,10 @@ class MomentJudge(private val settings: Settings = Settings()) {
         }
     }
 
-    private fun detour(ctx: DriveContext, detourMin: Double?): Pair<String, Outcome> {
+    private fun detour(ctx: DriveContext, place: Place, detourMin: Double?): Pair<String, Outcome> {
         // 목적지가 없으면 앞 단계(어떤 이동인가)에서 이미 멈춘다.
         val minutes = checkNotNull(detourMin)
+        if (isBehind(ctx, place)) return "이미 지나친 곳 (되돌아가야 함)" to Outcome.SKIP
         val allowed = allowedDetourMin(ctx)
         val seen = "약 ${minutes.roundToInt()}분 더 걸림 (${allowed.roundToInt()}분까지)"
         return seen to if (minutes <= allowed) Outcome.PASS else Outcome.SKIP
@@ -192,6 +212,27 @@ class MomentJudge(private val settings: Settings = Settings()) {
 
         /** 혼자 탄 이동에서 허용 우회 시간을 나누는 값. */
         const val SOLO_DIVISOR = 2.0
+
+        /** 이 속도(km/h) 이상이면 고속 주행으로 보고 보류한다. 국도의 시속 80km는 묻는 범위에 남긴다. */
+        const val HIGH_SPEED_KPH = 90.0
+
+        /** 진행 방향과 찜 방향의 차이가 이 각도(도)보다 크면 지나친 곳으로 본다. */
+        const val AHEAD_MAX_DEG = 90.0
+
+        /** 찜에서 이 거리(m) 안에 들어오면 판단을 시작한다. */
+        const val TRIGGER_RADIUS_METERS = 2000.0
+
+        private const val HALF_TURN_DEG = 180.0
+
+        /** 묻는 말. 1분이 안 걸리는 곳은 "약 0분"이라 하지 않고 분을 빼고 묻는다. */
+        fun question(place: Place, detourMin: Double): String {
+            val minutes = detourMin.roundToInt()
+            return if (minutes < 1) {
+                "찜해 둔 ${place.name}가 가는 길에 있어요. 들를까요?"
+            } else {
+                "찜해 둔 ${place.name}가 가는 길 근처에 있어요. 약 ${minutes}분 더 걸리는데 들를까요?"
+            }
+        }
 
         private const val KPH_PER_MPS = 3.6
         private const val METERS_PER_KM = 1000

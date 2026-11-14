@@ -1,0 +1,44 @@
+{
+ "url": "https://router.project-osrm.org/route/v1/driving/127.727488,34.752714;127.803000,34.591300?overview=false&bearings=177,30;",
+ "fetched_utc": "2026-11-14T03:27:04Z",
+ "response": {
+  "code": "Ok",
+  "routes": [
+   {
+    "legs": [
+     {
+      "steps": [],
+      "weight": 1960.2,
+      "summary": "",
+      "duration": 1960.2,
+      "distance": 27245.7
+     }
+    ],
+    "weight_name": "routability",
+    "weight": 1960.2,
+    "duration": 1960.2,
+    "distance": 27245.7
+   }
+  ],
+  "waypoints": [
+   {
+    "hint": "wE5ggP___38HAAAACwAAAAAAAAAAAAAA22hcQTq3sUAAAAAAAAAAAAcAAAALAAAAAAAAAAAAAABucAAAgPecB8pIEgKA95wHykgSAgAAHwsAAAAA",
+    "location": [
+     127.727488,
+     34.752714
+    ],
+    "name": "좌수영로",
+    "distance": 0
+   },
+   {
+    "hint": "t39GgWV46oIvAAAADQAAABoDAAAAAAAArc-cQYnTqUDs5aVDAAAAAC8AAAANAAAAGgMAAAAAAABucAAAmiCeB5DUDwJ4Hp4HRNIPAh4A_wcAAAAA",
+    "location": [
+     127.803546,
+     34.591888
+    ],
+    "name": "",
+    "distance": 82.24800566
+   }
+  ]
+ }
+}

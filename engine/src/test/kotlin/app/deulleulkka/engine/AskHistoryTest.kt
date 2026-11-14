@@ -44,6 +44,16 @@ class AskHistoryTest {
     }
 
     @Test
+    fun `넣은 뒤 취소하면 그 이동에서는 다시 묻지 않고 다음 이동에서는 다시 묻는다`() {
+        val judge = MomentJudge()
+        val calm = Scenarios.saturdayOuting.last().ctx
+        val cancelled = AskHistory().record(place, Answer.CANCEL, day)
+        assertIs<Verdict.Skip>(judge.judge(calm, Scenarios.bakery, cancelled, day).verdict)
+        assertFalse(cancelled.isSnoozed(place, day + 1))
+        assertIs<Verdict.Ask>(judge.judge(calm, Scenarios.bakery, cancelled.startNewTrip(), day + 1).verdict)
+    }
+
+    @Test
     fun `답이 없던 것도 이번 이동에서 물은 횟수에 센다`() {
         val history = AskHistory().record("a", Answer.NO_ANSWER, day).record("b", Answer.ACCEPT, day)
         assertEquals(listOf("a", "b"), history.askedThisTrip)

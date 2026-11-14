@@ -1,0 +1,74 @@
+{
+ "url": "https://router.project-osrm.org/nearest/v1/driving/126.985000,37.582600?number=5",
+ "fetched_utc": "2026-11-14T03:00:28Z",
+ "response": {
+  "code": "Ok",
+  "waypoints": [
+   {
+    "nodes": [
+     4259754211,
+     436836529
+    ],
+    "hint": "_f5kgFxf-IEFAAAAFQAAAEsAAAA1AAAAvCe1QPW3uEHe86VCszhsQgUAAAAVAAAASwAAADUAAABucAAApaORBwZ3PQIoo5EHCHc9AgIAHwAAAAAA",
+    "location": [
+     126.985125,
+     37.582598
+    ],
+    "name": "북촌로",
+    "distance": 11.04434673
+   },
+   {
+    "nodes": [
+     436836529,
+     871729290
+    ],
+    "hint": "_f5kgFxf-IFLAAAAAAAAAAAAAABPAAAA3vOlQgAAAAAAAAAAz5yvQksAAAAAAAAAAAAAAE8AAABucAAApKORB9N2PQIoo5EHCHc9AgAALwAAAAAA",
+    "location": [
+     126.985124,
+     37.582547
+    ],
+    "name": "북촌로",
+    "distance": 12.43333254
+   },
+   {
+    "nodes": [
+     2322098828,
+     4259754211
+    ],
+    "hint": "_f5kgFxf-IEAAAAANQAAAGUAAAAAAAAAAAAAALM4bEJTdN9CAAAAAAAAAAA1AAAAZQAAAAAAAABucAAAqqORB9Z3PQIoo5EHCHc9AgQAHwAAAAAA",
+    "location": [
+     126.98513,
+     37.582806
+    ],
+    "name": "북촌로",
+    "distance": 25.58559795
+   },
+   {
+    "nodes": [
+     2518227062,
+     5791834301
+    ],
+    "hint": "B_9kgAv_ZIAQAAAAEQAAANAAAACuAAAA-6rYQPrS30Cgk61CGA6QQhAAAAARAAAA0AAAAK4AAABucAAAC6aRBxN3PQIoo5EHCHc9AggALwsAAAAA",
+    "location": [
+     126.985739,
+     37.582611
+    ],
+    "name": "북촌로12길",
+    "distance": 65.29240379
+   },
+   {
+    "nodes": [
+     5791834301,
+     13095894220.0
+    ],
+    "hint": "B_9kgAv_ZIAYAAAAAAAAALgAAADPAAAANJgdQQAAAACa4JlC1pWrQhgAAAAAAAAAuAAAAM8AAABucAAACqaRB1B3PQIoo5EHCHc9AgYAjw8AAAAA",
+    "location": [
+     126.985738,
+     37.582672
+    ],
+    "name": "북촌로12길",
+    "distance": 65.68059526
+   }
+  ]
+ }
+}
