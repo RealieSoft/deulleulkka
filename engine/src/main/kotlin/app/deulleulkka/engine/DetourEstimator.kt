@@ -41,8 +41,8 @@ object DetourEstimator {
      */
     fun estimateMinutes(ctx: DriveContext, place: Place, roadFactor: Double = ROAD_FACTOR): Double? {
         val dest = ctx.destination ?: return null
-        val tripMin = ctx.tripMinToPlace[place.id]
-        val remainingMin = ctx.remainingMin
+        val tripMin = tripMinTo(ctx, place)
+        val remainingMin = validMinutes(ctx.remainingMin)
         if (tripMin != null && remainingMin != null) {
             // 찜까지 가는 동안 목적지에 가까워지는 몫(직선으로 본 비율)을 남은 시간에서 빼고 남는 시간
             val directToDest = distanceKm(ctx.lat, ctx.lon, dest.lat, dest.lon)
@@ -57,9 +57,17 @@ object DetourEstimator {
         return extraRoadKm / averageKph(ctx) * MINUTES_PER_HOUR
     }
 
-    /** 이 찜의 어림에 찜까지의 도로 시간을 쓰는지. 아니면 [MomentJudge]가 묻지 않고 보류한다. */
+    /**
+     * 이 찜의 어림에 찜까지의 도로 시간을 쓰는지. 아니면 [MomentJudge]가 묻지 않고 보류한다.
+     * 찜까지의 도로 시간과 남은 시간이 둘 다 0 이상의 유한한 값이어야 쓴다(NaN·무한대·음수는 받지 못한 것으로 본다).
+     */
     fun usesTrip(ctx: DriveContext, place: Place): Boolean =
-        ctx.destination != null && ctx.tripMinToPlace[place.id] != null && ctx.remainingMin != null
+        ctx.destination != null && tripMinTo(ctx, place) != null && validMinutes(ctx.remainingMin) != null
+
+    /** 찜까지의 도로 시간(분). 받지 못했거나 NaN·무한대·음수면 null. */
+    fun tripMinTo(ctx: DriveContext, place: Place): Double? = validMinutes(ctx.tripMinToPlace[place.id])
+
+    private fun validMinutes(minutes: Double?): Double? = minutes?.takeIf { it.isFinite() && it >= 0.0 }
 
     /** 내비게이션이 알려 주는 남은 거리와 남은 시간으로 구한 평균 속도. 없으면 현재 속도, 그것도 없으면 하한을 쓴다. */
     fun averageKph(ctx: DriveContext): Double {

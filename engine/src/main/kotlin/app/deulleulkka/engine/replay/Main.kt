@@ -5,6 +5,7 @@ import app.deulleulkka.engine.Decision
 import app.deulleulkka.engine.MomentJudge
 import app.deulleulkka.engine.Place
 import app.deulleulkka.engine.Verdict
+import java.util.Locale
 
 /** 시나리오를 차례로 재생하며 판단과 그 근거를 글로 찍는다. 실행: ./gradlew :engine:run */
 fun main() {
@@ -19,7 +20,7 @@ private fun replay(title: String, frames: List<Frame>, place: Place, judge: Mome
     println("=== $title ===")
     for (frame in frames) {
         val decision = judge.judge(frame.ctx, place, AskHistory(), today = 0)
-        println("[${frame.clock}] ${frame.note} → ${describe(decision, place)}")
+        println("[${frame.clock}] ${frame.note} → ${describe(decision, place, judge.allowedDetourMin(frame.ctx))}")
         for (check in decision.checks) {
             println("    ${check.step.label} | ${check.question} | ${check.seen} | ${check.outcome.label}")
         }
@@ -27,16 +28,16 @@ private fun replay(title: String, frames: List<Frame>, place: Place, judge: Mome
         val verdict = decision.verdict
         if (routeCheck != null && verdict is Verdict.Ask) {
             println(
-                "    어림 약 ${"%.1f".format(verdict.detourMin)}분 · 같은 지점 공개 길찾기 실제 " +
-                    "${"%.2f".format(routeCheck.actualDetourMin)}분 (${routeCheck.source})",
+                "    어림 약 ${String.format(Locale.ROOT, "%.1f", verdict.detourMin)}분 · 같은 지점 공개 길찾기 실제 " +
+                    "${String.format(Locale.ROOT, "%.2f", routeCheck.actualDetourMin)}분 (${routeCheck.source})",
             )
         }
     }
     println()
 }
 
-private fun describe(decision: Decision, place: Place): String = when (val verdict = decision.verdict) {
-    is Verdict.Ask -> "묻는다: \"${MomentJudge.question(place, verdict.detourMin)}\""
+private fun describe(decision: Decision, place: Place, allowedMin: Double): String = when (val verdict = decision.verdict) {
+    is Verdict.Ask -> "묻는다: \"${MomentJudge.question(place, verdict.detourMin, allowedMin)}\""
     is Verdict.Hold -> "보류 (${verdict.reason})"
     is Verdict.Skip -> "묻지 않음 (${verdict.reason})"
 }

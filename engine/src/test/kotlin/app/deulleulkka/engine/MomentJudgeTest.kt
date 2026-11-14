@@ -1,11 +1,14 @@
 package app.deulleulkka.engine
 
 import app.deulleulkka.engine.replay.Scenarios
+import java.util.Locale
 import kotlin.math.roundToInt
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 /** 기획서의 판단 표와 시나리오 A, C, D를 그대로 옮긴 테스트. */
@@ -17,8 +20,21 @@ class MomentJudgeTest {
     private val calm = Scenarios.saturdayOuting.last().ctx
     private val today = 0L
 
+    /**
+     * 차에서 정북으로 약 1.6km 떨어진 찜. 차를 북쪽으로 달리게 두면([towardNorth]) 찜이 정면이고,
+     * 목적지(동쪽)에서는 차보다 멀어 찜까지 가는 동안 목적지 쪽으로 나아가는 몫이 0이다.
+     * 그래서 어림한 우회 시간이 찜까지 도로 시간의 정확히 두 배가 되어, 경계값을 그대로 넣을 수 있다.
+     */
+    private val north = Place("north", "북쪽 찜", PlaceKind.EAT, lat = calm.lat + 0.0144, lon = calm.lon)
+
+    private fun towardNorth(tripMin: Double, passengerPresent: Boolean? = true) =
+        calm.copy(headingDeg = 0.0, tripMinToPlace = mapOf(north.id to tripMin), passengerPresent = passengerPresent)
+
     private fun verdict(ctx: DriveContext, history: AskHistory = AskHistory(), place: Place = bakery): Verdict =
         judge.judge(ctx, place, history, today).verdict
+
+    private fun row(ctx: DriveContext, question: String, place: Place = bakery, j: MomentJudge = judge): Check =
+        j.judge(ctx, place, AskHistory(), today).checks.single { it.question == question }
 
     @Test
     fun `시나리오 A 동승자가 있고 직선 구간이면 약 6분 우회를 묻는다`() {
@@ -54,8 +70,120 @@ class MomentJudgeTest {
     @Test
     fun `시나리오 D 우회전 300m 전이고 방향지시등이 켜져 있으면 보류했다가 직선 구간에서 묻는다`() {
         val (beforeTurn, afterTurn) = Scenarios.saturdayOuting.map { it.ctx }
-        assertIs<Verdict.Hold>(verdict(beforeTurn))
+        assertEquals(Verdict.Hold("방향지시등 켜짐, 300m 앞 회전"), verdict(beforeTurn))
         assertIs<Verdict.Ask>(verdict(afterTurn))
+    }
+
+    @Test
+    fun `시나리오 D 보류한 사이 반경을 벗어났다면 그 이동에서는 묻지 않는다`() {
+        val (beforeTurn, afterTurn) = Scenarios.saturdayOuting.map { it.ctx }
+        val held = AskHistory().recordVerdict(bakery.id, assertIs<Verdict.Hold>(verdict(beforeTurn)))
+        val left = held.recordRadiusExit(bakery.id)
+        assertEquals(Verdict.Skip("보류한 사이 반경을 벗어났던 곳 (이번 이동에서는 묻지 않음)"), verdict(afterTurn, left))
+        // 벗어나지 않았으면 직선 구간에서 묻고, 다음 이동에서는 다시 묻는다
+        assertIs<Verdict.Ask>(verdict(afterTurn, held))
+        assertIs<Verdict.Ask>(verdict(afterTurn, left.startNewTrip()))
+    }
+
+    @Test
+    fun `찜까지 정확히 2km면 판단 반경 안이고 조금이라도 멀면 밖이다`() {
+        // 적도 위에서 경도만 다른 두 점. 이 경도 차는 거리 계산이 정확히 2000.0m가 되는 값이다
+        val here = calm.copy(lat = 0.0, lon = 0.0)
+        val at2km = bakery.copy(lat = 0.0, lon = 0.017986432118374612)
+        assertEquals(2000.0, DetourEstimator.distanceKm(0.0, 0.0, 0.0, at2km.lon) * 1000)
+        assertTrue(judge.inTriggerRadius(here, at2km))
+        assertFalse(judge.inTriggerRadius(here, at2km.copy(lon = Math.nextUp(at2km.lon))))
+    }
+
+    @Test
+    fun `보류된 적 없이 반경을 벗어났던 곳은 다시 들어오면 판단한다`() {
+        assertIs<Verdict.Ask>(verdict(calm, AskHistory().recordRadiusExit(bakery.id)))
+    }
+
+    @Test
+    fun `보류했다가 지나친 곳으로 묻지 않은 뒤 반경을 벗어났다면 굽은 길로 다시 들어올 때 판단한다`() {
+        val (beforeTurn, afterTurn) = Scenarios.saturdayOuting.map { it.ctx }
+        var history = AskHistory().recordVerdict(bakery.id, assertIs<Verdict.Hold>(verdict(beforeTurn)))
+        // 찜을 동쪽으로 약 1.5km 지나친 자리: 보류가 아니라 '이미 지나친 곳'으로 묻지 않는다
+        val passed = verdict(afterTurn.copy(lat = bakery.lat, lon = bakery.lon + 0.0170), history)
+        assertEquals(Verdict.Skip("이미 지나친 곳 (되돌아가야 함)"), passed)
+        history = history.recordVerdict(bakery.id, passed).recordRadiusExit(bakery.id)
+        // 보류 중에 벗어난 것이 아니므로, 굽은 길로 앞쪽에서 다시 들어오면 다시 판단한다(기획서 판단 표의 지나친 찜)
+        assertIs<Verdict.Ask>(verdict(afterTurn, history))
+    }
+
+    @Test
+    fun `속도가 NaN이나 무한대면 읽지 못한 것으로 보고 보류한다`() {
+        for (bad in listOf(Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY)) {
+            assertEquals(Verdict.Hold("속도 모름"), verdict(calm.copy(speedKph = bad)), "속도 $bad")
+        }
+    }
+
+    @Test
+    fun `음수 속도(후진)는 멈춘 것이 아니라 속도를 읽지 못한 것과 같이 보류한다`() {
+        assertEquals(Verdict.Hold("속도 모름"), verdict(calm.copy(speedKph = -8.0)))
+        assertEquals(Verdict.Hold("속도 모름"), verdict(calm.copy(speedKph = -0.5)))
+        // -0.0은 0과 같이 완전히 멈춘 것이다
+        assertIs<Verdict.Ask>(verdict(calm.copy(speedKph = -0.0)))
+    }
+
+    @Test
+    fun `묻는 말의 분은 판단 근거 문구의 분과 같다`() {
+        // 설정 7분에 혼자 탄 이동이면 허용 3.5분. 어림 3.5분은 반올림하면 4분이라 근거에는 3.5분으로 적는다
+        val seven = MomentJudge(Settings(maxDetourMin = 7.0))
+        val ctx = towardNorth(tripMin = 1.75, passengerPresent = false)
+        val ask = assertIs<Verdict.Ask>(seven.judge(ctx, north, AskHistory(), today).verdict)
+        val allowed = seven.allowedDetourMin(ctx)
+        assertEquals("약 3.5분 더 걸림 (3.5분까지)", row(ctx, "얼마나 더 걸리나", north, seven).seen)
+        assertEquals(
+            "찜해 둔 북쪽 찜이 가는 길 근처에 있어요. 약 3.5분 더 걸리는데 들를까요?",
+            MomentJudge.question(north, ask.detourMin, allowed),
+        )
+        // 허용 시간이 정수 분이면 둘 다 반올림한 정수 분이다
+        assertEquals("약 6분 더 걸림 (10분까지)", row(calm, "얼마나 더 걸리나").seen)
+        val calmAsk = assertIs<Verdict.Ask>(verdict(calm))
+        assertEquals(
+            "찜해 둔 밀밭 베이커리가 가는 길 근처에 있어요. 약 6분 더 걸리는데 들를까요?",
+            MomentJudge.question(bakery, calmAsk.detourMin, judge.allowedDetourMin(calm)),
+        )
+    }
+
+    @Test
+    fun `찜까지 도로 시간이나 남은 시간이 NaN·무한대·음수면 받지 못한 것으로 보고 보류한다`() {
+        for (bad in listOf(Double.NaN, Double.POSITIVE_INFINITY, -1.0)) {
+            assertEquals(
+                Verdict.Hold("찜까지 도로 시간 없음 (받으면 다시 판단)"),
+                verdict(calm.copy(tripMinToPlace = mapOf(bakery.id to bad))),
+                "도로 시간 $bad",
+            )
+            assertEquals(
+                Verdict.Hold("남은 시간 정보 없음 (받으면 다시 판단)"),
+                verdict(calm.copy(remainingMin = bad)),
+                "남은 시간 $bad",
+            )
+        }
+    }
+
+    @Test
+    fun `단속 카메라·주의 지점이나 다음 회전의 종류를 확인할 수 없으면 완전히 멈춘 때만 묻는다`() {
+        val noCaution = calm.copy(cautionAhead = null)
+        assertEquals(Verdict.Hold("단속 카메라·주의 지점 확인 불가 (완전히 멈춘 때만 물음)"), verdict(noCaution))
+        assertIs<Verdict.Ask>(verdict(noCaution.copy(speedKph = 0.0)))
+        val noKind = calm.copy(nextTurnIsInterchange = null)
+        assertEquals(Verdict.Hold("다음 회전 종류 확인 불가 (완전히 멈춘 때만 물음)"), verdict(noKind))
+        assertIs<Verdict.Ask>(verdict(noKind.copy(speedKph = 0.0)))
+        // 다음 회전이 없으면(목적지 없음) 그 종류는 보지 않는다
+        val noDestination = Scenarios.noDestination.single().ctx.copy(nextTurnIsInterchange = null)
+        assertEquals(Verdict.Skip("목적지 없음"), verdict(noDestination))
+    }
+
+    @Test
+    fun `찜이 판단 반경 2km 밖이면 다른 조건이 좋아도 묻지 않는다`() {
+        val far = north.copy(lat = calm.lat + 0.0200) // 정북 약 2.2km
+        val ctx = towardNorth(tripMin = 1.0).copy(tripMinToPlace = mapOf(far.id to 1.0))
+        assertFalse(judge.inTriggerRadius(ctx, far))
+        assertEquals(Verdict.Skip("찜까지 2.2km (판단 반경 2km 밖)"), verdict(ctx, place = far))
+        assertIs<Verdict.Ask>(verdict(towardNorth(tripMin = 1.0), place = north))
     }
 
     @Test
@@ -79,9 +207,37 @@ class MomentJudgeTest {
 
     @Test
     fun `우회 시간이 허용 범위를 넘으면 묻지 않는다`() {
-        // 찜을 북쪽으로 멀리 옮겼으므로 찜까지의 도로 시간도 그만큼 길게 넣는다
-        val farPlace = bakery.copy(lat = 37.7600)
-        assertIs<Verdict.Skip>(verdict(calm.copy(tripMinToPlace = mapOf(farPlace.id to 20.0)), place = farPlace))
+        val over = towardNorth(tripMin = 6.0) // 어림 12분
+        assertEquals(Verdict.Skip("약 12분 더 걸림 (10분까지)"), verdict(over, place = north))
+        assertEquals(Outcome.SKIP, row(over, "얼마나 더 걸리나", north).outcome)
+    }
+
+    @Test
+    fun `허용 시간과 같으면 묻고 조금이라도 넘으면 묻지 않는다`() {
+        assertEquals(Verdict.Ask(10.0), verdict(towardNorth(tripMin = 5.0), place = north))
+        assertIs<Verdict.Skip>(verdict(towardNorth(tripMin = 5.0 + 1e-9), place = north))
+        // 혼자 탄 이동은 5분이 경계다
+        assertEquals(Verdict.Ask(5.0), verdict(towardNorth(tripMin = 2.5, passengerPresent = false), place = north))
+        assertIs<Verdict.Skip>(verdict(towardNorth(tripMin = 2.5 + 1e-9, passengerPresent = false), place = north))
+    }
+
+    @Test
+    fun `근거 문구의 분은 반올림 때문에 판정과 어긋나 보이지 않는다`() {
+        // 반올림하면 허용 시간과 같아지는데 묻지 않는 경우는 소수 첫째 자리까지(올려서) 보인다
+        assertEquals(
+            Verdict.Skip("약 5.4분 더 걸림 (5분까지)"),
+            verdict(towardNorth(tripMin = 2.7, passengerPresent = false), place = north),
+        )
+        assertEquals(Verdict.Skip("약 10.3분 더 걸림 (10분까지)"), verdict(towardNorth(tripMin = 5.15), place = north))
+        assertEquals(Verdict.Skip("약 10.1분 더 걸림 (10분까지)"), verdict(towardNorth(tripMin = 5.0 + 1e-9), place = north))
+        // 반올림해도 어긋나지 않으면 묻는 말과 같은 정수 분으로 보인다
+        assertEquals(Verdict.Skip("약 11분 더 걸림 (10분까지)"), verdict(towardNorth(tripMin = 5.3), place = north))
+        assertEquals("약 10분 더 걸림 (10분까지)", row(towardNorth(tripMin = 4.8), "얼마나 더 걸리나", north).seen)
+        assertEquals("약 6분 더 걸림 (10분까지)", row(calm, "얼마나 더 걸리나").seen)
+        // 허용 시간이 정수 분이 아니면(설정 7분, 혼자) 반올림하면 넘어 보이는 통과는 소수 첫째 자리까지(내려서) 보인다
+        val seven = MomentJudge(Settings(maxDetourMin = 7.0))
+        val solo35 = row(towardNorth(tripMin = 1.75, passengerPresent = false), "얼마나 더 걸리나", north, seven)
+        assertEquals("약 3.5분 더 걸림 (3.5분까지)" to Outcome.PASS, solo35.seen to solo35.outcome)
     }
 
     @Test
@@ -113,6 +269,51 @@ class MomentJudgeTest {
     }
 
     @Test
+    fun `길 안내 중인데 다음 회전 정보가 없으면 확인할 수 없는 안전 신호로 보고 완전히 멈춘 때만 묻는다`() {
+        val noTurn = calm.copy(nextTurnMeters = null)
+        assertEquals(Verdict.Hold("다음 회전 확인 불가 (완전히 멈춘 때만 물음)"), verdict(noTurn))
+        assertIs<Verdict.Ask>(verdict(noTurn.copy(speedKph = 0.0)))
+        // 목적지가 없으면 안내가 없어 회전 정보가 없는 것이 맞다. 그때 묻지 않는 까닭은 목적지 없음이다
+        val noDestination = Scenarios.noDestination.single().ctx
+        assertNull(noDestination.nextTurnMeters)
+        assertEquals(Outcome.PASS, row(noDestination, "지금 말 걸어도 되나").outcome)
+        assertEquals(Verdict.Skip("목적지 없음"), verdict(noDestination))
+    }
+
+    @Test
+    fun `달리는 중에는 방향지시등만 켜져도 보류한다`() {
+        // 회전은 1.4km 앞이라 회전 규칙으로는 막히지 않는다
+        assertEquals(Verdict.Hold("방향지시등 켜짐, 1.4km 앞 회전"), verdict(calm.copy(turnSignalOn = true)))
+    }
+
+    @Test
+    fun `속도가 낮아도 다음 회전이 500m 안이면 보류한다`() {
+        // 시속 30km의 30초는 250m라 최소 500m가 정한다
+        assertIs<Verdict.Hold>(verdict(calm.copy(speedKph = 30.0, nextTurnMeters = 499)))
+        assertIs<Verdict.Ask>(verdict(calm.copy(speedKph = 30.0, nextTurnMeters = 500)))
+    }
+
+    @Test
+    fun `다음 회전까지 30초 안이면 보류하고 정확히 30초면 묻는다`() {
+        // 시속 72km는 초속 20m라 30초는 600m
+        assertIs<Verdict.Hold>(verdict(calm.copy(speedKph = 72.0, nextTurnMeters = 599)))
+        assertIs<Verdict.Ask>(verdict(calm.copy(speedKph = 72.0, nextTurnMeters = 600)))
+    }
+
+    @Test
+    fun `나들목 진출입은 1점5km 안이면 보류한다`() {
+        assertIs<Verdict.Hold>(verdict(calm.copy(nextTurnMeters = 1499, nextTurnIsInterchange = true)))
+        assertIs<Verdict.Ask>(verdict(calm.copy(nextTurnMeters = 1500, nextTurnIsInterchange = true)))
+    }
+
+    @Test
+    fun `멈춰 있으면 회전이 100m 안일 때만 보류한다`() {
+        val stopped = calm.copy(speedKph = 0.0)
+        assertIs<Verdict.Hold>(verdict(stopped.copy(nextTurnMeters = 99)))
+        assertIs<Verdict.Ask>(verdict(stopped.copy(nextTurnMeters = 100)))
+    }
+
+    @Test
     fun `찜까지 1분 주행 거리보다 가까우면 급하게 빠지지 않도록 보류한다`() {
         // 찜에서 서쪽으로 약 500m 떨어진 곳에서 동쪽(찜 쪽)으로 달린다
         val near = calm.copy(lat = bakery.lat, lon = bakery.lon - 0.0057)
@@ -138,6 +339,33 @@ class MomentJudgeTest {
     }
 
     @Test
+    fun `진행 방향과 정확히 90도 벌어진 찜은 앞쪽이고 그보다 벌어지면 지나친 곳이다`() {
+        // 찜은 정북(방위 0도)이다
+        assertFalse(judge.isBehind(calm.copy(headingDeg = 90.0), north))
+        assertFalse(judge.isBehind(calm.copy(headingDeg = 270.0), north))
+        assertFalse(judge.isBehind(calm.copy(headingDeg = 89.9), north))
+        assertTrue(judge.isBehind(calm.copy(headingDeg = 90.1), north))
+        assertTrue(judge.isBehind(calm.copy(headingDeg = 269.9), north))
+    }
+
+    @Test
+    fun `진행 방향이 0~360 밖이어도 같은 방향으로 보고 NaN이나 무한대는 모름으로 본다`() {
+        // 찜은 정북이라 0도 쪽이면 앞쪽, 180도 쪽이면 뒤쪽이다
+        for (h in listOf(0.0, 360.0, 720.0, -360.0, -720.0, 45.0 + 360.0, -45.0)) {
+            assertFalse(judge.isBehind(calm.copy(headingDeg = h), north), "진행 방향 $h")
+        }
+        for (h in listOf(180.0, 540.0, -180.0, -540.0)) {
+            assertTrue(judge.isBehind(calm.copy(headingDeg = h), north), "진행 방향 $h")
+        }
+        // 지나친 자리에서 NaN·무한대는 모름(null)처럼 목적지 쪽을 앞으로 보아 지나친 곳으로 본다
+        val passed = calm.copy(lat = bakery.lat, lon = bakery.lon + 0.0170)
+        assertTrue(judge.isBehind(passed.copy(headingDeg = null), bakery))
+        for (h in listOf(Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY)) {
+            assertTrue(judge.isBehind(passed.copy(headingDeg = h), bakery), "진행 방향 $h")
+        }
+    }
+
+    @Test
     fun `시속 90km 이상 고속 주행 중에는 보류한다`() {
         assertEquals(Verdict.Hold("고속 주행 중 (시속 90km 이상)"), verdict(calm.copy(speedKph = 90.0)))
         assertIs<Verdict.Ask>(verdict(calm.copy(speedKph = 80.0)))
@@ -158,6 +386,41 @@ class MomentJudgeTest {
             "찜해 둔 밀밭 베이커리가 가는 길 근처에 있어요. 약 6분 더 걸리는데 들를까요?",
             MomentJudge.question(bakery, 5.85),
         )
+    }
+
+    @Test
+    fun `반올림해 0분이 되는 0점5분 미만만 분을 빼고 묻는다`() {
+        assertEquals("찜해 둔 밀밭 베이커리가 가는 길에 있어요. 들를까요?", MomentJudge.question(bakery, 0.49))
+        assertEquals(
+            "찜해 둔 밀밭 베이커리가 가는 길 근처에 있어요. 약 1분 더 걸리는데 들를까요?",
+            MomentJudge.question(bakery, 0.5),
+        )
+    }
+
+    @Test
+    fun `식사 시간대는 11시부터 14시 전까지와 17시부터 20시 전까지다`() {
+        fun at(hour: Int, minute: Int) = judge.isGoodTimeFor(calm.copy(minuteOfDay = hour * 60 + minute), bakery)
+        assertFalse(at(10, 59))
+        assertTrue(at(11, 0))
+        assertTrue(at(13, 59))
+        assertFalse(at(14, 0))
+        assertFalse(at(16, 59))
+        assertTrue(at(17, 0))
+        assertTrue(at(19, 59))
+        assertFalse(at(20, 0))
+    }
+
+    @Test
+    fun `볼 곳은 해가 뜬 뒤부터 해가 지기 전까지만 지금 가기 좋은 때다`() {
+        val see = bakery.copy(kind = PlaceKind.SEE)
+        fun at(minute: Int) = judge.isGoodTimeFor(calm.copy(minuteOfDay = minute), see)
+        assertFalse(at(3 * 60))
+        assertFalse(at(calm.sunriseMinuteOfDay - 1))
+        assertTrue(at(calm.sunriseMinuteOfDay))
+        assertTrue(at(calm.sunsetMinuteOfDay - 1))
+        assertFalse(at(calm.sunsetMinuteOfDay))
+        // 새벽 3시의 판단 근거에 '지금 가기 좋은 때'가 남지 않는다
+        assertEquals("볼 곳, 때와 무관", row(calm.copy(minuteOfDay = 3 * 60), "지금 가기 좋은 곳인가", see).seen)
     }
 
     @Test
@@ -196,6 +459,53 @@ class MomentJudgeTest {
             "찜해 둔 장터 국밥이 가는 길 근처에 있어요. 약 3분 더 걸리는데 들를까요?",
             MomentJudge.question(bakery.copy(name = "장터 국밥"), 3.2),
         )
+    }
+
+    @Test
+    fun `이름이 숫자나 영문으로 끝나면 읽는 소리에 맞춰 조사를 붙인다`() {
+        // 숫자는 끝자리를 읽는 소리로: 1(일)·3(삼)·0(십·백·영)은 받침이 있고, 2(이)·4(사)·5(오)·9(구)는 없다
+        assertEquals("본점 1이", MomentJudge.withSubjectParticle("본점 1"))
+        assertEquals("카페 3이", MomentJudge.withSubjectParticle("카페 3"))
+        assertEquals("주차장 10이", MomentJudge.withSubjectParticle("주차장 10"))
+        assertEquals("카페 2가", MomentJudge.withSubjectParticle("카페 2"))
+        assertEquals("카페 4가", MomentJudge.withSubjectParticle("카페 4"))
+        // 영문 한 글자는 글자 이름으로: L(엘)·M(엠)·N(엔)·R(알)은 받침이 있다
+        assertEquals("B동 L이", MomentJudge.withSubjectParticle("B동 L"))
+        assertEquals("카페 B가", MomentJudge.withSubjectParticle("카페 B"))
+        // 영문 낱말은 끝 글자로 어림한다: l·m·n·ng로 끝나면 받침이 있다고 본다
+        assertEquals("Bread Garden이", MomentJudge.withSubjectParticle("Bread Garden"))
+        assertEquals("Cafe가", MomentJudge.withSubjectParticle("Cafe"))
+        // 끝의 괄호·문장부호는 건너뛰고 읽는 글자로 정한다
+        assertEquals("밀밭 베이커리(본점)이", MomentJudge.withSubjectParticle("밀밭 베이커리(본점)"))
+    }
+
+    @Test
+    fun `근거 문구의 소수점은 기기 언어와 상관없이 점으로 쓴다`() {
+        val saved = Locale.getDefault()
+        try {
+            Locale.setDefault(Locale.GERMANY)
+            assertEquals("여유 구간, 1.4km 앞 회전", row(calm, "지금 말 걸어도 되나").seen)
+        } finally {
+            Locale.setDefault(saved)
+        }
+    }
+
+    @Test
+    fun `설정값은 정한 범위를 벗어날 수 없다`() {
+        // 이동당 묻는 횟수는 0~2번(기획서), 잔량 기준은 0~100%, 허용 시간과 쉬는 날수는 0 이상
+        for (bad in listOf(3, -1)) assertFailsWith<IllegalArgumentException> { Settings(maxAsksPerTrip = bad) }
+        for (bad in listOf(-1.0, Double.NaN, Double.POSITIVE_INFINITY)) {
+            assertFailsWith<IllegalArgumentException> { Settings(maxDetourMin = bad) }
+        }
+        for (bad in listOf(-1, 101)) assertFailsWith<IllegalArgumentException> { Settings(minEnergyPercent = bad) }
+        assertFailsWith<IllegalArgumentException> { Settings(snoozeDays = -1) }
+        // 범위의 끝 값은 받는다
+        Settings(maxAsksPerTrip = 0)
+        Settings(maxAsksPerTrip = 2)
+        Settings(maxDetourMin = 0.0)
+        Settings(minEnergyPercent = 0)
+        Settings(minEnergyPercent = 100)
+        Settings(snoozeDays = 0)
     }
 
     @Test
@@ -261,13 +571,31 @@ class MomentJudgeTest {
 
     @Test
     fun `통과한 곳이 여럿이면 먹을 곳은 식사 시간대에 볼 곳은 해 지기 전에 먼저 묻는다`() {
-        val lookout = Place("lookout", "해오름 전망대", PlaceKind.SEE, lat = 37.6700, lon = 127.2600)
+        // 전망대: 차에서 동북동으로 약 1.5km(진행 방향에서 약 22도), 도로로 8.5분
+        val lookout = Place("lookout", "해오름 전망대", PlaceKind.SEE, lat = 37.6050, lon = 127.2160)
+        val both = calm.copy(tripMinToPlace = calm.tripMinToPlace + (lookout.id to 8.5))
         val places = listOf(bakery, lookout)
-        val afternoon = calm.copy(minuteOfDay = 15 * 60 + 30) // 식사 시간대가 아니고 해 지기 전
-        val evening = calm.copy(minuteOfDay = 18 * 60) // 식사 시간대이고 해가 진 뒤
-        assertEquals(lookout, judge.pickFirst(afternoon, places))
-        assertEquals(bakery, judge.pickFirst(evening, places))
+        val afternoon = both.copy(minuteOfDay = 15 * 60 + 30) // 식사 시간대가 아니고 해 지기 전
+        val evening = both.copy(minuteOfDay = 18 * 60) // 식사 시간대이고 해가 진 뒤
+        fun detourOf(ctx: DriveContext, place: Place) = assertIs<Verdict.Ask>(verdict(ctx, place = place)).detourMin
+        // 견주는 두 곳은 세 시각 모두 판단을 통과한다
+        for (ctx in listOf(both, afternoon, evening)) places.forEach { detourOf(ctx, it) }
+        assertEquals(lookout, judge.pickFirst(afternoon, places, AskHistory(), today))
+        assertEquals(bakery, judge.pickFirst(evening, places, AskHistory(), today))
         // 둘 다 좋은 때면 덜 돌아가는 곳부터
-        assertEquals(bakery, judge.pickFirst(calm, places))
+        assertTrue(detourOf(both, bakery) < detourOf(both, lookout))
+        assertEquals(bakery, judge.pickFirst(both, places, AskHistory(), today))
+    }
+
+    @Test
+    fun `먼저 물을 곳은 판단을 통과한 곳 가운데서만 고른다`() {
+        // 서쪽으로 약 1km 지나친 곳은 덜 돌아가 보여도 고르지 않는다
+        val passed = Place("passed", "지나친 곳", PlaceKind.EAT, lat = calm.lat, lon = calm.lon - 0.0120)
+        val ctx = calm.copy(tripMinToPlace = calm.tripMinToPlace + (passed.id to 0.5))
+        assertEquals(Verdict.Skip("이미 지나친 곳 (되돌아가야 함)"), verdict(ctx, place = passed))
+        assertEquals(bakery, judge.pickFirst(ctx, listOf(passed, bakery), AskHistory(), today))
+        assertNull(judge.pickFirst(ctx, listOf(passed), AskHistory(), today))
+        // 도로 시간이 없어 보류되는 곳도 고르지 않는다
+        assertNull(judge.pickFirst(calm.copy(tripMinToPlace = emptyMap()), listOf(bakery), AskHistory(), today))
     }
 }

@@ -276,8 +276,8 @@
   "slow_m": 0,
   "diff_min": 8.35202473992079,
   "est_min_floor_speed": 0.07515623656680503,
-  "ratio": Infinity,
-  "back_factor": Infinity
+  "ratio": null,
+  "back_factor": null
  },
  {
   "id": "S1",
@@ -316,8 +316,8 @@
   "slow_m": 0,
   "diff_min": 1.3695208967250454,
   "est_min_floor_speed": 0.09577430966602236,
-  "ratio": Infinity,
-  "back_factor": Infinity
+  "ratio": null,
+  "back_factor": null
  },
  {
   "id": "M1",
@@ -396,8 +396,8 @@
   "slow_m": 15.4,
   "diff_min": -0.021985071530081817,
   "est_min_floor_speed": 0.06998967105514993,
-  "ratio": Infinity,
-  "back_factor": Infinity
+  "ratio": null,
+  "back_factor": null
  },
  {
   "id": "H1",

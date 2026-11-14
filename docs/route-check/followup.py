@@ -4,10 +4,13 @@ import json
 import math
 import os
 import statistics
+import sys
 
 from osrm_common import (HERE, angle_off, average_kph, bearing_deg, distance_km, entry_point, estimate_minutes, ll,
                          osrm, polyline_with_names, route_with_steps)
-from route_check import BEARING_RANGE, CASES as DEV_CASES, RADIUS_KM, geo_point, snap_place
+from route_check import BEARING_RANGE, CASES as DEV_CASES, RADIUS_KM, snap_place
+
+# osrm()은 code가 "Ok"인 응답만 돌려주므로(아니면 OsrmError) 아래에서는 응답 code를 다시 보지 않는다.
 
 SNAP_LIMIT_M = 200.0
 NO_MINUTE_LIMIT = 1        # 반올림 결과가 이보다 작으면 분 없이 묻는다(MomentJudge.question)
@@ -16,7 +19,7 @@ SPOKEN_GAP_MIN = 3.0       # 지표 4: 말하는 값과 실제의 차이가 이�
 ALLOWANCES = (10.0, 5.0)
 SLOW_KPH = 10.0
 
-# 결과를 보기 전에 정한 검증용 8건과 예비 2건
+# 결과를 보기 전에 정한 검증용 8건과 예비 2건(후보 경로 22개에서 고른 과정은 README.md "순서" 3)
 VAL_CASES = [
     ("NC1", "시내", "경주 분황로→서쪽, 찜 대릉원 / 건천읍", (35.8420, 129.2830), (35.8382, 129.2115), (35.8400, 129.1000)),
     ("NC2", "시내", "여수 좌수영로→돌산, 찜 이순신광장 / 향일암", (34.7604, 127.6622), (34.7380, 127.7380), (34.5913, 127.8030)),
@@ -34,27 +37,23 @@ SPARES = [
 
 
 def snap_check(case):
-    p_spec = case[4]
-    if p_spec[0] == "geo":
-        return 0.0
-    return snap_place(p_spec)[2]
+    return snap_place(case[4])[2]
 
 
 def measure(case):
-    cid, kind, desc, o, p_spec, b = case
+    cid, kind, desc, o, p, b = case
     r0 = route_with_steps(o, b)
     pts = polyline_with_names(r0["routes"][0])
-    p_raw = geo_point(pts, p_spec[1], p_spec[2]) if p_spec[0] == "geo" else p_spec
-    p_snap, p_name, p_snap_m = snap_place(p_raw)
+    p_snap, p_name, p_snap_m = snap_place(p)
     e = entry_point(pts, p_snap, RADIUS_KM)
-    assert e, f"{cid}: 반경 진입 없음"
+    if not e:
+        raise RuntimeError(f"{cid}: 반경 진입 없음")
     a = (e[0], e[1])
     heading = e[2]
     bear = f"bearings={heading:.0f},{BEARING_RANGE};"
     # route_check.py 와 같은 URL(같은 캐시)
     r1 = osrm(f"/route/v1/driving/{ll(a)};{ll(b)}", f"overview=false&{bear}")
     r2 = osrm(f"/route/v1/driving/{ll(a)};{ll(p_snap)};{ll(b)}", f"overview=false&steps=true&{bear};&continue_straight=false")
-    assert r1["code"] == "Ok" and r2["code"] == "Ok", (r1.get("code"), r2.get("code"))
     direct, via = r1["routes"][0], r2["routes"][0]
     a_s = (r1["waypoints"][0]["location"][1], r1["waypoints"][0]["location"][0])
     b_s = (r1["waypoints"][1]["location"][1], r1["waypoints"][1]["location"][0])
@@ -154,8 +153,11 @@ def main():
     print_set("(나) 검증용 8건", val)
     print_set("(나) 검증용 중 고속도로 제외", [r for r in val if r["kind"] != "고속도로"])
     with open(os.path.join(HERE, "followup_results.json"), "w", encoding="utf-8") as f:
-        json.dump({"dev": dev, "val": val, "dropped": dropped, "used_spares": used_spares}, f, ensure_ascii=False, indent=1)
+        json.dump({"dev": dev, "val": val, "dropped": dropped, "used_spares": used_spares}, f, ensure_ascii=False, indent=1,
+                  allow_nan=False)
 
 
 if __name__ == "__main__":
+    # 한국어 Windows의 기본 출력 인코딩(cp949)으로는 표의 일부 글자를 쓰지 못할 수 있어 UTF-8로 낸다
+    sys.stdout.reconfigure(encoding="utf-8")
     main()

@@ -76,7 +76,7 @@ class DetourEstimatorTest {
         assertTrue(DetourEstimator.usesTrip(ctx, place))
         assertEquals(2.886730676986467, assertNotNull(DetourEstimator.estimateMinutes(ctx, place)), 1e-9)
 
-        // 담양 메타세쿼이아길(고속도로에서 나들목으로 빠짐): 실제 29.56분, 이 어림 51.45분
+        // 담양 메타세쿼이아길(고속도로에서 나들목으로 빠짐): 실제 29.55분, 이 어림 51.45분
         val (ctx2, place2) = routeCase(
             35.30985 to 127.00197, 35.325905 to 126.994802, 35.37431 to 127.137291,
             16.0654, 13.895000000000001, 25.935,

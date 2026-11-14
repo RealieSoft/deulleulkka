@@ -23,14 +23,17 @@ object Scenarios {
     private val arboretum = Destination(lat = 37.6000, lon = 127.5000)
     private val office = Destination(lat = 37.6000, lon = 127.5000, isOffice = true)
 
+    private const val SUNRISE = 7 * 60 + 20
     private const val SUNSET = 17 * 60 + 20
 
     /**
      * 토요일 오전 11:12, 아이와 함께 수목원으로 가는 길의 직선 구간. 동쪽으로 달리고, 나들이 길이 막혀 남은 30km에 90분이다.
      * 빵집까지는 내비게이션이 도로로 3.3분이라고 알려 준다(`requestTrip`을 대신하는 재생기 값).
+     * 다음 회전은 나들목이 아니고, 방향지시등·브레이크는 꺼져 있고, 단속 카메라·주의 지점 구간이 아니며 통화·안내 음성은 없다(모두 읽은 값).
      */
     private val saturdayCalm = DriveContext(
         minuteOfDay = 11 * 60 + 12,
+        sunriseMinuteOfDay = SUNRISE,
         sunsetMinuteOfDay = SUNSET,
         lat = 37.6000,
         lon = 127.2000,
@@ -41,6 +44,11 @@ object Scenarios {
         remainingMin = 90.0,
         tripMinToPlace = mapOf(bakery.id to 3.3),
         nextTurnMeters = 1400,
+        nextTurnIsInterchange = false,
+        turnSignalOn = false,
+        braking = false,
+        cautionAhead = false,
+        otherAudioPlaying = false,
         passengerPresent = true,
         energyPercent = 71,
     )
@@ -92,7 +100,8 @@ object Scenarios {
     /**
      * 공개 길찾기 경로로 잰 경우 하나를 그대로 넣은 장면: `docs/route-check`의 검증용 NC1(경주 분황로에서 서쪽으로, 찜 대릉원, 목적지 건천읍).
      * 지금 위치·찜·목적지 좌표, 찜까지의 경로 시간, 목적지까지 남은 거리·시간, 실제 추가 시간은 `followup_results.json`의 값을 그대로 옮겼다.
-     * 시각, 속도, 다음 회전까지 거리, 동승자, 잔량은 재생기의 가상 값이다. 진행 방향은 넣지 않아 목적지 쪽을 앞으로 본다.
+     * 시각, 해 뜨고 지는 시각, 속도, 다음 회전까지 거리, 나들목 아님, 방향지시등·브레이크·주의 지점·통화(모두 꺼짐), 동승자, 잔량은 재생기의 가상 값이다.
+     * 진행 방향은 넣지 않아 목적지 쪽을 앞으로 본다.
      */
     val daereungwon = Place("daereungwon", "대릉원", PlaceKind.SEE, lat = 35.838245, lon = 129.211509)
 
@@ -101,6 +110,7 @@ object Scenarios {
             "오후 2:30", "찜한 곳 근처에 들어옴 (공개 길찾기 경로 값)",
             DriveContext(
                 minuteOfDay = 14 * 60 + 30,
+                sunriseMinuteOfDay = SUNRISE,
                 sunsetMinuteOfDay = SUNSET,
                 lat = 35.840585,
                 lon = 129.232388,
@@ -110,6 +120,11 @@ object Scenarios {
                 remainingMin = 17.740000000000002,
                 tripMinToPlace = mapOf("daereungwon" to 4.241666666666666),
                 nextTurnMeters = 1200,
+                nextTurnIsInterchange = false,
+                turnSignalOn = false,
+                braking = false,
+                cautionAhead = false,
+                otherAudioPlaying = false,
                 passengerPresent = true,
                 energyPercent = 60,
             ),

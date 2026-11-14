@@ -3,16 +3,19 @@
 #
 # 절차(경우마다):
 #  1) 출발 O -> 목적지 B 의 OSRM 경로(도형 포함)를 받는다.
-#  2) 찜 P 는 가장 가까운 비고속도로 도로 위 점으로 붙인다(고속도로 경우는 고속도로에서 옆으로 떨어진 점).
+#  2) 찜 P 는 가장 가까운 비고속도로 도로 위 점으로 붙인다.
 #  3) 현재 위치 A = O->B 경로를 따라가다 P 에서 직선 RADIUS_KM 안에 처음 들어오는 지점(앱의 찜 반경 2km 진입 직후).
 #  4) A->B, A->P->B 를 받아 실제 추가 시간·거리를 구하고, 엔진과 같은 식으로 어림을 낸다.
 import json
 import math
 import os
 import statistics
+import sys
 
 from osrm_common import (HERE, MIN_AVERAGE_KPH, ROAD_FACTOR, angle_off, average_kph, bearing_deg, distance_km, entry_point,
                          estimate_minutes, ll, nearest, osrm, polyline_with_names, route_with_steps)
+
+# osrm()은 code가 "Ok"인 응답만 돌려주므로(아니면 OsrmError) 아래에서는 응답 code를 다시 보지 않는다.
 
 RADIUS_KM = 1.9          # 앱의 찜 반경(2km) 바로 안쪽
 ALLOWED_MIN = 10.0       # 기본 허용 우회 시간
@@ -20,7 +23,7 @@ SOLO_ALLOWED_MIN = 5.0   # 혼자 탄 이동(절반)
 BEARING_RANGE = 30       # A 를 진행 방향 차로에 붙이기 위한 허용 각
 HIGHWAY = "고속도로"
 
-# (id, 유형, 설명, O, P 또는 ("geo", 경로상 km, 옆 km(+오른쪽)), B)
+# (id, 유형, 설명, O, P, B). 좌표는 (위도, 경도)
 CASES = [
     ("C1", "시내", "서울 테헤란로 동쪽 방향, 찜은 북쪽 골목 안 선정릉 / 목적지 하남 스타필드",
      (37.4979, 127.0276), (37.5087, 127.0469), (37.5455, 127.2240)),
@@ -49,23 +52,6 @@ CASES = [
 ]
 
 
-def geo_point(pts, along_km, lateral_km):
-    acc = 0.0
-    for i in range(len(pts) - 1):
-        a, b = pts[i], pts[i + 1]
-        seg = distance_km(a[0], a[1], b[0], b[1])
-        if acc + seg >= along_km:
-            t = (along_km - acc) / seg if seg else 0.0
-            lat = a[0] + (b[0] - a[0]) * t
-            lon = a[1] + (b[1] - a[1]) * t
-            th = math.radians(bearing_deg(a[0], a[1], b[0], b[1]) + 90.0)
-            d = lateral_km / 6371.0
-            return (lat + math.degrees(d * math.cos(th)),
-                    lon + math.degrees(d * math.sin(th)) / math.cos(math.radians(lat)))
-        acc += seg
-    raise ValueError("along_km 가 경로보다 김")
-
-
 def snap_place(p):
     """가장 가까운 도로 중 고속도로가 아닌 첫 점."""
     r = nearest(p, number=5)
@@ -76,14 +62,13 @@ def snap_place(p):
 
 
 def run_case(case):
-    cid, kind, desc, o, p_spec, b = case
+    cid, kind, desc, o, p, b = case
     r0 = route_with_steps(o, b)
-    assert r0["code"] == "Ok", r0
     pts = polyline_with_names(r0["routes"][0])
-    p_raw = geo_point(pts, p_spec[1], p_spec[2]) if p_spec[0] == "geo" else p_spec
-    p_snap, p_name, p_snap_m = snap_place(p_raw)
+    p_snap, p_name, p_snap_m = snap_place(p)
     e = entry_point(pts, p_snap, RADIUS_KM)
-    assert e, f"{cid}: 경로가 찜 반경에 들어오지 않음"
+    if not e:
+        raise RuntimeError(f"{cid}: 경로가 찜 반경에 들어오지 않음")
     a_lat, a_lon, heading, a_label, a_along = e
     a = (a_lat, a_lon)
 
@@ -91,8 +76,6 @@ def run_case(case):
     r1 = osrm(f"/route/v1/driving/{ll(a)};{ll(b)}", f"overview=false&{bear}")
     r2 = osrm(f"/route/v1/driving/{ll(a)};{ll(p_snap)};{ll(b)}", f"overview=false&steps=true&{bear};&continue_straight=false")
     r3 = osrm(f"/route/v1/driving/{ll(a)};{ll(p_snap)};{ll(b)}", f"overview=false&{bear};")
-    for rr in (r1, r2, r3):
-        assert rr["code"] == "Ok", rr
 
     direct = r1["routes"][0]
     via = r2["routes"][0]
@@ -159,10 +142,16 @@ def summarize(rows, label):
     print(f"  (참고) 혼자 탄 이동 허용 5분: 어림 5분 이하인데 실제 5분 초과 {len(asked_over5)} {asked_over5}")
 
 
+def finite_or_none(r):
+    """표준 JSON에는 Infinity가 없으므로, 어림이 0에 가까워 무한대가 된 비율·보정값은 null로 저장한다(표에는 ∞로 찍음)."""
+    return {k: (None if isinstance(v, float) and math.isinf(v) else v) for k, v in r.items()}
+
+
 def main():
     results = [run_case(c) for c in CASES]
     with open(os.path.join(HERE, "results.json"), "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=1, default=lambda x: None)
+        json.dump([finite_or_none(r) for r in results], f, ensure_ascii=False, indent=1, allow_nan=False,
+                  default=lambda x: None)
 
     print("| 경우 | 유형 | 직선 우회 km | 어림 분 | 실제 추가 분 | 실제 추가 도로 km | 차이(분) | 실제/어림 | 거꾸로 구한 보정값 | 앱이 묻는 말 |")
     print("|---|---|---:|---:|---:|---:|---:|---:|---:|---|")
@@ -187,4 +176,6 @@ def main():
 
 
 if __name__ == "__main__":
+    # 한국어 Windows의 기본 출력 인코딩(cp949)은 표의 ∞·≈를 쓰지 못해, 파일·파이프로 받으면 중간에 끊긴다
+    sys.stdout.reconfigure(encoding="utf-8")
     main()

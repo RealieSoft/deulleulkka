@@ -18,7 +18,6 @@ _last = [0.0]
 ROAD_FACTOR = 1.3
 MIN_AVERAGE_KPH = 20.0
 EARTH_RADIUS_KM = 6371.0
-AHEAD_MAX_DEG = 90.0
 
 
 def distance_km(lat1, lon1, lat2, lon2):
@@ -56,14 +55,28 @@ def angle_off(ahead_deg, a, p):
 
 
 # ---- OSRM 호출 ----
+class OsrmError(RuntimeError):
+    """쓸 수 없는 OSRM 응답. 이런 응답은 raw/에 저장하지 않는다(저장하면 다음 실행에서도 그대로 다시 쓰이므로)."""
+
+
+def _require_ok(data, url):
+    if not isinstance(data, dict) or data.get("code") != "Ok":
+        code = data.get("code") if isinstance(data, dict) else type(data).__name__
+        message = (data.get("message") or "") if isinstance(data, dict) else ""
+        raise OsrmError(f"OSRM 응답 code={code} {message}: {url}")
+
+
 def osrm(path, params):
+    """OSRM 응답(code가 "Ok"인 것)을 돌려준다. raw/에 같은 요청의 응답이 있으면 그것을 쓰고, 없으면 받아 저장한다."""
     url = f"{BASE}{path}?{params}"
     key = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
     os.makedirs(RAW, exist_ok=True)
     fp = os.path.join(RAW, key + ".json")
     if os.path.exists(fp):
         with open(fp, encoding="utf-8") as f:
-            return json.load(f)["response"]
+            data = json.load(f)["response"]
+        _require_ok(data, f"{url} (raw/{key}.json을 지우고 다시 받으세요)")
+        return data
     wait = MIN_INTERVAL_S - (time.time() - _last[0])
     if wait > 0:
         time.sleep(wait)
@@ -72,9 +85,16 @@ def osrm(path, params):
         with urllib.request.urlopen(req, timeout=90) as r:
             body = r.read().decode("utf-8")
     except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8")
-    _last[0] = time.time()
-    data = json.loads(body)
+        raise OsrmError(f"HTTP {e.code}: {url}") from e
+    except (urllib.error.URLError, OSError) as e:  # 연결 실패·시간 초과
+        raise OsrmError(f"요청 실패({e}): {url}") from e
+    finally:
+        _last[0] = time.time()
+    try:
+        data = json.loads(body)
+    except json.JSONDecodeError as e:
+        raise OsrmError(f"JSON이 아닌 응답: {url}") from e
+    _require_ok(data, url)
     with open(fp, "w", encoding="utf-8") as f:
         json.dump({"url": url, "fetched_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "response": data},
                   f, ensure_ascii=False, indent=1)

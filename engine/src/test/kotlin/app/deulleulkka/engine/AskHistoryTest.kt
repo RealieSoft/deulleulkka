@@ -66,6 +66,32 @@ class AskHistoryTest {
         assertTrue(history.isSnoozed(place, day + 1))
     }
 
+    private val hold = Verdict.Hold("방향지시등 켜짐")
+
+    @Test
+    fun `보류 중인 곳이 반경을 벗어난 것만 이번 이동의 기록으로 남는다`() {
+        assertEquals(emptySet(), AskHistory().recordRadiusExit(place).leftWhileHeldThisTrip)
+        val left = AskHistory().recordVerdict(place, hold).recordRadiusExit(place)
+        assertEquals(setOf(place), left.leftWhileHeldThisTrip)
+    }
+
+    @Test
+    fun `보류 뒤에 보류가 아닌 판단이 나오면 더는 보류 중이 아니다`() {
+        val held = AskHistory().recordVerdict(place, hold)
+        for (next in listOf(Verdict.Skip("이미 지나친 곳 (되돌아가야 함)"), Verdict.Ask(6.0))) {
+            val after = held.recordVerdict(place, next)
+            assertEquals(emptySet(), after.onHold)
+            assertEquals(emptySet(), after.recordRadiusExit(place).leftWhileHeldThisTrip)
+        }
+    }
+
+    @Test
+    fun `새 이동을 시작하면 보류와 반경 이탈 기록도 비운다`() {
+        val next = AskHistory().recordVerdict(place, hold).recordRadiusExit(place).startNewTrip()
+        assertEquals(emptySet(), next.onHold)
+        assertEquals(emptySet(), next.leftWhileHeldThisTrip)
+    }
+
     @Test
     fun `도착해 10분 넘게 머물면 다녀온 곳이고 바로 떠나면 가 볼 곳에 남는다`() {
         assertTrue(VisitRule.isVisited(dwellMinutes = 20))
