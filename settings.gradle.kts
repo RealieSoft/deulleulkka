@@ -17,4 +17,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "deulleulkka"
 include(":engine")
+include(":core")
 include(":app")

@@ -1,4 +1,4 @@
-package app.deulleulkka
+package app.deulleulkka.probe
 
 import ai.pleos.playground.navi.constants.NaviErrorCode
 import ai.pleos.playground.navi.constants.NavigationStatus

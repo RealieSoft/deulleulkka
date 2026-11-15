@@ -6,6 +6,8 @@ Pleos Connect 차량용 앱 "들를까"의 판단 엔진과, 에뮬레이터에�
 
 이 저장소는 현대자동차그룹 차량용 앱 개발 공모전 심사를 위해 공개합니다. 라이선스를 붙이지 않았으므로 저작권은 팀에 있고, 다시 쓰려면 먼저 문의해 주세요. 단, `docs/route-check/raw/`는 공개 길찾기 엔진 OSRM이 OpenStreetMap 자료로 계산한 응답이라 팀의 저작물이 아니며, © OpenStreetMap contributors, ODbL(https://www.openstreetmap.org/copyright)을 따릅니다.
 
+> **main의 최신 상태 (2026-11-15 접수 뒤)**: 공모전 심사 기준은 접수 메일에 적은 커밋 `dfe4f87`입니다. 그 시점의 코드와 README는 https://github.com/RealieSoft/deulleulkka/tree/dfe4f87095b845b7217193b1b278ecb5ccebf6cb 에 있습니다. 그 뒤 main에는 통합 앱의 첫 판을 올렸습니다. `app/`은 확인 화면 대신 들를까 앱(`MainActivity`)이 되었고, 확인 화면 5개는 debug 빌드에만 들어가도록 `app/src/debug/`(패키지 `app.deulleulkka.probe`, 실행은 `app.deulleulkka/.probe.NaviProbeActivity` 꼴)로 옮겼습니다. 묻고 답하는 흐름은 Android에 기대지 않는 `core/` 모듈에 있고 자체 테스트가 있습니다(`./gradlew :core:test`). 엔진은 카드와 말의 분 표기를 맞추는 함수 하나만 더했습니다. `apk/`의 APK는 아직 심사 기준 커밋의 확인용 앱이며, 통합 앱 APK는 출시 키로 서명해 따로 올립니다. 아래 본문은 심사 기준 커밋을 설명하는 글입니다.
+
 ## 구성
 
 | 경로 | 내용 |
@@ -138,12 +140,13 @@ adb install -g apk/RealizeSoft_deulleulkka_release.apk
 - 에뮬레이터 내비게이션의 경로 값은 실제 도로 값이 아니어서, 도로 보정값 맞추기는 단위 테스트로만 확인했습니다.
 - 영상의 카메라 창 안에 나오는 에뮬레이터 견본 영상은 흐리게 가렸습니다.
 
-녹음한 대답(`app/src/main/assets/probe/*.pcm`)은 PC의 한국어 합성 음성으로 만들어 재배포 조건을 확인하지 않았기 때문에 저장소와 APK에 넣지 않았습니다. 16kHz·16비트·모노 PCM을 아래 이름으로 넣고 앱을 다시 빌드하면 확인 화면을 그대로 돌릴 수 있습니다.
+녹음한 대답(`app/src/debug/assets/probe/*.pcm`, debug 빌드에만 들어감)은 PC의 한국어 합성 음성으로 만들어 재배포 조건을 확인하지 않았기 때문에 저장소와 APK에 넣지 않았습니다. 16kHz·16비트·모노 PCM을 아래 이름으로 넣고 앱을 다시 빌드하면 확인 화면을 그대로 돌릴 수 있습니다.
 
 | 파일 | 말 |
 |---|---|
 | `yes.pcm` | 응, 들러 줘 |
 | `no.pcm` | 아니, 다음에 |
 | `cancel.pcm` | 취소 |
+| `later.pcm` | 다음에 (통합 앱 시험용, 2026-11-15 추가) |
 | `a1_deulleulge.pcm` ~ `a5_daeumeyo.pcm` | 들를게 / 들를게요 / 응, 들를게 / 넣기 취소 / 다음에요 |
 | `b1_deulleo_jwo.pcm` ~ `b4_deulleullae.pcm` | 들러 줘 / 들러 / 넣어 줘 / 들를래 |

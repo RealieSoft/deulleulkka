@@ -319,13 +319,20 @@ class MomentJudge(private val settings: Settings = Settings()) {
             // 이름이 빈 즐겨찾기(에뮬레이터의 집·회사처럼)를 찜으로 넣었을 때 "찜해 둔  가는 길"처럼 빈칸이 생기지 않게 한다
             val name = place.name.trim()
             val subject = if (name.isEmpty()) "곳이" else withSubjectParticle(name)
-            return if (detourMin.roundToInt() < 1) {
+            val minutes = detourMinutesText(detourMin, allowedMin)
+            return if (minutes == null) {
                 "찜해 둔 $subject 가는 길에 있어요. 들를까요?"
             } else {
-                val minutes = shownAgainst(detourMin, allowedMin, over = detourMin > allowedMin, digits = 0)
                 "찜해 둔 $subject 가는 길 근처에 있어요. 약 ${minutes}분 더 걸리는데 들를까요?"
             }
         }
+
+        /**
+         * 묻는 말과 앱 카드에 같이 쓰는 추가 시간(분) 글. 규칙은 [question]과 같고, 반올림해 1분이 안 되면 null("가는 길에 있어요").
+         * 카드와 말이 다른 숫자를 보이지 않도록 둘 다 이것을 쓴다.
+         */
+        fun detourMinutesText(detourMin: Double, allowedMin: Double = Double.POSITIVE_INFINITY): String? =
+            if (detourMin.roundToInt() < 1) null else shownAgainst(detourMin, allowedMin, over = detourMin > allowedMin, digits = 0)
 
         /**
          * 이름 뒤에 주격 조사를 붙인다. 읽을 때 마지막 소리에 받침이 있으면 "이", 없으면 "가".

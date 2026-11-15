@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  debug 빌드에만 들어가는 것. release(출시) 앱에는 없다.
+  - SDK 확인 화면 5개(1차 접수 때의 확인용 앱). adb로만 열도록 DUMP 권한으로 막는다(셸·시스템만 가진 권한).
+  - 에뮬레이터 시험용 입력 받개(SimReceiver): 에뮬레이터에서 만들 수 없는 값(속도, 다음 회전, 남은 시간 등)을 adb로 넣는다.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".probe.NaviProbeActivity"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+        <activity
+            android:name=".probe.LocationProbeActivity"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+        <activity
+            android:name=".probe.VoiceProbeActivity"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+        <activity
+            android:name=".probe.DemoProbeActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|density|uiMode"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+        <activity
+            android:name=".probe.VehicleProbeActivity"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+
+        <receiver
+            android:name=".SimReceiver"
+            android:exported="true"
+            android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="app.deulleulkka.SIM" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

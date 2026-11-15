@@ -1,4 +1,4 @@
-package app.deulleulkka
+package app.deulleulkka.probe
 
 import ai.pleos.playground.vehicle.Vehicle
 import ai.pleos.playground.vehicle.api.model.area.SeatArea

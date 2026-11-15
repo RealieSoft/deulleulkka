@@ -4,41 +4,42 @@
 # 지운 곳의 줄 번호는 그때의 MomentJudge.kt 기준
 
 [기준 통과] 검사 111개, 실패 0개 (gradle 종료 코드 0)
-[잡힘] 통화·안내 음성 중 — 지운 곳 MomentJudge.kt:177 — 검사 111개 중 실패 2개
+[잡힘] 통화·안내 음성 중 — 지운 곳 MomentJudge.kt:169 — 검사 111개 중 실패 2개
     실패해야 하는 검사: SafetyPropertyTest :: 통화 중이거나 안내 음성이 나오면 다른 값이 무엇이든 말을 걸지 않는다 → 실패함
     함께 실패: MomentJudgeTest :: 통화 중이거나 안내 음성이 나오면 멈춰 있어도 기다린다
-[잡힘] 확인할 수 없는 안전 신호 — 지운 곳 MomentJudge.kt:185 — 검사 111개 중 실패 4개
+[잡힘] 확인할 수 없는 안전 신호 — 지운 곳 MomentJudge.kt:177 — 검사 111개 중 실패 4개
     실패해야 하는 검사: SafetyPropertyTest :: 확인할 수 없는 안전 신호가 하나라도 있으면 완전히 멈춘 때만 묻는다 → 실패함
     함께 실패: MomentJudgeTest :: 안전 신호를 확인할 수 없는 차종은 완전히 멈춘 때만 묻고 방향지시등을 모르면 멈춰도 묻지 않는다
     함께 실패: MomentJudgeTest :: 길 안내 중인데 다음 회전 정보가 없으면 멈춰 있어도 묻지 않는다
     함께 실패: MomentJudgeTest :: 단속 카메라·주의 지점이나 다음 회전의 종류를 확인할 수 없으면 완전히 멈춘 때만 묻는다
-[잡힘] 멈춘 때 읽지 못한 방향지시등·다음 회전 — 지운 곳 MomentJudge.kt:182 — 검사 111개 중 실패 2개
+[잡힘] 멈춘 때 읽지 못한 방향지시등·다음 회전 — 지운 곳 MomentJudge.kt:174 — 검사 111개 중 실패 2개
     실패해야 하는 검사: MomentJudgeTest :: 길 안내 중인데 다음 회전 정보가 없으면 멈춰 있어도 묻지 않는다 → 실패함
     함께 실패: MomentJudgeTest :: 안전 신호를 확인할 수 없는 차종은 완전히 멈춘 때만 묻고 방향지시등을 모르면 멈춰도 묻지 않는다
-[잡힘] 회사 가는 길 — 지운 곳 MomentJudge.kt:207 — 검사 111개 중 실패 3개
+[잡힘] 회사 가는 길 — 지운 곳 MomentJudge.kt:199 — 검사 111개 중 실패 3개
     실패해야 하는 검사: SafetyPropertyTest :: 목적지가 회사면 다른 값이 무엇이든 묻지 않는다 → 실패함
     함께 실패: MomentJudgeTest :: 시나리오 C 목적지가 회사면 묻지 않는다
     함께 실패: MomentJudgeTest :: 시나리오 C 묻지 않기로 한 뒤의 항목은 보지 않는다
-[잡힘] 이미 있는 경유지 — 지운 곳 MomentJudge.kt:224 — 검사 111개 중 실패 2개
+[잡힘] 이미 있는 경유지 — 지운 곳 MomentJudge.kt:216 — 검사 111개 중 실패 2개
     실패해야 하는 검사: SafetyPropertyTest :: 이미 경유지가 있거나 잔량이 기준 아래면 묻지 않는다 → 실패함
     함께 실패: MomentJudgeTest :: 경유지가 이미 있으면 묻지 않는다
-[잡힘] 낮은 잔량 — 지운 곳 MomentJudge.kt:220 — 검사 111개 중 실패 2개
+[잡힘] 낮은 잔량 — 지운 곳 MomentJudge.kt:212 — 검사 111개 중 실패 2개
     실패해야 하는 검사: SafetyPropertyTest :: 이미 경유지가 있거나 잔량이 기준 아래면 묻지 않는다 → 실패함
     함께 실패: MomentJudgeTest :: 잔량이 20퍼센트 아래면 묻지 않는다
-[잡힘] 지나친 찜 — 지운 곳 MomentJudge.kt:238 — 검사 111개 중 실패 5개
+[잡힘] 지나친 찜 — 지운 곳 MomentJudge.kt:229 — 검사 111개 중 실패 6개
     실패해야 하는 검사: SafetyPropertyTest :: 진행 방향 뒤쪽의 찜은 다른 값이 무엇이든 묻지 않는다 → 실패함
     함께 실패: MomentJudgeTest :: 이미 지나친 찜은 되돌아가야 하므로 묻지 않는다
     함께 실패: MomentJudgeTest :: 먼저 물을 곳은 판단을 통과한 곳 가운데서만 고른다
     함께 실패: MomentJudgeTest :: 보류했다가 지나친 곳으로 묻지 않은 뒤 반경을 벗어났다면 굽은 길로 다시 들어올 때 판단한다
+    함께 실패: MomentJudgeTest :: 방향을 정할 수 없으면 지나친 곳으로 보고 묻지 않는다
     함께 실패: MomentJudgeTest :: 진행 방향을 모르면 목적지 쪽을 앞으로 본다
-[잡힘] 시속 90km 이상 — 지운 곳 MomentJudge.kt:189 — 검사 111개 중 실패 2개
+[잡힘] 시속 90km 이상 — 지운 곳 MomentJudge.kt:181 — 검사 111개 중 실패 2개
     실패해야 하는 검사: SafetyPropertyTest :: 시속 90km 이상이면 다른 값이 무엇이든 묻지 않는다 → 실패함
     함께 실패: MomentJudgeTest :: 시속 90km 이상 고속 주행 중에는 보류한다
-[잡힘] 판단 반경 밖 — 지운 곳 MomentJudge.kt:147 — 검사 111개 중 실패 3개
+[잡힘] 판단 반경 밖 — 지운 곳 MomentJudge.kt:139 — 검사 111개 중 실패 3개
     실패해야 하는 검사: SafetyPropertyTest :: 찜이 판단 반경 2km 밖이면 다른 값이 무엇이든 묻지 않는다 → 실패함
     함께 실패: AskHistoryTest :: 보류 중이던 곳의 판단이 반경 밖으로 나오면 영역 이탈 알림과 어느 순서로 남겨도 반경 이탈로 남는다
     함께 실패: MomentJudgeTest :: 찜이 판단 반경 2km 밖이면 다른 조건이 좋아도 묻지 않는다
-[잡힘] 보류한 사이 반경 이탈 — 지운 곳 MomentJudge.kt:151 — 검사 111개 중 실패 3개
+[잡힘] 보류한 사이 반경 이탈 — 지운 곳 MomentJudge.kt:143 — 검사 111개 중 실패 3개
     실패해야 하는 검사: SafetyPropertyTest :: 보류한 사이 반경을 벗어난 찜은 그 이동에서는 다른 값이 무엇이든 묻지 않는다 → 실패함
     함께 실패: AskHistoryTest :: 보류 중이던 곳의 판단이 반경 밖으로 나오면 영역 이탈 알림과 어느 순서로 남겨도 반경 이탈로 남는다
     함께 실패: MomentJudgeTest :: 시나리오 D 보류한 사이 반경을 벗어났다면 그 이동에서는 묻지 않는다

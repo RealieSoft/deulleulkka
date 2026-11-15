@@ -1,4 +1,4 @@
-package app.deulleulkka
+package app.deulleulkka.probe
 
 import ai.pleos.playground.location.fused.FusedLocation
 import ai.pleos.playground.location.fused.listener.FusedLocationListener
