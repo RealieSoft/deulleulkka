@@ -11,7 +11,7 @@ enum class Answer {
     /** 8초 동안 답이 없었다. */
     NO_ANSWER,
 
-    /** 넣은 뒤 8초 안에 "취소"라고 했거나 "넣기 취소"를 눌렀다. 그 이동에서는 다시 묻지 않고, 다음 이동부터는 다시 묻는다. */
+    /** 넣은 뒤 그 이동이 끝나기 전에 "취소"라고 했거나 (주차 중) "취소"를 눌렀다. 그 이동에서는 다시 묻지 않고, 다음 이동부터는 다시 묻는다. */
     CANCEL,
 }
 
@@ -58,7 +58,7 @@ data class AskHistory(
 
     /**
      * 질문 하나에 대한 답을 남긴다. 질문 한 번에 한 번만 부른다: 이번 이동에서 물은 횟수가 부른 횟수만큼 늘기 때문이다.
-     * "들를게" 뒤 8초 안에 취소하면 그 질문의 답은 [Answer.CANCEL] 하나로 남긴다([Answer.ACCEPT]와 둘 다 남기지 않는다).
+     * "들를게" 뒤 그 이동이 끝나기 전에 취소하면 그 질문의 답은 [Answer.CANCEL] 하나로 남긴다([Answer.ACCEPT]와 둘 다 남기지 않는다).
      */
     fun record(placeId: String, answer: Answer, today: Long, settings: Settings = Settings()): AskHistory {
         val asked = askedThisTrip + placeId

@@ -3,7 +3,6 @@ package app.deulleulkka.engine.replay
 import app.deulleulkka.engine.Destination
 import app.deulleulkka.engine.DriveContext
 import app.deulleulkka.engine.Place
-import app.deulleulkka.engine.PlaceKind
 
 /** 재생할 한 장면: 시각 표시와 그때의 차량 맥락. 공개 길찾기로 잰 장면이면 [routeCheck]에 그 값을 둔다. */
 data class Frame(val clock: String, val note: String, val ctx: DriveContext, val routeCheck: RouteCheck? = null)
@@ -18,13 +17,10 @@ data class RouteCheck(val actualDetourMin: Double, val source: String)
  */
 object Scenarios {
     /** 11:12 위치에서 북쪽으로 약 1.6km(진행 방향 동쪽에서 85°, 앞쪽). 11:11 위치에서는 약 1.94km라 막 판단 반경(2km)에 든다. */
-    val bakery = Place("bakery", "밀밭 베이커리", PlaceKind.EAT, lat = 37.6143, lon = 127.2016)
+    val bakery = Place("bakery", "밀밭 베이커리", lat = 37.6143, lon = 127.2016)
 
     private val arboretum = Destination(lat = 37.6000, lon = 127.5000)
     private val office = Destination(lat = 37.6000, lon = 127.5000, isOffice = true)
-
-    private const val SUNRISE = 7 * 60 + 20
-    private const val SUNSET = 17 * 60 + 20
 
     /**
      * 토요일 오전 11:12, 아이와 함께 수목원으로 가는 길의 직선 구간. 동쪽으로 달리고, 나들이 길이 막혀 남은 30km에 90분이다.
@@ -32,9 +28,6 @@ object Scenarios {
      * 다음 회전은 나들목이 아니고, 방향지시등·브레이크는 꺼져 있고, 단속 카메라·주의 지점 구간이 아니며 통화·안내 음성은 없다(모두 읽은 값).
      */
     private val saturdayCalm = DriveContext(
-        minuteOfDay = 11 * 60 + 12,
-        sunriseMinuteOfDay = SUNRISE,
-        sunsetMinuteOfDay = SUNSET,
         lat = 37.6000,
         lon = 127.2000,
         speedKph = 62.0,
@@ -61,7 +54,6 @@ object Scenarios {
         Frame(
             "오전 11:11", "찜한 곳 근처에 들어옴",
             saturdayCalm.copy(
-                minuteOfDay = 11 * 60 + 11,
                 lat = 37.5973,
                 lon = 127.1966,
                 speedKph = 38.0,
@@ -81,7 +73,6 @@ object Scenarios {
         Frame(
             "오전 8:12", "찜한 곳 근처에 들어옴",
             saturdayCalm.copy(
-                minuteOfDay = 8 * 60 + 12,
                 destination = office,
                 nextTurnMeters = 2300,
                 passengerPresent = false,
@@ -93,25 +84,22 @@ object Scenarios {
     val noDestination: List<Frame> = listOf(
         Frame(
             "오후 3:40", "찜한 곳 근처에 들어옴",
-            saturdayCalm.copy(minuteOfDay = 15 * 60 + 40, destination = null, remainingKm = null, remainingMin = null, nextTurnMeters = null),
+            saturdayCalm.copy(destination = null, remainingKm = null, remainingMin = null, nextTurnMeters = null),
         ),
     )
 
     /**
      * 공개 길찾기 경로로 잰 경우 하나를 그대로 넣은 장면: `docs/route-check`의 검증용 NC1(경주 분황로에서 서쪽으로, 찜 대릉원, 목적지 건천읍).
      * 지금 위치·찜·목적지 좌표, 찜까지의 경로 시간, 목적지까지 남은 거리·시간, 실제 추가 시간은 `followup_results.json`의 값을 그대로 옮겼다.
-     * 시각, 해 뜨고 지는 시각, 속도, 다음 회전까지 거리, 나들목 아님, 방향지시등·브레이크·주의 지점·통화(모두 꺼짐), 동승자, 잔량은 재생기의 가상 값이다.
+     * 시각, 속도, 다음 회전까지 거리, 나들목 아님, 방향지시등·브레이크·주의 지점·통화(모두 꺼짐), 동승자, 잔량은 재생기의 가상 값이다.
      * 진행 방향은 넣지 않아 목적지 쪽을 앞으로 본다.
      */
-    val daereungwon = Place("daereungwon", "대릉원", PlaceKind.SEE, lat = 35.838245, lon = 129.211509)
+    val daereungwon = Place("daereungwon", "대릉원", lat = 35.838245, lon = 129.211509)
 
     val gyeongjuMeasured: List<Frame> = listOf(
         Frame(
             "오후 2:30", "찜한 곳 근처에 들어옴 (공개 길찾기 경로 값)",
             DriveContext(
-                minuteOfDay = 14 * 60 + 30,
-                sunriseMinuteOfDay = SUNRISE,
-                sunsetMinuteOfDay = SUNSET,
                 lat = 35.840585,
                 lon = 129.232388,
                 speedKph = 40.0,

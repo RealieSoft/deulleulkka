@@ -1,13 +1,9 @@
 package app.deulleulkka.engine
 
-/** 사용자가 주차 중에 표시해 둔 장소의 유형. */
-enum class PlaceKind { EAT, SEE }
-
 /** 가 볼 곳(찜) 한 곳. */
 data class Place(
     val id: String,
     val name: String,
-    val kind: PlaceKind,
     val lat: Double,
     val lon: Double,
 )
@@ -29,12 +25,6 @@ data class Destination(
  * 넣는 쪽이 빠뜨린 값이 '꺼짐'으로 들어가 덜 조심하는 쪽으로 가지 않도록, 읽은 값이나 '모름'(null)을 늘 직접 적게 한다.
  */
 data class DriveContext(
-    /** 자정부터 센 분(0~1439). */
-    val minuteOfDay: Int,
-    /** 그날 해가 뜨는 시각(자정부터 센 분). 해가 지는 시각과 같은 출처(날짜·위치로 계산)에서 받는다. */
-    val sunriseMinuteOfDay: Int,
-    /** 그날 해가 지는 시각(자정부터 센 분). */
-    val sunsetMinuteOfDay: Int,
     val lat: Double,
     val lon: Double,
     /**

@@ -39,7 +39,6 @@ class MomentJudge(private val settings: Settings = Settings()) {
             Triple(Step.ELIGIBILITY, "어떤 이동인가") { tripKind(ctx) },
             Triple(Step.ELIGIBILITY, "갈 여력이 있나") { capacity(ctx) },
             Triple(Step.VALUE, "얼마나 더 걸리나") { detour(ctx, place, detourMin) },
-            Triple(Step.VALUE, "지금 가기 좋은 곳인가") { goodTime(ctx, place) },
             Triple(Step.VALUE, "누가 타고 있나") { company(ctx) },
             Triple(Step.FREQUENCY, "너무 자주 묻지 않나") { frequency(place, history, today) },
         )
@@ -93,7 +92,7 @@ class MomentJudge(private val settings: Settings = Settings()) {
         actualDetourMin > allowedDetourMin(ctx)
 
     /**
-     * 판단을 통과한 곳이 여럿일 때 먼저 물을 곳. 지금 가기 좋은 곳이 먼저, 그다음은 덜 돌아가는 곳(판단이 어림한 우회 시간).
+     * 판단을 통과한 곳이 여럿일 때 먼저 물을 곳. 덜 돌아가는 곳(판단이 어림한 우회 시간)부터 묻는다.
      * 판단을 통과하지 못한 후보(지나친 곳, 도로 시간이 없어 보류된 곳 등)는 고르지 않고, 하나도 없으면 null.
      * 후보마다의 판단 결과는 돌려주지 않으므로, 앱은 [AskHistory.recordVerdict]에 남길 결과를 후보마다 [judge]로 따로 받는다.
      */
@@ -106,17 +105,8 @@ class MomentJudge(private val settings: Settings = Settings()) {
     ): Place? =
         candidates
             .mapNotNull { place -> (judge(ctx, place, history, today, roadFactor).verdict as? Verdict.Ask)?.let { place to it.detourMin } }
-            .sortedWith(
-                compareByDescending<Pair<Place, Double>> { (place, _) -> isGoodTimeFor(ctx, place) }
-                    .thenBy { (_, detourMin) -> detourMin },
-            )
-            .firstOrNull()?.first
-
-    /** 먹을 곳은 식사 시간대에, 볼 곳은 해가 뜬 뒤부터 해가 지기 전까지. */
-    fun isGoodTimeFor(ctx: DriveContext, place: Place): Boolean = when (place.kind) {
-        PlaceKind.EAT -> MEAL_HOURS.any { ctx.minuteOfDay in it }
-        PlaceKind.SEE -> ctx.minuteOfDay >= ctx.sunriseMinuteOfDay && ctx.minuteOfDay < ctx.sunsetMinuteOfDay
-    }
+            .minByOrNull { (_, detourMin) -> detourMin }
+            ?.first
 
     /**
      * 안전 단계. 찜의 판단 반경 안에서만 판단하고, 보류한 사이 반경을 벗어났던 찜은 그 이동에서는 묻지 않는다.
@@ -225,12 +215,6 @@ class MomentJudge(private val settings: Settings = Settings()) {
         val over = minutes > allowed
         val seen = "약 ${shownAgainst(minutes, allowed, over, digits = 0)}분 더 걸림 (${exactNumber(allowed)}분까지)"
         return seen to if (over) Outcome.SKIP else Outcome.PASS
-    }
-
-    private fun goodTime(ctx: DriveContext, place: Place): Pair<String, Outcome> {
-        val kind = if (place.kind == PlaceKind.EAT) "먹을 곳" else "볼 곳"
-        val fit = if (isGoodTimeFor(ctx, place)) "지금 가기 좋은 때 (먼저 물음)" else "때와 무관"
-        return "$kind, $fit" to Outcome.PASS
     }
 
     private fun company(ctx: DriveContext): Pair<String, Outcome> {
@@ -376,12 +360,5 @@ class MomentJudge(private val settings: Settings = Settings()) {
         private const val KPH_PER_MPS = 3.6
         private const val METERS_PER_KM = 1000
         private const val TRIGGER_RADIUS_KM = TRIGGER_RADIUS_METERS / METERS_PER_KM
-        private const val MINUTES_PER_HOUR = 60
-
-        /** 식사 시간대(자정부터 센 분): 11~14시, 17~20시. */
-        val MEAL_HOURS: List<IntRange> = listOf(
-            11 * MINUTES_PER_HOUR until 14 * MINUTES_PER_HOUR,
-            17 * MINUTES_PER_HOUR until 20 * MINUTES_PER_HOUR,
-        )
     }
 }

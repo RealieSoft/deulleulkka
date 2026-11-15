@@ -25,7 +25,7 @@ class MomentJudgeTest {
      * 목적지(동쪽)에서는 차보다 멀어 찜까지 가는 동안 목적지 쪽으로 나아가는 몫이 0이다.
      * 그래서 어림한 우회 시간이 찜까지 도로 시간의 정확히 두 배가 되어, 경계값을 그대로 넣을 수 있다.
      */
-    private val north = Place("north", "북쪽 찜", PlaceKind.EAT, lat = calm.lat + 0.0144, lon = calm.lon)
+    private val north = Place("north", "북쪽 찜", lat = calm.lat + 0.0144, lon = calm.lon)
 
     private fun towardNorth(tripMin: Double, passengerPresent: Boolean? = true) =
         calm.copy(headingDeg = 0.0, tripMinToPlace = mapOf(north.id to tripMin), passengerPresent = passengerPresent)
@@ -62,7 +62,7 @@ class MomentJudgeTest {
     fun `시나리오 C 묻지 않기로 한 뒤의 항목은 보지 않는다`() {
         val checks = judge.judge(Scenarios.mondayCommute.single().ctx, bakery, AskHistory(), today).checks
         assertEquals(
-            listOf(Outcome.PASS, Outcome.SKIP) + List(5) { Outcome.NOT_CHECKED },
+            listOf(Outcome.PASS, Outcome.SKIP) + List(4) { Outcome.NOT_CHECKED },
             checks.map { it.outcome },
         )
     }
@@ -398,32 +398,6 @@ class MomentJudgeTest {
     }
 
     @Test
-    fun `식사 시간대는 11시부터 14시 전까지와 17시부터 20시 전까지다`() {
-        fun at(hour: Int, minute: Int) = judge.isGoodTimeFor(calm.copy(minuteOfDay = hour * 60 + minute), bakery)
-        assertFalse(at(10, 59))
-        assertTrue(at(11, 0))
-        assertTrue(at(13, 59))
-        assertFalse(at(14, 0))
-        assertFalse(at(16, 59))
-        assertTrue(at(17, 0))
-        assertTrue(at(19, 59))
-        assertFalse(at(20, 0))
-    }
-
-    @Test
-    fun `볼 곳은 해가 뜬 뒤부터 해가 지기 전까지만 지금 가기 좋은 때다`() {
-        val see = bakery.copy(kind = PlaceKind.SEE)
-        fun at(minute: Int) = judge.isGoodTimeFor(calm.copy(minuteOfDay = minute), see)
-        assertFalse(at(3 * 60))
-        assertFalse(at(calm.sunriseMinuteOfDay - 1))
-        assertTrue(at(calm.sunriseMinuteOfDay))
-        assertTrue(at(calm.sunsetMinuteOfDay - 1))
-        assertFalse(at(calm.sunsetMinuteOfDay))
-        // 새벽 3시의 판단 근거에 '지금 가기 좋은 때'가 남지 않는다
-        assertEquals("볼 곳, 때와 무관", row(calm.copy(minuteOfDay = 3 * 60), "지금 가기 좋은 곳인가", see).seen)
-    }
-
-    @Test
     fun `찜까지의 도로 시간이 없으면 보류하고, 그 뒤 도로 시간이 오면 묻는다`() {
         val noTrip = calm.copy(tripMinToPlace = emptyMap())
         val decision = judge.judge(noTrip, bakery, AskHistory(), today)
@@ -570,27 +544,26 @@ class MomentJudgeTest {
     }
 
     @Test
-    fun `통과한 곳이 여럿이면 먹을 곳은 식사 시간대에 볼 곳은 해 지기 전에 먼저 묻는다`() {
-        // 전망대: 차에서 동북동으로 약 1.5km(진행 방향에서 약 22도), 도로로 8.5분
-        val lookout = Place("lookout", "해오름 전망대", PlaceKind.SEE, lat = 37.6050, lon = 127.2160)
-        val both = calm.copy(tripMinToPlace = calm.tripMinToPlace + (lookout.id to 8.5))
-        val places = listOf(bakery, lookout)
-        val afternoon = both.copy(minuteOfDay = 15 * 60 + 30) // 식사 시간대가 아니고 해 지기 전
-        val evening = both.copy(minuteOfDay = 18 * 60) // 식사 시간대이고 해가 진 뒤
+    fun `통과한 곳이 여럿이면 덜 돌아가는 곳부터 묻는다`() {
+        // 전망대: 차에서 동북동으로 약 1.5km(진행 방향에서 약 22도)
+        val lookout = Place("lookout", "해오름 전망대", lat = 37.6050, lon = 127.2160)
         fun detourOf(ctx: DriveContext, place: Place) = assertIs<Verdict.Ask>(verdict(ctx, place = place)).detourMin
-        // 견주는 두 곳은 세 시각 모두 판단을 통과한다
-        for (ctx in listOf(both, afternoon, evening)) places.forEach { detourOf(ctx, it) }
-        assertEquals(lookout, judge.pickFirst(afternoon, places, AskHistory(), today))
-        assertEquals(bakery, judge.pickFirst(evening, places, AskHistory(), today))
-        // 둘 다 좋은 때면 덜 돌아가는 곳부터
-        assertTrue(detourOf(both, bakery) < detourOf(both, lookout))
-        assertEquals(bakery, judge.pickFirst(both, places, AskHistory(), today))
+        // 전망대까지 도로로 8.5분이면 빵집이 덜 돌아가고, 5분이면 전망대가 덜 돌아간다
+        val bakeryNearer = calm.copy(tripMinToPlace = mapOf(bakery.id to 3.3, lookout.id to 8.5))
+        val lookoutNearer = calm.copy(tripMinToPlace = mapOf(bakery.id to 3.3, lookout.id to 5.0))
+        assertTrue(detourOf(bakeryNearer, bakery) < detourOf(bakeryNearer, lookout))
+        assertTrue(detourOf(lookoutNearer, lookout) < detourOf(lookoutNearer, bakery))
+        // 후보를 넘기는 순서와도 상관없다
+        for (places in listOf(listOf(bakery, lookout), listOf(lookout, bakery))) {
+            assertEquals(bakery, judge.pickFirst(bakeryNearer, places, AskHistory(), today))
+            assertEquals(lookout, judge.pickFirst(lookoutNearer, places, AskHistory(), today))
+        }
     }
 
     @Test
     fun `먼저 물을 곳은 판단을 통과한 곳 가운데서만 고른다`() {
         // 서쪽으로 약 1km 지나친 곳은 덜 돌아가 보여도 고르지 않는다
-        val passed = Place("passed", "지나친 곳", PlaceKind.EAT, lat = calm.lat, lon = calm.lon - 0.0120)
+        val passed = Place("passed", "지나친 곳", lat = calm.lat, lon = calm.lon - 0.0120)
         val ctx = calm.copy(tripMinToPlace = calm.tripMinToPlace + (passed.id to 0.5))
         assertEquals(Verdict.Skip("이미 지나친 곳 (되돌아가야 함)"), verdict(ctx, place = passed))
         assertEquals(bakery, judge.pickFirst(ctx, listOf(passed, bakery), AskHistory(), today))

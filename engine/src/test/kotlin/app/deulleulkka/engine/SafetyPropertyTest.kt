@@ -57,9 +57,6 @@ class SafetyPropertyTest {
         // 찜까지의 도로 시간도 같은 평균 속도로 넣는다(없으면 묻지 않고 보류하므로)
         val toPlaceMin = DetourEstimator.distanceKm(lat, lon, pLat, pLon) * DetourEstimator.ROAD_FACTOR / averageKph * 60
         val ctx = DriveContext(
-            minuteOfDay = Arb.int(0..1439).bind(),
-            sunriseMinuteOfDay = 7 * 60 + 20,
-            sunsetMinuteOfDay = 17 * 60 + 20,
             lat = lat,
             lon = lon,
             speedKph = Arb.double(0.0, 130.0, includeNonFiniteEdgeCases = false).bind(),
@@ -77,15 +74,12 @@ class SafetyPropertyTest {
             passengerPresent = true,
             energyPercent = 60,
         )
-        ctx to Place("p", "찜한 곳", Arb.enum<PlaceKind>().bind(), pLat, pLon)
+        ctx to Place("p", "찜한 곳", pLat, pLon)
     }
 
     /** 모든 값이 무작위인 순간. 차종이 지원하지 않는 신호(null)도 섞는다. 판단 구조처럼 값과 무관한 성질에 쓴다. */
     private val anyMoment: Arb<DriveContext> = arbitrary {
         DriveContext(
-            minuteOfDay = Arb.int(0..1439).bind(),
-            sunriseMinuteOfDay = Arb.int(5 * 60..8 * 60).bind(),
-            sunsetMinuteOfDay = Arb.int(17 * 60..20 * 60).bind(),
             lat = lat().bind(),
             lon = lon().bind(),
             speedKph = Arb.double(0.0, 130.0, includeNonFiniteEdgeCases = false).bind(),
@@ -110,7 +104,7 @@ class SafetyPropertyTest {
     private val anyMomentNearPlace: Arb<Triple<DriveContext, Place, AskHistory>> = arbitrary {
         val ctx = anyMoment.bind()
         val (pLat, pLon) = offset(ctx.lat, ctx.lon, Arb.double(0.1, 3.0, includeNonFiniteEdgeCases = false).bind(), deg().bind())
-        Triple(ctx, Place("p", "찜한 곳", Arb.enum<PlaceKind>().bind(), pLat, pLon), AskHistory())
+        Triple(ctx, Place("p", "찜한 곳", pLat, pLon), AskHistory())
     }
 
     /**
@@ -236,7 +230,7 @@ class SafetyPropertyTest {
             val stop = outcomes.indexOfFirst { it != Outcome.PASS }
             stoppedAt += stop
             if (stop != 0) beyondSafety++
-            assertEquals(7, outcomes.size)
+            assertEquals(6, outcomes.size)
             if (stop == -1) {
                 assertIs<Verdict.Ask>(d.verdict)
             } else {
@@ -247,7 +241,7 @@ class SafetyPropertyTest {
         }
         assertEnough(beyondSafety, "안전 단계를 지나 뒤 단계까지 본")
         // 막힐 수 있는 줄(안전, 어떤 이동, 갈 여력, 얼마나 더, 너무 자주)과 끝까지 통과한 경우(-1)가 모두 나왔다
-        assertEquals(setOf(-1, 0, 1, 2, 3, 6), stoppedAt)
+        assertEquals(setOf(-1, 0, 1, 2, 3, 5), stoppedAt)
     }
 
     @Test
