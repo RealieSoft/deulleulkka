@@ -6,7 +6,13 @@ Pleos Connect 차량용 앱 "들를까"의 판단 엔진과, 에뮬레이터에�
 
 이 저장소는 현대자동차그룹 차량용 앱 개발 공모전 심사를 위해 공개합니다. 라이선스를 붙이지 않았으므로 저작권은 팀에 있고, 다시 쓰려면 먼저 문의해 주세요. 단, `docs/route-check/raw/`는 공개 길찾기 엔진 OSRM이 OpenStreetMap 자료로 계산한 응답이라 팀의 저작물이 아니며, © OpenStreetMap contributors, ODbL(https://www.openstreetmap.org/copyright)을 따릅니다.
 
-> **main의 최신 상태 (2026-11-15 접수 뒤)**: 공모전 심사 기준은 접수 메일에 적은 커밋 `dfe4f87`입니다. 그 시점의 코드와 README는 https://github.com/RealieSoft/deulleulkka/tree/dfe4f87095b845b7217193b1b278ecb5ccebf6cb 에 있습니다. 그 뒤 main에는 통합 앱의 첫 판을 올렸습니다. `app/`은 확인 화면 대신 들를까 앱(`MainActivity`)이 되었고, 확인 화면 5개는 debug 빌드에만 들어가도록 `app/src/debug/`(패키지 `app.deulleulkka.probe`, 실행은 `app.deulleulkka/.probe.NaviProbeActivity` 꼴)로 옮겼습니다. 묻고 답하는 흐름은 Android에 기대지 않는 `core/` 모듈에 있고 자체 테스트가 있습니다(`./gradlew :core:test`). 엔진은 카드와 말의 분 표기를 맞추는 함수 하나만 더했습니다. `apk/`의 APK는 아직 심사 기준 커밋의 확인용 앱이며, 통합 앱 APK는 출시 키로 서명해 따로 올립니다. 아래 본문은 심사 기준 커밋을 설명하는 글입니다.
+> **main의 최신 상태 (2026-11-15 접수 뒤)**: 공모전 심사 기준은 접수 메일에 적은 커밋 `dfe4f87`이고, 그 시점의 코드와 README는 https://github.com/RealieSoft/deulleulkka/tree/dfe4f87095b845b7217193b1b278ecb5ccebf6cb 에 있습니다. 아래 본문은 그 커밋을 설명하는 글입니다. 그 뒤 main에는 통합 앱의 첫 판을 올렸습니다. main으로 빌드하면 본문과 다음이 다릅니다.
+>
+> - **실행 화면**: 앱 목록의 "들를까"는 내비 확인 화면이 아니라 통합 앱(`MainActivity`)입니다. 확인 화면 5개는 debug 빌드에만 들어갑니다(`app/src/debug/`).
+> - **확인 화면 열기**: 패키지가 `app.deulleulkka.probe`로 바뀌어 `adb shell am start -n app.deulleulkka/.probe.LocationProbeActivity`처럼 엽니다(debug 빌드).
+> - **테스트**: 엔진 111개에 더해, 묻고 답하는 흐름을 담은 `core/` 모듈의 테스트 48개가 있습니다(`./gradlew :engine:test :core:test`).
+> - **로그**: 통합 앱은 logcat에 좌표·장소 이름을 남기지 않습니다(상태와 개수만). 본문의 로그 설명은 debug 빌드의 확인 화면 이야기입니다.
+> - **APK와 엔진**: `apk/`의 APK는 아직 심사 기준 커밋의 확인용 앱이고, 통합 앱 APK는 출시 키로 서명해 따로 올립니다. 엔진에는 카드와 말의 분 표기를 맞추는 함수 하나만 더했습니다.
 
 ## 구성
 
