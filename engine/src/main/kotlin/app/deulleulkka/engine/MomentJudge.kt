@@ -121,6 +121,8 @@ class MomentJudge(private val settings: Settings = Settings()) {
      * 단속 카메라·주의 지점 구간과 나들목 1.5km는 보지 않는다. 기획서 판단 표의 "완전히 멈춘 때는 … 여유 구간으로 보되,
      * 방향지시등이 켜져 있거나 100m 안에 회전이 있으면 보류"를 문자 그대로 따른 것이다. 멈춘 때에도 그 두 규칙을 볼지는
      * 기획서가 따로 정하지 않았다.
+     * 그 두 값(방향지시등, 길 안내 중의 다음 회전)을 읽지 못하면 멈춘 때에도 보류한다. 모르는 값을 '꺼짐·회전 없음'으로 보면
+     * 두 규칙이 막으려던 장면(신호 대기 중 깜빡이를 켜고 곧 회전할 때)에서 묻게 되기 때문이다.
      */
     private fun safety(ctx: DriveContext, place: Place, history: AskHistory): Pair<String, Outcome> {
         val toPlaceMeters = DetourEstimator.distanceKm(ctx.lat, ctx.lon, place.lat, place.lon) * METERS_PER_KM
@@ -148,12 +150,19 @@ class MomentJudge(private val settings: Settings = Settings()) {
             "단속 카메라·주의 지점".takeIf { ctx.cautionAhead == null },
             "통화·안내 음성".takeIf { ctx.otherAudioPlaying == null },
         )
+        // 멈춘 때에도 보는 두 신호 가운데 읽지 못한 것
+        val unknownWhenStopped = listOfNotNull(
+            "방향지시등".takeIf { ctx.turnSignalOn == null },
+            "다음 회전".takeIf { ctx.destination != null && turn == null },
+        )
         return when {
             ctx.otherAudioPlaying == true -> "통화 중이거나 안내 음성이 나오는 중" to Outcome.HOLD
             toPlaceMeters < leadMeters ->
                 "찜까지 ${toPlaceMeters.roundToInt()}m (${leadMeters.roundToInt()}m보다 가까우면 급하게 빠지게 됨)" to Outcome.HOLD
             stopped && ctx.turnSignalOn == true -> "멈춰 있지만 방향지시등 켜짐" + turnText(turn, prefix = ", ") to Outcome.HOLD
             stopped && turn != null && turn < STOPPED_TURN_METERS -> "멈춰 있지만 " + turnText(turn) to Outcome.HOLD
+            stopped && unknownWhenStopped.isNotEmpty() ->
+                "멈춰 있지만 ${unknownWhenStopped.joinToString()} 확인 불가" to Outcome.HOLD
             stopped -> "완전히 멈춤" to Outcome.PASS
             unknown.isNotEmpty() -> "${unknown.joinToString()} 확인 불가 (완전히 멈춘 때만 물음)" to Outcome.HOLD
             ctx.turnSignalOn == true -> "방향지시등 켜짐" + turnText(turn, prefix = ", ") to Outcome.HOLD

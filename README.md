@@ -11,7 +11,7 @@ Pleos Connect 차량용 앱 "들를까"의 판단 엔진과, 에뮬레이터에�
 | 경로 | 내용 |
 |---|---|
 | `engine/` | Android에 기대지 않는 순수 Kotlin 판단 엔진 |
-| `engine/.../MomentJudge.kt` | 안전 → 자격 → 가치 → 빈도 순서로 보고, 처음 막힌 곳에서 멈춤. 본 것과 결과를 줄마다 남겨 "왜 그때 물었는지" 화면에 그대로 씀. 찜 반경 2km 밖의 찜, 보류한 사이 반경을 벗어났던 찜, 지나친 찜(진행 방향 뒤쪽), 시속 90km 이상의 고속 주행에서는 묻지 않음. 판단을 통과한 찜이 여럿이면 덜 돌아가는 곳부터 물음 |
+| `engine/.../MomentJudge.kt` | 안전 → 자격 → 가치 → 빈도 순서로 보고, 처음 막힌 곳에서 멈춤. 본 것과 결과를 줄마다 남겨 "왜 그때 물었는지" 화면에 그대로 씀. 찜 반경 2km 밖의 찜, 보류한 사이 반경을 벗어났던 찜, 지나친 찜(진행 방향 뒤쪽), 시속 90km 이상의 고속 주행에서는 묻지 않음. 완전히 멈춘 때도 방향지시등이나 (길 안내 중이면) 다음 회전을 읽지 못하면 묻지 않음. 판단을 통과한 찜이 여럿이면 덜 돌아가는 곳부터 물음 |
 | `engine/.../DetourEstimator.kt` | 우회 시간 어림. 찜까지의 도로 시간(`requestTrip`)에서 찜까지 가는 동안 목적지 쪽으로 나아가는 몫을 빼고 두 배. 그 값이 없으면 묻지 않고 보류함. 처음 방식(더 가야 하는 직선거리 × 도로 보정값 ÷ 평균 속도)은 비교 기준으로 남겨 두었고 묻는 판단에는 쓰지 않음 |
 | `engine/.../RoadFactorCalibrator.kt` | 직선거리로 어림한 경우, 경유지를 넣은 뒤 내비게이션이 다시 계산한 값으로 도로 보정값(출발값 1.3)을 그 차에 맞춤. 최근 10번까지의 가운데값, 1.0~2.5. 처음 방식과 함께 남겨 두었고, 지금은 묻는 판단에 쓰이지 않음 |
 | `engine/.../AskHistory.kt` | 묻고 답한 기록("다음에"는 30일 쉼, 답 없이 두 번 닫히면 "다음에"로 봄)과 이번 이동의 보류·반경 이탈 기록. 기기 안에만 둠 |
@@ -34,7 +34,7 @@ Pleos Connect 차량용 앱 "들를까"의 판단 엔진과, 에뮬레이터에�
 
 ## 실행
 
-JDK 17이 필요합니다(Gradle이 JDK 17을 찾으므로 JDK 21만 있으면 멈춥니다). 엔진 테스트와 재생기는 Android SDK 없이 돌아갑니다. `app/`을 빌드할 때만 Android SDK(`ANDROID_HOME` 또는 `local.properties`의 `sdk.dir`)가 필요하고, Pleos Connect SDK는 `settings.gradle.kts`에 적힌 저장소에서 받습니다. Windows에서는 저장소 경로에 한글 등 ASCII가 아닌 글자가 있으면 Android Gradle 플러그인이 빌드를 멈추므로 영문 경로에 두세요.
+JDK 17이 필요합니다(Gradle이 JDK 17을 찾으므로 JDK 21만 있으면 멈춥니다). 엔진 테스트와 재생기는 Android SDK 없이 돌아갑니다. `app/`을 빌드할 때만 Android SDK(`ANDROID_HOME` 또는 `local.properties`의 `sdk.dir`)가 필요하고, Pleos Connect SDK는 `settings.gradle.kts`에 적힌 저장소에서 받습니다. Windows에서는 저장소 경로에 한글 등 ASCII가 아닌 글자가 있으면 Android Gradle 플러그인이 빌드를 멈추므로 영문 경로에 두세요. 엔진 테스트만 돌릴 때도 같습니다(설정이 `app/`을 함께 읽기 때문). 처음 돌릴 때는 Gradle과 라이브러리를 내려받으므로 인터넷이 필요합니다.
 
 ```
 ./gradlew :engine:test        # 테스트 101개
@@ -64,7 +64,7 @@ python docs/rule-removal-check/rule_removal_check.py --jobs 4   # 규칙을 하�
 - (처음 방식) 보정값이 커지면 직선거리 어림도 커지거나 같다
 - (처음 방식) 보정값은 어떤 기록이 쌓여도 상한과 하한을 벗어나지 않는다
 
-안전 규칙 검사는 "다른 조건은 모두 묻기 좋고 찜은 2km 안 아무 방향"인 순간에서 규칙 하나만 바꿔 봅니다. 모든 값을 무작위로 두면 묻는 경우가 거의 나오지 않아 규칙이 빠져도 통과하기 때문입니다. 묻지 않게 하는 규칙 8가지(통화·안내 음성, 확인할 수 없는 안전 신호, 회사 가는 길, 이미 있는 경유지, 낮은 잔량, 지나친 찜, 시속 90km 이상, 판단 반경 밖)와 보류한 사이 반경 이탈을 소스에서 하나씩 지운 사본에서 그 규칙의 검사가 실패하는지는 `docs/rule-removal-check/rule_removal_check.py`로 누구나 다시 돌려 볼 수 있습니다. 마지막으로 돌린 결과는 [`docs/rule-removal-check/result.txt`](docs/rule-removal-check/result.txt)에 있습니다.
+안전 규칙 검사는 "다른 조건은 모두 묻기 좋고 찜은 2km 안 아무 방향"인 순간에서 규칙 하나만 바꿔 봅니다. 모든 값을 무작위로 두면 묻는 경우가 거의 나오지 않아 규칙이 빠져도 통과하기 때문입니다. 묻지 않게 하는 규칙 8가지(통화·안내 음성, 확인할 수 없는 안전 신호, 회사 가는 길, 이미 있는 경유지, 낮은 잔량, 지나친 찜, 시속 90km 이상, 판단 반경 밖)와 보류한 사이 반경 이탈, 멈춘 때 읽지 못한 방향지시등·다음 회전을 소스에서 하나씩 지운 사본에서 그 규칙의 검사가 실패하는지는 `docs/rule-removal-check/rule_removal_check.py`로 누구나 다시 돌려 볼 수 있습니다. 마지막으로 돌린 결과는 [`docs/rule-removal-check/result.txt`](docs/rule-removal-check/result.txt)에 있습니다.
 
 `app/`에는 자동 테스트가 없습니다. 엔진 테스트는 SDK 값을 엔진 입력으로 바꾸는 부분을 검사하지 않습니다(그 코드는 아직 없습니다).
 
@@ -83,7 +83,7 @@ python docs/rule-removal-check/rule_removal_check.py --jobs 4   # 규칙을 하�
 
 ## APK
 
-`apk/RealizeSoft_deulleulkka_release.apk`는 1차 접수 시점의 **SDK 확인용 앱**입니다. 완성된 들를까 앱이 아니고, 판단 엔진도 쓰지 않습니다. 완성 앱의 release APK는 2차 발표 전(12월 1일 예정)에 같은 폴더에 올립니다.
+`apk/RealizeSoft_deulleulkka_release.apk`는 1차 접수 시점의 **SDK 확인용 앱**입니다. 2026-11-14에 만든 것이라, 2026-11-15에 엔진에서 뺀 클래스(장소 유형 분류 등)가 APK 안에 남아 있습니다. 확인용 앱은 엔진을 부르지 않으므로 동작에는 영향이 없습니다. 완성된 들를까 앱이 아니고, 판단 엔진도 쓰지 않습니다. 완성 앱의 release APK는 2차 발표 전(12월 1일 예정)에 같은 폴더에 올립니다.
 
 - 크기 27,102,473바이트, SHA-256 `036da6751ea7b8ef35268ca5fa260b67bb14a89ad59b9a914263c7ff22cd0209`
 - 서명 키는 공개하지 않고, release 빌드 설정(서명·축소)도 저장소에 없어 같은 APK를 저장소만으로 다시 만들 수는 없습니다.
@@ -99,8 +99,10 @@ adb install -g apk/RealizeSoft_deulleulkka_release.apk
 ```
 
 - 앱 목록에서 열면 내비게이션 SDK 확인 화면이 뜨고, 즐겨찾기·최근 목적지 읽기 → 목적지 설정 → `requestTrip()` → 경유지 넣기 → 빼기를 차례로 돌려 받은 값을 화면에 적습니다(에뮬레이터에서 확인).
+  - 목적지가 정해지는 순간 내비게이션이 앞으로 나와 이 화면을 가립니다. 받은 값은 화면 아래 바의 들를까(안드로이드 모양) 아이콘을 누르면 다시 보입니다(2026-11-15 확인).
 - 나머지 확인 화면은 adb로 엽니다: `adb shell am start -n app.deulleulkka/.LocationProbeActivity`(위치), `.VoiceProbeActivity`(음성), `.VehicleProbeActivity`(차량 신호), `.DemoProbeActivity`(확인 영상용).
-- 위치 권한(`pleos.car.permission.FUSED_LOCATION`)은 실행 중에 허락을 받아야 하는 권한인데, 확인용 앱에는 그 요청 코드가 없습니다. 위처럼 `-g`로 설치하거나 설치 뒤 `adb shell pm grant app.deulleulkka pleos.car.permission.FUSED_LOCATION`으로 직접 허용해야 위치 화면이 동작합니다(`-g`·`pm grant`가 이 Pleos 권한에 듣는지는 확인하지 못했습니다).
+  - 확인 영상용 화면은 내비게이션 옆 칸에 나눠 띄운 상태에서 엽니다(앱 영역 오른쪽 끝 손잡이를 왼쪽으로 끌면 둘로 나뉨). 혼자 열면 내비게이션이 앞으로 나온 뒤 약 10초 만에 시스템이 앱을 멈춰, 화면의 시간표가 [21초]에서 멈춥니다(2026-11-15 확인).
+- 위치 권한(`pleos.car.permission.FUSED_LOCATION`)은 실행 중에 허락을 받아야 하는 권한인데, 확인용 앱에는 그 요청 코드가 없습니다. 위처럼 `-g`로 설치하거나 설치 뒤 `adb shell pm grant app.deulleulkka pleos.car.permission.FUSED_LOCATION`으로 직접 허용해야 위치 화면이 동작합니다(`-g`로 설치하면 이 권한이 허용되는 것을 2026-11-15에 확인했습니다. `pm grant`는 확인하지 않았습니다).
 - 같은 패키지의 debug 빌드가 깔려 있으면 서명이 달라 설치되지 않으므로 먼저 지웁니다(`adb uninstall app.deulleulkka`).
 
 ### 확인용 앱의 한계
@@ -126,7 +128,7 @@ adb install -g apk/RealizeSoft_deulleulkka_release.apk
 - 음성: TTS로 한국어 질문을 말하고, PC로 합성한 대답을 STT `sendAudio()`로 넣어 인식. 온디바이스 인식은 `Locale.KOREA`여야 합니다(`Locale.KOREAN`은 "unsupported locale: ko-"로 거절). TTS의 이벤트 리스너(`addEventListener()`)는 `initialize()` 뒤에 붙입니다(앞에 붙이면 SDK 안에서 lateinit 예외). STT의 리스너(`addListener()`)는 확인용 앱에서 `initialize()` 앞에 붙였고 그대로 동작했습니다. 합성 음성의 "들를게"는 "들을게"로 적혔고, 앱에는 인식기의 첫째 후보만 옵니다. 쉼표가 든 대답은 결과가 둘로 나뉘어 오고, "응, 들를게"는 "응"과 "길게"로 적혔습니다.
 - 오디오: 내비 안내 음성(`USAGE_ASSISTANCE_NAVIGATION_GUIDANCE`)과 에뮬레이터 전화의 통화 모드가 일반 앱에 보입니다.
 - 차량 신호(Vehicle SDK): 방향지시등·브레이크·충전율·기어를 읽고 구독할 수 있고, Virtual Console로 값을 바꿀 수 있습니다. 착좌 값은 콘솔과 반대로 왔습니다. Vehicle 2.3.2 소스는 착좌의 원래 값이 1일 때만 true로 바꿉니다(`SeatImpl.kt` 435행, `PropertyCallback.kt` 352행). AOSP의 좌석 착좌 값은 0 모름, 1 비어 있음, 2 탑승이라, Pleos가 이 값을 그대로 쓴다면 true는 "비어 있음"이고 "모름"과 "탑승"은 둘 다 false로 옵니다(Pleos 쪽 값 대응은 공개되지 않아 확인하지 못했습니다). 그래서 이 API 값만으로는 "모름"을 알 수 없고, 좌석별 지원 확인 API로 가려야 합니다. 속도 API는 없습니다.
-- 창: 새 앱은 왼쪽 칸에 열리고 오른쪽 칸 앱이 잠시 빠집니다. 칸 크기가 바뀌면 화면이 새로 만들어집니다. 가려진 앱은 약 10초 뒤 멈춰, 그동안의 차량 콜백을 다시 보일 때 한꺼번에 받습니다. 방향지시등을 켜면 시스템 카메라 창이 왼쪽 칸 위쪽 자리에 뜹니다(칸이 아니라 화면 자리).
+- 창: 새 앱은 왼쪽 칸에 열리고 오른쪽 칸 앱이 잠시 빠집니다. 칸 크기가 바뀌면 화면이 새로 만들어집니다. 가려진 앱은 약 10초 뒤 멈춰, 그동안의 차량 콜백을 다시 보일 때 한꺼번에 받습니다. 나눠 띄운 뒤 다른 앱을 열었다 닫으면 원래 배치로 돌아오고, 모의 절전(`cmd car_service suspend --simulate`)에서 깨어난 뒤에도 배치가 남았습니다. 방향지시등을 켜면 시스템 카메라 창이 왼쪽 칸 위쪽 자리에 뜹니다(칸이 아니라 화면 자리).
 
 위 관찰 가운데 영상에 담긴 장면 말고는 원본 기록(logcat)을 저장소에 넣지 않았습니다.
 

@@ -38,6 +38,10 @@ RULES = [
     Mutation("확인할 수 없는 안전 신호", J,
              '            unknown.isNotEmpty() -> "${unknown.joinToString()} 확인 불가 (완전히 멈춘 때만 물음)" to Outcome.HOLD\n', "",
              f"{P} :: 확인할 수 없는 안전 신호가 하나라도 있으면 완전히 멈춘 때만 묻는다"),
+    Mutation("멈춘 때 읽지 못한 방향지시등·다음 회전", J,
+             '            stopped && unknownWhenStopped.isNotEmpty() ->\n'
+             '                "멈춰 있지만 ${unknownWhenStopped.joinToString()} 확인 불가" to Outcome.HOLD\n', "",
+             "MomentJudgeTest :: 길 안내 중인데 다음 회전 정보가 없으면 멈춰 있어도 묻지 않는다"),
     Mutation("회사 가는 길", J,
              '            dest.isOffice -> "목적지가 회사" to Outcome.SKIP\n', "",
              f"{P} :: 목적지가 회사면 다른 값이 무엇이든 묻지 않는다"),

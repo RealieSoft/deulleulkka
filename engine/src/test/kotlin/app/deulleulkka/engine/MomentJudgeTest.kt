@@ -261,18 +261,23 @@ class MomentJudgeTest {
     }
 
     @Test
-    fun `안전 신호를 확인할 수 없는 차종은 완전히 멈춘 때만 묻는다`() {
-        for (unknown in listOf(calm.copy(turnSignalOn = null), calm.copy(braking = null), calm.copy(otherAudioPlaying = null))) {
+    fun `안전 신호를 확인할 수 없는 차종은 완전히 멈춘 때만 묻고 방향지시등을 모르면 멈춰도 묻지 않는다`() {
+        for (unknown in listOf(calm.copy(braking = null), calm.copy(otherAudioPlaying = null))) {
             assertIs<Verdict.Hold>(verdict(unknown))
             assertIs<Verdict.Ask>(verdict(unknown.copy(speedKph = 0.0)))
         }
+        // 방향지시등은 멈춘 때에도 보는 신호다. 읽지 못한 값을 '꺼짐'으로 보지 않는다
+        val noSignal = calm.copy(turnSignalOn = null)
+        assertIs<Verdict.Hold>(verdict(noSignal))
+        assertEquals(Verdict.Hold("멈춰 있지만 방향지시등 확인 불가"), verdict(noSignal.copy(speedKph = 0.0)))
     }
 
     @Test
-    fun `길 안내 중인데 다음 회전 정보가 없으면 확인할 수 없는 안전 신호로 보고 완전히 멈춘 때만 묻는다`() {
+    fun `길 안내 중인데 다음 회전 정보가 없으면 멈춰 있어도 묻지 않는다`() {
         val noTurn = calm.copy(nextTurnMeters = null)
         assertEquals(Verdict.Hold("다음 회전 확인 불가 (완전히 멈춘 때만 물음)"), verdict(noTurn))
-        assertIs<Verdict.Ask>(verdict(noTurn.copy(speedKph = 0.0)))
+        // 다음 회전은 멈춘 때에도 보는 신호다(100m 안이면 보류). 읽지 못한 값을 '회전 없음'으로 보지 않는다
+        assertEquals(Verdict.Hold("멈춰 있지만 다음 회전 확인 불가"), verdict(noTurn.copy(speedKph = 0.0)))
         // 목적지가 없으면 안내가 없어 회전 정보가 없는 것이 맞다. 그때 묻지 않는 까닭은 목적지 없음이다
         val noDestination = Scenarios.noDestination.single().ctx
         assertNull(noDestination.nextTurnMeters)
