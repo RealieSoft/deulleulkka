@@ -182,7 +182,7 @@ class MomentJudgeTest {
         val far = north.copy(lat = calm.lat + 0.0200) // 정북 약 2.2km
         val ctx = towardNorth(tripMin = 1.0).copy(tripMinToPlace = mapOf(far.id to 1.0))
         assertFalse(judge.inTriggerRadius(ctx, far))
-        assertEquals(Verdict.Skip("찜까지 2.2km (판단 반경 2km 밖)"), verdict(ctx, place = far))
+        assertEquals(Verdict.Skip("찜까지 2.2km (판단 반경 2km 밖)", outsideTriggerRadius = true), verdict(ctx, place = far))
         assertIs<Verdict.Ask>(verdict(towardNorth(tripMin = 1.0), place = north))
     }
 
@@ -575,5 +575,111 @@ class MomentJudgeTest {
         assertNull(judge.pickFirst(ctx, listOf(passed), AskHistory(), today))
         // 도로 시간이 없어 보류되는 곳도 고르지 않는다
         assertNull(judge.pickFirst(calm.copy(tripMinToPlace = emptyMap()), listOf(bakery), AskHistory(), today))
+    }
+
+    @Test
+    fun `남은 시간이 남은 거리와 맞지 않으면 받지 못한 값으로 보고 보류한다`() {
+        // calm은 남은 30km에 90분(평균 시속 20km). 초 단위 값이 분으로 들어온 것처럼 60배가 되면 시속 0.3km다
+        assertIs<Verdict.Ask>(verdict(calm))
+        val minutes = checkNotNull(calm.remainingMin)
+        assertEquals(
+            Verdict.Hold("남은 시간이 남은 거리와 맞지 않음 (받으면 다시 판단)"),
+            verdict(calm.copy(remainingMin = minutes * 60)),
+        )
+        // 남은 거리를 모르거나 값이 이상하면 목적지까지 직선거리(약 26km)로 아래 끝을 본다
+        assertIs<Verdict.Ask>(verdict(calm.copy(remainingKm = null)))
+        for (km in listOf(null, Double.NaN, -1.0)) {
+            assertEquals(
+                Verdict.Hold("남은 시간이 남은 거리와 맞지 않음 (받으면 다시 판단)"),
+                verdict(calm.copy(remainingKm = km, remainingMin = minutes * 60)),
+                "남은 거리 $km",
+            )
+        }
+        // 경계: 30km를 900분(시속 2km)·9분(시속 200km)은 받고, 그 밖은 받지 않는다
+        assertEquals(900.0, DetourEstimator.remainingMinOf(calm.copy(remainingMin = 900.0)))
+        assertNull(DetourEstimator.remainingMinOf(calm.copy(remainingMin = 900.5)))
+        assertEquals(9.0, DetourEstimator.remainingMinOf(calm.copy(remainingMin = 9.0)))
+        assertNull(DetourEstimator.remainingMinOf(calm.copy(remainingMin = 8.9)))
+    }
+
+    @Test
+    fun `찜까지 도로 시간이 거리와 맞지 않으면 보류한다`() {
+        // north는 약 1.6km. 0.1분(6초)이면 평균 시속 960km
+        assertEquals(
+            Verdict.Hold("찜까지 도로 시간이 거리와 맞지 않음 (받으면 다시 판단)"),
+            verdict(towardNorth(tripMin = 0.1), place = north),
+        )
+        assertIs<Verdict.Ask>(verdict(towardNorth(tripMin = 3.0), place = north))
+        // 경계: 직선거리로 본 시속 200km는 받고 넘으면 받지 않는다. 길게 잡히는 쪽(시속 2km 아래)은 거부하지 않는다
+        val km = DetourEstimator.distanceKm(calm.lat, calm.lon, north.lat, north.lon)
+        val at200 = km / 200.0 * 60.0
+        assertTrue(DetourEstimator.tripMinTo(towardNorth(tripMin = at200 * 1.0001), north) != null)
+        assertNull(DetourEstimator.tripMinTo(towardNorth(tripMin = at200 * 0.999), north))
+        assertTrue(DetourEstimator.tripMinTo(towardNorth(tripMin = 60.0), north) != null)
+        // 1km보다 가까운 찜도 0분이나 터무니없이 짧은 값은 받지 않는다(시속 20km라 앞질러 볼 거리 333m 밖의 600m)
+        val near = Place("near600", "600m 찜", lat = calm.lat + 600.0 / 111_195.0, lon = calm.lon)
+        for (tripMin in listOf(0.0, 0.01)) {
+            val ctx = calm.copy(speedKph = 20.0, headingDeg = 0.0, tripMinToPlace = mapOf(near.id to tripMin))
+            assertEquals(Verdict.Hold("찜까지 도로 시간이 거리와 맞지 않음 (받으면 다시 판단)"), verdict(ctx, place = near), "도로 시간 $tripMin")
+        }
+    }
+
+    @Test
+    fun `방향을 정할 수 없으면 지나친 곳으로 보고 묻지 않는다`() {
+        val dest = checkNotNull(calm.destination)
+        val unknownWay = calm.copy(headingDeg = null, destination = dest.copy(lat = Double.NaN))
+        assertTrue(judge.isBehind(unknownWay, bakery))
+        assertTrue(judge.directionUnknown(unknownWay, bakery))
+        assertEquals(Verdict.Skip("진행 방향을 정할 수 없음"), verdict(unknownWay))
+    }
+
+    @Test
+    fun `우회 시간이 같으면 가까운 곳부터 묻고 후보를 넘기는 순서와 상관없다`() {
+        // 둘 다 차의 정북이라 목적지(동쪽) 쪽으로 나아가는 몫이 0이고, 도로 시간이 같아 우회 시간이 같다(6분)
+        // 가까운 쪽 id를 사전 순으로 뒤에 둬, id 순으로 골라서는 통과하지 못하게 한다
+        val nearer = Place("z-near", "가까운 찜", lat = calm.lat + 0.0108, lon = calm.lon)
+        val ctx = calm.copy(headingDeg = 0.0, tripMinToPlace = mapOf(north.id to 3.0, nearer.id to 3.0))
+        assertEquals(verdict(ctx, place = north), verdict(ctx, place = nearer))
+        for (order in listOf(listOf(north, nearer), listOf(nearer, north))) {
+            assertEquals(nearer, judge.pickFirst(ctx, order, AskHistory(), today))
+        }
+        // 자리도 같으면 id 순
+        val a = Place("a", "같은 자리 가", lat = north.lat, lon = north.lon)
+        val z = Place("z", "같은 자리 나", lat = north.lat, lon = north.lon)
+        val twins = calm.copy(headingDeg = 0.0, tripMinToPlace = mapOf(a.id to 3.0, z.id to 3.0))
+        for (order in listOf(listOf(a, z), listOf(z, a))) {
+            assertEquals(a, judge.pickFirst(twins, order, AskHistory(), today))
+        }
+    }
+
+    @Test
+    fun `경유지 수를 받지 못했거나 음수로 오면 묻지 않고 기다린다`() {
+        for (count in listOf(null, -1)) {
+            val held = assertIs<Verdict.Hold>(verdict(calm.copy(waypointCount = count)))
+            assertTrue(held.reason.endsWith("경유지 수 모름"), held.reason)
+        }
+    }
+
+    @Test
+    fun `찜 이름이 비어 있으면 찜해 둔 곳으로 묻는다`() {
+        val unnamed = Place("unnamed", "", lat = 0.0, lon = 0.0)
+        assertEquals("찜해 둔 곳이 가는 길 근처에 있어요. 약 6분 더 걸리는데 들를까요?", MomentJudge.question(unnamed, 6.0))
+        assertEquals("찜해 둔 곳이 가는 길에 있어요. 들를까요?", MomentJudge.question(unnamed.copy(name = "  "), 0.2))
+        // 이름 앞뒤의 빈칸은 조사 앞에 남기지 않는다
+        assertEquals("찜해 둔 빵집이 가는 길 근처에 있어요. 약 6분 더 걸리는데 들를까요?", MomentJudge.question(unnamed.copy(name = " 빵집 "), 6.0))
+    }
+
+    @Test
+    fun `완전히 멈춘 때 찜까지 300m보다 가까우면 급하게 빠지게 되므로 보류한다`() {
+        // 멈춘 때 1분 주행 거리는 0이라 하한 300m가 기준이다. 위도 1도는 이 엔진의 지구 반지름으로 약 111,195m
+        val stopped = calm.copy(speedKph = 0.0)
+        fun placeAt(meters: Double) = Place("p$meters", "가까운 찜", lat = calm.lat + meters / 111_195.0, lon = calm.lon)
+        val inside = placeAt(299.0)
+        val outside = placeAt(301.0)
+        assertTrue(DetourEstimator.distanceKm(calm.lat, calm.lon, inside.lat, inside.lon) * 1000 < 300.0)
+        assertTrue(DetourEstimator.distanceKm(calm.lat, calm.lon, outside.lat, outside.lon) * 1000 > 300.0)
+        val held = assertIs<Verdict.Hold>(verdict(stopped, place = inside))
+        assertTrue(held.reason.startsWith("찜까지 299m (300m보다 가까우면"), held.reason)
+        assertEquals(Outcome.PASS, row(stopped, "지금 말 걸어도 되나", place = outside).outcome)
     }
 }

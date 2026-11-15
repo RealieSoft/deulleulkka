@@ -11,10 +11,11 @@ import kotlin.test.assertTrue
 class AskHistoryTest {
     private val place = Scenarios.bakery.id
     private val day = 100L
+    private val settings = Settings()
 
     @Test
     fun `다음에라고 답하면 30일 동안 쉬고 그 뒤에 다시 묻는다`() {
-        val history = AskHistory().record(place, Answer.LATER, day).startNewTrip()
+        val history = AskHistory().record(place, Answer.LATER, day, settings).startNewTrip()
         assertTrue(history.isSnoozed(place, day + 29))
         assertFalse(history.isSnoozed(place, day + 30))
 
@@ -26,10 +27,10 @@ class AskHistoryTest {
 
     @Test
     fun `답 없이 닫힌 일이 같은 곳에서 두 번 쌓이면 다음에로 보고 30일 쉰다`() {
-        val once = AskHistory().record(place, Answer.NO_ANSWER, day).startNewTrip()
+        val once = AskHistory().record(place, Answer.NO_ANSWER, day, settings).startNewTrip()
         assertFalse(once.isSnoozed(place, day + 1))
 
-        val twice = once.record(place, Answer.NO_ANSWER, day + 1)
+        val twice = once.record(place, Answer.NO_ANSWER, day + 1, settings)
         assertTrue(twice.isSnoozed(place, day + 2))
         assertFalse(twice.isSnoozed(place, day + 31))
     }
@@ -37,9 +38,9 @@ class AskHistoryTest {
     @Test
     fun `들르기로 하면 답 없던 횟수를 지운다`() {
         val history = AskHistory()
-            .record(place, Answer.NO_ANSWER, day).startNewTrip()
-            .record(place, Answer.ACCEPT, day + 1).startNewTrip()
-            .record(place, Answer.NO_ANSWER, day + 2)
+            .record(place, Answer.NO_ANSWER, day, settings).startNewTrip()
+            .record(place, Answer.ACCEPT, day + 1, settings).startNewTrip()
+            .record(place, Answer.NO_ANSWER, day + 2, settings)
         assertFalse(history.isSnoozed(place, day + 3))
     }
 
@@ -47,7 +48,7 @@ class AskHistoryTest {
     fun `넣은 뒤 취소하면 그 이동에서는 다시 묻지 않고 다음 이동에서는 다시 묻는다`() {
         val judge = MomentJudge()
         val calm = Scenarios.saturdayOuting.last().ctx
-        val cancelled = AskHistory().record(place, Answer.CANCEL, day)
+        val cancelled = AskHistory().record(place, Answer.CANCEL, day, settings)
         assertIs<Verdict.Skip>(judge.judge(calm, Scenarios.bakery, cancelled, day).verdict)
         assertFalse(cancelled.isSnoozed(place, day + 1))
         assertIs<Verdict.Ask>(judge.judge(calm, Scenarios.bakery, cancelled.startNewTrip(), day + 1).verdict)
@@ -55,13 +56,13 @@ class AskHistoryTest {
 
     @Test
     fun `답이 없던 것도 이번 이동에서 물은 횟수에 센다`() {
-        val history = AskHistory().record("a", Answer.NO_ANSWER, day).record("b", Answer.ACCEPT, day)
+        val history = AskHistory().record("a", Answer.NO_ANSWER, day, settings).record("b", Answer.ACCEPT, day, settings)
         assertEquals(listOf("a", "b"), history.askedThisTrip)
     }
 
     @Test
     fun `새 이동을 시작하면 횟수는 비우고 쉬는 곳은 그대로 둔다`() {
-        val history = AskHistory().record(place, Answer.LATER, day).startNewTrip()
+        val history = AskHistory().record(place, Answer.LATER, day, settings).startNewTrip()
         assertEquals(emptyList(), history.askedThisTrip)
         assertTrue(history.isSnoozed(place, day + 1))
     }
@@ -83,6 +84,39 @@ class AskHistoryTest {
             assertEquals(emptySet(), after.onHold)
             assertEquals(emptySet(), after.recordRadiusExit(place).leftWhileHeldThisTrip)
         }
+    }
+
+    @Test
+    fun `보류 중이던 곳의 판단이 반경 밖으로 나오면 영역 이탈 알림과 어느 순서로 남겨도 반경 이탈로 남는다`() {
+        val judge = MomentJudge()
+        val calm = Scenarios.saturdayOuting.last().ctx
+        val held = AskHistory().recordVerdict(place, hold)
+        // 찜에서 10km 넘게 남쪽으로 내려간 자리: 판단 반경 2km 밖
+        val far = calm.copy(lat = calm.lat - 0.1)
+        val outside = assertIs<Verdict.Skip>(judge.judge(far, Scenarios.bakery, held, day).verdict)
+        assertTrue(outside.outsideTriggerRadius)
+
+        val verdictFirst = held.recordVerdict(place, outside).recordRadiusExit(place)
+        val exitFirst = held.recordRadiusExit(place).recordVerdict(place, outside)
+        assertEquals(setOf(place), verdictFirst.leftWhileHeldThisTrip)
+        assertEquals(setOf(place), exitFirst.leftWhileHeldThisTrip)
+        assertIs<Verdict.Skip>(judge.judge(calm, Scenarios.bakery, verdictFirst, day).verdict)
+
+        // 보류 중이 아니던 곳이 반경 밖이면 이탈 기록이 생기지 않는다
+        assertEquals(emptySet(), AskHistory().recordVerdict(place, outside).leftWhileHeldThisTrip)
+    }
+
+    @Test
+    fun `받지 않는 말로 닫히거나 답할 수 없던 카드가 닫힌 것은 물은 횟수에만 들고 30일 계산에 세지 않는다`() {
+        val history = AskHistory()
+            .record(place, Answer.NO_ANSWER, day, settings).startNewTrip()
+            .record(place, Answer.DISMISSED, day + 1, settings)
+        assertEquals(listOf(place), history.askedThisTrip)
+        assertEquals(1, history.noAnswerCount[place])
+        assertFalse(history.isSnoozed(place, day + 2))
+        // 닫힘은 세지 않았으므로 그 뒤 답 없이 한 번 더 닫혀야 두 번째가 되어 쉰다
+        val next = history.startNewTrip().record(place, Answer.NO_ANSWER, day + 2, settings)
+        assertTrue(next.isSnoozed(place, day + 3))
     }
 
     @Test

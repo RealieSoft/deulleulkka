@@ -23,8 +23,10 @@ class MomentJudge(private val settings: Settings = Settings()) {
      *
      * 이동 단위 기록은 앱이 [history]에 남긴다. 판단할 때마다 그 결과를 [AskHistory.recordVerdict]로,
      * 찜의 판단 반경을 벗어나면 [AskHistory.recordRadiusExit]로 남긴다. 엔진은 반경 밖의 찜을 그 자리에서 묻지 않지만,
-     * "보류한 사이 반경을 벗어났다"는 기록은 앱이 반경 이탈을 알려야 생긴다(위치 SDK의 영역 이탈 알림을 받았을 때,
-     * 또는 판단 결과가 반경 밖으로 나왔을 때 부른다). 보류한 사이 반경을 벗어난 찜은 그 이동에서는 다시 들어와도 묻지 않는다.
+     * "보류한 사이 반경을 벗어났다"는 기록은 반경 이탈을 알아야 생긴다. 판단 결과가 반경 밖이면
+     * ([Verdict.Skip.outsideTriggerRadius]) [AskHistory.recordVerdict]가 남기고, 위치 SDK의 영역 이탈 알림을 먼저 받았으면
+     * [AskHistory.recordRadiusExit]가 남긴다. 둘 중 어느 것을 먼저 불러도 같다. 보류한 사이 반경을 벗어난 찜은 그 이동에서는
+     * 다시 들어와도 묻지 않는다.
      */
     fun judge(
         ctx: DriveContext,
@@ -57,7 +59,7 @@ class MomentJudge(private val settings: Settings = Settings()) {
         val verdict = when {
             stop == null -> Verdict.Ask(checkNotNull(detourMin))
             stop.outcome == Outcome.HOLD -> Verdict.Hold(stop.seen)
-            else -> Verdict.Skip(stop.seen)
+            else -> Verdict.Skip(stop.seen, outsideTriggerRadius = stop.step == Step.SAFETY && !inTriggerRadius(ctx, place))
         }
         return Decision(verdict, checks)
     }
@@ -73,14 +75,23 @@ class MomentJudge(private val settings: Settings = Settings()) {
      * 찜이 진행 방향의 뒤쪽에 있는지(이미 지나쳤는지). 진행 방향을 모르면(null·NaN·무한대) 목적지 쪽을 앞으로 본다.
      * 진행 방향이 0~360 밖이면 360으로 나눈 나머지로 본다(720° = 0°, -10° = 350°).
      * 지나친 곳을 물으면 되돌아가게 되므로 이번 판단에서는 묻지 않는다(다음 판단에서 다시 본다, [Verdict.Skip]).
+     * 좌표가 NaN이라 방향을 정할 수 없으면 앞인지 뒤인지 모르므로 지나친 곳으로 본다(묻지 않는 쪽).
      */
     fun isBehind(ctx: DriveContext, place: Place): Boolean {
-        val dest = ctx.destination ?: return false
+        val diff = bearingGap(ctx, place) ?: return false
+        return diff.isNaN() || diff > AHEAD_MAX_DEG
+    }
+
+    /** 진행 방향을 정할 수 없는지(좌표가 NaN). [isBehind]는 이때 지나친 곳으로 보고, 근거 문구는 따로 적는다. */
+    fun directionUnknown(ctx: DriveContext, place: Place): Boolean = bearingGap(ctx, place)?.isNaN() == true
+
+    /** 진행 방향과 찜 쪽 방향의 사이각(0~180°). 목적지가 없으면 null. */
+    private fun bearingGap(ctx: DriveContext, place: Place): Double? {
+        val dest = ctx.destination ?: return null
         val heading = ctx.headingDeg?.takeIf { it.isFinite() }?.let { (it % FULL_TURN_DEG + FULL_TURN_DEG) % FULL_TURN_DEG }
         val ahead = heading ?: DetourEstimator.bearingDeg(ctx.lat, ctx.lon, dest.lat, dest.lon)
         val toPlace = DetourEstimator.bearingDeg(ctx.lat, ctx.lon, place.lat, place.lon)
-        val diff = abs((toPlace - ahead + HALF_TURN_DEG * 3) % FULL_TURN_DEG - HALF_TURN_DEG)
-        return diff > AHEAD_MAX_DEG
+        return abs((toPlace - ahead + HALF_TURN_DEG * 3) % FULL_TURN_DEG - HALF_TURN_DEG)
     }
 
     /** 찜에서 [TRIGGER_RADIUS_METERS] 안에 들어왔는지. 앱은 위치 SDK의 영역 진입 알림으로 판단을 시작한다. */
@@ -93,6 +104,7 @@ class MomentJudge(private val settings: Settings = Settings()) {
 
     /**
      * 판단을 통과한 곳이 여럿일 때 먼저 물을 곳. 덜 돌아가는 곳(판단이 어림한 우회 시간)부터 묻는다.
+     * 우회 시간이 같으면(0으로 잘린 어림이 흔함) 지금 자리에서 가까운 곳, 그것도 같으면 id 순이라 후보를 넘기는 순서와 상관없다.
      * 판단을 통과하지 못한 후보(지나친 곳, 도로 시간이 없어 보류된 곳 등)는 고르지 않고, 하나도 없으면 null.
      * 후보마다의 판단 결과는 돌려주지 않으므로, 앱은 [AskHistory.recordVerdict]에 남길 결과를 후보마다 [judge]로 따로 받는다.
      */
@@ -105,7 +117,13 @@ class MomentJudge(private val settings: Settings = Settings()) {
     ): Place? =
         candidates
             .mapNotNull { place -> (judge(ctx, place, history, today, roadFactor).verdict as? Verdict.Ask)?.let { place to it.detourMin } }
-            .minByOrNull { (_, detourMin) -> detourMin }
+            .minWithOrNull(
+                compareBy<Pair<Place, Double>>(
+                    { (_, detourMin) -> detourMin },
+                    { (place, _) -> DetourEstimator.distanceKm(ctx.lat, ctx.lon, place.lat, place.lon) },
+                    { (place, _) -> place.id },
+                ),
+            )
             ?.first
 
     /**
@@ -200,6 +218,8 @@ class MomentJudge(private val settings: Settings = Settings()) {
         val energyText = if (energy == null) "잔량 정보 없음" else "잔량 $energy%"
         return when {
             energy != null && energy < settings.minEnergyPercent -> "$energyText (${settings.minEnergyPercent}% 아래)" to Outcome.SKIP
+            // 음수는 읽지 못한 값이다. 경유지가 있는지 모르면 덮어쓸 수 있으므로 묻지 않고 기다린다
+            ctx.waypointCount == null || ctx.waypointCount < 0 -> "$energyText, 경유지 수 모름" to Outcome.HOLD
             // 운전자가 넣어 둔 경유지의 순서를 바꾸거나 덮어쓰지 않도록, 경유지가 없을 때만 묻는다
             ctx.waypointCount > 0 -> "$energyText, 이미 경유지 ${ctx.waypointCount}곳 있음" to Outcome.SKIP
             else -> "$energyText, 경유지 없음" to Outcome.PASS
@@ -214,10 +234,16 @@ class MomentJudge(private val settings: Settings = Settings()) {
     private fun detour(ctx: DriveContext, place: Place, detourMin: Double?): Pair<String, Outcome> {
         // 목적지가 없으면 앞 단계(어떤 이동인가)에서 이미 멈춘다.
         val minutes = checkNotNull(detourMin)
+        if (directionUnknown(ctx, place)) return "진행 방향을 정할 수 없음" to Outcome.SKIP
         if (isBehind(ctx, place)) return "이미 지나친 곳 (되돌아가야 함)" to Outcome.SKIP
         // 직선거리 어림은 실제보다 크게 짧을 수 있어 그 값으로는 묻지 않는다. 값을 받으면 다음 판단에서 다시 본다
         if (!DetourEstimator.usesTrip(ctx, place)) {
-            val missing = if (DetourEstimator.tripMinTo(ctx, place) == null) "찜까지 도로 시간 없음" else "남은 시간 정보 없음"
+            val missing = when {
+                DetourEstimator.tripMinRejected(ctx, place) -> "찜까지 도로 시간이 거리와 맞지 않음"
+                DetourEstimator.tripMinTo(ctx, place) == null -> "찜까지 도로 시간 없음"
+                DetourEstimator.remainingMinRejected(ctx) -> "남은 시간이 남은 거리와 맞지 않음"
+                else -> "남은 시간 정보 없음"
+            }
             return "$missing (받으면 다시 판단)" to Outcome.HOLD
         }
         val allowed = allowedDetourMin(ctx)
@@ -290,7 +316,9 @@ class MomentJudge(private val settings: Settings = Settings()) {
          * [allowedMin]을 주지 않으면 늘 반올림한 정수 분이다. [detourMin]은 판단이 돌려준 0 이상의 유한한 값이어야 한다.
          */
         fun question(place: Place, detourMin: Double, allowedMin: Double = Double.POSITIVE_INFINITY): String {
-            val subject = withSubjectParticle(place.name)
+            // 이름이 빈 즐겨찾기(에뮬레이터의 집·회사처럼)를 찜으로 넣었을 때 "찜해 둔  가는 길"처럼 빈칸이 생기지 않게 한다
+            val name = place.name.trim()
+            val subject = if (name.isEmpty()) "곳이" else withSubjectParticle(name)
             return if (detourMin.roundToInt() < 1) {
                 "찜해 둔 $subject 가는 길에 있어요. 들를까요?"
             } else {

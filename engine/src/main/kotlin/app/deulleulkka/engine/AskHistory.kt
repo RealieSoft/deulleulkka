@@ -11,6 +11,12 @@ enum class Answer {
     /** 8초 동안 답이 없었다. */
     NO_ANSWER,
 
+    /**
+     * 답을 받지 못하고 닫혔지만 30일 계산에는 세지 않는다(기획서 응답 표): 받지 않는 말만 들려 닫힘, 질문이 끝나기 전에 한 답,
+     * 마이크를 열지 않는 무음 카드가 주행 중에 닫힘(주차(P)가 아니라 버튼도 없음). 이번 이동에서 물은 횟수에는 든다.
+     */
+    DISMISSED,
+
     /** 넣은 뒤 그 이동이 끝나기 전에 "취소"라고 했거나 (주차 중) "취소"를 눌렀다. 그 이동에서는 다시 묻지 않고, 다음 이동부터는 다시 묻는다. */
     CANCEL,
 }
@@ -40,9 +46,15 @@ data class AskHistory(
     /**
      * 판단할 때마다 앱이 그 결과를 남긴다. 보류(Hold)면 보류 중으로 두고, 물음·묻지 않음이면 보류가 끝난 것으로 둔다.
      * 그래서 보류 뒤 "이미 지나친 곳"으로 묻지 않은 찜은 그 뒤 반경을 벗어나도 "보류한 사이 이탈"이 아니다.
+     * 보류 중이던 찜이 판단 반경 밖이라 묻지 않음([Verdict.Skip.outsideTriggerRadius])으로 나오면 그 자체가 반경 이탈이므로
+     * 여기서 남긴다. 그래서 위치 SDK의 영역 이탈 알림([recordRadiusExit])보다 먼저 불러도, 나중에 불러도 결과가 같다.
      */
-    fun recordVerdict(placeId: String, verdict: Verdict): AskHistory =
-        if (verdict is Verdict.Hold) copy(onHold = onHold + placeId) else copy(onHold = onHold - placeId)
+    fun recordVerdict(placeId: String, verdict: Verdict): AskHistory = when {
+        verdict is Verdict.Hold -> copy(onHold = onHold + placeId)
+        verdict is Verdict.Skip && verdict.outsideTriggerRadius && placeId in onHold ->
+            copy(onHold = onHold - placeId, leftWhileHeldThisTrip = leftWhileHeldThisTrip + placeId)
+        else -> copy(onHold = onHold - placeId)
+    }
 
     /** 찜의 판단 반경을 벗어났을 때(위치 SDK의 영역 이탈 알림) 앱이 부른다. 보류 중인 곳만 남긴다. */
     fun recordRadiusExit(placeId: String): AskHistory =
@@ -60,11 +72,12 @@ data class AskHistory(
      * 질문 하나에 대한 답을 남긴다. 질문 한 번에 한 번만 부른다: 이번 이동에서 물은 횟수가 부른 횟수만큼 늘기 때문이다.
      * "들를게" 뒤 그 이동이 끝나기 전에 취소하면 그 질문의 답은 [Answer.CANCEL] 하나로 남긴다([Answer.ACCEPT]와 둘 다 남기지 않는다).
      */
-    fun record(placeId: String, answer: Answer, today: Long, settings: Settings = Settings()): AskHistory {
+    fun record(placeId: String, answer: Answer, today: Long, settings: Settings): AskHistory {
         val asked = askedThisTrip + placeId
         val snoozed = askAgainFrom + (placeId to today + settings.snoozeDays)
         return when (answer) {
             Answer.ACCEPT, Answer.CANCEL -> copy(askedThisTrip = asked, noAnswerCount = noAnswerCount - placeId)
+            Answer.DISMISSED -> copy(askedThisTrip = asked)
             Answer.LATER -> copy(askedThisTrip = asked, askAgainFrom = snoozed, noAnswerCount = noAnswerCount - placeId)
             Answer.NO_ANSWER -> {
                 val count = (noAnswerCount[placeId] ?: 0) + 1

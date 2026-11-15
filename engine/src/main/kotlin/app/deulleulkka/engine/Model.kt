@@ -70,7 +70,11 @@ data class DriveContext(
     val passengerPresent: Boolean? = null,
     /** 배터리 충전율 또는 연료 잔량(%). 정보가 없으면 null. */
     val energyPercent: Int? = null,
-    val waypointCount: Int = 0,
+    /**
+     * 내비게이션에 이미 들어 있는 경유지 수. 받지 못했으면 null(엔진은 경유지가 있는지 모르는 것으로 보고 묻지 않는다).
+     * 안전 신호처럼 기본값을 두지 않는다: 넣는 쪽이 빠뜨린 값이 "경유지 없음"으로 들어가 운전자의 경유지를 덮어쓰지 않도록.
+     */
+    val waypointCount: Int?,
 )
 
 /** 사용자가 주차 중에 바꿀 수 있는 값과 앱의 출발값. */
@@ -139,8 +143,10 @@ sealed interface Verdict {
      * 이번 판단에서는 묻지 않는다. 엔진이 이동 단위로 막는 것은 이번 이동에서 이미 물은 곳, 이번 이동에 묻는 횟수를
      * 다 쓴 경우, 보류한 사이 반경을 벗어난 곳([AskHistory])이고, 나머지는 다음 판단에서 다시 본다
      * (예: 지나친 찜은 굽은 길에서 다시 앞쪽이 될 수 있다).
+     * [outsideTriggerRadius]는 찜이 판단 반경 밖이라 묻지 않은 것인지다. [AskHistory.recordVerdict]가 이 값으로
+     * "보류한 사이 반경 이탈"을 남기므로, 앱이 위치 SDK의 영역 이탈 알림과 판단 결과를 어느 순서로 남겨도 같다.
      */
-    data class Skip(val reason: String) : Verdict
+    data class Skip(val reason: String, val outsideTriggerRadius: Boolean = false) : Verdict
 }
 
 /** 판단 결과와 그 근거. 근거는 "왜 그때 물었는지", "왜 묻지 않았는지" 화면에 그대로 쓴다. */

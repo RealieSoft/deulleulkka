@@ -25,6 +25,8 @@ data class RoadFactorCalibrator(
      * [estimatedMin]은 물을 때 [factorUsed]로 어림한 추가 시간, [actualMin]은 넣기 전후 남은 시간의 차이다.
      */
     fun record(estimatedMin: Double, actualMin: Double, factorUsed: Double): RoadFactorCalibrator {
+        // 유한하지 않은 값(NaN·무한대)은 coerceIn을 그대로 지나 보정값을 망가뜨리므로 쓰지 않는다
+        if (!estimatedMin.isFinite() || !actualMin.isFinite() || !factorUsed.isFinite()) return this
         // 어림값이 아주 작으면 비율이 크게 흔들리므로 쓰지 않는다
         if (estimatedMin < MIN_ESTIMATED_MIN) return this
         val implied = (factorUsed * actualMin / estimatedMin).coerceIn(MIN_FACTOR, MAX_FACTOR)

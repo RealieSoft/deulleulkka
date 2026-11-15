@@ -42,7 +42,7 @@ object DetourEstimator {
     fun estimateMinutes(ctx: DriveContext, place: Place, roadFactor: Double = ROAD_FACTOR): Double? {
         val dest = ctx.destination ?: return null
         val tripMin = tripMinTo(ctx, place)
-        val remainingMin = validMinutes(ctx.remainingMin)
+        val remainingMin = remainingMinOf(ctx)
         if (tripMin != null && remainingMin != null) {
             // 찜까지 가는 동안 목적지에 가까워지는 몫(직선으로 본 비율)을 남은 시간에서 빼고 남는 시간
             val directToDest = distanceKm(ctx.lat, ctx.lon, dest.lat, dest.lon)
@@ -60,12 +60,63 @@ object DetourEstimator {
     /**
      * 이 찜의 어림에 찜까지의 도로 시간을 쓰는지. 아니면 [MomentJudge]가 묻지 않고 보류한다.
      * 찜까지의 도로 시간과 남은 시간이 둘 다 0 이상의 유한한 값이어야 쓴다(NaN·무한대·음수는 받지 못한 것으로 본다).
+     * 거리와 맞지 않는 값도 받지 못한 것으로 본다([tripMinTo], [remainingMinOf]).
      */
     fun usesTrip(ctx: DriveContext, place: Place): Boolean =
-        ctx.destination != null && tripMinTo(ctx, place) != null && validMinutes(ctx.remainingMin) != null
+        ctx.destination != null && tripMinTo(ctx, place) != null && remainingMinOf(ctx) != null
 
-    /** 찜까지의 도로 시간(분). 받지 못했거나 NaN·무한대·음수면 null. */
-    fun tripMinTo(ctx: DriveContext, place: Place): Double? = validMinutes(ctx.tripMinToPlace[place.id])
+    /**
+     * 찜까지의 도로 시간(분). 받지 못했거나 NaN·무한대·음수면 null.
+     * 0분이거나, 직선거리로 본 평균 속도가 [PLAUSIBLE_KPH]의 위 끝을 넘어도 null로 본다(다른 곳의 값, 잘린 값).
+     * 도로 시간이 짧게 잡히면 우회 시간이 0으로 잘려 "가는 길에 있어요"로 묻게 되므로 위 끝만 본다.
+     * 길게 잡히는 쪽은 이미 허용 시간을 넘어 묻지 않으므로 아래 끝은 보지 않는다.
+     */
+    fun tripMinTo(ctx: DriveContext, place: Place): Double? = validMinutes(ctx.tripMinToPlace[place.id])?.takeIf { min ->
+        val km = distanceKm(ctx.lat, ctx.lon, place.lat, place.lon)
+        min > 0.0 && (km < MIN_FAST_CHECKED_KM || km / min * MINUTES_PER_HOUR <= PLAUSIBLE_KPH.endInclusive)
+    }
+
+    /**
+     * 남은 시간(분). 받지 못했거나 NaN·무한대·음수면 null.
+     * 남은 거리를 알면, 둘로 구한 평균 속도가 [PLAUSIBLE_KPH] 밖일 때도 null로 본다. 남은 시간이 실제보다 크게 잡히면
+     * 찜까지 가는 동안 목적지에 가까워지는 몫이 커져 우회 시간이 0으로 잘리고, 몇 분 걸리는 곳을 "가는 길에 있어요"로 묻게 된다.
+     */
+    fun remainingMinOf(ctx: DriveContext): Double? = validMinutes(ctx.remainingMin)?.takeIf { min ->
+        val km = ctx.remainingKm?.takeIf { it.isFinite() && it >= 0.0 }
+        if (km != null) return@takeIf plausible(km, min)
+        // 남은 거리를 모르거나 값이 이상하면 목적지까지 직선거리로 아래 끝만 본다. 도로 거리는 직선거리보다 짧지 않으므로,
+        // 직선거리로 본 평균 속도가 아래 끝보다 낮으면 도로로 본 속도도 낮다고 볼 수 없지만, 그 정도로 느리면 더 조심하는 쪽(보류)이 맞다
+        val dest = ctx.destination ?: return@takeIf true
+        val direct = distanceKm(ctx.lat, ctx.lon, dest.lat, dest.lon)
+        direct < MIN_CHECKED_KM || (min > 0.0 && direct / min * MINUTES_PER_HOUR >= PLAUSIBLE_KPH.start)
+    }
+
+    /** 받은 값은 있지만(유한한 0 이상) 거리와 맞지 않아 쓰지 않는지. 근거 문구를 고르는 데 쓴다. */
+    fun tripMinRejected(ctx: DriveContext, place: Place): Boolean =
+        validMinutes(ctx.tripMinToPlace[place.id]) != null && tripMinTo(ctx, place) == null
+
+    /** 받은 남은 시간이 남은 거리와 맞지 않아 쓰지 않는지. */
+    fun remainingMinRejected(ctx: DriveContext): Boolean = validMinutes(ctx.remainingMin) != null && remainingMinOf(ctx) == null
+
+    /**
+     * 남은 거리와 남은 시간이 서로 맞는지. 0분은 늘 맞지 않는다. 거리가 [MIN_CHECKED_KM]보다 짧으면 아래 끝은 보지 않고
+     * (도착 직전의 반올림), [MIN_FAST_CHECKED_KM]보다 짧으면 위 끝도 보지 않는다.
+     */
+    private fun plausible(km: Double, minutes: Double): Boolean {
+        if (minutes <= 0.0) return km < MIN_FAST_CHECKED_KM
+        val kph = km / minutes * MINUTES_PER_HOUR
+        if (km >= MIN_FAST_CHECKED_KM && kph > PLAUSIBLE_KPH.endInclusive) return false
+        return km < MIN_CHECKED_KM || kph >= PLAUSIBLE_KPH.start
+    }
+
+    /** 도로 시간·남은 시간을 믿는 평균 속도의 범위(km/h). 아래는 걷는 것보다 느린 정체, 위는 고속도로보다 훨씬 빠른 값. */
+    val PLAUSIBLE_KPH = 2.0..200.0
+
+    /** 이보다 짧은 거리에서는 평균 속도의 아래 끝을 보지 않는다(km). */
+    const val MIN_CHECKED_KM = 1.0
+
+    /** 이보다 짧은 거리에서는 평균 속도의 위 끝도 보지 않는다(km). 엔진이 묻는 가장 가까운 거리(멈춘 때 300m)와 같다. */
+    const val MIN_FAST_CHECKED_KM = 0.3
 
     private fun validMinutes(minutes: Double?): Double? = minutes?.takeIf { it.isFinite() && it >= 0.0 }
 

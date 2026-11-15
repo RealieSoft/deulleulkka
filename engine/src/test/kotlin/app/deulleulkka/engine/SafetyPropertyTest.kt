@@ -73,6 +73,7 @@ class SafetyPropertyTest {
             otherAudioPlaying = false,
             passengerPresent = true,
             energyPercent = 60,
+            waypointCount = 0,
         )
         ctx to Place("p", "찜한 곳", pLat, pLon)
     }
@@ -332,7 +333,7 @@ class SafetyPropertyTest {
     fun `답 없이 닫힌 횟수는 어떤 순서로 답해도 두 번 이상 남지 않는다`() = runBlocking {
         val anyAnswer = arbitrary { Arb.element("a", "b", "c").bind() to Arb.enum<Answer>().bind() }
         checkAll(RUNS, Arb.list(anyAnswer, 0..30)) { answers ->
-            val h = answers.fold(AskHistory()) { acc, (id, answer) -> acc.record(id, answer, today = 0L) }
+            val h = answers.fold(AskHistory()) { acc, (id, answer) -> acc.record(id, answer, today = 0L, settings = Settings()) }
             assertTrue(h.noAnswerCount.values.all { it in 1 until AskHistory.NO_ANSWERS_TREATED_AS_LATER })
             assertEquals(answers.size, h.askedThisTrip.size)
         }

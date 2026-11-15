@@ -44,6 +44,7 @@ object Scenarios {
         otherAudioPlaying = false,
         passengerPresent = true,
         energyPercent = 71,
+        waypointCount = 0,
     )
 
     /**
@@ -115,6 +116,7 @@ object Scenarios {
                 otherAudioPlaying = false,
                 passengerPresent = true,
                 energyPercent = 60,
+                waypointCount = 0,
             ),
             routeCheck = RouteCheck(actualDetourMin = 2.848333333333331, source = "docs/route-check NC1"),
         ),

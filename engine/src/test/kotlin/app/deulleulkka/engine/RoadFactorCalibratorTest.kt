@@ -24,6 +24,15 @@ class RoadFactorCalibratorTest {
     }
 
     @Test
+    fun `유한하지 않은 값은 보정값 기록에 넣지 않는다`() {
+        val c = RoadFactorCalibrator()
+            .record(estimatedMin = 6.0, actualMin = Double.NaN, factorUsed = start)
+            .record(estimatedMin = Double.POSITIVE_INFINITY, actualMin = 6.0, factorUsed = start)
+            .record(estimatedMin = 6.0, actualMin = 6.0, factorUsed = Double.NaN)
+        assertEquals(emptyList(), c.samples)
+    }
+
+    @Test
     fun `어림값이 2분보다 짧으면 기록하지 않는다`() {
         val c = RoadFactorCalibrator().record(estimatedMin = 1.0, actualMin = 5.0, factorUsed = start)
         assertEquals(emptyList(), c.samples)
